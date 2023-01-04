@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GoogleShoppingScraper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ScraperConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=vsql2.wc.local\instance2;Initial Catalog=GoogleScraper_new;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=KEF(@0rma;Connection Timeout=60;MultipleActiveResultSets=True;</Value>
+    </Setting>
+    <Setting Name="SearchTargetUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.google.com/search?q={0}&amp;start={1}&amp;tbm=shop&amp;hl=en&amp;tbs=vw:l</Value>
+    </Setting>
+    <Setting Name="ItemsPerPage" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="GoogleHostAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">www.google.com</Value>
+    </Setting>
+    <Setting Name="MaxSellerCount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="ProxyBanSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">900</Value>
+    </Setting>
+    <Setting Name="SqlRetryAttempts" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MailSubject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GoogleShoppingScraper error</Value>
+    </Setting>
+    <Setting Name="HtmlPagesPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\developer\Desktop\GoogleScraper\pages</Value>
+    </Setting>
+    <Setting Name="ProxyDelayBetweenRequestsSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">45</Value>
+    </Setting>
+    <Setting Name="BufferLoadingBoundaryPercent" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="HttpRetryAttempts" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="MailTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">svan4667@yandex.ru</Value>
+    </Setting>
+    <Setting Name="KeywordsLoadingBufferSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="KeywordsFlushingBufferSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MaxDegreeOfTasks" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="AllowedLocationsFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">locations.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
