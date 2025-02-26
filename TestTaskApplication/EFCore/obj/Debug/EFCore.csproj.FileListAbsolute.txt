@@ -1,0 +1,14 @@
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EFCore.dll.config
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EFCore.dll
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EFCore.pdb
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\DomainCore.dll
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EntityFramework.dll
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\DomainCore.pdb
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EntityFramework.xml
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\obj\Debug\EFCore.csproj.AssemblyReference.cache
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\obj\Debug\EFCore.csproj.CoreCompileInputs.cache
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\obj\Debug\EFCore.csproj.Up2Date
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\obj\Debug\EFCore.dll
+C:\Users\Александр\source\repos\TestTaskApplication\EFCore\obj\Debug\EFCore.pdb
