@@ -54,6 +54,8 @@ namespace TestTaskApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                task.CustomerId = 2;
+                task.OpenDate = DateTime.Now;
                 db.Task.Add(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,6 +94,11 @@ namespace TestTaskApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (task.StatusId == 3)
+                {
+                    task.ClosedDate = DateTime.Now;
+                }
+
                 db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

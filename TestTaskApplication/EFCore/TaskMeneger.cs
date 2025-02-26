@@ -3,13 +3,15 @@ using EFCore.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
+
 
 namespace EFCore
 {
-    public class TaskMeneger
+    public class TaskMeneger : ApiController
     {
+        ShopDBEntities1 db = new ShopDBEntities1();
         public IEnumerable<TaskDomain> GetAllTask()
         {
             List<TaskDomain> tasks = null;
@@ -29,25 +31,14 @@ namespace EFCore
             }
             return tasks;
         }
-        public TaskDomain GetAllEmployeeById(int id)
+        public async Task<IHttpActionResult> GetAllEmployeeById(int id)
         {
-            TaskDomain tasks = null;
-            using (ShopDBEntities1 context = new ShopDBEntities1())
+            Model.Task tasks = await db.Task.FindAsync(id);
+            if (tasks == null)
             {
-                tasks = (from task in context.Task
-                         where task.TaskId == id
-                         select new TaskDomain
-                         {
-                             TaskId = task.TaskId,
-                             TaskName = task.TaskName,
-                             RoleId = task.RoleId,
-                             CustomerId = task.CustomerId,
-                             StatusId = task.StatusId,
-                             OpenDate = task.OpenDate,
-                             ClosedDate = task.ClosedDate
-                         }).FirstOrDefault();
+                return NotFound();
             }
-            return tasks;
+            return Ok(tasks);
         }
     }
 }
