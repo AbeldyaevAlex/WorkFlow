@@ -11,11 +11,11 @@ namespace EFCore
 {
     public class TaskMeneger : ApiController
     {
-        ShopDBEntities1 db = new ShopDBEntities1();
+        ShopDBEntities2 db = new ShopDBEntities2();
         public IEnumerable<TaskDomain> GetAllTask()
         {
             List<TaskDomain> tasks = null;
-            using (ShopDBEntities1 context = new ShopDBEntities1())
+            using (ShopDBEntities2 context = new ShopDBEntities2())
             {
                 tasks = (from task in context.Task
                              select new TaskDomain
@@ -30,15 +30,6 @@ namespace EFCore
                              }).ToList();
             }
             return tasks;
-        }
-        public async Task<IHttpActionResult> GetAllEmployeeById(int id)
-        {
-            Model.Task tasks = await db.Task.FindAsync(id);
-            if (tasks == null)
-            {
-                return NotFound();
-            }
-            return Ok(tasks);
         }
     }
 }

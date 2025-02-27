@@ -8,20 +8,20 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Data.Entity;
 
 namespace TestTaskApplication.Controllers
 {
     public class TasksApiController : ApiController
     {
         TaskMeneger taskManager;
-        ShopDBEntities1 db;
+        ShopDBEntities2 db;
         public TasksApiController()
         {
             taskManager = new TaskMeneger();
-            db = new ShopDBEntities1();
+            db = new ShopDBEntities2();
         }
         //GET: api/TasksApiController
         public IEnumerable<TaskDomain> GetTask()
@@ -29,56 +29,57 @@ namespace TestTaskApplication.Controllers
             return taskManager.GetAllTask();
         }
         //GET: api/TasksApiController/2
-        [ResponseType(typeof(EFCore.Model.Task))]
-        public async Task<IHttpActionResult> GetAllTaskId(int id)
+        public IHttpActionResult GetTaskById(int id)
         {
-            EFCore.Model.Task tasks = await db.Task.FindAsync(id);
-            if (tasks == null)
+            TaskDomain tasksbyId = null;
+            using (ShopDBEntities2 context = new ShopDBEntities2())
             {
-                return NotFound();
+                tasksbyId = (from task in context.Task
+                             select new TaskDomain
+                             {
+                                 TaskId = task.TaskId,
+                                 TaskName = task.TaskName,
+                                 RoleId = task.RoleId,
+                                 CustomerId = task.CustomerId,
+                                 StatusId = task.StatusId,
+                                 OpenDate = task.OpenDate,
+                                 ClosedDate = task.ClosedDate
+                             }).FirstOrDefault();
             }
-            return Ok(tasks);
+            return Ok(tasksbyId);
         }
-        //PUT: api/TasksApiController/2
-        public async Task<IHttpActionResult> PutTask(int id, EFCore.Model.Task task)
+        //POST: api/TasksApiController
+        public IHttpActionResult PostTask(TaskDomain model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (id != task.TaskId)
+            Task tasks = new Task();
+            tasks.TaskName = model.TaskName;
+            tasks.StatusId = model.StatusId;
+            tasks.CustomerId = model.CustomerId;
+            tasks.RoleId = model.RoleId;
+            tasks.OpenDate = model.OpenDate;
+            tasks.ClosedDate = model.ClosedDate;
+            db.Task.Add(tasks);
+            db.SaveChanges();
+            return CreatedAtRoute("DefaultApi", new { id = model.TaskId }, model);
+        }
+        //PUT: api/TasksApiController
+        public IHttpActionResult PutTask(int id, Task model)
+        {
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            db.Entry(task).State = EntityState.Modified;
-            try
+            if (id != model.TaskId)
             {
-                await db.SaveChangesAsync();
+                return BadRequest();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TaskExests(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }                   
-            }
+            db.Entry(model).State = EntityState.Modified;
+            db.SaveChanges();
             return StatusCode(HttpStatusCode.NoContent);
-        }
-        //POST: api/TasksApiController/
-        [ResponseType(typeof(EFCore.Model.Task))]
-        public async Task<IHttpActionResult> PostTask(EFCore.Model.Task task)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            db.Task.Add(task);
-            await db.SaveChangesAsync();
-            return CreatedAtRoute("DefaultApi", new { id = task.TaskId }, task);
         }
         private bool TaskExests(int id)
         {

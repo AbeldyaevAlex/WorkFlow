@@ -206,3 +206,5 @@ C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\obj\Debug\TestTaskAp
 C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\obj\Debug\TestTask.40A830A2.Up2Date
 C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\obj\Debug\TestTaskApplication.dll
 C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\obj\Debug\TestTaskApplication.pdb
+C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\bin\Swashbuckle.Core.dll
+C:\Project\WorkFlow\TestTaskApplication\TestTaskApplication\bin\WebActivatorEx.dll

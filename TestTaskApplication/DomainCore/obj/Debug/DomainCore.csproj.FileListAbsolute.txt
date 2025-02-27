@@ -4,3 +4,9 @@ C:\Users\Александр\source\repos\TestTaskApplication\DomainCore\obj\Debu
 C:\Users\Александр\source\repos\TestTaskApplication\DomainCore\obj\Debug\DomainCore.csproj.CoreCompileInputs.cache
 C:\Users\Александр\source\repos\TestTaskApplication\DomainCore\obj\Debug\DomainCore.dll
 C:\Users\Александр\source\repos\TestTaskApplication\DomainCore\obj\Debug\DomainCore.pdb
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\bin\Debug\DomainCore.dll
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\bin\Debug\DomainCore.pdb
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\obj\Debug\DomainCore.csproj.AssemblyReference.cache
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\obj\Debug\DomainCore.csproj.CoreCompileInputs.cache
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\obj\Debug\DomainCore.dll
+C:\Project\WorkFlow\TestTaskApplication\DomainCore\obj\Debug\DomainCore.pdb

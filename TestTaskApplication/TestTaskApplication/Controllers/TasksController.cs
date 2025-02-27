@@ -12,7 +12,7 @@ namespace TestTaskApplication.Controllers
 {
     public class TasksController : Controller
     {
-        private ShopDBEntities1 db = new ShopDBEntities1();
+        private ShopDBEntities2 db = new ShopDBEntities2();
 
         // GET: Tasks
         public ActionResult Index()
