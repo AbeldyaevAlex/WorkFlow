@@ -1,0 +1,66 @@
+﻿@model EFCore.Model.Task
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClosedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClosedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerRole.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerRole.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusTask.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusTask.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaskId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
