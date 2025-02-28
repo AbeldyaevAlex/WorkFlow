@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ShopDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="MiddleName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="PasswordFormatId" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar(max)" />
+    <Property Name="AdminComment" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="LastIpAddress" Type="nvarchar(max)" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer_CustomerRole_Mapping">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+      <PropertyRef Name="CustomerRole_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="CustomerRole_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="IsSystemRole" Type="bit" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EmployeeInfo">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="75" />
+    <Property Name="Email" Type="varchar" MaxLength="75" />
+    <Property Name="Phone" Type="varchar" MaxLength="75" />
+    <Property Name="Experience" Type="int" />
+  </EntityType>
+  <EntityType Name="StatusTask">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="varchar" MaxLength="175" />
+    <Property Name="OpenDate" Type="datetime" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Association Name="Customer_CustomerRoles_Source">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customer_CustomerRole_Mapping" Type="Self.Customer_CustomerRole_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_CustomerRole_Mapping">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_CustomerRoles_Target">
+    <End Role="CustomerRole" Type="Self.CustomerRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customer_CustomerRole_Mapping" Type="Self.Customer_CustomerRole_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_CustomerRole_Mapping">
+        <PropertyRef Name="CustomerRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Task_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Task_Role">
+    <End Role="CustomerRole" Type="Self.CustomerRole" Multiplicity="0..1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Task_Status">
+    <End Role="StatusTask" Type="Self.StatusTask" Multiplicity="0..1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusTask">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ShopDBModelContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_CustomerRole_Mapping" EntityType="Self.Customer_CustomerRole_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerRole" EntityType="Self.CustomerRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeInfo" EntityType="Self.EmployeeInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusTask" EntityType="Self.StatusTask" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Customer_CustomerRoles_Source" Association="Self.Customer_CustomerRoles_Source">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Customer_CustomerRole_Mapping" EntitySet="Customer_CustomerRole_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_CustomerRoles_Target" Association="Self.Customer_CustomerRoles_Target">
+      <End Role="CustomerRole" EntitySet="CustomerRole" />
+      <End Role="Customer_CustomerRole_Mapping" EntitySet="Customer_CustomerRole_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="Task_Customer" Association="Self.Task_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="Task_Role" Association="Self.Task_Role">
+      <End Role="CustomerRole" EntitySet="CustomerRole" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="Task_Status" Association="Self.Task_Status">
+      <End Role="StatusTask" EntitySet="StatusTask" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
