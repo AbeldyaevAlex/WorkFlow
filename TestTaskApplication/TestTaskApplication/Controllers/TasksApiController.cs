@@ -10,7 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Data.Entity;
+using System.Web.Mvc;
 
 namespace TestTaskApplication.Controllers
 {
@@ -35,6 +35,8 @@ namespace TestTaskApplication.Controllers
             using (ShopDBEntities2 context = new ShopDBEntities2())
             {
                 tasksbyId = (from task in context.Task
+                             join status in context.StatusTask
+                             on task.StatusId equals status.Id
                              select new TaskDomain
                              {
                                  TaskId = task.TaskId,
@@ -58,26 +60,39 @@ namespace TestTaskApplication.Controllers
             Task tasks = new Task();
             tasks.TaskName = model.TaskName;
             tasks.StatusId = model.StatusId;
-            tasks.CustomerId = model.CustomerId;
-            tasks.RoleId = model.RoleId;
-            tasks.OpenDate = model.OpenDate;
+            tasks.CustomerId = 2;
+            tasks.RoleId = int.Parse(model.Brigade);
+            tasks.OpenDate = DateTime.Now;
             tasks.ClosedDate = model.ClosedDate;
             db.Task.Add(tasks);
             db.SaveChanges();
             return CreatedAtRoute("DefaultApi", new { id = model.TaskId }, model);
         }
         //PUT: api/TasksApiController
-        public IHttpActionResult PutTask(int id, Task model)
+        public IHttpActionResult PutTask(int id, TaskDomain model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (id != model.TaskId)
+            Task tasks = new Task();
+            tasks.TaskId = id;
+            tasks.TaskName = model.TaskName;
+            tasks.StatusId = db.StatusTask.Where(x => x.Status == model.Status).Select(c => c.Id).FirstOrDefault();
+            tasks.CustomerId = 2;
+            tasks.RoleId = db.CustomerRole.Where(x => x.Name == model.Brigade).Select(c => c.Id).FirstOrDefault();
+            tasks.OpenDate = model.OpenDate;
+
+            if (model.Status == "Closed")
             {
-                return BadRequest();
+                tasks.ClosedDate = DateTime.Now;
             }
-            db.Entry(model).State = EntityState.Modified;
+            if (model.Status == "InProgress" || model.Status == "Open")
+            {
+                tasks.ClosedDate = null;
+            }
+            
+            db.Entry(tasks).State = EntityState.Modified;
             db.SaveChanges();
             return StatusCode(HttpStatusCode.NoContent);
         }

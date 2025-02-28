@@ -14,14 +14,24 @@ namespace EFCore
         ShopDBEntities2 db = new ShopDBEntities2();
         public IEnumerable<TaskDomain> GetAllTask()
         {
+
             List<TaskDomain> tasks = null;
             using (ShopDBEntities2 context = new ShopDBEntities2())
             {
                 tasks = (from task in context.Task
-                             select new TaskDomain
+                         join status in context.StatusTask
+                         on task.StatusId equals status.Id
+                         join role in context.CustomerRole
+                         on task.RoleId equals role.Id
+                         join customer in context.Customer
+                         on task.CustomerId equals customer.Id
+                         select new TaskDomain
                              {
                                  TaskId = task.TaskId,
                                  TaskName = task.TaskName,
+                                 Brigade = role.Name,
+                                 Status = status.Status,
+                                 FullCustomerName = customer.LastName + " " + customer.FirstName + " " + customer.MiddleName,
                                  RoleId = task.RoleId,
                                  CustomerId = task.CustomerId,
                                  StatusId = task.StatusId,

@@ -1,81 +1,89 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Project\\WorkFlow\\TestTaskApplication\\",
+  "WorkspaceRootPath": "C:\\Project2\\WorkFlow\\TestTaskApplication\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project\\workflow\\testtaskapplication\\testtaskapplication\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project\\workflow\\testtaskapplication\\testtaskapplication\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project2\\workflow\\testtaskapplication\\testtaskapplication\\scripts\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\scripts\\report.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project2\\workflow\\testtaskapplication\\testtaskapplication\\views\\home\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\home\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\efcore\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\efcore\\taskmeneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\taskmeneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project\\workflow\\testtaskapplication\\testtaskapplication\\controllers\\tasksapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project2\\workflow\\testtaskapplication\\testtaskapplication\\controllers\\tasksapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\tasksapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|c:\\project\\workflow\\testtaskapplication\\efcore\\model\\model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\model\\model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\scripts\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|c:\\project\\workflow\\testtaskapplication\\efcore\\model\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\model\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|c:\\project\\workflow\\testtaskapplication\\domaincore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|solutionrelative:domaincore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\domaincore\\taskdomain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\domaincore\\taskdomain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|solutionrelative:domaincore\\taskdomain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\domaincore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72E0736A-12BF-4283-A573-F4E74F1886B4}|DomainCore\\DomainCore.csproj|solutionrelative:domaincore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|c:\\project2\\workflow\\testtaskapplication\\testtaskapplication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\efcore\\taskmeneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\taskmeneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\efcore\\model\\model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\model\\model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\efcore\\model\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{AA049FC9-0A47-455C-B2A9-F58BDCD07E18}|EFCore\\EFCore.csproj|solutionrelative:efcore\\model\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project\\WorkFlow\\TestTaskApplication\\testtaskapplication\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|C:\\Project2\\WorkFlow\\TestTaskApplication\\testtaskapplication\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56B9CD98-CADA-46B3-8FA1-2BE849B85329}|TestTaskApplication\\TestTaskApplication.csproj|solutionrelative:testtaskapplication\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -86,54 +94,173 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SwaggerConfig.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\SwaggerConfig.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\App_Start\\SwaggerConfig.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\SwaggerConfig.cs",
-              "RelativeToolTip": "TestTaskApplication\\App_Start\\SwaggerConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T17:24:58.506Z",
+              "DocumentIndex": 4,
+              "Title": "main.js",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Scripts\\main.js",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Scripts\\main.js",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Scripts\\main.js",
+              "RelativeToolTip": "TestTaskApplication\\Scripts\\main.js",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-27T20:03:04.023Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T19:58:58.617Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Report.js",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Scripts\\Report.js",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Scripts\\Report.js",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Scripts\\Report.js",
+              "RelativeToolTip": "TestTaskApplication\\Scripts\\Report.js",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-28T17:28:57.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TestTaskApplication\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:38:07.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Create.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Create.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Create.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Create.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAACJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-26T18:27:25.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\DomainCore\\Order.cs",
+              "RelativeDocumentMoniker": "DomainCore\\Order.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\DomainCore\\Order.cs",
+              "RelativeToolTip": "DomainCore\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T15:35:33.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ReportController.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\ReportController.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\ReportController.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\ReportController.cs",
               "RelativeToolTip": "TestTaskApplication\\Controllers\\ReportController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwC8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowBEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T16:11:57.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TaskDomain.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\DomainCore\\TaskDomain.cs",
-              "RelativeDocumentMoniker": "DomainCore\\TaskDomain.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\DomainCore\\TaskDomain.cs",
-              "RelativeToolTip": "DomainCore\\TaskDomain.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TasksApiController.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksApiController.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\TasksApiController.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksApiController.cs",
+              "RelativeToolTip": "TestTaskApplication\\Controllers\\TasksApiController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAwwFUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T16:03:20.968Z",
+              "WhenOpened": "2025-02-26T16:20:52.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "TestTaskApplication\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwCcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T16:12:49.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TaskMeneger.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\EFCore\\TaskMeneger.cs",
+              "RelativeDocumentMoniker": "EFCore\\TaskMeneger.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\EFCore\\TaskMeneger.cs",
+              "RelativeToolTip": "EFCore\\TaskMeneger.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T15:58:59.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-26T15:45:53.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Report.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Home\\Report.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Home\\Report.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Home\\Report.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Home\\Report.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T17:30:02.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "WebApiConfig.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\WebApiConfig.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\WebApiConfig.cs",
               "RelativeDocumentMoniker": "TestTaskApplication\\App_Start\\WebApiConfig.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\WebApiConfig.cs",
               "RelativeToolTip": "TestTaskApplication\\App_Start\\WebApiConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -142,197 +269,99 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Create.cshtml",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Create.cshtml",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Create.cshtml",
-              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Create.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-26T18:27:25.496Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\DomainCore\\Order.cs",
-              "RelativeDocumentMoniker": "DomainCore\\Order.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\DomainCore\\Order.cs",
-              "RelativeToolTip": "DomainCore\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T15:35:33.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "TaskMeneger.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\TaskMeneger.cs",
-              "RelativeDocumentMoniker": "EFCore\\TaskMeneger.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\TaskMeneger.cs",
-              "RelativeToolTip": "EFCore\\TaskMeneger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Title": "TaskDomain.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\DomainCore\\TaskDomain.cs",
+              "RelativeDocumentMoniker": "DomainCore\\TaskDomain.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\DomainCore\\TaskDomain.cs",
+              "RelativeToolTip": "DomainCore\\TaskDomain.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T15:58:59.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TasksApiController.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksApiController.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\TasksApiController.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksApiController.cs",
-              "RelativeToolTip": "TestTaskApplication\\Controllers\\TasksApiController.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAqwB0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T16:20:52.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TasksController.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksController.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\TasksController.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\TasksController.cs",
-              "RelativeToolTip": "TestTaskApplication\\Controllers\\TasksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T16:12:49.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.Config",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\App.Config",
-              "RelativeDocumentMoniker": "EFCore\\App.Config",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\App.Config",
-              "RelativeToolTip": "EFCore\\App.Config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-02-26T16:11:53.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Web.config",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Web.config",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Web.config",
-              "RelativeToolTip": "TestTaskApplication\\Web.config",
-              "ViewState": "AgIAAD8AAAAAAAAAAADwv1YAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-02-26T16:12:05.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TestTaskApplication\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-26T15:45:53.846Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Model1.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.edmx",
-              "RelativeDocumentMoniker": "EFCore\\Model\\Model1.edmx",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.edmx [Diagram1]",
-              "RelativeToolTip": "EFCore\\Model\\Model1.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-02-27T17:15:48.942Z",
-              "EditorCaption": " [Diagram1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Model1.Context.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.Context.cs",
-              "RelativeDocumentMoniker": "EFCore\\Model\\Model1.Context.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.Context.cs",
-              "RelativeToolTip": "EFCore\\Model\\Model1.Context.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T17:17:02.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Global.asax.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Global.asax.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Global.asax.cs",
-              "RelativeToolTip": "TestTaskApplication\\Global.asax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T17:57:05.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
-              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-26T18:27:54.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Index.cshtml",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Index.cshtml",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Index.cshtml",
-              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-26T18:29:29.103Z",
+              "WhenOpened": "2025-02-26T16:03:20.968Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "TestTaskApplication\\App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T19:15:39.782Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Index.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-26T18:29:29.103Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "TestTaskApplication\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "TestTaskApplication\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Title": "SwaggerConfig.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\SwaggerConfig.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\App_Start\\SwaggerConfig.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\SwaggerConfig.cs",
+              "RelativeToolTip": "TestTaskApplication\\App_Start\\SwaggerConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T15:45:14.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-27T17:24:58.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.edmx",
+              "RelativeDocumentMoniker": "EFCore\\Model\\Model1.edmx",
+              "ToolTip": "C:\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "..\\..\\..\\Project\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-02-27T17:15:48.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Model1.Context.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.Context.cs",
+              "RelativeDocumentMoniker": "EFCore\\Model\\Model1.Context.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\EFCore\\Model\\Model1.Context.cs",
+              "RelativeToolTip": "EFCore\\Model\\Model1.Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T17:17:02.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Global.asax.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Global.asax.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Global.asax.cs",
+              "RelativeToolTip": "TestTaskApplication\\Global.asax.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T17:57:05.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
+              "RelativeToolTip": "TestTaskApplication\\Views\\Tasks\\Edit.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-26T18:27:54.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "TestTaskApplication\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Project2\\WorkFlow\\TestTaskApplication\\TestTaskApplication\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "TestTaskApplication\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T19:15:39.782Z"
             }
           ]
         }
