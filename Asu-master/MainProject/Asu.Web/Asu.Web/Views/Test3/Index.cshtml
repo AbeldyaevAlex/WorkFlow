@@ -1,0 +1,87 @@
+﻿@model Asu.Web.Models.TemAndPerizdViewModel
+@{
+
+}
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <link href="~/Content/jquery.multiselect.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.multiselect.js"></script>
+    <style>
+        body {
+            font-family: 'Open Sans'
+        }
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .label {
+            color: #000;
+            font-size: 16px;
+        }
+
+        .container {
+            padding: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+            $('#dpdTema').change(function () {
+                debugger;
+                var url = "@Url.Content("~/Test3/GetIzdById")";
+                $.getJSON(url, { id: $('#dpdTema').val() }, function (data) {
+                    debugger;
+                    $('#dpdIzd').empty();
+                    $('#dpdIzd').append("<opton>Select Izd</option>");
+                    $.each(data, function (index, optionData) {
+                        var option = "<option value=" + optionData.Id + ">" + optionData.nm_izd + "</option>";
+                        $('#dpdIzd').append(option);
+                    });
+                })
+            });
+        });
+        </script>*@
+    <div class="row">
+        @if (ViewBag.ListTem != null)
+        {
+            @Html.DropDownListFor(m => m.TemId, ViewBag.ListTem as SelectList, "<- Select Tema ->", new { @class = "form-control" })
+        }
+        @Html.DropDownListFor(m => m.PerIzdId, new SelectList(""), "<- Select Izd ->", new { id = "PerIzdId", @class = "container", @multiple = "multiple" })
+
+    </div>
+    <script>
+        $('#PerIzdId').multiselect({
+            column: 1,
+            placeholder: 'PerIzdId'
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TemId').change(function () {
+                debugger;
+                var temId = $(this).val();
+                $.ajax({
+                    type: "Post",
+                    url: "/Test3/GetPerIzd?link_tema=" + temId,
+                    contentType: "html",
+                    success: function (response) {
+                        $('#PerIzdId').empty();
+                        $('#PerIzdId').append(response);
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+</html>

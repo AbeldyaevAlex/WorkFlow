@@ -1,0 +1,104 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.CustomAttribute;
+@using DevExpress.Data.Filtering;
+@using Asu.Web.Controllers;
+@using Asu.Core.Domain.DirectoryOfMaterialCodifiers;
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        //settings.Styles.Table.CssClass = "~/Content/bootstrap.css";
+
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Skm", Action = "MemoAddingMaterialCodeGridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Skm", Action = "AddMemoAddingMaterialCodeGridViewPartial" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Test3", Action = "GridView1PartialUpdate" };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Test3", Action = "GridView1PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Статус документа";
+            column.SetDataItemTemplateContent(container =>
+            {
+                Html.DevExpress().ComboBox(ComboBox =>
+                {
+
+                    ComboBox.Name = string.Format("Status{0}", container.VisibleIndex);
+                    ComboBox.Width = 180;
+                    ComboBox.SelectedIndex = 0;
+                    ComboBox.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                    ComboBox.Properties.DropDownStyle = DropDownStyle.DropDown;
+                    ComboBox.Properties.TextField = "DocumentStatus.Status";
+                    ComboBox.Properties.ValueField = "Id";
+                    
+                    ComboBox.Properties.Native = true;
+                }).BindToEF(string.Empty, string.Empty, (s, e) =>
+                {
+                    e.KeyExpression = "Id";
+                    e.QueryableSource = Model;
+                }).GetHtml();
+            });
+        });
+
+        //settings.Columns.Add("Km");
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "DocumentStatus.Status";
+        //    var x = columnSettings.Caption = "Статус документа";
+        //    columnSettings.Visible = true;
+        //    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        //    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        //    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        //    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        //    columnSettings.Width = Unit.Pixel(115);
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "Status";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.CssFilePath = "~/Content/bootstrap.css";
+        //    comboBoxProperties.CssPostfix = "select2me form-control";
+        //    comboBoxProperties.AnimationType = AnimationType.Auto;
+        //    comboBoxProperties.Native = false;
+        //    comboBoxProperties.DataSource = ViewBag.ListStatus;
+        //    columnSettings.ReadOnly = false;
+        //    columnSettings.Settings.AllowAutoFilter = DefaultBoolean.Default;
+        //});
+
+    });
+}
+@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+{
+e.KeyExpression = "Id";
+e.QueryableSource = Model;
+}).GetHtml()
+
+
+
+@*@grid.BindToLINQ("Asu.Web.Models.AsuAviaDbContext", "Spr_skm").GetHtml()*@
+
+@*@grid.Bind(Model).GetHtml()*@
+
+

@@ -1,0 +1,11 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+
+<textarea id="Comment" name="Comment" rows="2" cols="15" style="width:100%; border:none">
+    Напиши комментарий
+</textarea>
+@*@(
+   Html.Kendo().EditorFor(model => model.Comment)
+       .Name("Comment")
+       .Resizable(true)
+       .HtmlAttributes(new { placeholder = "Введите код материала", @class = "Comment", @id = "Comment" })
+  )*@

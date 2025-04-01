@@ -1,0 +1,14 @@
+@using System.Runtime
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/TabControl.css")" />
+@Html.DevExpress().TabControl(
+    settings =>
+    {
+        settings.Name = "SignInRegisterTabControl";
+        settings.TabAlign = TabAlign.Justify;
+        settings.Width = Unit.Percentage(100);
+        settings.ControlStyle.Paddings.Padding = Unit.Pixel(0);
+        settings.ControlStyle.CssClass = "title-signin";
+        //settings.Tabs.Add("Register", "", "", "Register");
+    }).GetHtml()
+

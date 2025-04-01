@@ -1,0 +1,102 @@
+@model Asu.Core.Domain.Msi.Spr_Perizd
+
+@{
+    ViewBag.Title = "Классификатор задач";
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script src="~/Content/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/bootstrap-multiselect.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @*<script>
+            $(document).ready(function () {
+
+                $('#Product').multiselect({
+                    selectAllText: 'Выбрать все',
+                    enableCaseInsensitiveFiltering: true,
+                    enableFiltering: true,
+                    maxHeight: '800',
+                    buttonWidth: '650',
+                    numberDisplayed: 2,
+                    includeSelectAllOption: true,
+                    nonSelectedText: 'Выбрать изделие',
+                });
+
+
+                $("#Theme").change(function () {
+                    var themeId = $("#Theme").val();
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Sostav_Izdelia/GetProducts/' + themeId,
+                        success: function (result) {
+                            $("#Product").empty();
+                            $('#Product').multiselect('destroy');
+
+                            $.each(result, function (i, product) {
+                                $("#Product").append('<option value="' + product.Value + '">' + product.Text + '</option>');
+                            });
+                            $('#Product').multiselect({
+                                selectAllValue: 'multiselect-all',
+                                enableCaseInsensitiveFiltering: true,
+                                enableFiltering: true,
+                                maxHeight: '800',
+                                buttonWidth: '650',
+                                numberDisplayed: 2,
+                                includeSelectAllOption: true,
+                                selectAllText: 'Выбрать все',
+                                nonSelectedText: 'Выбрать изделие',
+                            });
+                        }
+                    });
+                });
+            });
+        </script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Theme').change(function () {
+                $.get("/Sostav_Izdelia/GetProducts", { Id: $("#Theme").val() }, function (data) {
+                    $('#Id').empty();
+                    $.each(data, function (index, row) {
+                        $('#Id').append("<option value = '" + row.Id + "'>" + row.NmIzd + "</option>")
+                    });
+                });
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+    <div style="margin:90px; padding: 10px 10px 10px 10px; border: 2px solid black ">
+        @using (Html.BeginForm("GetThemesAndProduct", "Sostav_Izdelia", FormMethod.Post))
+        {
+            <div style="width: 100%; padding: 0 0 10px 0; ">
+                @(Html.Kendo().DropDownList().Name("Theme").DataTextField("Nm_tem_k").DataValueField("Id").Filter(FilterType.Contains)
+                        .HtmlAttributes(new { style = "width:600px; ", placeholder = "Введите тему", required = "required", validationmessage = "Обязателен", @id = "Theme", @name = "Theme" })
+                        .DataSource(source =>
+                        {
+                            source.Read(read =>
+                            {
+                                read.Action("DropDownListGetThemesAndProduct", "Sostav_Izdelia", "msi");
+                            });
+                        })
+                        )
+            </div>
+            <div style="width: 600px; padding:0 0 10px 0;">
+                @Html.DropDownListFor(model => model.Id, new SelectList(" "), "- Выбрать изделие -", new { @class = "form-control", @name = "Product", style = "max-width: 600px" })
+            </div>
+            <input class="btn btn-primary" id="btnSubmit" type="submit" value="Применить" />
+        }
+    </div>
+</body>
+</html>

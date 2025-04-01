@@ -1,0 +1,25 @@
+﻿@using Asu.Core
+@using Asu.Core.Infrastructure
+@using Asu.Services.Localization
+@using Asu.Framework.Themes
+@{
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/images/logo.webp";
+    var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+}
+<div class="header-top">
+    <div class="mobile-menu-btn-wrap">
+        <a class="mobile-menu-btn"></a>
+        @*<a id="apLeftMenu" class="mobile-menu-btn" href="#"></a>*@
+    </div>
+    <div class="left-side">
+        @Html.Widget("header")
+        <div class="header-logo">
+            <a href="@Url.RouteUrl("HomePage")">
+                <img title="" src="@Url.Content(logoPath)" alt="@storeName" />
+            </a>
+        </div>
+        @*@Html.Action("SearchBox", "Catalog")*@
+    </div>
+    @Html.Action("HeaderLinks", "Common")
+</div>

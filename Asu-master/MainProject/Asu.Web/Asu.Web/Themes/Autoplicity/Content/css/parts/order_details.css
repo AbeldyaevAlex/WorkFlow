@@ -1,0 +1,366 @@
+﻿.order-details-page {
+    border-radius: 5px;
+}
+
+.order-details-page .page-title h1 {
+    float: left;
+}
+
+.order-details-page .page-title a {
+    float: right;
+    margin-left: 10px;
+}
+
+.order-details-page .page-title a:hover {
+    text-decoration: none;
+}
+
+.order-details-page .title {
+    padding: 10px 20px;
+    font-weight: normal;
+    clear: both;
+    font-size: 10pt;
+    display: inline-block
+}
+
+.order-details-page .order-details-area-td .title {
+    padding: 10px 0 0;
+}
+
+.order-details-page .progressbarblock .title {
+    padding: 20px 0 0;
+}
+
+.order-details-page .progressbarblock {
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0 20px 20px;
+}
+
+.section.shipments .data-table tr, .order-details-page .section.products .data-table tr {
+    border-bottom: 1px solid #f5f5f5;
+    height: 52px
+}
+
+.order-details-page .order-overview {
+    text-align: left;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.order-details-page .order-overview .order-number {
+    margin-bottom: 10px;
+}
+
+.order-details-page .order-overview .order-details, .greyshipmentssection, .order-list-page .order-list .order-item .info, .order-returnrequest .order-details {
+    float: left;
+    width: 100%;
+    background-color: #eee
+}
+
+.section.products th {
+    background-color: #eee;
+    border-right: none
+}
+
+.order-details-page .order-overview .order-details div {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    padding: 10px 20px;
+}
+
+.order-list-page .order-list .order-item .info li, .order-returnrequest .order-details .info li {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    padding: 10px 20px;
+}
+
+.order-returnrequest .order-details {
+    margin-bottom: 20px
+}
+
+.order-returnrequest .data-table th {
+    color: #999;
+    font-weight: normal;
+    border-bottom: 1px solid #fafafa;
+    padding-bottom: 20px
+}
+
+.order-returnrequest .data-table tr.item-row:nth-child(2n) {
+    background-color: #fafafa;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.order-returnrequest .data-table td.refund, .order-returnrequest .data-table td.quantity, .order-returnrequest .data-table td.price {
+    border-left: 1px solid #f5f5f5;
+}
+
+.order-returnrequest .data-table th.name {
+    font-weight: normal;
+    padding-left: 10px;
+    color: #5c5b5b;
+}
+
+.order-returnrequest .data-table td.quantity .qty-input-box {
+    height: 34px;
+    display: inline-block;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.order-returnrequest .data-table td.quantity .qty-input-box input {
+    padding: 0 !important;
+    vertical-align: top;
+    margin-top: -1px;
+    width: 55px;
+    text-align: center;
+    color: #45995d
+}
+
+.order-returnrequest .data-table td.quantity button.qty-input-btn {
+    height: 32px;
+    width: 28px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer
+}
+
+.order-returnrequest .data-table td.quantity button.qty-input-btn:disabled {
+    background-color: #f5f5f5;
+    color: #999
+}
+
+.order-returnrequest .data-table tr.item-row td.refund .td-title, .order-returnrequest .data-table tr.item-row td.price .td-title, .order-returnrequest .data-table tr.item-row td.quantity .td-title {
+    display: none
+}
+
+.order-returnrequest-page .order-overview .buttons {
+    display: inline-block;
+    float: right
+}
+
+.order-returnrequest-page .order-overview .buttons input {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.greyshipmentssection {
+    display: inline-block;
+    float: left;
+    padding: 10px 20px;
+}
+
+.greyshipmentssection span {
+    width: 100%;
+    display: inline-block;
+}
+
+.order-details-page .order-overview .order-details div span, .greyshipmentssection span, .order-list-page .order-list .order-item .info li span, .order-returnrequest .order-details span {
+    color: #999;
+    display: inline-block;
+    float: left;
+    font-size: 9pt;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 12pt;
+}
+
+.order-details-page .order-overview .order-details div strong, .order-list-page .order-list .order-item .info li strong, .greyshipmentssection strong, .order-returnrequest .order-details strong {
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    width: 100%;
+    color: #5c5b5b;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 12pt;
+}
+
+.order-details-area strong {
+    color: #999;
+    font-weight: 400;
+}
+
+.progressbarblock {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.order-details-page .order-overview .order-details span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.order-details-page .order-overview .order-total {
+    text-align: right;
+}
+
+.order-details-page .order-details-area {
+    text-align: left;
+    height: auto;
+}
+
+.order-details-page .order-details-area table {
+    width: 100%;
+    border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.order-details-page .order-details-area div.order-details-area-td {
+    display: inline-block;
+    float: left;
+    padding: 0 20px;
+    vertical-align: top;
+    width: 33%;
+}
+
+.order-details-page .order-details-area ul {
+    float: left;
+    margin-right: 20px;
+    padding-bottom: 20px
+}
+
+.order-details-page .order-details-area li {
+    list-style: none;
+    line-height: 24px;
+}
+
+.order-details-page .order-details-area li:first-child {
+    margin-top: 0;
+}
+
+.order-details-page .repost {
+    margin: 10px 0px 10px 0px;
+}
+
+.order-details-page .repost .hint {
+    margin: 0px;
+}
+
+.order-details-page .section, .shipment-details-page .section {
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+.order-details-page .section.shipments {
+    margin-top: 30px
+}
+
+.order-details-page .checkout-attributes {
+    text-align: right;
+    vertical-align: middle;
+    padding: 10px;
+    height: auto;
+}
+
+.order-details-page .actions {
+    float: left;
+    margin: 20px;
+}
+
+.order-details-page .order-overview .order-details div {
+    padding: 10px 20px;
+}
+
+.order-details-page .actions .return-items-button {
+    margin-left: 20px !important;
+}
+
+.order-details-page .actions input[type="button"] {
+    margin: 0;
+}
+
+.order-details-page .section.products .data-table thead strong, .order-details-page .section.products .data-table thead th {
+    color: #999;
+    font-size: 9pt;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 12pt;
+    font-weight: 400;
+}
+
+.order-details-page .section.products .data-table thead span {
+    display: inline-block;
+    float: left;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    width: 100%;
+    color: #5c5b5b
+}
+
+.order-details-page .products td .td-title {
+    display: none;
+}
+
+.order-details-page .cart-total-left {
+    color: #000;
+    padding-left: 0;
+}
+
+.order-details-page .order-notes th.createdon {
+    width: 30%;
+}
+
+.order-details-page .order-notes .download a {
+    color: #B80709;
+}
+
+.order-details-page .products td .td-title {
+    display: none;
+}
+
+.order-details-page .total-info {
+    display: inline-block;
+    float: right;
+    padding: 20px 20px 20px 0;
+    text-align: right;
+}
+
+.order-details-page .total-info .cart-total {
+    float: right
+}
+
+.order-details-page .section.products .price {
+    width: 100px;
+    text-align: left !important;
+    padding-left: 0;
+    padding-right: 0
+}
+
+.order-details-page .section.products .quantity {
+    width: 100px;
+    padding-left: 0;
+    padding-right: 0
+}
+
+.order-details-page .section.products .total {
+    width: 100px;
+    text-align: right !important;
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.order-details-page .section.products .data-table {
+    border-bottom: 1px solid #f5f5f5
+}
+
+.order-returnrequest-page #return-items .return-item-block .quantity .td-title,
+.order-returnrequest-page #return-items .return-item-block .price .td-title,
+.order-returnrequest-page #return-items .return-item-block .total-price .td-title {
+    display: none
+}

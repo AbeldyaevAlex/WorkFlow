@@ -1,0 +1,193 @@
+﻿@model Asu.Web.Models.Spr_skm
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Spr_skm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.km)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.km)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dbt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dbt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dsh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dsh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ves)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ves)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_open_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_open_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_close_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_close_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomenkl_nomer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomenkl_nomer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GOST_mater.gost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GOST_mater.gost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark_mater.marka_mater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark_mater.marka_mater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nm_mater.nm_mater1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nm_mater.nm_mater1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_balsch.operation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_balsch.operation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_eizm.krat_naim_eizm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_eizm.krat_naim_eizm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_GR_Mater.nm_gr_mater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_GR_Mater.nm_gr_mater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_kgr.fio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_kgr.fio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPR_OGT.naim_ogt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPR_OGT.naim_ogt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPR_OTS.per)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPR_OTS.per)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPR_PRKM.prkm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPR_PRKM.prkm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status_dok.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status_dok.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.First_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@model BrandsAllModel
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //Html.AppendCssFileParts("~/Themes/Autoplicity/Content/mobcartpage.css");
+    //title
+    Html.AddTitleParts(T("PageTitle.Manufacturers").Text);
+}
+@using Nop.Web.Models.Customization;
+<h2 class="allbrandstitle">
+    Choose a brand:
+</h2>
+<div class="sbb_filter@(Model.IsSingleSymbolPage ? " hide-mobile" : string.Empty)" id="sbb_filter">
+    
+        @foreach (var symbol in Model.Alfabet)
+        {
+            <a href="?letter=@symbol"><span>@symbol</span></a>
+        }
+        <a href="?letter=numeric"><span class="double-width">0-9</span></a>
+</div>
+
+@if (Model.IsSingleSymbolPage)
+{
+    <text>@Html.Partial("_SingleSymbolBrand", Model)</text>
+}
+else
+{
+    <text>@Html.Partial("_BrandsAll", Model)</text>
+}

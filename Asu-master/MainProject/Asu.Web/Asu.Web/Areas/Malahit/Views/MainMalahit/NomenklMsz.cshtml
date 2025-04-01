@@ -1,0 +1,62 @@
+﻿@model WorkShopMemorandumBase
+@using Asu.Web.Models;
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+    ViewBag.Title = "Номенклатура МСЗ";
+}
+<h2 align="center">Номенклатура МСЗ</h2>
+<div class="row table-responsive" style="padding-left: 0%">
+    <div class="col-12">
+        @(Html.Kendo().Grid<Asu.Web.Models.WorkShopMemorandumBase>()
+                .Name("grid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.Id).Title("№ п/п").Locked(true).Filterable(true).Hidden(false).Width(100).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" }); ;
+                    columns.Bound(p => p.tema).Title("Тема").Filterable(true).Hidden(true);
+                    columns.Bound(p => p.zakaz).Title("Заказ").Filterable(true).Hidden(true).Width(600).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" });
+                    columns.Bound(p => p.pkp).Title("ПКП").Locked(true).Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.oboznach).Title("Обозначение ДСЕ").Locked(true).Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.naim).Title("Наименование ДСЕ").Locked(true).Filterable(true).Width(250).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.samplequantity).Title("Кол-во образцов").Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.quantity).Title("Кол - во ДСЕ").Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.eizm).Title("Еденица измерения").Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.productdesignationparent).Title("КТС родитель").Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.productnameparent).Title("Наименование КТС родитель").Filterable(true).Width(550).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.rascehov).Title("Расцеховка").Filterable(true).Width(205).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center" }).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.no_sz).Title("№ С/З").Filterable(true).Width(200).Locked(false).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" })
+                      .HtmlAttributes(new { style = "font-weight: bold; font-family: 'Arial'; font-size: 13px" });
+                    columns.Bound(p => p.date).Title("Дата создания С / З").Format("{0:dd.MM.yyyy}").Width(180).Locked(false).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                    columns.Bound(p => p.version).Title("Версия С/З").Filterable(true).Width(184).Locked(false).HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px" });
+                })
+                .Pageable()
+                .Sortable()
+                .Scrollable()
+                .Filterable()
+                .Selectable()
+                .Groupable()
+                .ToolBar(tools =>
+                {
+                    tools.Excel();
+                    //tools.Create();
+                    //tools.Custom()
+                    //.Name("duplicate")
+                    //.Text("Номенклатура МСЗ")
+                    //.HtmlAttributes(new { target = "_blank" })
+                    //.Url(Url.Action("NomenklMsz", "MainMalahit"));
+                })
+                .Resizable(resize => resize.Columns(true))
+                .HtmlAttributes(new { style = "height:900px;" })
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .Group(groups => groups.Add(p => p.tema))
+                    .Group(groups => groups.Add(p => p.zakaz))
+                    .PageSize(500)
+                    .Read(read => read.Action("Nomenkl_Read", "MainMalahit"))
+                )
+            )
+    </div>
+</div>
+
+

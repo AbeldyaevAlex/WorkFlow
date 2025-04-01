@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding: 70px 20px 20px 20px; ">
+    <div style="height: 700px; border: 1px solid black; padding: 10px 20px 20px 20px; ">
+        @Html.DevExpress().PageControl(settings =>
+   {
+       settings.Name = "tab";
+       settings.Width = 300;
+       settings.Height = 100;
+
+       settings.TabPages.Add("Реквизиты слубной записки", "Tab1", "");
+       settings.TabPages.Add("Строки документа", "Tab2", "");
+       settings.TabPages.Add("История изменений", "Tab3", "");
+       settings.TabPages.Add("Сотрудники", "Tab4").SetContent(() => {
+           Html.RenderPartial("~/Areas/DirectoryOfMaterialCodifiers/Views/DirectoryOgt/_TestPartialViewForTab.cshtml");
+       });
+   }).GetHtml()
+    </div>
+</div>

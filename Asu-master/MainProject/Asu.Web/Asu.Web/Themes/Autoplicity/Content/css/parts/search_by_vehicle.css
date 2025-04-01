@@ -1,0 +1,202 @@
+﻿.sbv .title {
+    color: #ccc;
+    padding-left: 10px;
+}
+
+.side-2 #homepagelagebanner .vehicles-filter #vehiclesFilterList {
+    padding: 15px;
+    width: 200px;
+    border-radius: 5px;
+    background: rgba(95, 138, 168, 1);
+    background: -moz-linear-gradient(top, rgba(95, 138, 168, 1) 0%, rgba(66, 115, 152, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(95, 138, 168, 1)), color-stop(100%, rgba(66, 115, 152, 1)));
+    background: -webkit-linear-gradient(top, rgba(95, 138, 168, 1) 0%, rgba(66, 115, 152, 1) 100%);
+    background: -o-linear-gradient(top, rgba(95, 138, 168, 1) 0%, rgba(66, 115, 152, 1) 100%);
+    background: linear-gradient(to bottom, rgba(95, 138, 168, 1) 0%, rgba(66, 115, 152, 1) 100%);
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+.side-2 #homepagelagebanner .vehicles-filter.selected {
+    padding: 15px;
+    border-radius: 5px;
+    background: none repeat scroll 0 0 #f3f3f3;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 198px;
+}
+
+.side-2 #homepagelagebanner .vehicles-filter.selected #vehiclesFilterList {
+    background: none transparent;
+    border: none;
+    width: 168px;
+    padding: 0px;
+}
+
+.vehiclesFilter {
+    display: block;
+    float: left;
+}
+
+#vehiclesFilterList li {
+    float: left;
+    list-style: none outside none;
+    display: inline;
+    line-height: 28px;
+    width: 100%;
+}
+
+#vehiclesFilterList li > select {
+    display: block;
+    padding: 0;
+    width: 100%;
+}
+
+#vehiclesFilterList .styled-select {
+    background: none repeat scroll 0 0 #fbfbfb !important
+}
+
+#vehiclesFilterList select {
+    height: 30px;
+    width: 170px;
+    margin-bottom: 10px;
+}
+
+#vehiclesFilterList li .k-dropdown {
+    width: 12.8em !important;
+}
+
+#filterCategory li > label .checkbox,
+#filterManufacturer li > label .checkbox,
+#filterTirePerformance li > label .checkbox,
+#filterTireRimSize li > label .checkbox,
+#filterTireSidewall li > label .checkbox,
+#filterUtqg li > label .checkbox {
+    background: url("/Content/Images/icons-general/check-box-unchecked.svg") no-repeat left center;
+    background-size: contain;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+}
+
+#filterCategory li > label .checkbox.checked,
+#filterManufacturer li > label .checkbox.checked,
+#filterTirePerformance li > label .checkbox.checked,
+#filterTireRimSize li > label .checkbox.checked,
+#filterTireSidewall li > label .checkbox.checked,
+#filterUtqg li > label .checkbox.checked {
+    background: url("/Content/Images/icons-general/check-box-checked.svg") no-repeat left center;
+    background-size: contain;
+}
+
+.k-dropdown-wrap {
+    height: 34px !important
+}
+
+.vehicles-filter #vShowUniversalBlock {
+    color: white
+}
+
+.vehicles-filter.selected #vShowUniversalBlock {
+    color: #666;
+}
+
+#vehiclesFilter #vShowUniversalBlock input[type="checkbox"] {
+    margin-right: 10px
+}
+
+.vehicles-filter input[type="button"]#vClear {
+    width: 180px;
+    color: white;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    margin: 10px 0 0 10px;
+    background-image: none;
+}
+
+.vehicles-filter input[type="button"]#vClear:hover {
+    background-color: #ccc;
+}
+
+.vehicles-filter.selected input[type="button"]#vClear {
+    color: #666;
+    width: 180px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0 0 10px;
+    background-image: none;
+}
+
+.vehicles-filter.selected input[type="button"]#vClear:hover {
+    background: none repeat scroll 0 0 #f6f6f4;
+    border: 1px solid #ccc;
+}
+
+.titlesbv {
+    color: #999
+}
+
+@media screen and (min-width: 769px) {
+    #filterCheckBoxes ul {
+        height: auto !important;
+        max-height: 250px;
+        overflow-y: auto;
+        scrollbar-3dlight-color: #fff;
+        scrollbar-arrow-color: #ccc;
+        scrollbar-base-color: #fff;
+        scrollbar-darkshadow-color: #ccc;
+        scrollbar-face-color: #ccc;
+        scrollbar-highlight-color: #fff;
+        scrollbar-shadow-color: #fff;
+        scrollbar-track-color: #fff;
+    }
+}
+
+#sub-category-list li {
+    position: relative;
+    margin: 5px 0 9px 10px;
+}
+
+#sub-category-list li::before {
+    position: absolute;
+    content: '-';
+    left: -6px;
+    top: 0;
+}
+
+#filterCheckBoxes ul li:last-child {
+    padding-bottom: 10px;
+}
+
+#sub-category-list li span {
+    margin: 0 0 0 5px;
+}
+
+#filterCheckBoxes ul::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#filterCheckBoxes ul::-webkit-scrollbar {
+    width: 6px;
+    background-color: #ccc;
+}
+
+#filterCheckBoxes ul::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #ccc;
+}
+
+.filter-content-wrapper {
+    margin-top: 10px;
+}
+
+#vehiclesFilter .k-widget {
+    margin-bottom: 10px;
+}
+
+#vehiclesFilter li:last-child .k-widget {
+    margin-bottom: 0px !important;
+}

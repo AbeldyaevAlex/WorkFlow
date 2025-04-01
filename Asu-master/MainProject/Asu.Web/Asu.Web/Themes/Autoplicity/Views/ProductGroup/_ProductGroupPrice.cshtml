@@ -1,0 +1,15 @@
+﻿@model Nop.Web.Models.Catalog.ProductGroupPriceModel
+<div class="prices" itemprop="offers" itemscope itemtype="@(Model.MaxPrice.HasValue ? "https://schema.org/AggregateOffer" : "http://schema.org/Offer")">
+    <div class="product-price">
+        <span>@(Model.MaxPrice.HasValue ? string.Format($"${Model.MinPrice} - ${Model.MaxPrice.Value}") : $"from ${Model.MinPrice}")</span>
+    </div>
+    <link itemprop="availability" href="http://schema.org/InStock" style="display: none;"/>
+    <meta itemprop="itemCondition" content="NewCondition">
+    <meta itemprop="seller" content="Autoplicity.com"/>
+    <meta itemprop="priceCurrency" content="USD">
+    <meta itemprop="price" content="@Model.MinPrice" />
+    @if (Model.MaxPrice.HasValue)
+    {
+        <meta itemprop="highPrice" content="@Model.MaxPrice" />
+    }
+</div>

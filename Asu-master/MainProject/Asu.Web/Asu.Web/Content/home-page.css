@@ -1,0 +1,139 @@
+﻿
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+    *, *:before, *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+:focus, :active {
+    outline: none;
+}
+a:focus, a:active {
+    outline: none;
+}
+nav, footer, header, aside {
+    display: block;
+}
+html, body {
+    height: 100%;
+    width: 100%;    
+    font-size: 100%;
+    /*line-height: 1;
+    font-size: 15px;*/
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {
+    font-family: inherit;
+}
+    input::-ms-clear {
+        display: none;
+    }
+button {
+    cursor: pointer;
+}
+    button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+a, a:visited {
+    text-decoration: none;
+}
+    a:hover {
+        text-decoration: none;
+    }
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    /*border: 7px solid #000000;*/
+    /*margin:30px;*/
+    /*top: 150px;*/ 
+    /*background-image:url(Slide_Images/4802faf7dc7c18d63c962b6ea0629575.jpg);*/ 
+    background-size:cover;    
+    height:auto;
+    max-width:100%;
+}
+
+.block{
+font-size:50px;
+margin: 30px 30px ;
+padding: 10px;
+border: 10px solid #000000;
+border-radius:50px 0 50px 0;
+box-shadow: 5px 5px 10px 15px #808080;
+opacity:1;
+}
+.string{
+font-size:50px;
+}
+.image{
+    border: 10px solid #000000;
+    border-radius:70px;
+}
+body {
+   /*text-align:center;*/ 
+}
+
+.home-content {   
+}
+.image-content{
+    display:flex;
+    border: 1px ridge #000000;
+    border-radius:10%;
+    width:120px;
+    height:90px;
+    box-shadow: 5px 5px 10px 15px #808080;
+    margin:15px;
+}
+.naim-task{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:black;
+}
+.background{
+    
+}
+
+.flex-box{
+    /*display:flex;*/
+}
+.home-page{  
+    display:flex;
+    flex-wrap:wrap;
+    margin:50px 50px 50px 0px;
+    justify-content:space-around;    
+}
+.title{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:25px;
+    font-weight:700;
+    color:black;  
+    margin:15px;
+    padding:15px;
+    display:block;
+    position:center;
+    align-items:center;
+    font-style:italic;
+}
+.footer {
+    margin: -100px 0 0 0;
+    height: 200px;
+    background: #ff0000;
+    position: relative;
+}

@@ -1,0 +1,9 @@
+﻿
+@if (ViewBag.PerIzdOption != null)
+{
+    foreach (var item in ViewBag.PerIzdOption)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
+

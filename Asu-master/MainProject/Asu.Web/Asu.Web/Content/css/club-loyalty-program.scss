@@ -1,0 +1,137 @@
+﻿$yellow: #e9af1f;
+
+.member-club {
+    display: block;
+    margin: 30px 0;
+    width: 100%;
+
+    .member-club-bunner {
+        display: block;
+        margin: 0 0 30px 0;
+        width: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .member-club-text {
+        display: block;
+        cursor: default;
+        margin: 0 0 20px 0;
+        text-align: center;
+        width: 100%;
+
+        p {
+            color: #000000;
+            font-size: 23px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin: 0 0 10px;
+            text-align: center;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+
+    .member-club-btn {
+        display: block;
+        text-align: center;
+        width: 100%;
+
+        a {
+            background-color: $yellow;
+            border: 2px solid $yellow;
+            border-radius: 4px;
+            display: inline-block;
+            color: #fff;
+            font-size: 24px;
+            opacity: 1;
+            padding: 5px 45px;
+            position: relative;
+            margin: 10px auto;
+            text-align: center;
+            text-transform: uppercase;
+            transition: ease-in-out 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+                text-decoration: none;
+            }
+
+            &:after {
+                color: #fff;
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-left: 20px solid #fff;
+                border-bottom: 10px solid transparent;
+                right: 11px;
+                top: 8px;
+                transition: ease-in-out 0.2s;
+            }
+        }
+    }
+
+    .member-club-title {
+        color: #111111;
+        cursor: default;
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    .member-club-brand-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        list-style: none;
+        width: 100%;
+
+        li {
+            position: relative;
+            height: 100%;
+            width: 18.5%;
+            max-height: 220px;
+            margin: 0 5px 10px 5px;
+            z-index: 0;
+
+            a {
+                display: block;
+                cursor: pointer;
+                opacity: 1;
+                width: 100%;
+                transition: ease-in-out 0.2s;
+
+                img {
+                    width: 100%;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width:680px) {
+
+    .member-club {
+        .member-club-brand-list {
+            li {
+                width: 30%;
+            }
+        }
+    }
+}

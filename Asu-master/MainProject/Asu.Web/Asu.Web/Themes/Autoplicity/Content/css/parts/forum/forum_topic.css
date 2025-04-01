@@ -1,0 +1,188 @@
+﻿.forum-topic-page {
+    background: url(/Themes/Autoplicity/Content/images/forum-footer-bg.gif) repeat-x bottom;
+    clear: both;
+}
+
+    .forum-topic-page .title {
+        background: url(/Themes/Autoplicity/Content/images/forum-header-bg.gif) repeat-x 50%;
+        color: #FFF;
+        border: solid 1px #ccc;
+        height: 28px;
+        line-height: 28px;
+        font-weight: 700;
+        padding-left: 3px;
+    }
+
+        .forum-topic-page .title .topic-name {
+            float: left;
+            font-size: 12px;
+        }
+
+.topic-header {
+    padding: 5px;
+    background: #F3F3F3;
+    border-bottom: solid 1px #ccc;
+    height: 16px;
+}
+
+    .topic-header .topic-options, .topic-footer .topic-options {
+        float: right;
+        text-align: right;
+    }
+
+        .topic-header .topic-options a, .topic-footer .topic-options a {
+            font-weight: 700;
+        }
+
+.topic-footer {
+    padding: 5px;
+    background: #F3F3F3;
+    border-top: solid 1px #ccc;
+    height: 16px;
+}
+
+    .topic-header .pager ul, .topic-footer .pager ul {
+        float: left;
+        margin-top: -2px;
+    }
+
+.forum-topic-page .forum-post {
+    border-bottom: solid 1px #ccc;
+    zoom: 1;
+}
+
+    .forum-topic-page .forum-post:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+        visibility: hidden;
+    }
+
+.forum-topic-page .post-info {
+    width: 170px;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    border-right: solid 1px #ccc;
+}
+
+    .forum-topic-page .post-info .manage {
+        line-height: 20px;
+    }
+
+        .forum-topic-page .post-info .manage a {
+            font-weight: 700;
+            color: #666;
+        }
+
+    .forum-topic-page .post-info .user-info {
+        padding-top: 5px;
+    }
+
+        .forum-topic-page .post-info .user-info a.username {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .forum-topic-page .post-info .user-info span.username {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .forum-topic-page .post-info .user-info .avatar {
+            margin: 5px 0;
+        }
+
+            .forum-topic-page .post-info .user-info .avatar .avatar-img {
+                border: solid 2px #CEDBE1 !important;
+            }
+
+        .forum-topic-page .post-info .user-info .user-stats {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+            .forum-topic-page .post-info .user-info .user-stats li {
+                list-style: none outside none;
+            }
+
+            .forum-topic-page .post-info .user-info .user-stats span {
+                font-weight: 400;
+            }
+
+.forum-topic-page .post-content {
+    margin-left: 180px;
+    border-left: solid 1px #ccc;
+}
+
+    .forum-topic-page .post-content .posttime {
+        font-weight: 700;
+        line-height: 20px;
+        padding: 3px;
+        background: #e3f3f3;
+    }
+
+        .forum-topic-page .post-content .posttime .stat-value {
+            font-weight: 400;
+        }
+
+    .forum-topic-page .post-content .post-body {
+        padding: 3px;
+    }
+
+        .forum-topic-page .post-content .post-body a {
+            color: #B80709;
+            text-decoration: underline;
+        }
+
+        .forum-topic-page .post-content .post-body .posttext .quote {
+            padding: 5px;
+            border: dashed 1px #000;
+            background-color: #fff;
+        }
+
+    .forum-topic-page .post-content .signature {
+        border-color: #ccc;
+        border-style: solid;
+        border-width: 1px 0 0;
+        font-size: 90%;
+        margin: 1em 8px 8px;
+        padding: 1em 0 20px;
+        text-align: left;
+        font-style: italic;
+    }
+
+/* FORUM SEARCH */
+.forum-search-page .forum-search-panel .search-error {
+    color: red;
+}
+
+.forum-search-page .basic-search {
+    margin-bottom: 10px;
+}
+
+.forum-search-page .advanced-search {
+    border-top: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.forum-search-page .inputs {
+    padding: 4px;
+}
+
+    .forum-search-page .inputs label {
+        display: inline-block;
+        width: 140px;
+    }
+
+.forum-search-page .pager ul {
+    float: left;
+    margin: 5px 0;
+}

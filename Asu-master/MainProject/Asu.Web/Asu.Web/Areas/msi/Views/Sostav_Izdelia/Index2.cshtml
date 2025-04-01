@@ -1,0 +1,68 @@
+﻿@model Asu.Web.Areas.msi.Controllers.list_Izd
+@{
+    ViewBag.Title = "Выбор изделия";
+    Layout = "~/Views/Shared/_SignInLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet"/>
+<h1 align="center">Список изделий</h1>
+@*@{
+    ViewBag.Title = "Home Page";
+}*@
+@using (Html.BeginForm("Index2", "Sostav_Izdelia", "msi_default", FormMethod.Post))
+{
+    @*<div>
+        <label>
+            <strong>
+                <input type="checkbox" id="checkall" />Выбрать все/Отменить все
+            </strong>
+        </label>
+    </div>*@
+    @*<div class="checkitem" align="center">
+        @for (int i = 0; i < Model.listIzd.Count; i++)
+        {
+            <div>
+                @Html.CheckBoxFor(x => Model.listIzd[i].IsActive, new { @class = "checkitem" })
+                @Model.listIzd[i].nm_izd
+                @Html.HiddenFor(x => Model.listIzd[i].Id, new { @class = "checkitem" })
+                @Html.HiddenFor(x => Model.listIzd[i].nm_izd, new { @class = "checkitem" })
+            </div>
+        }
+        <input type="submit" value="Ok" />
+    </div>*@
+{
+    <div class="form-checkboxlist">
+       @for (int i = 0; i < Model.listIzd.Count; i++)
+       {
+            <div>
+                @Html.CheckBoxFor(x => Model.listIzd[i].IsActive, new { @class = "checkitem" })
+                @Model.listIzd[i].nm_izd
+                @Html.HiddenFor(x => Model.listIzd[i].Id, new { @class = "checkitem" })
+                @Html.HiddenFor(x => Model.listIzd[i].nm_izd, new { @class = "checkitem" })
+            </div>
+        }
+        <input type="submit" value="Ок" />
+        <br />
+        <br />
+        <hr />
+        <footer>
+            <input type="checkbox" id="checkall" name="check_all" />
+            <label for="checkall">Выбрать все/Отменить все</label>
+        </footer>
+    </div>
+    }
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $("#checkall").change(function () {
+        $(".checkitem").prop("checked", $(this).prop("checked"))
+    })
+    $(".checkitem").change(function () {
+        if ($(this).prop("checked") == false) {
+            $("#checkall").prop("checked", false)
+        }
+        if ($(".checkitem:checked").length == $(".checkitem").length) {
+            $("#checkall").prop("checked", true)
+        }
+    })
+</script>

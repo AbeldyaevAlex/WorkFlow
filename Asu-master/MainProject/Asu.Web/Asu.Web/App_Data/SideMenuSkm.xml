@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+	<group Text="Вспомогательные справочники">
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+		<item Text="Марки материала" NavigateUrl ="~/Metrology/Main/GetMetrologyDirectory" />
+	</group>
+	<!--<group Text="Дополнительные справочники">
+		--><!--<item Text="Справочник цехов" NavigateUrl ="~/SPR_CEX/Index"/>--><!--
+		<item Text="Справочник стандартов" NavigateUrl ="~/SPR_STAN/IndexStart"/>
+		<item Text="Справочник предприятий изготовителей" NavigateUrl ="~/PREDPR_IZG/IndexStart"/>
+		<item Text="Справочник назначения приборов" NavigateUrl ="~/NAZN_PRIB/Index"/>
+		<item Text="Справочник место поверки" NavigateUrl ="~/M_POVERK/Index"/>
+		<item Text="Справочник видов консервации приборов" NavigateUrl ="~/KONSERV/Index"/>
+		<item Text="Справочник номеров государственного реестра" NavigateUrl ="~/GOS_REE/Index"/>
+		<item Text="Справочник условий эксплуатации приборов" NavigateUrl ="~/USL_EXPLUAT/Index"/>
+		<item Text="Справочник наименования рода поверок" NavigateUrl ="~/ROD_POVERK/Index"/>
+		--><!--<item Text="Справочник статуса документа" NavigateUrl ="~/STATUS_DOK/Index"/>--><!--
+		<item Text="Справочник периодов поверки" NavigateUrl ="~/PERIOD_POVER/IndexStart"/>
+		--><!--<item Text="Справочник групп приборов" NavigateUrl ="~/GRUP_PRIB/Index"/>--><!--
+		--><!--<item Text="Справочник подгрупп приборов" NavigateUrl ="~/Podgrupp/Index"/>--><!--
+		--><!--<item Text="Справочник измерения прибора" NavigateUrl ="~/SPR_IZM/IndexStart"/>--><!--
+	</group>
+	<group Text="Группы видов измерения приборов">
+		<item Text="Справочник групп видов измерений" NavigateUrl ="~/Vid_izmer/Index" />   //"~/Grupp/Index" />
+		<item Text="Справочник наименований видов измерений" NavigateUrl ="~/NM_VIDIZ/Index"/>
+		<item Text="Справочник видов измерений" NavigateUrl ="~/VID_IZMER/Index"/>
+	</group>
+	<group Text="Подгруппы приборов">
+		<item Text="Справочник подгрупп приборов" NavigateUrl ="~/Podgr_prib/Index"/>
+		<item Text="Справочник наименований приборов" NavigateUrl ="~/NM_PRIB/Index"/>
+	</group>
+	<group Text="Типы приборов">
+		<item Text="Справочник типов приборов" NavigateUrl ="~/TIP_PRIBOR/Index"/>
+		<item Text="Справочник цена деления шкалы приборов" NavigateUrl ="~/CENA_DEL/Index"/>
+		<item Text="Справочник классов точности приборов" NavigateUrl ="~/Metrology/AccuracyClass/Index"/>
+		<item Text="Справочник пределов измерения приборов" NavigateUrl ="~/PREDEL/Index"/>
+	</group>-->
+
+	<!--<group Text="Администрирование">
+		<item Text="Справочник пользователей" NavigateUrl ="~/Users/Index"/>
+		<item Text="Справочник ролей"  NavigateUrl ="~/Role/Index"/>
+	</group>-->
+</menu>
+

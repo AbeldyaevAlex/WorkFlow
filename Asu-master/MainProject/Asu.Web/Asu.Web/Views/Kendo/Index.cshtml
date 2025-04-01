@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+    //Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @*@(
+        Html.Kendo().ComboBox()
+            .Name("PrKm")
+            .DataTextField("PrKm")
+            .DataValueField("Id")
+            .Filter(FilterType.Contains)
+            .Deferred(false)
+
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingPrkmRead", "Kendo");
+                }).ServerFiltering(true);
+            })
+        )*@
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            @(Html.Kendo().AutoComplete()
+    .Name("PrKm")
+    .DataTextField("PrKm")
+    .Template("<span><h3>ContactName</p></span>")
+   .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("ComboBoxMemoAddingPrkmRead", "Kendo");
+        });
+    })
+
+    )
+        </div>
+    </div>
+    @*<div class="col-12">
+            @(Html.Kendo().Grid<Asu.Web.Models.OrderViewModel>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+                columns.Bound(p => p.OrderID).Filterable(false);
+                columns.Bound(p => p.Freight);
+                columns.Bound(p => p.OrderDate).Format("{0:MM/dd/yyyy}");
+                columns.Bound(p => p.ShipName);
+                columns.Bound(p => p.ShipCity);
+            })
+            .Pageable()
+            .Sortable()
+            .Scrollable()
+            .Filterable()
+            .Selectable()
+            .HtmlAttributes(new { style = "height:1000px;" })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .PageSize(100)
+                .Read(read => read.Action("Orders_Read", "Kendo"))
+            )
+        )
+        </div>*@
+
+</body>
+</html>

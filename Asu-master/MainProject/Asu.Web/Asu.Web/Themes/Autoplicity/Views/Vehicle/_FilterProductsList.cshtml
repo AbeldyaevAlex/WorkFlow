@@ -1,0 +1,14 @@
+﻿@model IList<Nop.Web.Models.Vehicles.CustomProductOverviewModel>
+
+@{
+    var index = 0;
+    var hasFilters = (bool)this.ViewData["HasFilters"];
+}
+
+@foreach (var product in Model)
+{
+    product.IsBestseller = !hasFilters && ++index <= 3;
+    <div class="item-box">
+        @Html.Partial("_CustomProductBox", product)
+    </div>
+}

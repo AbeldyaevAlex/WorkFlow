@@ -1,0 +1,38 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dpdTema').change(function () {
+            var url = "@Url.Content("~/Test3/GetIzdById")";
+            $.getJSON(url, { id: $("dpdTema").val() }, function (data) {
+                debugger;
+                $('#dpdIzd').empty();
+                $('#dpdIzd').append("<opton>Select Izd</option>");
+                $.each(data, function (index, optionData) {
+                    var option = "<option value=" + optionData.Id + ">" + optionData.nm_izd + "</option>";
+                    $('#dpdIzd').append(option);
+                });
+            })
+        });
+    });
+</script>
+<div class="row">
+    <div class="col-md-3">
+        <label>Выбор Темы</label>
+        @Html.DropDownList("tema", (IEnumerable<SelectListItem>)ViewBag.ListTemNew, "Select Tema", new { @id = "dpdTema", @class = "form-control" })
+    </div>
+    <div class="col-md-3">
+        <label>Выбор Изделия</label>
+        @*<select class="form-control" select id="dpdIzd" multiple="multiple" multiselect-search="true" multiselect-select-all="true">
+            <option>Выбор Изделия</option>
+        </select>*@
+        <select class="form-control" select id="dpdIzd" >
+            <option>Select Izd</option>
+        </select>
+    </div>
+</div>
+<script src="~/Scripts/multi-dropdownlist.js"></script>
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>

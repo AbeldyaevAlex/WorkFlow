@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Asu.Web.Models.UsersTask.Spr_nm_task>
+
+@{
+    ViewBag.Title = "Состав Изделия";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap_bundle.css" rel="stylesheet" />
+    <link href="~/Content/Layout_new.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    <meta charset="utf-8" />
+    <title>Состав Изделия</title>
+</head>
+<body>
+    <div>
+        <h3 class="title" align="center" style="margin:50px">Состав Изделия</h3>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-xl-5">
+
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    @if (item.IsGroup == true)
+                    {
+                        <div class="card badge text-wrap">
+                            <a href="@Url.RouteUrl(item.RouteUrl,
+                                 new { controller = item.Controller_Name, action = item.Action_Name, productComposition = item.Naim_task})"
+                               title="@item.Title"  id="@item.Id" class="@item.Title" onclick="GetElement(this.id)">
+                                @Html.Raw("<img class='image-content' src=\"data:image/jpeg;base64,"
+                                 + Convert.ToBase64String(item.screen) + "\" />")
+                                <h5 class="card-title">@item.Naim_task</h5>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card badge text-wrap">
+                            <a href="@Url.RouteUrl(item.RouteUrl,
+                                 new { controller = item.Controller_Name, action = item.Action_Name, productComposition = item.Naim_task })"
+                               title="@item.Title"  id="@item.Id" class="@item.Title" onclick="GetElement(this.id)">
+                                @Html.Raw("<img class='image-content' src=\"data:image/jpeg;base64,"
+                                 + Convert.ToBase64String(item.screen) + "\" />")
+                                <h5 class="card-title">@item.Naim_task</h5>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <script>
+        function GetElement(id) {
+            var button_name = id;
+            /*alert("Im button name is : " + button_name);*/
+            console.log("Im button name is :" + button_name);
+        }
+    </script>
+</body>
+</html>

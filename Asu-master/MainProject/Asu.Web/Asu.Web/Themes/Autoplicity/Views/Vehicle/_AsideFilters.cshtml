@@ -1,0 +1,130 @@
+﻿@model Nop.Web.Models.Vehicles.FilterSearchModel
+
+@{ 
+    var vehicleName = Model.V.FullName;
+}
+
+<ul class="aside-filters-summary">
+    @if (!string.IsNullOrEmpty(vehicleName))
+    {
+        <li class="aside-filter-item-vehicle">vehicle: @vehicleName</li>
+    }
+
+    @{
+        var filters = Model.FilterCategories.Where(m => m.IsSelected).ToList();
+    }
+
+    @if (Model.CId != 214)
+    {
+        foreach (var filter in filters)
+        {
+            <li class="aside-filter-item-category aside-filter-unit" data-id="@filter.Value">category: @filter.Name</li>
+        }
+    }
+
+    @{
+        filters = Model.FilterManufacturers.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-manufacturer aside-filter-unit" data-id="@filter.Value">manufacturer: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.PerformanceAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-performance aside-filter-unit" data-id="@filter.Value">tire performance: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.TireRimSizeAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-rim-size aside-filter-unit" data-id="@filter.Value">rim size: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.TireLoadAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-load aside-filter-unit" data-id="@filter.Value">tire load: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.TireSpeedAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-speed aside-filter-unit" data-id="@filter.Value">tire speed: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.TreadTypeAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-treadtype aside-filter-unit" data-id="@filter.Value">tread type: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.SidewallAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-sidewall aside-filter-unit" data-id="@filter.Value">sidewall type: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.LoadRangeAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-loadrange aside-filter-unit" data-id="@filter.Value">load range: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.UtqgAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-utqg aside-filter-unit" data-id="@filter.Value">utqg: @filter.Name</li>
+    }
+
+    @{
+        filters = Model.ServiceDescriptionAttributes.Where(m => m.IsSelected).ToList();
+    }
+
+    @foreach (var filter in filters)
+    {
+        <li class="aside-filter-item-tire-service-description aside-filter-unit" data-id="@filter.Value">service desc: @filter.Name</li>
+    }
+
+    @if (!string.IsNullOrEmpty(vehicleName))
+    {
+        filters = Model.TireSizeAttributes.Where(m => m.IsSelected).ToList();
+        foreach (var filter in filters)
+        {
+            <li class="aside-filter-item-tire-size aside-filter-unit" data-id="@filter.Value">tire size: @filter.Name</li>
+        }
+    }
+
+    @if (Model.MinPrice.HasValue || Model.MaxPrice.HasValue)
+    {
+        var minPrice = Model.MinPrice;
+        var maxPrice = Model.MaxPrice;
+        <li class="aside-filter-item-price aside-filter-unit">price:@($"{(minPrice.HasValue ? $" from ${minPrice.Value}" : string.Empty)}{(maxPrice.HasValue ? $" to ${maxPrice.Value}" : string.Empty)}")</li>
+    }
+</ul>

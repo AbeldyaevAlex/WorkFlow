@@ -1,0 +1,80 @@
+﻿@using Asu.Core
+@using Asu.Core.Domain.Seo
+@using Asu.Core.Infrastructure
+@using Asu.Services.Localization
+@model Asu.Web.Models.Catalog.BrandModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    // title, meta
+    Html.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    var seoSettings = EngineContext.Current.Resolve<SeoSettings>();
+
+    // canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        /*string productUrl = Url.RouteUrl("Product", new { Model.SeName }, Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(productUrl);*/
+    }
+
+    var img = string.Empty;//Model.ProductGroups.FirstOrDefault()?.DigitalDataModel?.Url;
+    // open graph META tags
+    if (seoSettings.OpenGraphMetaTags)
+    {
+        string storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+        Html.AddHeadCustomParts("<meta property=\"og:type\" content=\"product\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:description\" content=\"" + Html.Encode(Model.Description) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:image\" content=\"" + (img) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:site_name\" content=\"" + Html.Encode(storeName) + "\" />");
+    }
+
+    // Twitter META tags
+    if (seoSettings.TwitterMetaTags)
+    {
+        string storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+        Html.AddHeadCustomParts("<meta property=\"twitter:card\" content=\"summary\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:site\" content=\"" + Html.Encode(storeName) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:description\" content=\"" + Html.Encode(Model.Description) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + (img) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
+    }
+
+    var workContext = EngineContext.Current.Resolve<IWorkContext>();
+}
+<h1 class="pg-brand-title">@Model.Name</h1>
+@* exclude Coverking *@
+@if (Model.Id != 147)
+{
+    <div class="pg-brand">
+        <ul>
+            @foreach (var item in Model.Pictures)
+            {
+                <li><a><img class="lazy" data-original="@item.ThumbUrl" alt="@item.Title" /></a></li>
+            }
+        </ul>
+        <p class="pg-brand-text">@Model.Description</p>
+    </div>
+    <h2 class="pg-categories-title">Categories</h2>
+}
+<ul class="bc-list">
+    @foreach (var category in Model.Categories)
+    {
+        <li class="bc-list-item">
+            @Html.Partial("_BrandCategoryOverview", category)
+        </li>
+    }
+</ul>
+<ul class="pg-list" itemscope="" itemtype="https://schema.org/ItemList">
+    @foreach (var group in Model.ProductGroups)
+    {
+        <li class="pg-list-item" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/Product">
+            @Html.Partial("_ProductGroupOverview", group)
+        </li>
+    }
+</ul>

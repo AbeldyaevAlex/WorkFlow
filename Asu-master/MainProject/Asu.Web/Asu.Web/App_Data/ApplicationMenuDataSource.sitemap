@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="javascript:void(0);">
+    <siteMapNode url="Home" title="Главная">
+    </siteMapNode>
+    <siteMapNode url="GridView" title="О Нас">
+    </siteMapNode>
+    <siteMapNode url="Scheduler" title="Контакты">
+    </siteMapNode>
+    <siteMapNode url="Article" title="Информация">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

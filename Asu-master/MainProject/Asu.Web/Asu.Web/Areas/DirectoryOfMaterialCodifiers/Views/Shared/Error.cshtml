@@ -1,0 +1,54 @@
+﻿@*@if (this.Context.User.Identity.Name == "Admin")*@
+
+@* Проверка роли пользователя  *@
+@if (this.Session[1].ToString() == "Администратор")
+{
+    <div class="leftPanel">
+        @* DXCOMMENT: Configure the left panel's menu *@
+        @Html.DevExpress().NavBar(settings =>
+{
+    settings.Name = "LeftNavBar";
+    settings.AutoCollapse = false;
+    settings.EnableAnimation = true;
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(2);
+    settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(10);
+}).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()
+    </div>
+}
+
+else
+{
+    <div class="leftPanel">
+        @* DXCOMMENT: Configure the left panel's menu *@
+        @Html.DevExpress().NavBar(settings =>
+{
+    settings.Name = "LeftNavBar";
+    settings.AutoCollapse = false;
+    settings.EnableAnimation = true;
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(2);
+    settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(10);
+}).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/MenuUser.xml"), "/menu/*").GetHtml()
+    </div>
+}
+
+@*@Html.DevExpress().Panel(settings =>
+    {
+        settings.Name = "rightPanel";
+        settings.Collapsible = true;
+        settings.FixedPosition = PanelFixedPosition.WindowRight;
+        settings.FixedPositionOverlap = true;
+        settings.ScrollBars = ScrollBars.Auto;
+        settings.Width = Unit.Pixel(260);
+        settings.ControlStyle.CssClass = "right-panel";
+        settings.Styles.ExpandBar.CssClass = "expand-bar";
+        settings.SettingsCollapsing.ExpandButton.Visible = false;
+        settings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.PopupToLeft;
+        settings.SettingsCollapsing.Modal = true;
+        settings.ClientSideEvents.Collapsed = "onRightPanelCollapsed";
+        settings.SetContent(() => ViewContext.Writer.Write(RenderSection("RightPanelContent", false)));
+    }).GetHtml()*@
+
+
+

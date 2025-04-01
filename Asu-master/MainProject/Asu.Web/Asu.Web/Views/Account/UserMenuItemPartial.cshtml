@@ -1,0 +1,21 @@
+@model Asu.Web.Models.User
+@{
+        var avatarUrl = string.IsNullOrEmpty(Model.AvatarUrl) ? "Content/Images/user.svg" : Model.AvatarUrl;
+    }
+<div class="user-info">
+        <div class="avatar">
+            <img id="AvatarUrl" src="@Url.Content(avatarUrl)" />
+        </div>
+        <div class="text-container">
+            @Html.DevExpress().Label(labelSettings => {
+               labelSettings.Name = "userNameLabel";
+               labelSettings.Text = Model.Login + " (" + Model.First_Name + " " + Model.Last_Name + ")";
+               labelSettings.ControlStyle.CssClass = "user-name";
+           }).GetHtml()
+           @Html.DevExpress().Label(labelSettings => {
+               labelSettings.Name = "emailLabel";
+               labelSettings.Text = Model.Phone;
+               labelSettings.ControlStyle.CssClass = "email";
+           }).GetHtml()
+        </div>
+    </div>

@@ -1,0 +1,19 @@
+﻿<div class='title'>
+    <a href="@Url.Action("Index", "Home")">АСУ АВИА</a>
+    @*<a href="@Url.Action("Login", "Customer")">АСУ АВИА</a>*@
+    <p class="small">Вход в систему</p>
+</div>
+<div class="panelContent">
+    <div class="pull-right">
+        <div class="panelItem">
+            @Html.DevExpress().Menu(m =>
+            {
+                m.Name = "NavMenu";
+                m.EnableAnimation = true;
+                m.ControlStyle.CssClass = "navMenu";
+                m.Styles.Item.Paddings.PaddingLeft = 22;
+                m.Styles.Item.Paddings.PaddingRight = 22;              
+            }).GetHtml()
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,134 @@
+﻿@model CustomerAddressListModel
+@using System.Web.Optimization;
+@using Asu.Web.Models.Customer;
+@{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/btopic") : Html.InlineStyles("~/styles/btopic"))
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+}
+@section left
+{
+    @Html.Action("CustomerNavigation", "Customer", new { selectedTabId = CustomerNavigationEnum.Addresses })
+}
+<div class="page account-page address-list-page">
+    @*<div class="page-title">
+            <h1>@T("Account.MyAccount") - @T("Account.CustomerAddresses")</h1>
+        </div>*@
+    <div class="page-body">
+        <button type="button" class="add-address-button" onclick="location.href='@Url.RouteUrl("CustomerAddressAdd")'" value="@T("Common.AddNew")">
+            <img src="~/Themes/Autoplicity/Content/images/plus.svg" alt="Plus" />
+            <span class="ion-help-circled"></span>
+            <p>Add address</p>
+        </button>
+        @if (Model.Addresses.Count > 0)
+        {
+            for (int i = 0; i < Model.Addresses.Count; i++)
+            {
+                var address = Model.Addresses[i];
+                <div class="address-list">
+                    <div class="section address-item">
+                        <div class="buttons">
+                            <input type="button" class="edit-address-button" onclick="location.href='@(Url.RouteUrl("CustomerAddressEdit", new { addressId = address.Id }))'" value='@T("Common.Edit")' />
+                            <input type="button" class="delete-address-button" onclick="if (confirm('@(T("Common.AreYouSure").Text)')) {location.href='@(Url.RouteUrl("CustomerAddressDelete", new { addressId = address.Id }))';}" value="@T("Common.Delete")" />
+                        </div>
+                        @*<div class="title">
+                                <h3>Shipping info</h3>
+                            </div>*@
+                        <ul class="info">
+                            <li class="name">
+                                <label>Name: </label>
+                                @address.FirstName @address.LastName
+                            </li>
+                            <li class="email">
+                                @Html.LabelFor(model => model.Addresses[i].Email, new { }, ":")
+                                @address.Email
+                            </li>
+                            @if (address.PhoneEnabled)
+                            {
+                                <li class="phone">
+                                    @Html.LabelFor(model => model.Addresses[i].PhoneNumber, new { }, ":")
+                                    @address.PhoneNumber
+                                </li>
+                            }
+                            @if (address.FaxEnabled)
+                            {
+                                <li class="fax">
+                                    @Html.LabelFor(model => model.Addresses[i].FaxNumber, new { }, ":")
+                                    @address.FaxNumber
+                                </li>
+                            }
+                            @if (address.CompanyEnabled && !String.IsNullOrEmpty(address.Company))
+                            {
+                                <li class="company">
+                                    <label>Company: </label>
+                                    @address.Company
+                                </li>
+                            }
+                            @if (address.StreetAddressEnabled)
+                            {
+                                <li class="address1">
+                                    <label>First Address: </label>
+                                    @address.Address1
+                                </li>
+                            }
+                            @if (address.StreetAddress2Enabled && !String.IsNullOrEmpty(address.Address2))
+                            {
+                                <li class="address2">
+                                    <label>Second Address: </label>
+                                    @address.Address2
+                                </li>
+                            }
+                            @if (address.CityEnabled || address.StateProvinceEnabled || address.ZipPostalCodeEnabled)
+                            {
+                                var cityStateZip = "";
+                                if (address.CityEnabled)
+                                {
+                                    cityStateZip = address.City;
+                                    if (address.StateProvinceEnabled || address.ZipPostalCodeEnabled)
+                                    {
+                                        cityStateZip += ",";
+                                    }
+                                }
+                                if (address.StateProvinceEnabled)
+                                {
+                                    if (!String.IsNullOrEmpty(cityStateZip))
+                                    {
+                                        cityStateZip += " ";
+                                    }
+                                    cityStateZip += address.StateProvinceName;
+                                }
+                                if (address.ZipPostalCodeEnabled)
+                                {
+                                    if (!String.IsNullOrEmpty(cityStateZip))
+                                    {
+                                        cityStateZip += " ";
+                                    }
+                                    cityStateZip += address.ZipPostalCode;
+                                }
+
+                                <li class="city-state-zip">
+                                    <label>Info: </label>
+                                    @cityStateZip
+                                </li>
+                            }
+                            @if (address.CountryEnabled && !String.IsNullOrEmpty(address.CountryName))
+                            {
+                                <li class="country">
+                                    <label>Country: </label>
+                                    @address.CountryName
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            @T("Account.CustomerAddresses.NoAddresses")
+        }
+    </div>
+</div>

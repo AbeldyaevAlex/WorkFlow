@@ -1,0 +1,57 @@
+﻿@model Asu.Web.ViewModel.GostMaterGridViewModel
+<div style="float:right;">
+    @(Html.Kendo().Button()
+                .Name("CloseNmSkm")
+                .HtmlAttributes( new {type = "button", @class = "naim-skm-button"} )
+                .Events(b =>b.Click("onNmMaterButtonClick"))
+                .ImageUrl(Url.Content("~/Content/Images/previous-page.png"))
+            //.Icon("~/Content/Images/plus.ico")
+            //.Content("Назад")
+            )
+</div>
+<br />
+<br />
+<br />
+@(Html.Kendo().Grid<Asu.Web.ViewModel.GostMaterGridViewModel>
+    ()
+    .Name("NmSkmGrid")
+    .Columns(columns =>
+    {
+    columns.Bound(p => p.Gost).Title("ГОСТ").Width(600);
+    columns.Bound(p => p.StatusDocument).Width(600).Title("Статус");
+    })
+    .Pageable(pageable => pageable.Refresh(true).Input(true).Numeric(true))
+    .Sortable(sorting => sorting.Enabled(true))
+    .Navigatable(navigation => navigation.Enabled(true))
+    ////.ClientAltRowTemplate("altRowTemplate")
+    .Scrollable()
+    .Filterable()
+    .Selectable()
+    .Groupable()
+    .Selectable(selectable => selectable
+    .Mode(GridSelectionMode.Multiple)
+    .Type(GridSelectionType.Cell))
+    .Events(events => events
+    .Change("onChangeNmSkmGrid"))
+    .Resizable(resize => resize.Columns(true))
+    .HtmlAttributes(new { style = "height:750px;" })
+    .DataSource(dataSource => dataSource
+    
+    .Ajax().Model(model =>
+    {
+        model.Id(p => p.Id);
+    })
+    .PageSize(50)
+    .Read(read => read.Action("MemoAddingMaterialCodeRead", "Skm"))
+    )
+    )
+<script type="text/javascript">
+
+    function onChangeNmSkmGrid(arg) {
+        debugger;
+        var selected = $.map(this.select(), function (item) {
+            return $(item).text();
+        });     
+        console.log("Selected: " + selected.length + " item(s), [" + selected.join(", ") + "]");
+    }
+</script>

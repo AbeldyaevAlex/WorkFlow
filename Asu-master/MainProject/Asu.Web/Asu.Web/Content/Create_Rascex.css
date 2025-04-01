@@ -1,0 +1,68 @@
+﻿html,
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    background-color: steelblue;
+    font-family: Arial, Helvetica, sans-serif*/;
+}
+.form {
+    max-width: 1600px;
+    margin: 0px,auto;
+    color: #fff;
+    padding: 30px;
+}
+.title_spr {
+    font-size: 40px;
+    font-weight:800;
+    margin: 0px 0px 30px 0px;    
+    color: #fff;
+}
+.form_label{
+    font-size: 17px;
+    display: block;
+    margin: 0px 0px 10px 0px;    
+}
+.form_input{
+    height: 30px;
+    padding: 0px 20px;
+    border-radius:5px;
+    width:100%;
+    font-size:10px;
+}
+.block_ci{
+   border: 2px solid #999;
+    width:21%;
+    height:700px;
+    padding: 15px;
+    background-color: #333;
+    float:left;
+    margin: 10px;
+}
+.block_cto{
+   border: 2px solid #999;
+    width:21%;
+    height:700px;
+    padding: 15px;
+    background-color: #333;
+    float:left;
+     margin: 10px;
+}
+.block_cpk{
+   border: 2px solid #999;
+    width:21%;
+    height:700px;
+    padding: 15px;
+    background-color: #333;
+    float:left;
+     margin: 10px;
+}
+.block_cus{
+   border: 2px solid #999;
+    width:21%;
+    height:700px;
+    padding: 15px;
+    background-color: #333;
+    float:left;
+    margin: 10px;
+}

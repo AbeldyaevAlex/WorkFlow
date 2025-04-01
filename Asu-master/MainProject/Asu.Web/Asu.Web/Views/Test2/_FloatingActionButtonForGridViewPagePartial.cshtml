@@ -1,0 +1,42 @@
+﻿@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "GridView";
+    settings.CallbackRouteValues = new { Controller = "Test2", Action = "FloatingActionButtonForGridViewPagePartial" };
+    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Test2", Action = "FloatingActionButtonForGridViewAddNewPartial" };
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Test2", Action = "FloatingActionButtonForGridViewUpdatePartial" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Test2", Action = "FloatingActionButtonForGridViewDeletePartial" };
+    settings.Width = Unit.Percentage(100);
+    settings.EnableRowsCache = false;
+
+    settings.ClientSideEvents.Init = "OnInit";
+    settings.ClientSideEvents.RowClick = "OnRowClick";
+    settings.ClientSideEvents.EndCallback = "OnEndCallback";
+
+    settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
+    settings.Settings.VerticalScrollableHeight = 500;
+
+    settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+    settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+    settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+    settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+    settings.SettingsBehavior.AllowEllipsisInText = true;
+    settings.SettingsBehavior.AllowFocusedRow = true;
+
+    settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+
+    settings.KeyFieldName = "Id";
+    settings.Columns.Add("obozn");
+
+
+    settings.SettingsPager.Mode = GridViewPagerMode.EndlessPaging;
+    settings.SettingsPager.PageSize = 20;
+
+    settings.CellEditorInitialize = (s, e) =>
+    {
+        ((ASPxEdit)e.Editor).ValidationSettings.Display = Display.Static;
+    };
+}).SetEditErrorText(ViewData["EditError"] as string).Bind(Model).GetHtml()

@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<!-- jQuery library -->
+<!-- jQuery library -->
+@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>*@
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+@{ ViewBag.Title = "FileUpload"; }
+<h2>FileUpload</h2>
+<table class="table table-resonsive table-bordered">
+    <tr>
+        <td>Uploaded By</td>
+        <td><input type="text" name="Name" value="" id="txtName" /></td>
+    </tr>
+
+    <tr>
+        <td>Upload File</td>
+        <td>
+            <input id="file" name="Files" type="file" multiple />
+            <div class="progress">
+                <div id="pb" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    0%
+                </div>
+            </div>
+        </td>
+
+    </tr>
+    <tr>
+        <td colspan="2"><input type="button" value="button" class="btn btn-success" onclick="return Save()" /></td>
+    </tr>
+</table>
+<script>
+    function Save() {
+        debugger;
+        var fileUpload = $("#file").get(0);
+        var files = fileUpload.files;
+        var data = new FormData();
+
+        for (var i = 0; i < files.length; i++) {
+            var fname = files[i].name;
+            var re = /(\.doc|\.docx|\.pdf|\.xlxs)$/i;
+
+
+            data.append("Files", files[i]);
+
+        }
+        data.append("Name", $("#txtName").val());
+        $.ajax({
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function (e) {
+                    if (e.lengthComputable) {
+                        var loaded = e.loaded;
+                        var total = e.total;
+                        var percent = Math.round((loaded / total) * 100);
+
+                        $("#pb").attr("aria-valuenow", percent).css("width", percent + "%").text(percent + "%");
+                    };
+
+                });
+                return xhr;
+            },
+            type: "post",
+            url: "/Test4/fileSave",
+            data: data,
+            dataType: "json",
+            contentType: false, // Not to set any content header
+            processData: false,
+            cache: false,
+            success: function (ss) {
+
+                alert(ss);
+            }
+        });
+    };
+</script>

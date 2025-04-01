@@ -1,0 +1,128 @@
+﻿.opc .buttons {
+    margin-top: 0;
+    padding-top: 2em;
+}
+
+.opc .buttons .back-link {
+    margin-bottom: 10px;
+}
+
+.opc .buttons .back-link small {
+    display: none;
+}
+
+.opc .buttons .back-link a {
+    background: url(/Themes/Autoplicity/Content/images/arrow-up.png) no-repeat left;
+    padding-left: 20px;
+}
+
+.opc .buttons.disabled button {
+    display: none;
+}
+
+.opc .buttons .please-wait {
+    height: 21px;
+    line-height: 21px;
+}
+
+.opc .ul {
+    list-style: disc outside;
+    padding-left: 18px;
+}
+
+.opc ul, .opc ol, ul.opc, ol.opc {
+    list-style: none outside none;
+}
+
+.opc {
+    position: relative;
+}
+
+.opc .step-title {
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: #fff #ccc #ccc;
+    background: #F2F2F2;
+    padding: 4px 8px 6px;
+    text-align: right;
+}
+
+.opc .step-title .number {
+    float: left;
+    background: #fff;
+    border: 1px solid #fff;
+    padding: 0 4px;
+    margin: 0 5px 0 0;
+    font: bold 11px/14px arial, helvetica, sans-serif;
+    color: #999;
+}
+
+.opc .step-title h2 {
+    float: left;
+    margin: 0;
+    font: bold 13px/16px Arial, Helvetica, sans-serif;
+    color: #999;
+    text-transform: capitalize;
+}
+
+.opc .allow .step-title {
+    background: #F2F2F2;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    color: #a4b3b9;
+    cursor: pointer;
+}
+
+.opc .allow .step-title .number {
+    background: #dbe6eb;
+    border-color: #dbe6eb;
+    color: #a4b3b9;
+}
+
+.opc .allow .step-title h2 {
+    color: #a4b3b9;
+}
+
+.opc .active .step-title {
+    background: #f9f3e3;
+    border: 1px solid #ccc;
+    padding-bottom: 5px;
+    color: #f18200;
+    cursor: default;
+}
+
+.opc .active .step-title .number {
+    background: #B20405;
+    border-color: #ccc;
+    color: #fff;
+}
+
+.opc .active .step-title h2 {
+    color: #666;
+}
+
+.opc .step {
+    border: 1px solid #ccc;
+    border-top: 0;
+    background: #fbfaf6 0 0 repeat-x;
+    padding: 15px 30px;
+    position: relative;
+}
+
+.opc .step-title:after {
+    display: block;
+    content: ".";
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.opc .order-summary-content .cart-footer {
+    background: none !important;
+}
+
+.homepagebannertitle1 {
+    display: none
+}

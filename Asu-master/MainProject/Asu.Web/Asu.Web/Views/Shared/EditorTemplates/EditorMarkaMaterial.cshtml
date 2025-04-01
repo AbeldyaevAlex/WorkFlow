@@ -1,0 +1,54 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@*@(
+    Html.Kendo().ComboBox()
+        .Name("MarkaMaterTest")
+        .DataTextField("MarkaMater")
+        .DataValueField("Id")
+        .Filter(FilterType.Contains)
+        .Template("<span class=\"drop-down-list-item\" alt=\"#=MarkaMater#\">#=MarkaMater#</span>")
+        .HtmlAttributes(new { style = "width:100%",
+            placeholder = "Введите марку материала",
+            @id = "InputMarkaMater",
+            @class = "InputMarkaMater"
+            /*, required = "required", validationmessage = "Обязательное поле" */
+        })
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingMaterialMarkaRead", "Skm");
+            });
+        })
+    )*@
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("MarkaMater")
+            .Enable(false)
+            .DataTextField("MarkaMater")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "Введите марку материала",
+                @class = "InputMarkaMater",
+                @id = "InputMarkaMater"
+                /*, required = "required", validationmessage = "Обязательное поле" */
+            })
+            //.HtmlAttributes(new { style = "width:100%" })
+            .Filter(FilterType.Contains)
+            .Events(p => p.Change("onChangeMarkaMaterial"))
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialMarkaRead", "Skm");
+                }).ServerFiltering(true);
+            })
+
+            )
+
+    </div>
+</div>
+
+@*<style>
+    .k-widget.k-tooltip-validation {
+        position:inherit;
+    }
+</style>*@

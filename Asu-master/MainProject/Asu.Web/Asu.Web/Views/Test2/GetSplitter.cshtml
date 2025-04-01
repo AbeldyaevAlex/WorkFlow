@@ -1,0 +1,297 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+    ViewBag.Title = "Служебные записки на добавление материала";
+}
+<link rel="stylesheet" href="~/Content/LeftMenu.css" />
+<div class="wrapper">
+    <div class="burger-menu">
+        <h2 align="center">Наименование материала</h2>
+        @*<a href="#" class="burger-menu-button"><span class="burger-menu-lines"></span></a>*@
+
+    </div>
+</div>
+<script src="~/Scripts/TestScript.js"></script>
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+
+@(Html.Kendo().TabStrip()
+    .Name("tabstrip-bottom")
+    .TabPosition(TabStripTabPosition.Top)
+    .Animation(animation =>
+    {
+        animation.Open(config =>
+        {
+            config.Fade(FadeDirection.In);
+        });
+    })
+    .SelectedIndex(0)
+    //    .Items(items =>
+    //    {
+    //        items.Add().Text("Строки документа")
+    //                .Content(Html.Kendo().Grid<Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel>()
+    //                .Name("testKendoGrid")
+    //                .Columns(columns =>
+    //                {
+    //                    columns.Command(command =>
+    //                    {
+    //                        if (WorkContext.CurrentCustomer.IsAdmin())
+    //                        {
+    //                            command.Edit().Text("Корректировка");
+    //                            command.Destroy().Text("Удалить").HtmlAttributes(new { title = "Удалить" });
+    //                            //command.Custom("MemoAtWork").Text("Принять").Click("showDetails");
+    //                            //command.Custom("СфтсудAtWork").Text("Отказаться").Click("showDetails");
+    //                            //command.Custom("ReturnAtWork").Text("Вернуть").Click("showDetails");
+    //                        }
+    //                    }).Width(250).HeaderHtmlAttributes(new { /*@class = "header-grid"*/ }).Locked(false);
+
+
+    //                    columns.Bound(p => p.Id)
+    //                            .Title("")
+    //                            .ClientTemplate(@"<div class='product-photo'
+    //                                                style='background-image: url(" + @Url.Content("~/Content/PkpImage/material.png") + ");'></div>")
+    //                           .Width(50)
+    //                           .HeaderHtmlAttributes(new { /*@class = "header-grid"*/ })
+    //                           .Filterable(false)
+    //                           .Locked(false);
+
+    //                    columns.Bound(p => p.NoMemorandumLine).Width(90).Title("№ С/З")
+    //                           .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center"/* @class = "header-grid" */})
+    //                           .Locked(false)
+    //                           .Lockable(false);
+    //                    //columns.Bound(p => p.InTheUsersWorkId).Width(90).Title("В работе у пользователя")
+    //                    //        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center"/* @class = "header-grid" */})
+    //                    //        .Locked(false)
+    //                    //        .Lockable(false);
+    //                    columns.Bound(p => p.Status)
+    //                            .Width(150)
+    //                            .Title("Статус")
+    //                            .EditorTemplateName("TypeEditor")
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+    //                    columns.Group(g => g.Title("Группа ОГТ")
+    //       .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //       .Columns(location =>
+    //       {
+    //           location.Bound(p => p.OGT).Width(120).Title("Раздел ОГТ")
+    //           .Locked(false)
+    //           .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //           .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //           location.Bound(c => c.NaimOgt).Title("Наименование ОГТ")
+    //                              .Width(200)
+    //                              .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                              .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+    //           location.Group(group => group.Title("Группа Материалов").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                              .Columns(sublocation =>
+    //                              {
+    //                                  sublocation.Bound(c => c.NomerGrMater)
+    //                                                    .Width(100)
+    //                                                    .Title("№ Группы")
+    //                                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                                                    .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //                                  sublocation.Bound(c => c.GrMater).Width(200).Title("Наименование Группы")
+    //                                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                                                    .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+    //                              })
+    //                  );
+    //           location.Group(group => group.Title("Группа признак КМ").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                              .Columns(sublocation =>
+    //                              {
+    //                                  sublocation.Bound(c => c.PrkmOgt)
+    //                                                         .Width(100)
+    //                                                         .Title("Признак КМ")
+    //                                                         .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                                                         .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //                                  sublocation.Bound(c => c.NmPrkmOgt).Width(200).Title("Наименование Признака КМ")
+    //                                                        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                                                        .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+    //                              })
+    //      );
+    //           location.Bound(p => p.Sortament).Width(120).Title("Сортамент КМ")
+    //                               .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" });
+    //           location.Bound(p => p.KsimKm).Width(120).Title("Кол-во символов")
+    //                               .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" });
+    //       })
+    //);
+    //                    columns.Bound(p => p.NameMaterial)
+    //                            .Width(370)
+    //                            .Title("Наименование материала")
+    //                            .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" })
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" /*@class = "header-grid"*/ })
+    //                            .Locked(false);
+    //                    columns.Bound(p => p.MarkaMater)
+    //                            .Width(150)
+    //                            .Title("Марка материала")
+    //                            .Locked(false)
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" /*@class = "header-grid"*/ });
+    //                    columns.Bound(p => p.Gost)
+    //                            .Width(200)
+    //                            .Title("ГОСТ")
+    //                            .Locked(false)
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                            .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+
+
+    //                    columns.Bound(p => p.Km).Width(130).Title("Код материала")
+    //                            .HtmlAttributes(new { style = "white-space: nowrap;", @class = "Km", @id = "Km" })
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;"/* @class = "header-grid" */})
+    //                            .Locked(false)
+    //                            .Lockable(false);
+    //                    columns.Bound(p => p.Prkm)
+    //                            .Width(100)
+    //                            .Title("Признак кода")
+    //                            .Locked(false)
+    //                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                            .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+
+
+    //                    columns.Group(g => g.Title("Типоразмеры")
+    //                           .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                           .Columns(location =>
+    //                           {
+    //                               location.Bound(p => p.Dbt)
+    //                                        .Width(110)
+    //                                        .Title("Диаметр, Высота")
+    //                                        .Locked(false)
+    //                                        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+    //                               location.Bound(p => p.Dsh)
+    //                                        .Width(100)
+    //                                        .Title("Длина, Ширина")
+    //                                        .Locked(false)
+    //                                        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+    //                           })
+    //                           );
+
+
+
+
+    //                    columns.Bound(p => p.KratNaimEizm)
+    //                                .Width(115)
+    //                                .Title("Ед. измерения")
+    //                                .Locked(false)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+    //                    columns.Bound(p => p.Ves)
+    //                                .Format("{0:n7}")
+    //                                .Width(100)
+    //                                .Title("Вес")
+    //                                .Locked(false)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" /*@class = "header-grid"*/ });
+
+    //                    columns.Bound(p => p.Kgr)
+    //                                .Width(200)
+    //                                .Title("Код групповвода")
+    //                                .Locked(false)
+    //                                .Hidden(true)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                                .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //                    columns.Bound(p => p.Ots)
+    //                                .Width(100)
+    //                                .Title("ОТС")
+    //                                .Hidden(true)
+    //                                .Locked(false)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                                .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+
+    //                    columns.Bound(p => p.BalSch)
+    //                                .Width(100)
+    //                                .Title("№ Счета")
+    //                                .Locked(false)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+    //                                .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //                    //columns.Bound(p => p.GrMater)
+    //                    //        .Width(200)
+    //                    //        .Title("Группа материалов")
+    //                    //        .Locked(false)
+    //                    //        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+    //                    //        .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+    //                    columns.Bound(p => p.Comment).Width(300).Title("Комментарий").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+    //                    columns.Bound(p => p.FullCustomerName)
+    //                                .Width(130)
+    //                                .Title("Составитель")
+    //                                .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial", @id = "autocomplete" })
+    //                                .HeaderHtmlAttributes(new { /*@class = "header-grid"*/ });
+
+    //                    columns.Bound(p => p.PeriodOpenDate)
+    //                                .Format("{0:dd.MM.yyyy}")
+    //                                .Width(120)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+    //                    columns.Bound(p => p.PeriodCloseDate)
+    //                                .Format("{0:dd.MM.yyyy}")
+    //                                .Width(120)
+    //                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+    //                })
+    //                .ToolBar(tools =>
+    //                {
+    //                    tools.Create().HtmlAttributes(new { @id = "Submit", @name = "Submit" });
+    //                    //tools.Save();
+    //                })
+    //                .Pageable(pageable => pageable.Refresh(true).Input(true).Numeric(true))
+    //                .Sortable(sorting => sorting.Enabled(true))
+    //                .Navigatable(navigation => navigation.Enabled(true))
+    //                ////.ClientAltRowTemplate("altRowTemplate")
+    //                .Scrollable()
+    //                .Filterable()
+    //                .Selectable()
+    //                .Groupable()
+    //                .ColumnMenu()
+    //                .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+    //                .Resizable(resize => resize.Columns(true))
+    //                .HtmlAttributes(new { style = "height:750px;" })
+    //                                 .DataSource(dataSource => dataSource
+    //                 .Ajax().Model(model =>
+    //                 {
+    //                     model.Id(p => p.Id);
+    //                     model.Field(p => p.Id).Editable(false);
+    //                     model.Field(p => p.PeriodOpenDate).Editable(false);
+    //                     model.Field(p => p.PeriodCloseDate).Editable(false);
+    //                     model.Field(p => p.FullCustomerName).Editable(false);
+    //                     model.Field(p => p.Status).Editable(false);
+    //                     model.Field(p => p.NoMemorandumLine).Editable(false);
+    //                 })
+    //                 .PageSize(500)
+    //                //.Read(read => read.Action("ReadMemorandumMaterialCode", "Skm"))
+    //                .Read(read =>
+    //                {
+    //                    if (WorkContext.CurrentCustomer.IsAdmin())
+    //                    {
+    //                        read.Action("ReadMemorandumMaterialCode", "Skm");
+    //                    }
+    //                    else
+    //                    {
+    //                        read.Action("ReadMemorandumMaterialCode", "Skm");
+    //                    }
+    //                })
+    //                .Create(create => create.Action("AddMemorandumMaterialCode", "Skm"))
+    //                .Update(update => update.Action("AddMemorandumMaterialCode", "Skm"))
+    //                .Destroy(destroy => destroy.Action("AddMemoAddingMaterialCodeGridViewPartial", "Skm"))
+
+    //                )
+    //                .NoRecords("No Record Exists!!")
+    //                .ToHtmlString()
+    //                );
+    //    })
+    .Items(tabstrip =>
+    {
+        tabstrip.Add().Text("Skm")
+            .LoadContentFrom(Url.Action("MemorandumAddingMaterialCode", "Skm"));
+
+        tabstrip.Add().Text("Sofia")
+            .LoadContentFrom(Url.Action("Sofia", "Home"));
+    })
+
+)
+
+
+<style>
+    .demo-section * + h4 {
+        margin-top: 2em;
+    }
+
+    .demo-section .k-tabstrip .demo-section {
+        height: 180px;
+    }
+</style>
+
+
+

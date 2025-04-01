@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Справочник едениц измерений";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align ="center">Справочник едениц измерений</h2>
+<br />
+<br />
+@Html.DevExpress().Button(settings1 =>
+{
+    settings1.Text = "Назад на главную";
+    settings1.Name = "Back";
+    //settings1.Images.Image.Url = Url.Content("~/Content/Images/arrow-left.png");
+    settings1.Images.Image.IconID = IconID.HybriddemoiconsEditorsHybriddemoBackbuttonSvgDark16x16;
+    settings1.ImagePosition = ImagePosition.Top;
+    settings1.Styles.Style.HoverStyle.CssClass = "isqHovered";
+    settings1.Styles.Style.PressedStyle.CssClass = "isqPressed";
+    settings1.RouteValues = new  {Controller = "Spr_skm", Action = "Index" };
+    settings1.Images.Image.Height = 20;
+    settings1.Images.Image.Width = 20;
+}).GetHtml()
+<br />
+<br />
+@Html.Action("GridView5Partial")

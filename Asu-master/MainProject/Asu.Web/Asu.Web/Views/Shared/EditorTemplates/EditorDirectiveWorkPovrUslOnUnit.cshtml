@@ -1,0 +1,8 @@
+﻿@model Asu.Web.ViewModel.WorkshopPortfolioViewModel
+@(
+   Html.Kendo().NumericTextBoxFor(model => model.DirectiveWorkPovrUslOnUnit)
+       .Name("DirectiveWorkPovrUslOnUnit")
+       .Format("{0:n7}")
+       .Decimals(7)
+       .HtmlAttributes(new { placeholder = "Труд повременный Усл. на ед." })
+  )

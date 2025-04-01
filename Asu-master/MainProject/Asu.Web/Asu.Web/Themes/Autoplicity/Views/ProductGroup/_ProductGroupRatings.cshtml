@@ -1,0 +1,10 @@
+﻿@using System.Globalization
+@model Nop.Web.Models.Catalog.ProductGroupRatingModel
+<div class="product-reviews-overview" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <div class="product-review-box" title="@($"{Model.RatingCount} ratings")">
+        <div class="rateit" data-rateit-mode="font" style="font-size:21px" data-groupid="" data-rateit-value="@Model.RatingScore" data-rateit-readonly="true" data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+    </div>
+    <meta itemprop="ratingValue" content="@Model.RatingScore.ToString("0.0", new CultureInfo("en-US"))" />
+    <meta itemprop="ratingCount" content="@Model.RatingCount" />
+    <meta itemprop="bestRating" content="5" />
+</div>

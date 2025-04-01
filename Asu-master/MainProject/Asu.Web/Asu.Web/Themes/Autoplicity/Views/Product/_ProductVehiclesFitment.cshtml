@@ -1,0 +1,30 @@
+﻿@model IList<Nop.Web.Models.Vehicles.ProductFitmentGroupModel>
+@if (Model != null && Model.Count > 0)
+{
+    <div id="fitment-accordion" class="fit-accordion-wrap">
+        <div class="fit-accordion-content">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="fit-row@(i >= 7 ? " hidden" : string.Empty)">
+                <div class="fit-row-title">
+                    @Model[i].MakeModel
+                    <span class="fit-row-expand"></span>
+                </div>
+                <div class="fit-row-details">
+                    @foreach (var year in Model[i].Years)
+                    {
+                        <div class="fit-row-line">
+                            <span>@year.Year @Model[i].MakeModel</span> @string.Join(" / ", year.SubModels)
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    if (Model.Count >= 7)
+    {
+        <div id="fitments-show-hide-btn" class="show-hide-btn">Show All Vehicle Fitments</div>
+    }
+}
+

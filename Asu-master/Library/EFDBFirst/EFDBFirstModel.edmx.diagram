@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4e3f85830244b1ea4a091be114d7d54" Name="Diagram1">
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.AclRecord" Width="1.5" PointX="14.25" PointY="300.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ActivityLog" Width="1.5" PointX="12" PointY="277.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ActivityLogType" Width="1.5" PointX="9.75" PointY="296.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Address" Width="1.5" PointX="7.5" PointY="274.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.AddressAttribute" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.AddressAttributeValue" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Affiliate" Width="1.5" PointX="9.75" PointY="263.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.BackInStockSubscription" Width="1.5" PointX="15" PointY="277.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.BlogComment" Width="1.5" PointX="12" PointY="273.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.BlogPost" Width="1.5" PointX="9.75" PointY="291.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Campaign" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Category" Width="1.5" PointX="21.75" PointY="200" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CategoryTemplate" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CheckoutAttribute" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CheckoutAttributeValue" Width="1.5" PointX="10" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Country" Width="1.5" PointX="3" PointY="261.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CrossSellProduct" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Currency" Width="1.5" PointX="42" PointY="299" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CustomDiscountCategory" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CustomDiscountManufacturer" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Customer" Width="1.5" PointX="9.75" PointY="266.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CustomerAttribute" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CustomerAttributeValue" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.CustomerRole" Width="1.5" PointX="12" PointY="281.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DeliveryDate" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Der_izd" Width="1.5" PointX="21" PointY="270.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DirectiveWork" Width="1.5" PointX="18" PointY="275.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DirectoryOfTypesOfWork" Width="1.5" PointX="15" PointY="271.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Discount" Width="1.5" PointX="19.5" PointY="218.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DiscountRequirement" Width="1.5" PointX="21.75" PointY="196.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DiscountUsageHistory" Width="1.5" PointX="35.25" PointY="268.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Docum_Obosnov" Width="1.5" PointX="15" PointY="281.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.DocumentStatus" Width="1.5" PointX="15.75" PointY="242" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Download" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.EmailAccount" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ExceptionForWork" Width="1.5" PointX="18" PointY="270.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ExternalAuthenticationRecord" Width="1.5" PointX="12" PointY="323.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_Forum" Width="1.5" PointX="9.75" PointY="253.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_Group" Width="1.5" PointX="7.5" PointY="254.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_Post" Width="1.5" PointX="18" PointY="283.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_PrivateMessage" Width="1.5" PointX="12" PointY="330.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_Subscription" Width="1.5" PointX="12" PointY="334.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Forums_Topic" Width="1.5" PointX="12" PointY="268.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.GenericAttribute" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.GiftCard" Width="1.5" PointX="40.5" PointY="261.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.GiftCardUsageHistory" Width="1.5" PointX="38.25" PointY="272.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Gos_ree" Width="1.5" PointX="12" PointY="285.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Gost_Mater" Width="1.5" PointX="15" PointY="286" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Gr_Razdizd" Width="1.5" PointX="15" PointY="265.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Grupp" Width="1.5" PointX="18" PointY="287.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.HeaderCategories" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.IdLists" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Konserv" Width="1.5" PointX="18" PointY="266.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Language" Width="1.5" PointX="7.5" PointY="258.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.LocaleStringResource" Width="1.5" PointX="9.75" PointY="250.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.LocalizedProperty" Width="1.5" PointX="9.75" PointY="247" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Log" Width="1.5" PointX="12" PointY="364.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Manufacturer" Width="1.5" PointX="21.75" PointY="189.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ManufacturerTemplate" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Mark_Mater" Width="1.5" PointX="21" PointY="266" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.MeasureDimension" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.MeasureWeight" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode" Width="1.5" PointX="38.25" PointY="283.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.MessageTemplate" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Nazn_prib" Width="1.5" PointX="21" PointY="288.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.News" Width="1.5" PointX="9.75" PointY="258.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.NewsComment" Width="1.5" PointX="12" PointY="265.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.NewsLetterSubscription" Width="1.5" PointX="13.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Nm_mater" Width="1.5" PointX="24" PointY="277" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Nm_prib" Width="1.5" PointX="12" PointY="289.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Nm_vidiz" Width="1.5" PointX="24" PointY="272.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Order" Width="1.5" PointX="27" PointY="271.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.OrderItem" Width="1.5" PointX="38.25" PointY="266.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.OrderNote" Width="1.5" PointX="29.25" PointY="302.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Period_pover" Width="1.5" PointX="24" PointY="282.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.PermissionRecord" Width="1.5" PointX="9.75" PointY="299.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Picture" Width="1.5" PointX="21.75" PointY="233.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Podgr_prib" Width="1.5" PointX="43.5" PointY="263.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Podgrupp" Width="1.5" PointX="24" PointY="267.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Poll" Width="1.5" PointX="19.5" PointY="302.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.PollAnswer" Width="1.5" PointX="21.75" PointY="302.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.PollVotingRecord" Width="1.5" PointX="24" PointY="286.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Predpr_izg" Width="1.5" PointX="24" PointY="290.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Predpr_Postav" Width="1.5" PointX="15" PointY="291" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product" Width="1.5" PointX="21.75" PointY="209" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_Category_Mapping" Width="1.5" PointX="24" PointY="212.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_Manufacturer_Mapping" Width="1.5" PointX="24" PointY="208.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_Picture_Mapping" Width="1.5" PointX="24" PointY="218.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_ProductAttribute_Mapping" Width="1.5" PointX="27" PointY="218.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_Recommendation" Width="1.5" PointX="24" PointY="215.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Product_SpecificationAttribute_Mapping" Width="1.5" PointX="27" PointY="214.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductAttribute" Width="1.5" PointX="24.75" PointY="206" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductIdArrays" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductReview" Width="1.5" PointX="18" PointY="292.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductReviewHelpfulness" Width="1.5" PointX="20.25" PointY="297.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductTag" Width="1.5" PointX="24" PointY="222.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductTemplate" Width="1.5" PointX="27" PointY="187.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductVariantAttributeCombination" Width="1.5" PointX="24" PointY="224.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductVariantAttributeValue" Width="1.5" PointX="29.25" PointY="223" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ProductWarehouseInventory" Width="1.5" PointX="27" PointY="223.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.QueuedEmail" Width="1.5" PointX="5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Raz_det" Width="1.5" PointX="27" PointY="267" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.RecurringPayment" Width="1.5" PointX="29.25" PointY="305.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.RecurringPaymentHistory" Width="1.5" PointX="31.5" PointY="306" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.RelatedProduct" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.RewardPointsHistory" Width="1.5" PointX="35.25" PointY="264.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Rod_poverk" Width="1.5" PointX="27" PointY="287.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ScheduleTask" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.SearchTerm" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Setting" Width="1.5" PointX="15.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Shipment" Width="1.5" PointX="29.25" PointY="310" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ShipmentItem" Width="1.5" PointX="31.5" PointY="310.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ShippingMethod" Width="1.5" PointX="0.75" PointY="262.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.ShoppingCartItem" Width="1.5" PointX="24" PointY="262.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.SignifydDeviceFingerprints" Width="1.5" PointX="29.25" PointY="314" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Sort_Mater" Width="1.5" PointX="27" PointY="262" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.SpecificationAttribute" Width="1.5" PointX="22.5" PointY="183.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.SpecificationAttributeOption" Width="1.5" PointX="24.75" PointY="183.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_agr" Width="1.5" PointX="27" PointY="291.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_balsch" Width="1.5" PointX="44.25" PointY="273.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_cen_mater" Width="1.5" PointX="44.25" PointY="288.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_cena_del" Width="1.5" PointX="12" PointY="261.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_cex" Width="1.5" PointX="15" PointY="259" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_cex_prizn" Width="1.5" PointX="18" PointY="261" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_eizm" Width="1.5" PointX="46.25" PointY="279.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Group_Mater" Width="1.5" PointX="44.25" PointY="268.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.spr_grup_prim" Width="1.5" PointX="21" PointY="261" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_kdan" Width="1.5" PointX="21" PointY="292.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_kgr" Width="1.5" PointX="47.25" PointY="284.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_klass_tochn" Width="1.5" PointX="12" PointY="293.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_kompl" Width="1.5" PointX="30" PointY="276.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_mash" Width="1.5" PointX="30" PointY="268" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_mash_sg" Width="1.5" PointX="30" PointY="282" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_mater" Width="1.5" PointX="24" PointY="294.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_metrol" Width="1.5" PointX="35.25" PointY="282.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_nmdet" Width="1.5" PointX="30" PointY="263.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_obozn" Width="1.5" PointX="30" PointY="255.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_obozn_mater" Width="1.5" PointX="30" PointY="291" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.SPR_OGT" Width="1.5" PointX="38.25" PointY="275.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Ots" Width="1.5" PointX="15" PointY="295.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Perizd" Width="1.5" PointX="33" PointY="275.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_pkp" Width="1.5" PointX="30" PointY="296.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_poln_rascex" Width="1.5" PointX="18" PointY="296.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_predel" Width="1.5" PointX="24" PointY="258.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_prim_dse" Width="1.5" PointX="33" PointY="266" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Prkm" Width="1.5" PointX="47.25" PointY="274.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_prpokr" Width="1.5" PointX="27" PointY="257" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_pvi" Width="1.5" PointX="33" PointY="283.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_rasc_vert" Width="1.5" PointX="47.25" PointY="289.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_rascex" Width="1.5" PointX="35.25" PointY="292.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Razd_DSE" Width="1.5" PointX="47.25" PointY="269.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Razd_Izd" Width="1.5" PointX="49.25" PointY="279.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Skm" Width="1.5" PointX="43.5" PointY="278.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Sortam" Width="1.5" PointX="44.25" PointY="293.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_specif" Width="1.5" PointX="50.25" PointY="285" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_stan" Width="1.5" PointX="12" PointY="257.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Tehnizg" Width="1.5" PointX="47.25" PointY="294.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_tem" Width="1.5" PointX="50.25" PointY="274.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_tematik" Width="1.5" PointX="50.25" PointY="291.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_tto" Width="1.5" PointX="52.5" PointY="273.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Spr_Zakaz" Width="1.5" PointX="50.25" PointY="269.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.srez_sostoyanie" Width="1.5" PointX="47.25" PointY="265" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.StateProvince" Width="1.5" PointX="5.25" PointY="290.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Store" Width="1.5" PointX="27.75" PointY="231.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.StoreMapping" Width="1.5" PointX="30" PointY="231.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.TaxCategory" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.TierPrice" Width="1.5" PointX="23.25" PointY="298.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Tip_pribora" Width="1.5" PointX="27" PointY="296.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Topic" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.TreeProduct" Width="1.5" PointX="41.25" PointY="267.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.UrlRecord" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.UsersTasks" Width="1.5" PointX="12" PointY="297.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Usl_expluat" Width="1.5" PointX="18" PointY="256.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Usl_Skm" Width="1.5" PointX="50.25" PointY="264.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Vendor" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Vid_izmer" Width="1.5" PointX="35.25" PointY="272" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.View_SalesbyProduct" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_Backorders" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_Brand_DigitalData" Width="1.5" PointX="24" PointY="191" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_CancelledManualOrdersWithoutEmailNotification" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_CancelledOrdersWithoutEmailNotification" Width="1.5" PointX="15.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_CompetitorPrice" Width="1.5" PointX="24" PointY="231.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_CoverkingPricing" Width="1.5" PointX="17.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Addresses" Width="1.5" PointX="5.25" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Channels" Width="1.5" PointX="5.25" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ChargeTypes" Width="1.5" PointX="15" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Countries" Width="1.5" PointX="0.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_CreditTypes" Width="1.5" PointX="15.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_FaultTypes" Width="1.5" PointX="8.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_PurchaseOrders" Width="1.5" PointX="9.75" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_PureReturnRefusals" Width="1.5" PointX="19.5" PointY="47.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RefundReasons" Width="1.5" PointX="10.5" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Refunds" Width="1.5" PointX="12.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnCancels" Width="1.5" PointX="15" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnImports" Width="1.5" PointX="26.25" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnItems" Width="1.5" PointX="26.25" PointY="129.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnReasons" Width="1.5" PointX="10.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnRefusalItems" Width="1.5" PointX="29.25" PointY="129.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnRefusalReasons" Width="1.5" PointX="17.25" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ReturnRefusals" Width="1.5" PointX="17.25" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Returns" Width="1.5" PointX="12.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RmaItems" Width="1.5" PointX="26.25" PointY="84.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RmaRefusalReasons" Width="1.5" PointX="17.25" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RmaReturnCancels" Width="1.5" PointX="22.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RmaReturnRefusals" Width="1.5" PointX="19.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Rmas" Width="1.5" PointX="17.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_RmaShipmentImports" Width="1.5" PointX="20.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCancelFeeCharges" Width="1.5" PointX="17.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCancelFees" Width="1.5" PointX="15" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCancelItems" Width="1.5" PointX="26.25" PointY="77.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCancels" Width="1.5" PointX="12.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCreditCharges" Width="1.5" PointX="20.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesCredits" Width="1.5" PointX="18" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesOrderCancelReason" Width="1.5" PointX="17.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesOrderLines" Width="1.5" PointX="24" PointY="128.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesOrders" Width="1.5" PointX="7.5" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesPaymentCharges" Width="1.5" PointX="12" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_SalesPayments" Width="1.5" PointX="9.75" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ShipmentEvents" Width="1.5" PointX="17.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ShipmentItems" Width="1.5" PointX="26.25" PointY="81.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_Shipments" Width="1.5" PointX="15" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ShipmentTrackings" Width="1.5" PointX="20.25" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ShippingMethods" Width="1.5" PointX="7.5" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_ShippingServices" Width="1.5" PointX="12.75" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_States" Width="1.5" PointX="3" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_TrackingStatuses" Width="1.5" PointX="18" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_crm_UserProfiles" Width="1.5" PointX="11.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ManualOrderDeliveredWithoutEmailNotification" Width="1.5" PointX="17.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ManualOrderShipmentsWithoutEmailNotification" Width="1.5" PointX="17.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_OrderEtaForCustomerNotification_Test" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_OrderProductToReview" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_OrderWithRebates" Width="1.5" PointX="17.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductCostByVendor" Width="1.5" PointX="24" PointY="234" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductGroup_DigitalData" Width="1.5" PointX="31.5" PointY="191" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductGroupVehicleFitments" Width="1.5" PointX="2.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductMakes" Width="1.5" PointX="16.5" PointY="229.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductModels" Width="1.5" PointX="16.5" PointY="226.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductOverview" Width="1.5" PointX="19.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductSubModels" Width="1.5" PointX="18.75" PointY="238.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductVehicleFitment" Width="1.5" PointX="24" PointY="236.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_ProductYears" Width="1.5" PointX="16.5" PointY="236.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_thub_OrderItems" Width="1.5" PointX="24" PointY="121.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.vw_thub_Orders" Width="1.5" PointX="21.75" PointY="118.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.Warehouse" Width="1.5" PointX="24.75" PointY="202.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WC_GoogleImageDefaults" Width="1.5" PointX="4.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WC_Manufacturer_PiesCategories" Width="1.5" PointX="19.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WC_OrderProductVariantStockQTY" Width="1.5" PointX="19.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WC_OrderWithRebates" Width="1.5" PointX="19.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WC_ProductCashRebate" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_AmazonPaymentAdvanced" Width="1.5" PointX="35.25" PointY="276.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_AmazonPaymentAdvancedTask" Width="1.5" PointX="20.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_BackorderNotifications" Width="1.5" PointX="21.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Banners" Width="1.5" PointX="21.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_BaseVehicle" Width="1.5" PointX="16.5" PointY="232.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_BrandCategory" Width="1.5" PointX="27" PointY="190.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_CustomerVehicleGarage" Width="1.5" PointX="21" PointY="257.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_DigitalData" Width="1.5" PointX="24.75" PointY="186.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_EbayMarketplaceAccountDeletionNotifications" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_FakeReview" Width="1.5" PointX="24" PointY="240.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_FreeShipping_Mapping" Width="1.5" PointX="8.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_FreshDeskUsers" Width="1.5" PointX="21.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_GDPR_Orders" Width="1.5" PointX="21.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ImageLoader" Width="1.5" PointX="21.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Locker" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Make" Width="1.5" PointX="14.25" PointY="229.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ManageInventory_Product_Mapping" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Model" Width="1.5" PointX="14.25" PointY="232.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_OrderEtaNotification" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_OrderExtra" Width="1.5" PointX="22.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_OrderShippedEmailSendTaskLocker" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_OrderWithRebatesNotification" Width="1.5" PointX="23.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_OriginalShippingRates" Width="1.5" PointX="23.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_PopularMakes" Width="1.5" PointX="23.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_PopularModels" Width="1.5" PointX="23.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_PriceRange" Width="1.5" PointX="23.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Product_Vehicle_Mapping" Width="1.5" PointX="27" PointY="227.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Product_Warranty_Association" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ProductExtra" Width="1.5" PointX="24" PointY="246.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ProductGroup" Width="1.5" PointX="29.25" PointY="189.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ProductGroupClubPrice" Width="1.5" PointX="30" PointY="219.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ProductGroupUrlRecord" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ProductReviewCustomerNotification" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_QueuedEmails" Width="1.5" PointX="25.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_QueuedMessagesSendTaskLocker" Width="1.5" PointX="25.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ReturnRequest" Width="1.5" PointX="24" PointY="134.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ReturnRequestItem" Width="1.5" PointX="26.25" PointY="124.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_RmaShipmentItems" Width="1.5" PointX="20.25" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_RmaShipments" Width="1.5" PointX="18" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_RoundShippingLogs" Width="1.5" PointX="25.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SalesQuoteLines" Width="1.5" PointX="30" PointY="215.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SalesQuoteRestoreHistory" Width="1.5" PointX="25.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SalesQuotes" Width="1.5" PointX="27.75" PointY="210.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SendGridTemplate" Width="1.5" PointX="22.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SEOMakeModels" Width="1.5" PointX="19.5" PointY="230.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ShopperApprovedReviews" Width="1.5" PointX="24.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SignUpCoupon" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SpecificationAttributeDescriptors" Width="1.5" PointX="24.75" PointY="180.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_SubModel" Width="1.5" PointX="16.5" PointY="238.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_UrlRecordExtra" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_UrlRecordRedirect" Width="1.5" PointX="26.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Vehicle" Width="1.5" PointX="18.75" PointY="233.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_VehicleUrlRecord" Width="1.5" PointX="26.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_VehicleUrlRecordRedirect" Width="1.5" PointX="26.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_Year" Width="1.5" PointX="14.25" PointY="236.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ZipCode" Width="1.5" PointX="27.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AsuAviaTestVersionBetaModel.WCS_ZipPrefix" Width="1.5" PointX="27.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.AclRecord_CustomerRole" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ActivityLog_ActivityLogType" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ActivityLog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Address_StateProvince" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Affiliate_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Customer_BillingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Customer_ShippingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Order_BillingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Order_ShippingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.AddressAttributeValue_AddressAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BackInStockSubscription_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BackInStockSubscription_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BlogComment_BlogPost" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BlogComment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BlogPost_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CheckoutAttributeValue_CheckoutAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.StateProvince_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.AmazonPaymentAdvanced_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CustomerVehicleGarage_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfMaterialName_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfTypesOfWork_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DokumObosnov_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ExceptionForWork_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ExternalAuthenticationRecord_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ForumPost_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ForumSubscription_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ForumTopic_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Gos_ree_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GostMater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GR_RAZDIZD_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Grupp_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Konserv_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Log_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MarkMater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nazn_prib_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.NewsComment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nm_prib_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nm_vidiz_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Period_pover_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgr_prib_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgrupp_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PollVotingRecord_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Predpr_izg_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PredprPostav_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PrivateMessage_FromCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PrivateMessage_ToCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductReview_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Raz_det_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RewardPointsHistory_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Rod_poverk_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ShoppingCartItem_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SortMater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_agr_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cena_del_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_prizn_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.spr_grup_prim_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kdan_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_klass_tochn_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kompl_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_sg_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_nmdet_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_mater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Ots_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Perizd_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_pkp_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_poln_rascex_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_predel_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prim_dse_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prpokr_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_pvi_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rasc_vert_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rascex_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_DSE_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_Izd_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_specif_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_stan_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Tehnizg_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tem_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tematik_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Zakaz_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprBalSch_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprEizm_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprGrMater_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprKgr_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprPrKm_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSortam_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.srez_sostoyanie_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Tip_pribora_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UsersTasks_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Usl_expluat_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UslSkm_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Vid_izmer_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CustomerAttributeValue_CustomerAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TierPrice_CustomerRole" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Der_izd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Gr_razdizd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_kdan" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_kompl" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_obozn_ob" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_pkp_kts" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_pkp_ob" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_poln_rascex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_Razd_Izd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd__Spr_specif" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_Spr_agr" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_Spr_obozn_kts" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_Spr_Perizd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Der_izd_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_DirectoryOfTypesOfWork" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_ExceptionForWork" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_Spr_cex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_Spr_obozn" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_Spr_pkp" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectiveWork_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfTypesOfWork_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfTypesOfWork_Spr_cex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfTypesOfWork_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Discount_DiscountRequirements" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DiscountUsageHistory_Discount" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DiscountUsageHistory_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DokumObosnov_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DokumObosnov_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_DocumObosnov" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfMaterialName_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ExceptionForWork_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Gos_ree_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GostMater_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GR_RAZDIZD_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Grupp_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Konserv_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MarkMater_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nazn_prib_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nm_prib_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Nm_vidiz_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Period_pover_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgr_prib_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgrupp_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Predpr_izg_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PredprPostav_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Raz_det_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Rod_poverk_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SortMater_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_agr_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cena_del_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_prizn_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.spr_grup_prim_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kdan_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_klass_tochn_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kompl_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_sg_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mater_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_nmdet_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_mater_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Ots_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Perizd_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_pkp_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_poln_rascex_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_predel_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prim_dse_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prpokr_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_pvi_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rasc_vert_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rascex_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_DSE_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_Izd_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_specif_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_stan_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Tehnizg_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tem_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tematik_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Zakaz_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprBalSch_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprEizm_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprGrMater_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprKgr_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprPrKm_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSortam_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.srez_sostoyanie_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Tip_pribora_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UsersTasks_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Usl_expluat_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UslSkm_StatusDocument" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Vid_izmer_DocumentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.QueuedEmail_EmailAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ExceptionForWork_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Forum_ForumGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ForumTopic_Forum" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ForumPost_ForumTopic" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GiftCard_PurchasedWithOrderItem" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GiftCardUsageHistory_GiftCard" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GiftCardUsageHistory_UsedWithOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GostMater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_GostMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_GostMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.GR_RAZDIZD_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Gr_razdizd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Konserv" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.LocaleStringResource_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.LocalizedProperty_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.NewsItem_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Poll_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BrandCategory_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BrandDigitalData_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroup_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductManufacturer_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MarkMater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_MarkMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_MarkMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_DirectoryOfMaterialName" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_SprBalSch" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_SprGrMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.MemoAddingMaterialCode_SprPrKm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Nazn_prib" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.NewsComment_NewsItem" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.DirectoryOfMaterialName_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_DirectoryOfMaterialName" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgr_prib_Nm_prib" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Vid_izmer_Nm_vidiz" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Order_AmazonPaymentAdvanced_asFirst" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Order_AmazonPaymentAdvanced_asSecond" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.OrderItem_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.OrderNote_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RecurringPayment_InitialOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RewardPointsHistory_UsedWithOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Shipment_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SignifydDeviceFingerprints_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.OrderItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Period_pover" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductPicture_Picture" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Podgr_prib_Vid_izmer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Podgr_prib" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PollAnswer_Poll" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PollVotingRecord_PollAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PredprPostav_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_PredprPostav" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CompetitorPrice_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmSalesOrderLine_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Product_ProductVehicleFitments" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductCategory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductExtra_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroupClubPrice_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductManufacturer_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductPicture_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductRecommendation_ParentProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductRecommendation_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductReview_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductSpecificationAttribute_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVariantAttribute_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVariantAttributeCombination_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVehicle_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductWarehouseInventory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesQuoteLine_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ShoppingCartItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ThubOrderItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TierPrice_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.VendorProductCost_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVariantAttribute_ProductAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVariantAttributeValue_ProductVariantAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductSpecificationAttribute_SpecificationAttributeOption" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductReviewHelpfulness_ProductReview" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroup_Template" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductWarehouseInventory_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Raz_det_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RecurringPaymentHistory_RecurringPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Rod_poverk" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ShipmentItem_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SortMater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_SortMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SpecificationAttribute_Descriptors" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SpecificationAttributeOption_SpecificationAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_agr_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_Spr_agr" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprBalSch_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprCenMater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Mesto_Poverk" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Spr_cex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_Spr_cex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_cex_prizn_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprEizm_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_Spreizm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprGrMater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_SprGrMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_SprGrMater" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.spr_grup_prim_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kdan_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_kdan" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprKgr_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_Spr_kgr" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_kompl_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_kompl" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mash_sg_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_mater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_metrol_Tip_pribora" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_nmdet_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_obozn_ob" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_Spr_obozn_kts" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_obozn_mater_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.FK_SPR_OGT_SPR_OGT" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.FK_SPR_OGT_SPR_OGT1" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.FK_SPR_OGT_SPR_OGT2" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.FK_SPR_OGT_SPR_OGT3" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_SprPrKm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprOgt_SprSortam" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_SPROGT" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Ots_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_Spr_Ots" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Perizd_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_Spr_Perizd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_pkp_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_pkp_kts" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_pkp_ob" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_poln_rascex_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_poln_rascex" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prim_dse_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_SprPrKm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprPrKm_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_SprPrKm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_prpokr_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_Spr_prpokr" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rasc_vert_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_rascex_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_DSE_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Razd_Izd_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_specif_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Tehnizg_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tem_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tematik_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_Zakaz_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSkm_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SprSortam_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.srez_sostoyanie_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UslSkm_Spr_pvi" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_Razd_Izd" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.FK_Spr_Skm_Spr_Skm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Spr_tto_SprSkm" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__Spr_specif" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroupClubPrice_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.StoreMapping_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.TreeProduct__TreeProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.UrlRecord_UrlRecordExtra" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BrandDigitalData_DigitalData" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmAddress_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmAddress_State" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmSalesOrder_BillingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmSalesOrder_ShippingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmSalesOrder_CrmChannel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancelFeeCharge_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCreditCharge_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmState_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCredit_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnReason_FaultType" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PurchaseOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PurchaseOrder_ShippingMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PureReturnRefusal_ReturnReason" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRefusal_PureReturnRefusal" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Refund_Reason" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Refund_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnCancel_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancel_ReturnCancel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmReturnImport_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRequest_Import" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnItem_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnItem_ReturnReason" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRequestItem_ReturnReason" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRefusalItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRefusalItem_ReturnRefusal" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRefusal_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRefusal_RmaReturnRefusal" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Rma_Return" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaItem_Rma" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaReturnRefusal_ReturnReason" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaReturnCancel_Rma" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancel_RmaReturnCancel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaReturnRefusal_Rma" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmRmaShipmentImport_CrmShipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmRmaShipmentImport_RmaShipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancelFeeCharge_Fee" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancelFee_Cancel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancelItem_Cancel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancelItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCancel_CrmOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCreditCharge_Credit" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesCredit_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmSalesOrder_Lines" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipmentItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRequestItem_OrderLine" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesPayment_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesPayment_Charges" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipment_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipmentItem_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipment_ShippingService" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipmentTracking_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CrmShipmentTracking_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroup_ProductGroupDigitalData" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroupDigitalData_DigitalData" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductMake_Make" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductModel_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductSubModel_SubModel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductYear_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRequestItem_OrderItem" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ThubOrderItem_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BaseVehicle_Make" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BaseVehicle_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BaseVehicle_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Vehicle_BaseVehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.BrandCategory_Picture" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductGroup_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CustomerVehicleGarage_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SeoMakeModel_Make" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SeoMakeModel_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ProductVehicle_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ReturnRequestItem_ReturnRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.RmaShipmentItem_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.SalesQuoteLine_Quote" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Vehicle_SubModel" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Customer_CustomerRole_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Customer_CustomerTask_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Customer_CustomerWorkshop_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.CustomerAddresses" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Discount_AppliedToBrands" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Discount_AppliedToCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Discount_AppliedToProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.PermissionRecord_Role_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.Product_ProductTag_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.ShippingMethodRestrictions" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.vw_crm_PurchaseOrderShipments" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.vw_crm_PureCancels" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.vw_crm_RefundCredits" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.vw_crm_RmaShipments" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.vw_crm_SalesCancelCredits" ManuallyRouted="false" />
+        <AssociationConnector Association="AsuAviaTestVersionBetaModel.WCS_Product_FakeReview_Mapping" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

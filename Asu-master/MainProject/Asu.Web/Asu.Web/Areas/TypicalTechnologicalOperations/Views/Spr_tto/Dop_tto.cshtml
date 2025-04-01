@@ -1,0 +1,318 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView1" + " " + ViewData["link_tto"];
+        settings.CallbackRouteValues = new { Controller = "Spr_tto", Action = "GridView1Partial", tto = ViewData["link_tto"] };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_tto", Action = "GridView1PartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_tto", Action = "GridView1PartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_tto", Action = "GridView1PartialDelete" };
+        //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.SettingsBehavior.AutoExpandAllGroups = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+        settings.SettingsBehavior.AllowDragDrop = true;
+
+        settings.SettingsPager.PageSize = 25;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.Visible = true;
+
+        settings.CommandColumn.Width = Unit.Pixel(270);
+        //settings.CommandColumn.ShowNewButton = true;
+        //settings.CommandColumn.ShowDeleteButton = true;
+        //settings.CommandColumn.ShowEditButton = true;
+        //settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+
+        settings.SettingsCustomizationDialog.Enabled = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "Id";
+        //    var name = column.Caption = "Id";
+        //    column.Width = Unit.Pixel(130);
+        //});
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "link_kod_TTO";
+        //    var name = column.Caption = "link_kod_TTO";
+        //    column.Width = Unit.Pixel(130);
+        //});
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "link_kod_komp";
+        //    var name = column.Caption = "link_kod_komp";
+        //    column.Width = Unit.Pixel(130);
+        //});
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Spr_skm1.km";
+            var x = columnSettings.Caption = "Код ТТО";
+            columnSettings.GroupIndex = 1;
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.TextBox;
+            //var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            //comboBoxProperties.ValueField = "Id";
+            //comboBoxProperties.TextField = "km";
+            //comboBoxProperties.ValueType = typeof(string);
+            //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.Get_km_new_kkomp();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Spr_skm.km";
+            var x = columnSettings.Caption = "Код компоненты";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.TextBox;
+            //var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            //comboBoxProperties.ValueField = "Id";
+            //comboBoxProperties.TextField = "km";
+            //comboBoxProperties.ValueType = typeof(string);
+            //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.Get_kkomp();
+        });
+
+
+
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_cizg";
+            var x = columnSettings.Caption = "Цех изготовитель";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "cex";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_prkm";
+            var x = columnSettings.Caption = "Признак кода материала";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "prkm";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetPrKm();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_prpokr";
+            var x = columnSettings.Caption = "Признак покрытия";
+            columnSettings.GroupIndex = 0;
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "prpokr";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.Get_Pr_Pokr();
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "nrm";
+            var name = column.Caption = "Норма";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = false;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "vpost";
+            var name = column.Caption = "Вид поставки";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = false;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "nrvp";
+            var name = column.Caption = "Норма с учетом вида поставки";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = false;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "krat";
+            var name = column.Caption = "Кратность";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = false;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "vpost_sh";
+            var name = column.Caption = "Норма (от ширины)";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = false;
+        });
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "sort_km";
+        //    var name = column.Caption = "Сортировка км";
+        //    column.Width = Unit.Pixel(130);
+        //    column.ColumnType = MVCxGridViewColumnType.TextBox;
+        //    column.ReadOnly = false;
+        //});
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "sort_kod_komp";
+        //    var name = column.Caption = "Сортировка комплекта";
+        //    column.Width = Unit.Pixel(130);
+        //    column.ColumnType = MVCxGridViewColumnType.TextBox;
+        //    column.ReadOnly = false;
+        //});
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "status";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_user";
+            var x = columnSettings.Caption = "Пользователь";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "Full_Name";
+            comboBoxProperties.ValueType = typeof(string);
+           // comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetUser();
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "operation";
+            var name = column.Caption = "Операция";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "operation_date";
+            var name = column.Caption = "Дата операции";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "period_open_date";
+            var name = column.Caption = "Дата открытия";
+            column.Width = Unit.Pixel(150);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "period_close_date";
+            var name = column.Caption = "Дата закрытия";
+            column.Width = Unit.Pixel(150);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+        //settings.Toolbars.Add(toolbar =>
+        //{
+        //    toolbar.Enabled = true;
+        //    toolbar.Position = GridToolbarPosition.Top;
+        //    toolbar.ItemAlign = GridToolbarItemAlign.Left;
+        //    toolbar.Items.Add(item =>
+        //    {
+        //        item.Command = GridViewToolbarCommand.ShowCustomizationDialog;
+        //        item.Text = "Панель Группировки";
+        //        item.Image.IconID = IconID.ActionsFilter16x16devav;
+        //    });
+        //    toolbar.Items.Add(item =>
+        //    {
+        //        item.Command = GridViewToolbarCommand.FullExpand;
+        //        item.Text = "Развернуть";
+        //        item.Image.IconID = IconID.ExportExport16x16;
+        //    });
+        //    toolbar.Items.Add(item =>
+        //    {
+        //        item.Command = GridViewToolbarCommand.FullCollapse;
+        //        item.Text = "Свернуть";
+        //        item.Image.IconID = IconID.HybriddemoiconsEditorsHybriddemoCollapsefilterbuttoncollapsedSvg16x16;
+        //    });
+        //    //toolbar.Items.Add(item =>
+        //    //{
+        //    //    item.NavigateUrl = Url.Action("ShowDeletetedRow", "Spr_skm");
+        //    //    item.Text = "Показать удаленные";
+        //    //    item.Image.IconID = IconID.HybriddemoiconsBottompanelHybriddemoCancelSvg16x16;
+        //    //});
+        //});
+        if (ViewData["yes_tto"] != null)
+        {
+            settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+            settings.SettingsDetail.ShowDetailRow = true;
+            settings.SetDetailRowTemplateContent(c =>
+            {
+                Html.RenderAction("GridView1Partial", "Spr_tto", new { tto = DataBinder.Eval(c.DataItem, "link_kod_komp") });
+            });
+        }
+
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@*@grid.Bind(Model).GetHtml()*@
+@*@grid.BindToLINQ("Asu.Web.Models.ASU_AVIAEntities12", "Spr_tto").GetHtml()*@
+@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+{
+    e.KeyExpression = "Id";
+    e.QueryableSource = Model;
+}).GetHtml()

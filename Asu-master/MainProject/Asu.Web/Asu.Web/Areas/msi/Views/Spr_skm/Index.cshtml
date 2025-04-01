@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Asu.Web.Models.Spr_skm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dbt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dsh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ves)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operation_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.period_open_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.period_close_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomenkl_nomer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GOST_mater.gost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mark_mater.marka_mater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nm_mater.nm_mater1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spr_balsch.operation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spr_eizm.krat_naim_eizm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spr_GR_Mater.nm_gr_mater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spr_kgr.fio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SPR_OGT.naim_ogt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SPR_OTS.per)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SPR_PRKM.prkm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status_dok.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.km)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dbt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dsh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ves)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.operation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.operation_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.period_open_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.period_close_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomenkl_nomer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GOST_mater.gost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mark_mater.marka_mater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nm_mater.nm_mater1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spr_balsch.operation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spr_eizm.krat_naim_eizm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spr_GR_Mater.nm_gr_mater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spr_kgr.fio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SPR_OGT.naim_ogt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SPR_OTS.per)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SPR_PRKM.prkm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status_dok.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.First_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

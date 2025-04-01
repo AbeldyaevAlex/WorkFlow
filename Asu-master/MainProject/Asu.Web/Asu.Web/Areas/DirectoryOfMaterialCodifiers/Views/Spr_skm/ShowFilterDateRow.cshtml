@@ -1,0 +1,13 @@
+﻿@using System.Web.UI.WebControls
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@model Asu.Web.Models.DirectoryOfMaterialCodifiers.Spr_skm
+@{
+    ViewBag.Title = "Справочник кодификаторов материала";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="@Url.Content("~/Content/GridView.js")"></script>
+
+@Html.Action("SKM_GridViewPartial")
+
+

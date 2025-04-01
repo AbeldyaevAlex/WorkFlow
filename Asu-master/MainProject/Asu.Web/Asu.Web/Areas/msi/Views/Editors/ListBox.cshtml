@@ -1,0 +1,114 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.Areas.msi.Controllers.Vibor;
+
+
+
+@Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList },
+        new StyleSheet { ExtensionType = ExtensionType.ListBox },
+        new StyleSheet { ExtensionType = ExtensionType.CheckBox },
+        new StyleSheet { ExtensionType = ExtensionType.CheckBoxList },
+        new StyleSheet { ExtensionType = ExtensionType.ComboBox }
+    )
+@Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList },
+        new Script { ExtensionType = ExtensionType.ListBox },
+        new Script { ExtensionType = ExtensionType.CheckBox },
+        new Script { ExtensionType = ExtensionType.CheckBoxList },
+        new Script { ExtensionType = ExtensionType.ComboBox }
+    )
+@section AdditionalResorces{
+    <style type="text/css">
+        .mainContainer {
+            display: table;
+        }
+
+        .leftEditor {
+            padding: 0 0 30px 0;
+        }
+
+        @@media (min-width:620px) {
+            .contentEditor {
+                width: 310px;
+                display: table-cell;
+            }
+
+            .leftEditor {
+                padding: 0 2% 0 0;
+            }
+        }
+    </style>
+}
+<script type="text/javascript">
+    MVCxClientGlobalEvents.AddControlsInitializedEventHandler(InitializeOptionEditors);
+    function InitializeOptionEditors() {
+        SelectionMode.ValueChanged.AddHandler(OnChangeDemoOptions);
+        EnableSelectAll.ValueChanged.AddHandler(OnChangeDemoOptions);
+        if (SelectionMode.GetValue() !== "CheckColumn") {
+            EnableSelectAll.SetEnable(false);
+            EnableSelectAll.SerValue(false);
+        }
+    }
+    function OnChangeDemoOptions() {
+        $("form").submit();
+    }
+    function FeaturesSelectionChanged(s, e) {
+        var selectedFeatures = s.GetSelectedValues();
+        lbModels.PerformCallback({ "selectedFeatures": selectedFeatures ? selectedFeatures.join() : null });
+    }
+</script>
+@section StartDemoRegion{
+    @{Html.BeginForm();}
+}
+
+
+
+    @*@Html.DevExpress().ComboBox(s =>
+  {
+      s.Name = "SelectionMode";
+      s.Properties.Caption = "Selection Mode";
+      s.Properties.ValueType = typeof(ListEditSelectionMode);
+  }).BindList(Enum.GetNames(typeof(ListEditSelectionMode))).Bind(ListBoxDemoHelper.SelectionMode).GetHtml()
+
+    @Html.DevExpress().CheckBox(s =>
+       {
+           s.Name = "EnableSelectAll";
+           s.Text = "Enable Select All";
+       }).Bind(ListBoxDemoHelper.EnableSelectAll).GetHtml()*@
+
+
+
+<div class="mainContainer">
+    <div class="leftEditor contentEditor">
+        @Html.DevExpress().ListBox(settings =>
+   {
+       settings.Name = "lbFeatures";
+       settings.Width = 285;
+       settings.Height = 210;
+       settings.Properties.Caption = "Phone features";
+       settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+       settings.Properties.SelectionMode = ListBoxDemoHelper.SelectionMode;
+       settings.Properties.EnableSelectAll = ListBoxDemoHelper.EnableSelectAll;
+       settings.Properties.ValueField = "ID";
+       settings.Properties.ValueType = typeof(string);
+       settings.Properties.TextField = "Name";
+       settings.Properties.ClientSideEvents.SelectedIndexChanged = "FeaturesSelectionChanged";
+   }).BindList(Model).GetHtml()
+    </div>
+    <div class="contentEditor">
+        @Html.Action("ListBoxPartial")
+    </div>
+</div>
+@section EndDemoRegion{
+    @{Html.EndForm();}
+}
+

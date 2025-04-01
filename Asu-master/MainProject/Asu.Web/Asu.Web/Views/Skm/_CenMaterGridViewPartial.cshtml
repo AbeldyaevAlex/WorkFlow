@@ -1,0 +1,72 @@
+﻿@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        Html.EnableClientValidation();
+        Html.EnableUnobtrusiveJavaScript();
+
+        settings.EnableRowsCache = false;
+
+        settings.Name = "GridViewCenaMater" + ViewData["cena_mater"];
+        settings.CallbackRouteValues = new { Controller = "Skm", Action = "GridViewPartialCenMater" };
+
+        //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialAddNew" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialUpdate" };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.SettingsEditing.ShowModelErrorsForEditors = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxHeight = Unit.Percentage(100);
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.Height = 200;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+        
+        settings.Columns.Add("Cmat");
+        settings.Columns.Add("CurrencyId");
+        settings.Columns.Add("GodPrimCen");
+        settings.Columns.Add("ObosnovId");
+        settings.Columns.Add("PredprId");
+        settings.Columns.Add("StatusDocumentId");
+        settings.Columns.Add("CustomerId");
+        settings.Columns.Add("Operation");
+        settings.Columns.Add("OperationDate");
+        settings.Columns.Add("PeriodOpenDate");
+        settings.Columns.Add("PeriodCloseDate");
+        settings.Columns.Add("Spr_pviId");
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            var editor = (ASPxEdit)e.Editor;
+            editor.ValidationSettings.Display = Display.Dynamic;
+            editor.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        };
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

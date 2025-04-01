@@ -1,0 +1,25 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("KsimKm")
+            .DataTextField("KsimKm")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "",
+                @class = "InputKsimKm",
+                @id = "InputKsimKm"
+                /*, required = "required", validationmessage = "Обязательное поле"*/
+            })
+            //.HtmlAttributes(new { style = "width:100%" })
+            .Filter(FilterType.Contains)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingOgtRead", "Skm");
+                });
+            })
+
+            )
+
+    </div>
+</div>

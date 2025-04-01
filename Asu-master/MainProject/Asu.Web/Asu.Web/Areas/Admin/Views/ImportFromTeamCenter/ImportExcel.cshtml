@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Выгрузка из TeamCenter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+    Выгрузка в БД
+    </title>
+</head>
+<body>
+    <div>
+        <h1 align="center"><u>Выгрузка в БД</u></h1>
+        <br />
+        <br />
+        @using (Html.BeginForm("ImportExcel", "ImportFromTeamCenter", "Admin_default", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <h3 align ="center">Выберите файл</h3>
+            <div align ="center">
+                <input name="myExcelData" type="file" required />
+            </div>
+            <br />
+            <h3 align ="center">Выберите справочник</h3>
+            <div align ="center">
+                <select name="sprav">                   
+                    <option value="Spr_OGT">Справочник ОГТ</option>
+                    <option value="Spr_Eizm">Справочник единиц измерения</option>
+                    <option value="Predpr_Postav">Справочник предприятий поставщиков</option>
+                    <option value="Mark_Mater">Справочник Марок материала</option>
+                    <option value="Nm_mater">Справочник наименований материала</option>
+                    <option value="Dokum_Obosnov">Справочник Документов обоснования</option>
+                    <option value="GOST_mater">Справочник ГОСТов материалов</option>
+                    <option value="Spr_Sort">Справочник сортаментов</option>
+                    <option value="Spr_prkm">Справочник признака кода материала</option>
+                    <option value="Spr_OTS">Справочник ОТС</option>
+                    <option value="Spr_kgr">Справочник кодов групп раскроя</option>
+                    <option value="Spr_GR_Mater">Справочник групп материала</option>
+                    <option value="Spr_cen_mater">Справочник цен материалов</option>
+                    <option value="Spr_balsch">Справочник балансовых счетов</option>
+                    <option value="Spr_skm">Справочник СКМ</option>
+                    <option value="User">Справочник пользователей</option>
+                    <option value="Sort_Ogt">Справочник сортировки ОГТ</option>
+                    <option value="Spr_cex">Справочник цехов</option>
+                    <option value="Spr_prpokr">Справочник признака покрытия</option>
+                    <option value="Spr_tto">Справочник ТТО</option>
+                    <option value="Spr_Prto">Справочник признака покрытия ТТО</option>
+                    <option value="Spr_tem">Справочник тем</option>
+                    <option value="Spr_tematik">Справочник тематик</option>
+                    <option value="Spr_tehn_izgotov">Справочник технологий изготовления производства</option>
+                    <option value="Spr_perizd">Перечень изделий</option>
+                    <option value="Razd_dse">Справочник разделов ДСЕ</option>
+                    <option value="Raz_det">Справочник разделов деталей</option>  
+                    <option value="PKP">Справочник ПКП</option>      
+                    <option value="Spr_agr">Справочник агрегатов</option>  
+                    <option value="Spr_kdan">Справочник кода данного</option>
+                    <option value="Spr_kompl">Справочник комплектов</option>                           
+                </select>
+            </div>
+            <br />
+            <div align ="center">
+                <button align ="center" type="submit">Выгрузить</button>
+            </div>
+        }
+    </div>
+    <br />
+    @if (TempData["timer"] != null || TempData["row_count"] != null)
+    {
+        <h3 align ="center">Файл загружен за: @TempData["timer"]</h3>
+        <h3 align="center">Количество строк: @TempData["row_count"]</h3>
+    }
+</body>
+</html>
+
+@*<h2 align="center">Выгрузка из TeamCenter</h2>
+    <div class="row">
+        <label class="col-md-3">Выгрузка</label>
+        <div class="col-md-6">
+            <input type="file" id="fuExcel" />
+        </div>
+        <div class="col-md-3">
+            <button id="btnUpload" class="btn btn-success">Загрузить</button>
+        </div>
+    </div>*@
+
+
+    <script>
+        $(document).ready(function () {
+            $("#btnUpload").click(function () {
+                var formData = new FormData();
+                var fuUpladFile = document.getElementById("fuExcel");
+                var myFile = fuUpladFile.files[0];
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("SaveRegistration", "ImportFromTeamCenter", "admin_default")',
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        alert(data.message);
+                    }
+                })
+            })
+        })
+    </script>

@@ -1,0 +1,72 @@
+﻿@model AccumulativememorandumVM
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.CustomAttribute;
+@using DevExpress.Data.Filtering;
+@using Asu.Web.Controllers;
+@using Asu.Web.Models;
+@using Asu.Web.Models.Customer;
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@{
+    ViewBag.Title = "Накопительные МСЗ";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+}
+
+@*<h2 align="center">МСЗ</h2>
+    @Html.Action("MalahitMszGridViewPartial", "MainMalahit")*@
+
+<div class="row">
+    @using (Html.BeginForm("GetAccumulativeNoMSZ", "MainMalahit", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <fieldset>
+
+            <!-- Form Name -->
+            <h2 align="center">Введите параметры для поиска Накопительных МСЗ</h2>
+
+            <!-- Text input-->
+            <div class="form-group">
+                @Html.LabelFor(model => model.accumulativeno, "Заказ", new { @class = "col-md-4 control-label" })
+                <div class="col-md-4">
+                    @*@Html.TextBoxFor(model => model.Name,
+                        new
+                           {
+                               @class = "form-control",
+                               placeholder = "Enter your name"
+                               ,
+                               required = "required"
+                           })*@
+
+
+
+                    @(
+                        Html.Kendo().TextBoxFor(model => model.accumulativeno)
+                              .Name("accumulativeno")
+                              .HtmlAttributes(new { placeholder = "Введите № Накопительной", required = "required", validationmessage = "Enter {0}",
+                              @class="form-control"})
+                      )
+                    @Html.ValidationMessageFor(model => model.accumulativeno)
+                </div>
+            </div>
+
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="signup"></label>
+                <div class="col-md-4">
+                    <input type="submit" value="Ok" class="btn btn-success" />
+                </div>
+            </div>
+
+            <script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+                    $('.datepicker').datepicker(); //Initialise any date pickers
+                });</script>
+
+        </fieldset>
+    }
+
+
+</div>

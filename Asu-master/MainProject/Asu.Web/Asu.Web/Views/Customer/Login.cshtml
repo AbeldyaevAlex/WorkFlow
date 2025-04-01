@@ -1,0 +1,160 @@
+﻿
+@using Asu.Web.Models.Customer
+@model LoginModel
+@{
+    ViewBag.Title = "Вход в систему";
+    Layout = "~/Views/Shared/_SignInLayout.cshtml";
+}
+@*@section Head {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/SignInRegister.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/SignInRegister.js")"></script>
+}*@
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/SignInRegister.css")" />
+<script type="text/javascript" src="@Url.Content("~/Content/SignInRegister.js")"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивная форма авторизации</title>
+    @*<link rel="stylesheet" href="style.css">*@
+    <link href="~/Content/Account/style.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    @*<script src="script.js" defer></script>*@
+</head>
+<body>
+    <article class="container">
+        <div class="block">
+            <section class="block__item block-item">
+                <h2 class="block-item__title">У Вас уже есть аккаунт?</h2>
+                <button class="block-item__btn signin-btn">Войти</button>
+            </section>
+            <section class="block__item block-item">
+                <h2 class="block-item__title">У Вас нет аккаунта?</h2>
+                <button class="block-item__btn signup-btn">Зарегистрируйтесь</button>
+            </section>
+        </div>
+        <div class="form-box">
+            @using (Html.BeginForm("Login", "Customer", "Default", FormMethod.Post, new { @class = "form form_signin" }))
+            {
+                @Html.AntiForgeryToken()
+                <h3 class="form__title">Вход</h3>
+                @Html.DevExpress().FormLayout(settings =>
+           {
+               settings.Name = "formLayout";
+               settings.UseDefaultPaddings = false;
+               settings.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+               settings.SettingsItemCaptions.Location = LayoutItemCaptionLocation.Top;
+               settings.Styles.LayoutGroup.Cell.Paddings.Padding = Unit.Pixel(0);
+               settings.Styles.LayoutItem.Paddings.PaddingBottom = Unit.Pixel(8);
+
+               var groupItem = settings.Items.AddGroupItem(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.GroupBoxDecoration = GroupBoxDecoration.None;
+                   i.Paddings.Padding = Unit.Pixel(16);
+
+               });
+               groupItem.Items.Add(m => m.Email, i =>
+               {
+                   i.Caption = "Логин";
+                   i.NestedExtension().TextBox(s =>
+                   {
+                       s.EncodeHtml = true;
+                       s.Width = Unit.Percentage(100);
+                       s.ShowModelErrors = true;
+                       s.Properties.CaptionStyle.Font.Bold = true;
+                       s.Properties.ValidationSettings.Display = Display.Dynamic;
+                       s.Properties.ValidationSettings.SetFocusOnError = true;
+                       s.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                       s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                       s.ControlStyle.CssClass = "form__input";
+                       s.Properties.ClientSideEvents.Init = "function(s, e){ s.Focus(); }";
+                   });
+               });
+
+               groupItem.Items.Add(m => m.Password, i =>
+               {
+                   i.Caption = "Пароль";
+                   i.NestedExtension().ButtonEdit(s =>
+                   {
+                       s.Width = Unit.Percentage(100);
+                       s.ShowModelErrors = true;
+                       s.Properties.ValidationSettings.Display = Display.Dynamic;
+                       s.Properties.ValidationSettings.SetFocusOnError = true;
+                       s.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                       s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                       s.ControlStyle.CssClass = "form__input";
+                       s.Properties.Password = true;
+                       s.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Never;
+                       s.Properties.ClientSideEvents.ButtonClick = "onPasswordButtonEditButtonClick";
+                       s.Properties.ButtonStyle.Border.BorderWidth = Unit.Pixel(0);
+                       s.Properties.ButtonStyle.Width = Unit.Pixel(6);
+                       s.Properties.ButtonStyle.CssClass = "eye-button";
+                       s.Properties.ButtonStyle.HoverStyle.BackColor = System.Drawing.Color.Transparent;
+                       s.Properties.ButtonStyle.PressedStyle.BackColor = System.Drawing.Color.Transparent;
+
+                       s.SetButtonTemplateContent("<div></div>");
+                       s.Properties.Buttons.Add();
+                   });
+               });
+
+               //groupItem.Items.Add(m => m.RememberMe, i => {
+               //    i.ShowCaption = DefaultBoolean.False;
+               //    i.Paddings.PaddingTop = Unit.Pixel(13);
+               //    i.NestedExtension().CheckBox(s => {
+               //        s.Text = "Remember me";
+               //    });
+               //});
+
+               groupItem.Items.Add(itemSettings =>
+               {
+                   itemSettings.ShowCaption = DefaultBoolean.False;
+                   itemSettings.Visible = ViewBag.GeneralError != null;
+                   itemSettings.SetNestedContent(() =>
+                   {
+                       ViewContext.Writer.Write("<div class=\"formLayout-generalErrorText\">" + @ViewBag.GeneralError + "</div>");
+                   });
+               });
+
+               groupItem = settings.Items.AddGroupItem(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.GroupBoxDecoration = GroupBoxDecoration.HeadingLine;
+                   i.Paddings.PaddingTop = Unit.Pixel(13);
+                   i.Paddings.PaddingBottom = Unit.Pixel(13);
+                   i.GroupBoxStyle.CssClass = "formLayout-groupBox";
+               });
+               groupItem.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+                   i.Paddings.Padding = Unit.Pixel(0);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "SignInButton";
+                       //s.Width = Unit.Pixel(200);
+                       s.Text = "Войти";
+                       s.UseSubmitBehavior = true;
+                       s.ControlStyle.CssClass = "form__btn";
+                   });
+               });
+
+           }).GetHtml()
+            }
+
+
+
+            <form action="#" class="form form_signup">
+                <h3 class="form__title">Регистрация</h3>
+            </form>
+        </div>
+    </article>
+    @*<p>
+            @Html.ActionLink("Забыли пароль?", "ForgotPassword");
+        </p>*@
+</body>
+</html>
+<script src="~/Content/Account/script.js"></script>

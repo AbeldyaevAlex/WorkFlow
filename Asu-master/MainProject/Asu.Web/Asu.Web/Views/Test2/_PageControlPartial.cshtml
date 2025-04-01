@@ -1,0 +1,39 @@
+﻿@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl";
+    settings.CallbackRouteValues = new {Controller = "Test2", Action = "Index2" };
+    settings.TabPages.Add(tabpage =>
+{
+    tabpage.Name = "TabPage1";
+    tabpage.Text = "Text1";
+    tabpage.SetContent(() =>
+    {
+        ViewContext.Writer.Write(String.Format("<div id = '{0}'>", tabpage.Name));
+        Html.RenderAction(tabpage.Name);
+        ViewContext.Writer.Write("</div>");
+    });
+});
+    settings.TabPages.Add(tabpage =>
+    {
+        tabpage.Name = "TabPage2";
+        tabpage.Text = "Text2";
+        tabpage.SetContent(() =>
+        {
+            ViewContext.Writer.Write(String.Format("<div id = '{0}'>", tabpage.Name));
+            Html.RenderAction(tabpage.Name);
+            ViewContext.Writer.Write("</div>");
+        });
+    });
+    settings.TabPages.Add(tabpage =>
+    {
+        tabpage.Name = "TabPage3";
+        tabpage.Text = "Text3";
+        tabpage.SetContent(() =>
+        {
+            ViewContext.Writer.Write(String.Format("<div id = '{0}'>", tabpage.Name));
+            Html.RenderAction(tabpage.Name);
+            ViewContext.Writer.Write("</div>");
+        });
+    });
+    settings.ClientSideEvents.ActiveTabChanging = "OnActiveTabChanging";
+}).GetHtml()

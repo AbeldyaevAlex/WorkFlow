@@ -1,0 +1,141 @@
+﻿@using Nop.Web.Models.ProductGroups;
+@using System.Web.Optimization;
+@using Nop.Web.Extensions;
+@using Nop.Core.Domain.ProductGroups;
+
+@model ProductGroupModel
+
+@{
+    this.Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    var vehicle = Model.VariantModel.Vehicle;
+    var isVehicleSet = vehicle != null;
+    var minStockQuantity = 1;
+    var maxStockQuantity = 9999;
+    var isProductSelected = Model.Product.Id > 0;
+
+    // title, meta
+    Html.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+
+    // canonical URL
+
+    // open graph META tags
+
+    // Twitter META tags
+}
+
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproductgroup") : Html.InlineStyles("~/styles/hproductgroup"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproductgroup") : Html.InlineStyles("~/styles/fproductgroup"))
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/product-group") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/product-group"))
+}
+
+<nav class="breadcrumb">
+    <ul>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/" title="Home" itemprop="url">
+                <span itemprop="title">Home</span>
+            </a>
+            <span class="delimiter">/</span>
+        </li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/17-tire-and-wheel" title="Tire and Wheel" itemprop="url">
+
+                <span itemprop="title">Tire and Wheel</span>
+            </a>
+            <span class="delimiter">/</span>
+        </li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/g/coverking" title="Coverking" itemprop="url">
+                <span itemprop="title">Tires</span>
+            </a>
+            <span class="delimiter">/</span>
+        </li>
+        @*<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <a href="@Url.RouteUrl("TireProductGroupSeo", new { ParentEntitySlug = Model.Category.BrandSlug, EntitySlug = Model.Category.SeName })" title="Coverking" itemprop="url"><span itemprop="title">@Model.Category.Name</span></a>
+            </li>*@
+    </ul>
+</nav>
+
+<input id="product-group-id" type="hidden" value="@Model.Id" />
+<input id="selected-productId" type="hidden" value="@Model.Product.Id" />
+
+<input id="vehicle-filter-entity-type" type="hidden" value="@((int)VehicleEntityType.ProductGroup)" />
+<div class="page product-details-page product-group-page">
+    <div class="page-body">
+        <div id="product-details-form">
+            <div itemscope itemtype="http://schema.org/Product" @*data-productid="@Model.Id"*@>
+                <div class="product-essential">
+                    <div class="gr-gallery">
+                        <div class="manufacturer">
+                            @Html.Partial("~/Views/Product/_ProductManufacturerPictures.cshtml", Model.Manufacturers)
+                            @Html.Partial("~/Themes/Autoplicity/Views/Product/_ProductManufacturers.cshtml", Model.Manufacturers)
+                        </div>
+                        @Html.Partial("_ProductGroupResources", Model.Resources)
+                    </div>
+                    <div class="add-to-cart">
+                        <div class="rightinfoblock">
+                            <h1 class="product-group-title" itemprop="name">@Model.Name</h1>
+                            <div class="product-group-mpn-ratings">
+                                <div class="line manufacturer-part-number" @(!isProductSelected ? "style=display:none" : string.Empty)>
+                                    <span class="label">Part number:&nbsp;</span>
+                                    <span class="value" id="mpn-@Model.Product.Id">@Model.Product.Mpn</span>
+                                </div>
+                                @Html.Partial("_Ratings", Model.Rating)
+                            </div>
+                            @Html.Partial("_Price", Model.Price)
+                            <div class="inventory-container">
+                                @if (isProductSelected)
+                                {
+                                    @Html.Partial("_Inventory", Model.Product)
+                                }
+                            </div>
+                            <div class="free-shipping" @(Model.FreeShippingNotificationEnabled && !Model.Product.IsFreeShipping ? " style=display:none;" : string.Empty)>Free Shipping</div>
+                        </div>
+                        <hr />
+                        <div class="add-to-cart-panel">
+                            <div class="product-group-options-container" @(!isVehicleSet ? "style=display:none;" : string.Empty)>
+                                <div class="pf-header">
+                                    <h3 class="product-group-option-header">Fits for your</h3>
+                                    <div>
+                                        @if (isVehicleSet)
+                                        {
+                                            @(vehicle.GetVehicleName());
+                                        }
+                                    </div>
+                                    <a class="pf-edit set-vehicle-btn">Change</a>
+                                </div>
+                            </div>
+                            <div class="product-options" @(!isVehicleSet ? "style=display:none;" : string.Empty)>
+                                @if (isVehicleSet)
+                                {
+                                    @Html.Partial("_ProductGroupOptions", Model.VariantModel)
+                                }
+                            </div>
+                            @Html.Partial("_ProductFitsWindow", new ViewDataDictionary { { "VehicleSelected", isVehicleSet }, { "CategoryLink", "/17-tire-and-wheel" } })
+                            <div class="add-to-cart-container">
+                                @Html.Partial("_AddToCart", Model.Product)
+                            </div>
+                            @Html.Partial("_GuaranteeBanner")
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_ProductTabs", Model)
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (isVehicleSet)
+{
+    @Html.Partial("_WarningModal", Model.VariantModel)
+}
+
+
+
+
+
+

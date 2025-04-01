@@ -1,0 +1,82 @@
+﻿@model IList<ProductGroupResourceModel>
+
+@using Nop.Core.Domain.ProductGroups;
+@using Nop.Web.Models.ProductGroups;
+
+<div id="neysgallery" style="display: none;">
+    @foreach (var resource in Model)
+    {
+        if (resource.Type == ProductGroupResourceType.Image)
+        {
+            <a href="@resource.Url" data-type="image" data-title="@resource.Title">
+                <img data-src="@(resource == Model.First() ? resource.Url : resource.ThumbUrl)" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Video)
+        {
+            <a href="@resource.Url" data-type="video" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/video.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Materials)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/material.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Comparison)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/comparison.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Warranty)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/warranty.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Installation)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/installation.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Information)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/info.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Colors)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/color.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Catalog)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/catalog.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Faq)
+        {
+            <a href="@resource.Url" data-type="faq" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/faq.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Sounds)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/sound.svg" />
+            </a>
+        }
+        if (resource.Type == ProductGroupResourceType.Logos)
+        {
+            <a href="@resource.Url" data-type="link" data-title="@resource.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/logo.svg" />
+            </a>
+        }
+    }
+</div>

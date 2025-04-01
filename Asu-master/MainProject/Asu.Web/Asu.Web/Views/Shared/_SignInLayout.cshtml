@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        @{ var pageTitleParts = new string[] { ViewBag.Title }; }
+        @string.Join(" - ", @pageTitleParts.Where(s => !string.IsNullOrEmpty(s)))
+    </title>
+    <link rel="icon" href="~/Content/Images/favicon.PNG" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList },
+        new StyleSheet { ExtensionType = ExtensionType.ListBox },
+         new StyleSheet { ExtensionType = ExtensionType.CardView },
+         new StyleSheet { ExtensionType = ExtensionType.DataView },
+         new StyleSheet { ExtensionType = ExtensionType.Gantt },
+         new StyleSheet { ExtensionType = ExtensionType.GridLookup },
+         new StyleSheet { ExtensionType = ExtensionType.PivotGrid },
+         new StyleSheet { ExtensionType = ExtensionType.BinaryImage },
+         new StyleSheet { ExtensionType = ExtensionType.PopupControl },
+         new StyleSheet { ExtensionType = ExtensionType.ReportDesigner },
+         new StyleSheet { ExtensionType = ExtensionType.Image },
+         new StyleSheet { ExtensionType = ExtensionType.ImageSlider },
+         new StyleSheet { ExtensionType = ExtensionType.ProgressBar },
+         new StyleSheet { ExtensionType = ExtensionType.Panel },
+         new StyleSheet { ExtensionType = ExtensionType.VerticalGrid },
+         new StyleSheet { ExtensionType = ExtensionType.Menu }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.Report },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList },
+        new Script { ExtensionType = ExtensionType.ListBox },
+        new Script { ExtensionType = ExtensionType.DataView },
+        new Script { ExtensionType = ExtensionType.Gantt },
+        new Script { ExtensionType = ExtensionType.GridLookup },
+        new Script { ExtensionType = ExtensionType.PivotGrid },
+        new Script { ExtensionType = ExtensionType.CardView },
+        new Script { ExtensionType = ExtensionType.BinaryImage },
+        new Script { ExtensionType = ExtensionType.PopupControl },
+        new Script { ExtensionType = ExtensionType.ReportDesigner },
+        new Script { ExtensionType = ExtensionType.Image },
+        new Script { ExtensionType = ExtensionType.ImageSlider },
+        new Script { ExtensionType = ExtensionType.ProgressBar },
+        new Script { ExtensionType = ExtensionType.Panel },
+        new Script { ExtensionType = ExtensionType.VerticalGrid },
+        new Script { ExtensionType = ExtensionType.Menu }
+    )
+
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>
+

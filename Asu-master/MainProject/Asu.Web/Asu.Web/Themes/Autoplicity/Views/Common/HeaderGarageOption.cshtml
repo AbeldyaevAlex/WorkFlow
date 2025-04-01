@@ -1,0 +1,64 @@
+﻿@model HeaderGarageOptionModel
+@using Nop.Web.Models.Common;
+@using Nop.Core.Domain.GoogleTagManager
+@using Nop.Core.Infrastructure
+
+@{
+    var googleTagManagerService = EngineContext.Current.Resolve<Nop.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+}
+
+@* Garage Option *@
+@if (pageType == PageType.Product || pageType == PageType.Home || pageType == PageType.Search || pageType == PageType.Category || pageType == PageType.Manufacturer || pageType == PageType.Vehicle)
+{
+    <div class="garage-option">
+        <div class="garage-option-icon">
+            <span class="garage-option-count-item">@Model.VehicleGarage.Count</span>
+            <img src="~/Themes/Autoplicity/Content/images/garage.svg" alt="Garage icon" />
+            <p class="garage-option-empty">Garage</p>
+        </div>
+        <div class="garage-option-content">
+            @if (Model.VehicleGarage.Count == 0)
+            {
+                @*  Empty  *@
+                <div class="garage-option-empty">
+                    <button onclick="showVehicleFilterPopup(true);">Add Vehicle</button>
+                    <ul>
+                        <li>Store vehicles in your garage</li>
+                        <li>Get product recommendations</li>
+                        <li>Easily find parts & accessories</li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                @*  Selected  *@
+                <div class="garage-option-selected">
+                    <div class="garage-option-header">
+                        <h3>My Garage</h3>
+                        <a class="garage-option-clear-all" href="">Clear All</a>
+                    </div>
+                    <div class="garage-option-my-vehicles">
+                        <ul>
+                            @foreach (var vehicle in Model.VehicleGarage)
+                            {
+                                <li>
+                                    <div>
+                                        <a id="@vehicle.Vehicle.Id" class="garage-option-vehicle-title switch-vehicle-button" href="#">@vehicle.VehicleName</a>
+                                        @if (vehicle.IsMain)
+                                        {
+                                            <span class="garage-option-main-vehicle-label">Main</span>
+                                        }
+                                    </div>
+                                    <a id="@vehicle.Vehicle.Id" class="garage-option-catalog switch-vehicle-button" href="#">></a>
+                                    <a id="@vehicle.Vehicle.Id" class="garage-option-delete" href="#"></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <button onclick="showVehicleFilterPopup(true);" value="Add Vehicle">Add Vehicle</button>
+                </div>
+            }
+        </div>
+    </div>
+}

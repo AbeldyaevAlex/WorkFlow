@@ -1,0 +1,55 @@
+﻿  
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (ViewData["msg"] != null)
+{
+    <script type="text/javascript">
+            alert("!!!!!!!!!");
+        </script>
+}
+
+@*@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.ShowFooter = true;
+        settings.ShowHeader = true;
+        settings.ShowPinButton = true;
+        settings.FooterText = "ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+        settings.Name = "pcModalMode";
+        settings.Width = 320;
+        settings.AllowResize = true;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = AnimationType.Slide;
+        settings.HeaderText = "Создать запись";
+        settings.Modal = true;
+        settings.AutoUpdatePosition = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        //settings.SetContent(() =>
+        //{
+        //    using (Html.BeginForm("Index", "Vib_Izd", FormMethod.Post))
+        //    {
+        //        Html.RenderPartial("Popup_Vib_Izd");
+        //    };
+        //});
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+    }).GetHtml()
+
+@Html.DevExpress().Button(
+    settings =>
+    {
+        settings.Name = "btShowModal";
+        settings.Text = "Выбрать изделие";
+        settings.Images.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsAdd16x16;
+        settings.ClientSideEvents.Click = "function(s, e) { pcModalMode.Show(); }";
+    }).GetHtml()*@
+
+
+@*<script type="text/javascript">
+    alert("!!!!!!!!!");
+</script>*@

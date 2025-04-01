@@ -1,0 +1,58 @@
+﻿
+@{
+//Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+
+
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+
+    <link href="~/Content/jquery.multiselect.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.multiselect.js"></script>
+
+    <title>Index2</title>
+    <style>
+        body {
+            font-family: 'Open Sans'
+        }
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .label {
+            color: #000;
+            font-size: 16px;
+        }
+
+        .container {
+            padding: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select:</h2>
+        <select name="langOpt[]" multiple id="langOpt">
+            @foreach (var item in ViewBag.Listtest)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        <script>
+            $('#langOpt').multiselect({
+                column: 1,
+                placeholder: 'Select'
+            });
+        </script>
+    </div>
+</body>
+</html>

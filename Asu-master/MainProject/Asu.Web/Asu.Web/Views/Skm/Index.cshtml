@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Справочник кодификаторов материала";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/GridView.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Content/GridView.js")"></script>
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/site/jquery/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Content/sweetalert2/sweetalert2.js"></script>
+    <script src="~/Content/sweetalert2/sweetalert2.all.min.js"></script>
+    <link href="~/Content/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert2/sweetalert2.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function OnToolbarItemClick(s, e) {
+            switch (e.item.name) {
+                case "nextPage":
+                    s.NextPage();
+                    break;
+                case "previousPage":
+                    s.PrevPage();
+                    break;
+                case "filterDate":
+                    pcModalMode.Show();
+                    break;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var command;
+        var isNewRow;
+        function onBeginCallback(s, e) {
+            command = e.command;
+            isNewRow = s.IsNewRowEditing();
+            //var filter = {};
+
+            //for (var i = 0; i < s.GetColumnsCount(); i++) {
+            //    var editor = s.GetAutoFilterEditor(i);
+            //    var column = s.GetColumn(i);
+
+            //    if (editor != null && column != null && editor.GetValue() != null) {
+            //        filter[column.fieldName] = editor.GetValue()
+            //    }
+            //}
+            //e.customArgs['filter'] = JSON.stringify(filter);
+        }
+        function onEndCallback(s, e) {
+            if (command == "UPDATEEDIT" && isNewRow) {
+                /*alert("Result: " + s.cpResult);*/
+                if (s.cpResult == "Запись добавлена") {
+                    Swal.fire("Запись добавлена", "", "success");
+                }
+                if (s.cpResult == "Данная запись уже существует") {
+                    Swal.fire("Данная запись уже существует", "", "info");
+                }
+            }
+            else {
+                if (s.cpResult == "Корректировка записи прошла успешно") {
+                    Swal.fire("Корректировка записи прошла успешно", "", "success");
+                }
+                if (s.cpResult == "Запись успешно удалена") {
+                    Swal.fire("Запись успешно удалена", "", "error");
+                }
+            }
+            //var filter = {};
+
+            //for (var i = 0; i < s.GetColumnsCount(); i++) {
+            //    var editor = s.GetAutoFilterEditor(i);
+            //    var column = s.GetColumn(i);
+
+            //    if (editor != null && column != null && editor.GetValue() != null) {
+            //        filter[column.fieldName] = editor.GetValue()
+            //    }
+            //}
+            //e.customArgs['filter'] = JSON.stringify(filter);
+        }
+    </script>
+}
+
+
+@using (@Html.BeginForm())
+{
+    <h2 align="center" style="padding:50px 0 0 0;">Справочник кодификаторов материала</h2>
+    <div style="padding: 17px 0 0 17px;">
+        @Html.Action("MainPageSkmGridViewPartial")
+    </div>
+}
+

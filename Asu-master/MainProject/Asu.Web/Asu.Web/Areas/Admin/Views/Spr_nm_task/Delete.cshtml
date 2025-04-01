@@ -1,0 +1,161 @@
+﻿@model Asu.Web.Models.Spr_nm_task
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Spr_nm_task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Task)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Task)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naim_task)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naim_task)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.link_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.link_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.link_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.link_user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_open_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_open_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_close_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_close_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.screen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.screen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.naim_screen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naim_screen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlternativeText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlternativeText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Controller_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Controller_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Action_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Action_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RouteUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_nm_task2.Task)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_nm_task2.Task)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

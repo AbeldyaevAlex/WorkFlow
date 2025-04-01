@@ -1,0 +1,84 @@
+﻿.forum-page {
+    clear: both;
+}
+
+    .forum-page .forum-top {
+        zoom: 1;
+    }
+
+        .forum-page .forum-top:after {
+            content: ".";
+            display: block;
+            clear: both;
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+            visibility: hidden;
+        }
+
+        .forum-page .forum-top .forum-info {
+            float: left;
+        }
+
+            .forum-page .forum-top .forum-info .forum-name {
+                font-weight: 700;
+                font-size: 1.2em;
+                line-height: 25px;
+            }
+
+            .forum-page .forum-top .forum-info .forum-description {
+                color: #666;
+            }
+
+        .forum-page .forum-top .link-rss {
+            float: left;
+            margin: 10px 10px 10px 0;
+            background-image: url(/Themes/Autoplicity/Content/images/ico-rss.gif);
+            background-repeat: no-repeat;
+            display: block;
+            height: 14px;
+            width: 14px;
+            text-indent: -9999px;
+        }
+
+        .forum-page .forum-top .actions {
+            float: right;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+            .forum-page .forum-top .actions .newtopic {
+                background: url(/Themes/Autoplicity/Content/images/ico-forum-post-add.gif) no-repeat left;
+                padding: 0 10px 3px 20px;
+            }
+
+            .forum-page .forum-top .actions .watch-forum {
+                background: url(/Themes/Autoplicity/Content/images/ico-forum-watch.gif) no-repeat left;
+                padding-left: 20px;
+            }
+
+    .forum-page .pager ul {
+        float: left;
+        margin: 20px 0 0 0;
+    }
+
+.active-discussions-page {
+    clear: both;
+}
+
+.forum-group-page {
+    clear: both;
+}
+
+.forum-breadcrumb {
+    clear: both;
+}
+
+.pager li.current-page a {
+    background-color: #fff
+}
+
+.pager li.individual-page a {
+    background-color: #f9f9f9;
+    color: #999
+}

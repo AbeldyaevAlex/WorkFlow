@@ -1,0 +1,292 @@
+﻿@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridViewOgt";
+        settings.CallbackRouteValues = new { Controller = "DirectoryOgt", Action = "OgtDirectoryGridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "DirectoryOgt", Action = "OgtDirectoryGridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "DirectoryOgt", Action = "OgtDirectoryGridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "DirectoryOgt", Action = "OgtDirectoryGridViewPartialDelete" };
+
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+
+        settings.SettingsEditing.ShowModelErrorsForEditors = true;
+
+        settings.ControlStyle.CssClass = "grid-view";
+
+        settings.Styles.Cell.Wrap = DefaultBoolean.False;
+        settings.Styles.PagerBottomPanel.CssClass = "pager";
+        settings.Styles.FocusedRow.CssClass = "focused";
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsEditing.EditFormColumnCount = 1;
+
+        settings.SettingsBehavior.AutoExpandAllGroups = false;
+
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+        settings.SettingsBehavior.AllowDragDrop = true;
+        settings.SettingsBehavior.MergeGroupsMode = GridViewMergeGroupsMode.Disabled;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsPager.PageSize = 10;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.ShowDefaultImages = true;
+        settings.SettingsPager.Position = PagerPosition.Bottom;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.Width = Unit.Pixel(175);
+
+        settings.CommandColumn.ShowNewButton = true;
+        settings.SettingsCommandButton.NewButton.Image.Url = "~/Content/Images/plus.ico";
+        settings.SettingsCommandButton.NewButton.Text = "Добавить";
+        settings.SettingsCommandButton.NewButton.Image.Width = Unit.Pixel(12);
+        settings.SettingsCommandButton.NewButton.Image.Height = Unit.Pixel(12);
+
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.SettingsCommandButton.DeleteButton.Image.Url = "~/Content/Images/cancl_16.ico";
+        settings.SettingsCommandButton.DeleteButton.Text = "Удалить";
+        settings.SettingsCommandButton.DeleteButton.Image.Width = Unit.Pixel(12);
+        settings.SettingsCommandButton.DeleteButton.Image.Height = Unit.Pixel(12);
+
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsCommandButton.EditButton.Image.Url = "~/Content/Images/edit.ico";
+        settings.SettingsCommandButton.EditButton.Text = "Корректировка";
+        settings.SettingsCommandButton.EditButton.Image.Width = Unit.Pixel(14);
+        settings.SettingsCommandButton.EditButton.Image.Height = Unit.Pixel(14);
+
+        settings.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.ShowAsPopup;
+        settings.SettingsLoadingPanel.Text = "Загрузка";
+
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Button;
+
+        settings.SettingsCustomizationDialog.Enabled = false;
+
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.Settings.EnableFilterControlPopupMenuScrolling = true;
+        settings.Settings.ShowFilterRowMenuLikeItem = true;
+        settings.Settings.ShowStatusBar = GridViewStatusBarMode.Auto;
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowHeaderFilterBlankItems = true;
+        settings.Settings.ShowHeaderFilterListBoxSearchUI = true;
+        settings.Settings.ShowFilterBar = GridViewStatusBarMode.Visible;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCellsWindowLimit;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Left;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.SettingsPopup.HeaderFilter.Height = Unit.Pixel(440);
+        settings.SettingsPopup.HeaderFilter.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.OnWindowInnerWidth;
+        settings.SettingsPopup.HeaderFilter.SettingsAdaptivity.SwitchAtWindowInnerWidth = 768;
+
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1200;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.AutoUpdatePosition = true;
+        settings.SettingsPopup.EditForm.AllowResize = true;
+        settings.SettingsPopup.EditForm.ShowCollapseButton = true;
+        settings.SettingsPopup.EditForm.Height = 800;
+        settings.EditFormLayoutProperties.ColCount = 1;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+        settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+
+        settings.FormatConditions.AddHighlight("StatusDocumentId", "[StatusDocumentId] = 2", GridConditionHighlightFormat.LightRedFillWithDarkRedText);
+        settings.FormatConditions.AddHighlight("StatusDocumentId", "[StatusDocumentId] = 1", GridConditionHighlightFormat.GreenFillWithDarkGreenText);
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "OGT";
+            var name = columnSettings.Caption = "Номер раздела";
+            columnSettings.Width = Unit.Pixel(135);
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "NaimOgt";
+            var name = columnSettings.Caption = "Наименование ОГТ";
+            columnSettings.Width = Unit.Pixel(600);
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "PrkmId";
+            var x = columnSettings.Caption = "Признак КМ";
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(110);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "PrKm";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = ViewBag.PrKm;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "StatusDocument.Status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.Width = Unit.Pixel(200);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.GroupIndex = 0;
+            columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            columnSettings.FieldName = "GrMaterId";
+            var x = columnSettings.Caption = "Группа материала";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "NmGrMater";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = ViewBag.GrMater;
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Operation";
+            c.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            c.Caption = "Операция";
+            c.Width = Unit.Pixel(250);
+            c.Visible = true;
+            c.ReadOnly = true;
+            c.CellStyle.Wrap = DefaultBoolean.True;
+            c.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            c.HeaderStyle.Wrap = DefaultBoolean.True;
+            c.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "OperationDate";
+            c.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var name = c.Caption = "Дата операции";
+            c.Width = Unit.Pixel(250);
+            c.ReadOnly = true;
+            c.CellStyle.Wrap = DefaultBoolean.True;
+            c.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            c.HeaderStyle.Wrap = DefaultBoolean.True;
+            c.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "PeriodOpenDate";
+            c.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var name = c.Caption = "Дата открытия периода";
+            c.Width = Unit.Pixel(150);
+            c.ReadOnly = true;
+            c.CellStyle.Wrap = DefaultBoolean.True;
+            c.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            c.HeaderStyle.Wrap = DefaultBoolean.True;
+            c.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "PeriodCloseDate";
+            c.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var name = c.Caption = "Дата закрытия периода";
+            c.Width = Unit.Pixel(150);
+            c.ReadOnly = true;
+            c.CellStyle.Wrap = DefaultBoolean.True;
+            c.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            c.HeaderStyle.Wrap = DefaultBoolean.True;
+            c.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Left;
+            if (WorkContext.CurrentCustomer.IsAdmin())
+            {
+                toolbar.Items.Add(subbar =>
+                {
+                    subbar.Command = GridViewToolbarCommand.New;
+                    subbar.Text = "Добавить";
+                });
+                toolbar.Items.Add(subbar =>
+                {
+                    subbar.Command = GridViewToolbarCommand.Edit;
+                    subbar.Text = "Корректировка";
+                });
+                toolbar.Items.Add(subbar =>
+                {
+                    subbar.Command = GridViewToolbarCommand.Delete;
+                    subbar.Text = "Удалить";
+                });
+            }
+            toolbar.Items.Add(subbar =>
+            {
+                subbar.Command = GridViewToolbarCommand.ShowFilterRowMenu;
+                subbar.Text = "Поиск";
+            });
+            toolbar.Items.Add(subbar =>
+            {
+                subbar.Command = GridViewToolbarCommand.Refresh;
+                subbar.Text = "Обновить";
+            });
+        });
+    });
+}
+
+@grid.Bind(Model).GetHtml()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

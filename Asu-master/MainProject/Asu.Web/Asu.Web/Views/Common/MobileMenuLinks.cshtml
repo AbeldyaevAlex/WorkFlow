@@ -1,0 +1,81 @@
+﻿@model HeaderLinksModel
+@using Asu.Web.Models.Common;
+@using Asu.Core
+@using Asu.Core.Infrastructure
+@using Asu.Framework.Themes
+@{
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    var relativeUrl = this.Context.Request.Path;
+    var workingThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var phone = "";
+}
+
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-content">
+
+            <div class="mobile-menu-head">
+                <a class="mobile-menu-close-btn" href="#"></a>
+                <img src="~/Themes/@workingThemeName/Content/images/logo.png" alt="@workingThemeName Logo" />
+            </div>
+
+            @if (Model.ShoppingCartEnabled)
+            {
+                <div class="mobile-menu-cart-btn">
+                    <a class="mobile-menu-cart-btn-full @(Model.ShoppingCartItems != 0 ? "not-empty" : string.Empty)" href="@Url.RouteUrl("ShoppingCart")">
+                        <p>Your cart</p>
+                        <i></i>
+                        @if (Model.ShoppingCartItems > 0)
+                        {
+                            <span>@Model.ShoppingCartItems</span>
+                        }
+                    </a>
+                </div>
+            }
+
+
+            @if (Model.IsAuthenticated)
+            {
+                <div class="mobile-menu-alredy-login">
+
+                    <a class="mobile-menu-alredy-email account-mail" href="#" rel="nofollow">@Model.CustomerEmailUsername</a>
+                    <ul class="mobile-menu-hidden-list">
+                        <li>
+                            <a class="mobile-menu-account" href="@Url.RouteUrl("CustomerInfo")" rel="nofollow">Customer Info</a>
+                        </li>
+                        <li>
+                            <a class="mobile-menu-orders" href="@Url.RouteUrl("CustomerOrders")" rel="nofollow">Orders</a>
+                        </li>
+                        <li>
+                            <a class="mobile-menu-logout" id="Logout" href="@Url.RouteUrl("Logout", new {returnUrl = relativeUrl})" rel="nofollow">@T("Account.Logout")</a>
+                        </li>
+                        <li>
+                            <a class="mobile-menu-alredy-mobile" href="tel:+1800-299-1028">
+                                <p>800-299-1028</p>
+                                <span></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            @*CategoryMenu*@
+            @*@Html.Action($"MobileMenu", $"Vehicle")*@
+
+            @if (!Model.IsAuthenticated)
+            {
+                <div class="mobile-menu-no-login">
+                    <a class="mobile-menu-no-login-email" href="@Url.RouteUrl("Login", new {returnUrl = relativeUrl})" rel="nofollow">
+                        <p>@T("Account.Login")</p>
+                        <span></span>
+                    </a>
+                    <a class="mobile-menu-no-login-mobile" href="tel:+1@(phone)">
+                        <p>@phone</p>
+                        <span></span>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

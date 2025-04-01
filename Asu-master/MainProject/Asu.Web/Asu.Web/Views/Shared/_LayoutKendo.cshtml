@@ -1,0 +1,130 @@
+﻿@using Asu.Core.Domain.Common;
+@using Asu.Core.Infrastructure;
+@using System.Web.Optimization;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Content/Images/favicon.PNG" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendocss")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.1.412/jquery.min.js")"></script>
+</head>
+<body>
+
+    @*<div class="row">
+            <div class="col-12">
+                @(Html.Kendo().Grid<Asu.Web.Models.OrderViewModel>()
+                .Name("grid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.OrderID).Filterable(false);
+                    columns.Bound(p => p.Freight);
+                    columns.Bound(p => p.OrderDate).Format("{0:MM/dd/yyyy}");
+                    columns.Bound(p => p.OrderDate).Format("{0:dd.MM.yyyy}");
+                    columns.Bound(p => p.ShipName);
+                    columns.Bound(p => p.ShipCity);
+                })
+                .Pageable()
+                .Sortable()
+                .Scrollable()
+                .Filterable()
+                .Selectable()
+                .Groupable()
+                .HtmlAttributes(new { style = "height:1000px;" })
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .PageSize(50)
+                    .Read(read => read.Action("Orders_Read", "Test4"))
+                )
+            )
+            </div>
+        </div>*@
+
+    <div class="navbar navbar-inverse navbar-fixed-top nav-blue">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Kendo Controls", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Registration", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Plan Selection", "PlanSelection", "Form")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Registration", "Index", "Registration")</li>
+                </ul>
+                <div class="dropdown">
+                    <button class="dropbtn">Вспомогательные справочники</button>
+                    <div class="dropdown-content">
+                        @Html.ActionLink("Registration", "Index", "Registration")
+                        @Html.ActionLink("Plan Selection", "PlanSelection", "Form")
+                        @Html.ActionLink("About", "About", "Home")
+                        @Html.ActionLink("Contact", "Contact", "Home")
+                        @Html.ActionLink("Registration", "Index", "Registration")
+                    </div>
+                </div>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+    @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendojs")
+</body>
+</html>
+<style>
+    .dropbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 260px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>

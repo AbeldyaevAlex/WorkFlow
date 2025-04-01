@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetCenMater</title>
+</head>
+<body>
+    <div>
+        <h2 align="left" style="padding:0 0 0 0;">Цена материала для @ViewData["DescriptionKm"]</h2>
+        <div style="padding: 5px 5px 5px 5px; border: 2px solid black; ">
+            @Html.Action("GridViewPartialCenMater")
+        </div>
+    </div>
+</body>
+</html>

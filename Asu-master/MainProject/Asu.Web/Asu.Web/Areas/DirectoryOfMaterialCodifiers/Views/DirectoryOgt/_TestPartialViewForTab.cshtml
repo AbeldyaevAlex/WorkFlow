@@ -1,0 +1,44 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.Models
+@using Asu.Web.Areas.TypicalTechnologicalOperations.Controllers
+@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+
+
+@Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "krat1";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.HelpText = "Кратность";
+            }).GetHtml()
+@Html.DevExpress().SpinEdit(text_nrm =>
+{
+    text_nrm.Name = "vpost_sh1";
+    text_nrm.Properties.AllowMouseWheel = true;
+    text_nrm.Width = Unit.Pixel(650);
+    text_nrm.ShowModelErrors = true;
+    text_nrm.ControlStyle.CssClass = "form_vpost_sh";
+    text_nrm.Properties.HelpText = "Вид поставки от ширины";
+}).GetHtml()
+@Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "krat2";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.HelpText = "Кратность";
+            }).GetHtml()
+@Html.DevExpress().SpinEdit(text_nrm =>
+{
+    text_nrm.Name = "vpost_sh3";
+    text_nrm.Properties.AllowMouseWheel = true;
+    text_nrm.Width = Unit.Pixel(650);
+    text_nrm.ShowModelErrors = true;
+    text_nrm.ControlStyle.CssClass = "form_vpost_sh";
+    text_nrm.Properties.HelpText = "Вид поставки от ширины";
+}).GetHtml()
+
+

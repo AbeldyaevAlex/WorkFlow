@@ -1,0 +1,195 @@
+﻿@import 'additionally/colors.scss';
+@import 'additionally/fonts.scss';
+
+/* --- --- --- --- --- --- Checkout page Success --- --- --- --- --- --- --- */
+.checkout-page-success {
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+
+    .checkout-page-success-header {
+        display: block;
+        margin: 50px auto 0;
+        width: 100%;
+
+        .checkout-page-success-header-message {
+            margin: 0 auto 25px;
+            text-align: center;
+
+            .checkout-page-success-header-message-icon {
+                border: 2px solid $green;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                height: 50px;
+                width: 50px;
+
+                span {
+                    background: url("/Content/Images/icons-checkout/checked.svg") no-repeat center;
+                    background-size: contain;
+                    display: block;
+                    filter: brightness(0) saturate(100%) invert(71%) sepia(48%) saturate(402%) hue-rotate(82deg) brightness(94%) contrast(91%);
+                    margin: 0 auto;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+
+            h1 {
+                color: $black;
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .checkout-page-success-content {
+        display: block;
+        width: 100%;
+
+        .checkout-page-success-content-top {
+            margin: 0 0 100px;
+            text-align: center;
+
+            .checkout-page-success-content-top-order {
+                color: $black;
+                display: block;
+                font-size: 25px;
+                font-weight: normal;
+                letter-spacing: 0.3px;
+                margin: 0 auto 15px;
+                width: 100%;
+
+                span {
+                    font-weight: bold;
+                    margin: 0 0 0 5px;
+                }
+            }
+
+            .checkout-page-success-content-top-message {
+                display: block;
+                font-size: 15px;
+                font-weight: normal;
+                letter-spacing: 0.3px;
+                margin: 0 auto 10px;
+                width: 100%;
+            }
+
+            .checkout-page-success-content-top-details-link {
+                display: block;
+                color: $blue;
+                font-size: 14px;
+                letter-spacing: 0.3px;
+                margin: 0 auto 10px;
+                width: 100%;
+            }
+
+            button {
+                border: 1px solid $green;
+                background-color: $green;
+                cursor: pointer;
+                margin: 20px auto 0;
+                max-height: 40px;
+                opacity: 1;
+                padding: 10px 10px;
+                width: 100%;
+                max-width: 360px;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                p {
+                    color: $white;
+                    font-size: 16px;
+                    letter-spacing: 0.3px;
+                    pointer-events: none;
+                }
+            }
+        }
+
+        .checkout-page-success-content-bottom {
+            margin: 0 0 50px 0;
+            text-align: center;
+            width: 100%;
+
+            .checkout-page-success-content-bottom-icon {
+                border: 2px solid $green;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                height: 50px;
+                width: 50px;
+
+                span {
+                    background: url("/Content/Images/icons-checkout/mail.svg") no-repeat center;
+                    background-size: contain;
+                    display: block;
+                    filter: brightness(0) saturate(100%) invert(71%) sepia(48%) saturate(402%) hue-rotate(82deg) brightness(94%) contrast(91%);
+                    margin: 0 auto;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+
+            .checkout-page-success-content-bottom-discont-link {
+                display: block;
+                color: $blue;
+                font-size: 14px;
+                letter-spacing: 0.3px;
+                margin: 0 auto 10px;
+                width: 100%;
+            }
+
+            .checkout-page-success-content-bottom-subscribe {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                margin: 0 0 10px 0;
+
+                input {
+                    border-radius: 0;
+                    font-size: 15px;
+                    height: 40px;
+                    width: 100%;
+                    max-width: 400px;
+                }
+
+                button {
+                    border: 1px solid $green;
+                    background-color: $green;
+                    border-radius: 0;
+                    cursor: pointer;
+                    opacity: 1;
+                    padding: 11px 20px;
+                    max-height: 40px;
+                    font-size: 14px;
+                    letter-spacing: 0.3px;
+                    transition: ease-in-out 0.2s;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+
+                    p {
+                        color: $white;
+                        font-size: 16px;
+                        letter-spacing: 0.3px;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}
+/* --- --- --- --- --- --- End Checkout page Success --- --- --- --- --- --- --- */

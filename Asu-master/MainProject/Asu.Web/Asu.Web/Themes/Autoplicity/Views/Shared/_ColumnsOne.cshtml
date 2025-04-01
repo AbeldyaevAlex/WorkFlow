@@ -1,0 +1,95 @@
+﻿@using Asu.Core
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.GoogleTagManager;
+
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    var store = EngineContext.Current.Resolve<IStoreContext>().CurrentStore;
+}
+
+@if (pageType == PageType.Home)
+{
+    @Html.Widget("main_column_before")
+    @RenderBody()
+    @Html.Widget("main_column_after")
+}
+else
+{
+    <div class="center-1">
+        @if (pageType == PageType.CheckoutCompleted || pageType == PageType.CheckoutPayment || pageType == PageType.CheckoutPayment || pageType == PageType.PayPalExpress || pageType == PageType.CheckoutAddress)
+        {
+            <div class="customer-header-panel-2">
+                <div class="mobile-phone"></div>
+                <a class="headerphone" href="tel:1@(store.CompanyPhoneNumber.Replace("-", string.Empty))">@store.CompanyPhoneNumber</a>
+            </div>
+        }
+        else
+        {
+            @*<div class="customer-header-panel">
+                    <div class="mobile-phone"></div>
+                    <a class="headerphone" href="tel:1@(store.CompanyPhoneNumber.Replace("-", string.Empty))">@store.CompanyPhoneNumber</a>
+                </div>*@
+        }
+
+        @Html.Widget("main_column_before")
+        @RenderBody()
+        @Html.Widget("main_column_after")
+    </div>
+}
+
+
+@if (IsSectionDefined("customization"))
+{
+    @section customization
+    {
+        @RenderSection("customization")
+    }
+}
+@if (IsSectionDefined("header"))
+{
+    @section header
+    {
+        @RenderSection("header")
+    }
+}
+@if (IsSectionDefined("footer"))
+{
+    @section footer
+    {
+        @RenderSection("footer")
+        @*<script>
+            function adSenseScriptReadyDispatch(){
+              if (document.getElementsByClassName('adsense-block').length > 0) {
+                var adsBlock = document.getElementsByClassName('adsense-block')[0];
+                if ((adsBlock.currentStyle ? adsBlock.currentStyle.display : getComputedStyle(adsBlock, null).display) !== "none") {
+                  var mobileToRemove = document.getElementsByClassName('adsense-block-mobile');
+                  while(mobileToRemove.length > 0 && mobileToRemove[0]) {
+                    mobileToRemove[0].parentNode.removeChild(mobileToRemove[0]);
+                  }
+                  var adBlocks = document.getElementsByClassName('adsense-block-item');
+                  for (i = 0; i < adBlocks.length; i++) {
+                    if ((adBlocks[i].currentStyle ? adBlocks[i].currentStyle.display : getComputedStyle(adBlocks[i], null).display) !== "none") {
+                      try{
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                      } catch(e){
+                        console.log(e);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            if(dataLayer[0] && dataLayer[0].page === "Product"){
+              var adSenseScript = document.createElement('script');
+              adSenseScript.setAttribute("type", "text/javascript");
+              adSenseScript.setAttribute("src", "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+              adSenseScript.setAttribute("async", "");
+              adSenseScript.onload = adSenseScriptReadyDispatch;
+              document.head.appendChild(adSenseScript);
+            }
+            </script>*@
+    }
+}

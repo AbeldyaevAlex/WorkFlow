@@ -1,0 +1,186 @@
+﻿@model EFDBFirst.DirectiveWork
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>DirectiveWork</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PkpId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PkpId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OboznId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OboznId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CexIzgId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CexIzgId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CexPotrId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CexPotrId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.link_uch)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.link_uch)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Directive_work_sdeln_izg)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Directive_work_sdeln_izg)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Directive_work_povr_izg)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Directive_work_povr_izg)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Directive_work_sdeln_usl)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Directive_work_sdeln_usl)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Directive_work_povr_usl)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Directive_work_povr_usl)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DirectoryOfTypesOfWorkId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DirectoryOfTypesOfWorkId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prim)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prim)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NomDok)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NomDok)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SprPviId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SprPviId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DocumentStatusId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DocumentStatusId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Operation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Operation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OperationDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OperationDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PeriodOpenDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PeriodOpenDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PeriodCloseDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PeriodCloseDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ExceptionForWork.ShortName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ExceptionForWork.ShortName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

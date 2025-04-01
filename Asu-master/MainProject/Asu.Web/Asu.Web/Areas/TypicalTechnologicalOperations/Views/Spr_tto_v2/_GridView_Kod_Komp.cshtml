@@ -1,0 +1,60 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView_Kod_Komp";
+        settings.CallbackRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewKodKomp" };
+
+	    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridView1PartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridView1PartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridView1PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+		settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+		settings.KeyFieldName = "Id";
+
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+		settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+		settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+		settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+		settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+		settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+				settings.Columns.Add("link_kod_TTO");
+				settings.Columns.Add("link_kod_komp");
+				settings.Columns.Add("link_cizg");
+				settings.Columns.Add("link_prkm");
+				settings.Columns.Add("link_prpokr");
+				settings.Columns.Add("nrm");
+				settings.Columns.Add("vpost");
+				settings.Columns.Add("nrvp");
+				settings.Columns.Add("krat");
+				settings.Columns.Add("vpost_sh");
+				settings.Columns.Add("sort_kod_TTO");
+				settings.Columns.Add("sort_kod_komp");
+				settings.Columns.Add("link_status");
+				settings.Columns.Add("link_user");
+				settings.Columns.Add("operation");
+				settings.Columns.Add("operation_date");
+				settings.Columns.Add("period_open_date");
+				settings.Columns.Add("period_close_date");
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
+@*@grid.Bind(Model).GetHtml()*@
+@*@grid.BindToLINQ("Asu.Web.Models.ASU_AVIAEntities12", "Spr_tto").GetHtml()*@
+@*@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+    {
+        e.KeyExpression = "Id";
+        e.QueryableSource = Model;
+    }).GetHtml()*@

@@ -1,0 +1,42 @@
+﻿@model Nop.Web.Models.ProductGroups.ProductModel
+
+@using Nop.Web.Models.Catalog;
+
+@{
+    const int maxLimit = 10;
+    const int minLimit = 5;
+    var stockQuantity = (Model.StockQuantity > maxLimit ? maxLimit : Model.StockQuantity).ToString("#,###");
+}
+
+@if (Model.StockQuantity > 0)
+{
+    <div class="stock available">
+        <div class="greenboll"></div>@(Model.StockQuantity < minLimit ? $"{stockQuantity} left at this price" : $"In Stock ({stockQuantity}{(Model.StockQuantity > maxLimit ? "+" : string.Empty)})")
+    </div>
+    <div class="delivery-eta-container">
+        <div class="delivery-message">
+            <span>Usually delivered within 2 days</span>
+        </div>
+        <img src="@Url.Content("~/Content/images/Common/package.png")" alt="Usually delivered within 2 days" />
+    </div>
+}
+else if (Model.IsShippingFromManufacturer)
+{
+    if (Model.IsShipEnabled)
+    {
+        var list = ViewData["Manufacturers"] as IList<ManufacturerModel>;
+        var text = list != null && list.Any(m => m != null && m.Id == 502) ? "Ships Direct" : "Ships from manufacturer";
+        text = Model.AvgShipLeadTime.HasValue ? string.Concat(text, $", typically within {Model.AvgShipLeadTime} day{(Model.AvgShipLeadTime > 1 ? "s" : string.Empty)}") : text;
+        <div class="stock ships-from-manufacturer">
+            <div class="greenboll"></div>@text
+        </div>
+    }
+    else
+    {
+        <div class="stock ships-from-manufacturer"></div>
+    }
+}
+else
+{
+    <div class="stock non-available"><div class="redboll"></div>Out of Stock</div>
+}

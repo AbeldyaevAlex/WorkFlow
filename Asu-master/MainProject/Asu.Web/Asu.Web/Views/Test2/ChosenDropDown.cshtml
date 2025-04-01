@@ -1,0 +1,30 @@
+﻿@model Asu.Web.Data.test
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+    <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownListFor(m => m.Id,
+       Model.GetTestList.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }), new { @class = "form-control chosen-select", @multiple = "multiple" })
+        <input type="submit" value="save" />
+    }
+    <script>
+        $('.chosen-select').chosen();        
+    </script>
+</body>
+</html>

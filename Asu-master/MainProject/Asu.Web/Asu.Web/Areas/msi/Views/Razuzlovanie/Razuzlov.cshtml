@@ -1,0 +1,24 @@
+﻿@model Asu.Web.Models.Spr_Perizd
+
+@{
+    ViewBag.Title = "Razuzlov";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 align="center">Выбор Изделия для разузлования.</h2>
+@ViewData["IP"]
+<div class="form-checkboxlist">
+    @using (Html.BeginForm())
+    {
+        @*@Html.LabelFor(model => model.listIzd)*@
+        <p align ="center">
+            @Html.DropDownListFor(model => model.Id, ViewBag.Izd as SelectList)
+        </p>
+        <br />
+        <br />
+        <hr />
+        <input type="submit" value="Ок" />
+    }
+   
+    
+</div>

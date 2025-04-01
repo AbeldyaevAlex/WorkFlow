@@ -1,0 +1,263 @@
+﻿@using System.Web.Optimization
+@using Nop.Web.Models.Vehicles
+
+@model FilterSearchModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Html.AddTitleParts(string.Concat("Tires", Model.SearchTerms));
+
+    var anyAsideFilterChecked = Model.SelectedCategoryIdsArray.Any() && !Model.SelectedCategoryIdsArray.Contains(Model.CId)
+                                || Model.SelectedManufacturerIdsArray.Any() && !Model.SelectedManufacturerIdsArray.Contains(Model.MId)
+                                || Model.SelectedPriceRangeIdsArray.Any() || Model.MinPrice.HasValue || Model.MaxPrice.HasValue
+                                || Model.SelectedPerformanceAttributes.Any() || Model.SelectedTireLoadAttributes.Any() || Model.SelectedTireSpeedAttributes.Any()
+                                || Model.SelectedTreadTypeAttributes.Any() || Model.SelectedSidewallAttributes.Any() || Model.SelectedLoadRangeAttributes.Any()
+                                || Model.SelectedUtqgAttributes.Any() || Model.SelectedServiceDescriptionAttributes.Any() || Model.SelectedTireSizeAttributes.Any();
+}
+
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hproduct-search") : Html.InlineStyles("~/styles/hproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/bproduct-search") : Html.InlineStyles("~/styles/bproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproduct-search") : Html.InlineStyles("~/styles/fproduct-search"))
+
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/product-search") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/product-search"))
+}
+
+@section left {
+    @Html.Partial("_SearchFilter", Model, new ViewDataDictionary(this.ViewData) { { "AnyAsideFilterChecked", anyAsideFilterChecked } })
+}
+
+<style>
+    .neysmodal .inner_neysmodal.fit-content .main_container > .container {
+        border-radius: 15px;
+    }
+
+    #tTireConfigurator {
+        background: none;
+    }
+
+    .tire-configurator-popup-header {
+        margin: 0 0 14px 0;
+        font-size: 18px !important;
+    }
+
+    #changeSizeBtn {
+        width: 20%;
+        float: right;
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+    }
+
+        #changeSizeBtn:hover {
+            color: #fff;
+        }
+
+    .tire-dd-headers {
+        width: 100%;
+        margin-bottom: 19px;
+        font-weight: 600;
+    }
+
+    .tire-dd-header {
+        display: block;
+        width: 30%;
+        float: left;
+    }
+
+    .dd-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 500px;
+    }
+
+        .dd-wrapper .ui-selectmenu-button {
+            margin: 0;
+            width: 32%;
+            margin: 0 3px !important;
+        }
+
+    #tFindTireBtn {
+        background: rgba(78,172,113,1);
+        border-radius: 4px;
+        border: none;
+        padding: 0 20px;
+        height: 36px;
+        outline: none;
+        color: #fff;
+        -webkit-transition: .3s ease-in-out;
+        -moz-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+        margin: 12px 0 0 0;
+        width: 100%;
+    }
+
+        #tFindTireBtn:hover {
+            cursor: pointer;
+            background: #57c27f;
+            -webkit-transition: .3s ease-in-out;
+            -moz-transition: .3s ease-in-out;
+            -o-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+
+    @@media (max-width: 768px) {
+        .filters-btn {
+            width: 100% !important;
+        }
+    }
+
+    @@media (max-width: 660px) {
+        #changeSizeBtn {
+            width: 100%;
+        }
+
+        .filters-btn {
+            margin-bottom: 10px !important;
+            width: 100% !important;
+        }
+    }
+
+    @@media (max-width: 600px) {
+        .dd-wrapper {
+            flex-direction: column;
+            min-width: 400px;
+            margin: 5px 0 0 0 !important;
+        }
+
+        #tire-configurator-form .dd-wrapper .ui-selectmenu-button {
+            width: 80%;
+            margin: 5px 0 0 5px !important;
+        }
+
+        #tFindTireBtn {
+            width: 80%;
+        }
+    }
+
+    @@media (max-width: 500px) {
+        #tire-configurator-form .dd-wrapper {
+            min-width: 320px;
+        }
+    }
+
+    @@media (max-width: 400px) {
+        #tire-configurator-form .dd-wrapper {
+            min-width: 100%;
+        }
+
+            #tire-configurator-form .dd-wrapper .ui-selectmenu-button {
+                min-width: 240px;
+                width: 90%;
+            }
+    }
+</style>
+
+<div class="page search-page">
+    <a class="search-page-back" href="/"></a>
+    <div class="page-body">
+        <div class="search-container">
+            <div class="search-results-box">
+                <h1 class="h1-fat -searchresult">
+                    Search for: @($"{Model.SectionText}/{Model.AspectText}R{Model.RimText}") Tire Size
+                    <button id="changeSizeBtn" type="button" class="search-filter-btn">Change size</button>
+                    <button type="button" class="mobile-filter-open-btn filters-btn">Filters</button>
+                </h1>
+                <div class="inputs">
+                    <span id="totalProducts">
+                        @(Model.NoResults ? "0" : Model.TotalProducts.ToString("##,###"))
+                    </span>
+                    <span>&nbsp;results found</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            @if (Model.PFC.AllowProductSorting && Model.Products.Count > 0)
+            {
+                <div class="product-sorting">
+                    <span class="sorttext1">@T("Catalog.OrderBy"):</span>
+                    @Html.DropDownList("products-orderby", Model.PFC.AvailableSortOptions, new { @class = "f-orderby", onchange = "setSortOption(this.value);" })
+                    @{
+                        var itemsPerPage = 75;
+                        itemsPerPage = Model.TotalProducts > itemsPerPage ? itemsPerPage : Model.TotalProducts;
+                        var boundary = (Model.PFC.PageNumber - 1) * itemsPerPage;
+                        var totalProducts = Model.TotalProducts.ToString("##,###");
+                        var end = boundary + itemsPerPage;
+                    }
+                    <div class="page-content-box">
+                        <div class="page-content" @(!Model.NoResults ? "style=display: none;" : string.Empty)>
+                            <span>Page</span>
+                            <span id="pageNumber">@Model.PFC.PageNumber</span>
+                        </div>
+                        <div id="results-range-of-total" class="inputs">
+                            @(boundary + 1) - @(end > Model.TotalProducts ? Model.TotalProducts : end) of @totalProducts results
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="aside-filters-container">
+                @Html.Partial("_AsideFilters", Model)
+            </div>
+        </div>
+        <div class="search-results">
+            @if (!String.IsNullOrEmpty(Model.Warning))
+            {
+                <strong class="warning">
+                    @Model.Warning
+                </strong>
+            }
+
+            <div id="no-results" @(!Model.NoResults ? "style=display:none;" : string.Empty)>
+                <span id="filterNoResults" class="result no-results-message">
+                    No products were found that matched your criteria or found products are out of stock.
+                    <br />
+                    Please try to uncheck "Show only in stock" checkbox to see results.
+                </span>
+            </div>
+
+            @*list mode*@
+            <div id="productsList" class="product-list infinite-scroll">
+                @Html.Partial("_FilterProductsList", Model.Products, new ViewDataDictionary(this.ViewData) { { "HasFilters", anyAsideFilterChecked } })
+            </div>
+            <div id="pager" class="pager">
+                @Html.Partial("_FilterPager", Model.PFC)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-overlay" style="display: none;"></div>
+
+<div id="tire-configurator" style="display: none;">
+    <div class="box-loader" style="display: none;">
+        <div class="load_animate">
+            <span></span>
+        </div>
+    </div>
+    <h2 class="tire-configurator-popup-header">Select tire size</h2>
+    <div id="tTireConfigurator" data="tireConfigurator">
+        @using (Html.BeginForm("Tires", "Vehicle", FormMethod.Post, new { id = "tire-configurator-form" }))
+        {
+            @Html.Hidden("spec_type", "Tire")
+            <div class="tire-dd-headers">
+                <span class="tire-dd-header">Width</span>
+                <span class="tire-dd-header">Ratio</span>
+                <span class="tire-dd-header">Diameter</span>
+            </div>
+
+            @Html.DropDownList("section", Model.TireConfigurator.SectionValues, null, new { data_section = string.Empty })
+            @Html.DropDownList("aspect", Model.TireConfigurator.AspectValues, "Select Ratio", new { data_aspect = string.Empty, disabled = "disabled" })
+            @Html.DropDownList("rim", Model.TireConfigurator.RimValues, "Select Diameter", new { data_rim = string.Empty, disabled = "disabled" })
+            <button type="button" id="tFindTireBtn" class="" value="Search">Find Tires</button>
+        }
+    </div>
+</div>

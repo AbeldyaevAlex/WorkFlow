@@ -1,0 +1,15 @@
+﻿@model Nop.Web.Models.Catalog.BrandCategoryOverviewModel
+@{
+    var url = Url.RouteUrl("ProductGroupSeo", new { EntitySlug = Model.SeName, ParentEntitySlug = Model.BrandSlug });
+}
+<a class="lst-a" href="@url">
+    <img alt="@Model.DigitalDataModel.Title" class="lazy" data-original="@Model.DigitalDataModel.ThumbUrl">
+</a>
+<a class="lst-a" href="@url">
+    <b>
+        <span class="title">@Model.Name</span>
+    </b>
+	<br/>
+	<span class="item-name">@Model.BrandName </span>
+</a>
+<div class="clear"></div>

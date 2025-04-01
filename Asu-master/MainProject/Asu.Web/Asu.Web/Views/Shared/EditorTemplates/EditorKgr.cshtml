@@ -1,0 +1,36 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("Kgr")
+            .DataTextField("Kgr")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "Введите код группа ввода"/*, required = "required", validationmessage = "Обязательное поле"*/ })
+            //.HtmlAttributes(new { style = "width:100%" })
+            .Filter(FilterType.Contains)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialKgrRead", "Skm");
+                });
+            })
+
+            )
+
+    </div>
+</div>
+@*@(
+    Html.Kendo().DropDownList()
+        .Name("Kgr")
+        .DataTextField("Kgr")
+        .DataValueField("Id")
+        .OptionLabel("Select Kgr...")
+        .Filter(FilterType.Contains)
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingMaterialKgrRead", "Skm");
+            });
+        })
+    )*@

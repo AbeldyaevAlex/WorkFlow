@@ -1,0 +1,19 @@
+﻿@*@model IEnumerable<Asu.Web.Data.Test2ViewModel>*@
+@{
+    Layout = null;
+}
+<style>
+    select {
+        width: 40em
+    }
+</style>
+<div>
+    Select Tema:
+    <select id="listTem" multiple="multiple" multiselect-search ="true" multiselect-select-all="true" >
+        <option value="1">Name1</option>
+        <option value="2">Name2</option>
+        <option value="3">Name3</option>
+    </select>
+</div>
+
+<script src="~/Scripts/multi-dropdownlist.js"></script>

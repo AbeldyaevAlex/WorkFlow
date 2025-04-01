@@ -1,0 +1,556 @@
+﻿@media screen and (min-width: 769px) {
+  .filters {
+    display: none; } }
+
+@media screen and (max-width: 768px) {
+  #searchFilter .search-filter-content {
+    display: none; }
+    #searchFilter .search-filter-content .aside-filters-block {
+      border-bottom: 4px solid #d8d8d8;
+      display: flex !important;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      padding: 15px 20px; }
+      #searchFilter .search-filter-content .aside-filters-block .filters--title-wrap {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start; }
+        #searchFilter .search-filter-content .aside-filters-block .filters--title-wrap .filters--counter {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-content: center;
+          position: relative; }
+          #searchFilter .search-filter-content .aside-filters-block .filters--title-wrap .filters--counter h3 {
+            color: #111;
+            font-size: 20px;
+            font-weight: 500; }
+          #searchFilter .search-filter-content .aside-filters-block .filters--title-wrap .filters--counter span {
+            background-color: #d4252a;
+            border-radius: 50%;
+            color: #fff;
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            height: 15px;
+            line-height: 15px;
+            margin: auto 0 auto 6px;
+            text-align: center;
+            width: 15px; }
+        #searchFilter .search-filter-content .aside-filters-block .filters--title-wrap .filters--results p {
+          color: #757575;
+          font-size: 0.8em;
+          line-height: 1.2;
+          vertical-align: top;
+          margin: 0; }
+      #searchFilter .search-filter-content .aside-filters-block .filterClearcss .search-filter-btn {
+        border: 1px solid #111;
+        border-radius: 4px;
+        color: #111;
+        font-size: 12px;
+        font-family: "Roboto","Arial","Helvetica",sans-serif;
+        padding: 9px 10px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0; }
+        #searchFilter .search-filter-content .aside-filters-block .filterClearcss .search-filter-btn:hover {
+          background-color: transparent; }
+      #searchFilter .search-filter-content .aside-filters-block .aside-close-btn {
+        background-color: #068922;
+        border: 1px solid #068922;
+        color: #fff;
+        font-size: 12px;
+        font-family: "Roboto","Arial","Helvetica",sans-serif;
+        padding: 9px 20px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 0 10px; }
+    #searchFilter .search-filter-content .onlyinstockCss > label .checkbox {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+      background-repeat: no-repeat;
+      margin: 0px 5px 0 0;
+      top: -1px;
+      width: 20px;
+      height: 20px; }
+      #searchFilter .search-filter-content .onlyinstockCss > label .checkbox.checked {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxyZWN0IGlkPSJhIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjRkZCRjAwIiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiIGZpbGw9IiNGRkFDMDAiPjxwYXRoIGQ9Ik0wLS41aDIwdjIxSDB6Ii8+PC9nPjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBtYXNrPSJ1cmwoI2IpIiBkPSJNMyA5LjYwM0w3LjU5NSAxNCAxNyA1Ii8+PC9nPjwvc3ZnPg==");
+        background-repeat: no-repeat; }
+    #searchFilter .search-filter-content #filterCheckBoxes .sub-categories #sub-category-list li:last-child {
+      margin-bottom: 0 !important; }
+    #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block {
+      padding: 17px 20px 18px 20px !important; }
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block .filterUl {
+        margin: 20px 0 0 0; }
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterCategory li,
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterManufacturer li,
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireRimSize li,
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTirePerformance li,
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireSidewall li,
+      #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterUtqg li {
+        margin: 0 0 8px 0; }
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterCategory li.top-items-line,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterManufacturer li.top-items-line,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireRimSize li.top-items-line,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTirePerformance li.top-items-line,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireSidewall li.top-items-line,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterUtqg li.top-items-line {
+          display: none; }
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterCategory li:last-child,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterManufacturer li:last-child,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireRimSize li:last-child,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTirePerformance li:last-child,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireSidewall li:last-child,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterUtqg li:last-child {
+          margin: 0;
+          padding-bottom: 0; }
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterCategory li > label .checkbox,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterManufacturer li > label .checkbox,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireRimSize li > label .checkbox,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTirePerformance li > label .checkbox,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireSidewall li > label .checkbox,
+        #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterUtqg li > label .checkbox {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+          background-position: 0;
+          background-repeat: no-repeat;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin: 0 5px 0 0;
+          background-repeat: no-repeat; }
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterCategory li > label .checkbox.checked,
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterManufacturer li > label .checkbox.checked,
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireRimSize li > label .checkbox.checked,
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTirePerformance li > label .checkbox.checked,
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterTireSidewall li > label .checkbox.checked,
+          #searchFilter .search-filter-content #filterCheckBoxes .search-filter-block #filterUtqg li > label .checkbox.checked {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxyZWN0IGlkPSJhIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjRkZCRjAwIiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiIGZpbGw9IiNGRkFDMDAiPjxwYXRoIGQ9Ik0wLS41aDIwdjIxSDB6Ii8+PC9nPjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBtYXNrPSJ1cmwoI2IpIiBkPSJNMyA5LjYwM0w3LjU5NSAxNCAxNyA1Ii8+PC9nPjwvc3ZnPg==");
+            background-position: 0;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px; }
+    #searchFilter .search-filter-content #filterCheckBoxes .sort-by .filterUl {
+      margin: 20px 0 0 0; }
+      #searchFilter .search-filter-content #filterCheckBoxes .sort-by .filterUl li {
+        margin: 0 0 10px 0; }
+        #searchFilter .search-filter-content #filterCheckBoxes .sort-by .filterUl li:last-child {
+          margin: 0 0 0 0;
+          padding-bottom: 0 !important;
+          margin-bottom: 0 !important; }
+        #searchFilter .search-filter-content #filterCheckBoxes .sort-by .filterUl li .radio {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOSIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+          background-position: 0;
+          background-repeat: no-repeat;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin: 0 5px 0 0;
+          background-repeat: no-repeat; }
+          #searchFilter .search-filter-content #filterCheckBoxes .sort-by .filterUl li .radio.checked {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIHN0cm9rZT0iI0ZGQkYwMCIgc3Ryb2tlLXdpZHRoPSIyIiBjeD0iMTAiIGN5PSIxMCIgcj0iOSIvPjxjaXJjbGUgZmlsbD0iI0ZGQkYwMCIgY3g9IjEwIiBjeT0iMTAiIHI9IjUiLz48L2c+PC9zdmc+");
+            background-position: 0;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px; }
+    #searchFilter .search-filter-content #filterCheckBoxes .sub-categories .filterUl {
+      margin: 20px 0 0 0; }
+    #searchFilter .search-filter-content #filterCheckBoxes .filter-content-wrapper {
+      margin-top: 20px; }
+      #searchFilter .search-filter-content #filterCheckBoxes .filter-content-wrapper input {
+        float: left;
+        margin: 0 0 20px 0;
+        width: 134px !important; }
+        #searchFilter .search-filter-content #filterCheckBoxes .filter-content-wrapper input:first-child {
+          margin: 0 10px 20px 0; }
+      #searchFilter .search-filter-content #filterCheckBoxes .filter-content-wrapper .search-filter-btn {
+        background-color: #068922;
+        border: 1px solid #068922;
+        color: #ffffff;
+        padding: 6px 0;
+        position: relative;
+        border-radius: 4px;
+        font-family: "Roboto","Arial","Helvetica",sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        outline: none;
+        text-align: center;
+        text-transform: uppercase;
+        transition: ease-in-out 0.2s;
+        height: 32px;
+        display: block;
+        margin-left: 0 !important;
+        width: 100% !important; }
+        #searchFilter .search-filter-content #filterCheckBoxes .filter-content-wrapper .search-filter-btn:hover {
+          background-color: #05711c; }
+  #searchFilter.filter-opened .search-filter-content {
+    display: block; }
+  .filters {
+    display: block;
+    background: #fff;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    overflow-y: auto;
+    max-width: 320px;
+    max-height: 100%;
+    height: 100%;
+    /* - filters header - */
+    /* - filters labels - */
+    /* - filters accordeon - */ }
+    .filters .filters--header {
+      border-bottom: 4px solid #f0f0f0;
+      padding: 15px 20px; }
+      .filters .filters--header .filters--title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center; }
+        .filters .filters--header .filters--title .filters--title-wrap {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-content: flex-start; }
+          .filters .filters--header .filters--title .filters--title-wrap .filters--counter {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-content: center; }
+            .filters .filters--header .filters--title .filters--title-wrap .filters--counter h3 {
+              color: #111;
+              font-size: 20px;
+              font-weight: 500; }
+            .filters .filters--header .filters--title .filters--title-wrap .filters--counter span {
+              background-color: #d4252a;
+              border-radius: 50%;
+              color: #fff;
+              display: inline-block;
+              font-size: 10px;
+              font-weight: 700;
+              height: 15px;
+              line-height: 15px;
+              margin: auto 0 auto 6px;
+              text-align: center;
+              width: 15px; }
+          .filters .filters--header .filters--title .filters--title-wrap .filters--results p {
+            color: #757575;
+            font-size: 0.8em;
+            line-height: 1.2;
+            vertical-align: top; }
+        .filters .filters--header .filters--title .filters--btn-wrap {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-content: center;
+          padding: 0 0 0 6px; }
+          .filters .filters--header .filters--title .filters--btn-wrap .filters--btn-clear {
+            background-color: transparent;
+            border: 1px solid #111;
+            color: #111;
+            padding: 6px 0;
+            position: relative;
+            border-radius: 4px;
+            font-family: "Roboto","Arial","Helvetica",sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: auto 0;
+            outline: none;
+            text-align: center;
+            text-transform: uppercase;
+            transition: ease-in-out 0.2s;
+            height: 32px;
+            width: 76px; }
+            .filters .filters--header .filters--title .filters--btn-wrap .filters--btn-clear:hover {
+              background-color: rgba(0, 0, 0, 0.06); }
+          .filters .filters--header .filters--title .filters--btn-wrap .filters--btn-done {
+            background-color: #068922;
+            border: 1px solid #068922;
+            color: #ffffff;
+            padding: 6px 0;
+            position: relative;
+            border-radius: 4px;
+            font-family: "Roboto","Arial","Helvetica",sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: auto 0 auto 10px;
+            outline: none;
+            text-align: center;
+            text-transform: uppercase;
+            transition: ease-in-out 0.2s;
+            height: 32px;
+            width: 76px; }
+            .filters .filters--header .filters--title .filters--btn-wrap .filters--btn-done:hover {
+              background-color: #05711c; }
+    .filters .filters--labels {
+      border-bottom: 4px solid #f0f0f0;
+      padding: 15px 20px; }
+      .filters .filters--labels .filters--labels-list {
+        color: #111;
+        font-size: 1.3em;
+        list-style: none;
+        overflow: hidden;
+        text-align: left; }
+        .filters .filters--labels .filters--labels-list li {
+          background-color: #ffde99;
+          border-radius: 14px;
+          border-right: 0;
+          color: #464646;
+          cursor: pointer;
+          margin: 0 3px 5px 0;
+          display: inline-block;
+          float: left;
+          font-size: 13px;
+          line-height: 1.3;
+          padding: 3px 32px 3px 12px;
+          position: relative; }
+          .filters .filters--labels .filters--labels-list li:last-child {
+            margin: 0 3px 3px 0; }
+          .filters .filters--labels .filters--labels-list li:before {
+            background: #ffac00 url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOSIgaGVpZ2h0PSIxOSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTEwLjYgOS41bDguMi04LjJjLjMtLjMuMy0uOCAwLTEuMXMtLjgtLjMtMS4xIDBMOS41IDguNCAxLjMuMkMxLS4xLjUtLjEuMi4ycy0uMy44IDAgMS4xbDguMiA4LjItOC4yIDguMmMtLjMuMy0uMy44IDAgMS4xLjIuMS40LjIuNS4ycy40LS4xLjUtLjJsOC4yLTguMiA4LjIgOC4yYy4xLjEuMy4yLjUuMnMuNC0uMS41LS4yYy4zLS4zLjMtLjggMC0xLjFsLTgtOC4yeiIvPjwvc3ZnPg==") no-repeat 50% 50%;
+            background-size: 8px auto;
+            border-radius: 8px;
+            bottom: 0;
+            content: "";
+            height: 16px;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 16px; }
+          .filters .filters--labels .filters--labels-list li span {
+            font-weight: 600; }
+          .filters .filters--labels .filters--labels-list li p {
+            font-size: 13px;
+            position: relative;
+            margin: 0; }
+    .filters .onlyinstockCss {
+      border-bottom: 1px solid #f0f0f0;
+      display: block;
+      padding: 15px 20px;
+      width: 100%; }
+      .filters .onlyinstockCss label input.checkbox {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMiIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: -2px;
+        left: -3px; }
+      .filters .onlyinstockCss label input[type=checkbox]:checked {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxyZWN0IGlkPSJhIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjRkZCRjAwIiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiIGZpbGw9IiNGRkFDMDAiPjxwYXRoIGQ9Ik0wLS41aDIwdjIxSDB6Ii8+PC9nPjxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBtYXNrPSJ1cmwoI2IpIiBkPSJNMyA5LjYwM0w3LjU5NSAxNCAxNyA1Ii8+PC9nPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        visibility: visible !important; }
+    .filters #filterCheckBoxes #sub-categories-block {
+      border-bottom: 1px solid #f0f0f0; }
+      .filters #filterCheckBoxes #sub-categories-block #sub-category-list {
+        padding: 0 20px 0 25px; }
+        .filters #filterCheckBoxes #sub-categories-block #sub-category-list li:last-child {
+          margin-bottom: 0 !important; }
+    .filters #filterCheckBoxes #sortByBlock {
+      border-bottom: 1px solid #f0f0f0; }
+    .filters #filterCheckBoxes .search-filter-block {
+      margin: 17px 20px 18px 20px !important;
+      padding: 15px 20px; }
+      .filters #filterCheckBoxes .search-filter-block .filterUl {
+        margin: 20px 0 0 0;
+        padding: 0 20px; }
+        .filters #filterCheckBoxes .search-filter-block .filterUl li {
+          margin: 0 0 10px 0; }
+          .filters #filterCheckBoxes .search-filter-block .filterUl li:last-child {
+            margin: 0 0 0 0;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important; }
+          .filters #filterCheckBoxes .search-filter-block .filterUl li .radio {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOSIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+            background-position: 0;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin: 0 5px 0 0;
+            background-repeat: no-repeat; }
+            .filters #filterCheckBoxes .search-filter-block .filterUl li .radio.checked {
+              background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIHN0cm9rZT0iI0ZGQkYwMCIgc3Ryb2tlLXdpZHRoPSIyIiBjeD0iMTAiIGN5PSIxMCIgcj0iOSIvPjxjaXJjbGUgZmlsbD0iI0ZGQkYwMCIgY3g9IjEwIiBjeT0iMTAiIHI9IjUiLz48L2c+PC9zdmc+");
+              background-position: 0;
+              background-repeat: no-repeat;
+              width: 20px;
+              height: 20px; }
+    .filters #filterCheckBoxes .filters--accordeon {
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: flex-start;
+      padding: 15px 20px; }
+      .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items {
+        overflow-y: visible;
+        max-height: none !important; }
+        .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item {
+          line-height: 50px;
+          padding: 0;
+          color: #464646;
+          cursor: pointer;
+          display: block; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterTireRimSize {
+            padding: 0; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterManufacturer {
+            padding: 0; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterCategory {
+            margin: 10px 0 0 0;
+            overflow-y: visible; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterTireSidewall .filters--accordeon-option,
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterTirePerformance .filters--accordeon-option,
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item #filterUtqg .filters--accordeon-option {
+            margin: 0; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-content: center;
+            position: relative; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-title.plus:before {
+              background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDkuOTk4IDkuOTk4Ij48cGF0aCBmaWxsPSIjNUM1QjVCIiBkPSJNOS45OTggNGgtNFYwaC0ydjRIMHYyaDR2My45OThoMS45OTh2LTRoNCIvPjwvc3ZnPg==") !important;
+              content: "" !important;
+              background-position: right !important;
+              height: 15px !important;
+              width: 15px !important;
+              background-repeat: no-repeat !important;
+              pointer-events: none !important;
+              z-index: 5 !important;
+              display: inline-block !important;
+              left: 0;
+              top: 0;
+              float: left;
+              margin: 0 12px 0 0; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-title.minus:before {
+              background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIyIiB2aWV3Qm94PSIwIDAgMTAgMiI+PHBhdGggZmlsbD0iIzVDNUI1QiIgZD0iTTAgMGgxMHYySDB6Ii8+PC9zdmc+");
+              content: "" !important;
+              background-position: left !important;
+              height: 15px !important;
+              width: 15px !important;
+              background-repeat: no-repeat !important;
+              pointer-events: none !important;
+              z-index: 5 !important;
+              display: inline-block !important;
+              left: 6px;
+              position: relative;
+              top: 0;
+              float: left;
+              margin: 0 12px 0 0; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-title h6 {
+              white-space: nowrap;
+              color: #464646;
+              cursor: pointer;
+              font-weight: 600;
+              line-height: 1;
+              padding: 0;
+              text-transform: uppercase; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-title span {
+              display: inline-block;
+              vertical-align: 2px;
+              background-color: #d4252a;
+              border-radius: 50%;
+              color: #fff;
+              font-size: 10px;
+              font-weight: 700;
+              height: 15px;
+              line-height: 15px;
+              margin: auto 0 auto 5px;
+              position: relative;
+              top: -1px;
+              text-align: center;
+              width: 15px; }
+          .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option {
+            display: flex;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            margin: 0 0 6px 20px; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option:first-child {
+              margin: 20px 0 6px 20px; }
+            .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label {
+              display: inline-table;
+              cursor: pointer;
+              margin: 4px 0 5px;
+              padding: 0 0 0 27px;
+              height: 17px;
+              line-height: 1.3;
+              float: left; }
+              .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label input {
+                display: none; }
+                .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label input:checked ~ .filters--input-mask:after {
+                  display: block; }
+              .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label p {
+                margin: 0; }
+              .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label .filters--input-mask {
+                background-repeat: no-repeat;
+                background-size: 20px auto;
+                box-sizing: border-box;
+                height: 20px;
+                width: 20px;
+                background-image: url("https://cdn.carid.com/css/prod-images/59b7dbc5.svg");
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 2px; }
+                .filters #filterCheckBoxes .filters--accordeon .filters--accordeon-items .filters--accordeon-item .filters--accordeon-options .filters--accordeon-option > label .filters--input-mask:after {
+                  background-image: url("https://cdn.carid.com/css/prod-images/26b33bc4.svg");
+                  background-repeat: no-repeat;
+                  position: absolute;
+                  content: "";
+                  left: 0;
+                  top: 0;
+                  width: 20px;
+                  height: 20px;
+                  display: none; }
+    .filters #filterCheckBoxes .search-filter-block {
+      border: none;
+      overflow-y: visible;
+      max-height: auto; }
+      .filters #filterCheckBoxes .search-filter-block .filterName.minus:before {
+        left: 6px;
+        position: relative;
+        top: 0;
+        float: left;
+        margin: 0 12px 0 0; }
+      .filters #filterCheckBoxes .search-filter-block .filterName.plus:before {
+        left: 0;
+        top: 0;
+        float: left;
+        margin: 0 12px 0 0; }
+      .filters #filterCheckBoxes .search-filter-block .filter-content-wrapper {
+        margin-top: 20px; }
+        .filters #filterCheckBoxes .search-filter-block .filter-content-wrapper input {
+          float: left;
+          margin: 0 0 20px 0;
+          width: 134px; }
+          .filters #filterCheckBoxes .search-filter-block .filter-content-wrapper input:first-child {
+            margin: 0 10px 20px 0; }
+        .filters #filterCheckBoxes .search-filter-block .filter-content-wrapper .search-filter-btn {
+          background-color: #068922;
+          border: 1px solid #068922;
+          color: #ffffff;
+          padding: 6px 0;
+          position: relative;
+          border-radius: 4px;
+          font-family: "Roboto","Arial","Helvetica",sans-serif;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0;
+          outline: none;
+          text-align: center;
+          text-transform: uppercase;
+          transition: ease-in-out 0.2s;
+          height: 32px;
+          display: block;
+          width: 100%; }
+          .filters #filterCheckBoxes .search-filter-block .filter-content-wrapper .search-filter-btn:hover {
+            background-color: #05711c; } }

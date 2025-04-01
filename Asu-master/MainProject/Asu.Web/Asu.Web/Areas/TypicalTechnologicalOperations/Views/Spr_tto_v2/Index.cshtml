@@ -1,0 +1,324 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.Models
+@using Asu.Web.Areas.TypicalTechnologicalOperations.Controllers
+@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@model ViewModel
+@{
+    ViewBag.Title = "Справочник ТТО";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 align="center">Справочник типовых технологических операций (ТТО).</h2>
+<script type="text/javascript">
+    function OnFocusedRowChanged(s, e) {
+        pc.SetActiveTabIndex(1);
+        gvTTO.PerformCallback();
+    }
+    function OnActiveTabChanged(s, e) {
+        gvTTO.PerformCallback();
+    }
+    function OnBeginCallback(s, e) {
+        e.customArgs["MasterRowKey"] = gvUniq.GetRowKey(gvUniq.GetFocusedRowIndex());
+    }
+    //function OnInit(s, e) {
+    //    var input = s.GetInputElement();
+    //    $(input).attr("class", "test");
+    //};
+
+</script>
+@*<script src="~/Content/InputKodTTO.js"></script>*@
+@*@Html.DevExpress().Button(
+    settings =>
+    {
+        settings.Name = "btShowModal";
+        settings.Text = "Создать ТТО";
+        settings.Images.Image.IconID = IconID.ActionsAdd16x16;
+        settings.ClientSideEvents.Click = "function(s, e) { pcModalModeAddTTO.Show(); }";
+    }).GetHtml()*@
+@functions{
+    private void AssignTextBoxSettings(TextBoxSettings s)
+    {
+        s.Width = Unit.Percentage(100);
+        s.ShowModelErrors = true;
+        s.Properties.ValidationSettings.Display = Display.Dynamic;
+        s.Properties.ValidationSettings.SetFocusOnError = true;
+        s.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        s.Properties.ValidationSettings.ErrorFrameStyle.Wrap = DefaultBoolean.True;
+    }
+}
+
+
+@Html.DevExpress().PageControl(settings =>
+{
+settings.Name = "pc";
+settings.Width = Unit.Percentage(100);
+settings.TabPages.Add("Типовые Технологические Операции").SetContent(() =>
+{
+    Html.RenderPartial("_GridViewPartialUniq", Model.Uniq_link_komp);
+});
+settings.TabPages.Add("Компоненты ТТО").SetContent(() =>
+{
+    ViewContext.Writer.Write("<h1> Компоненты ТТО:</h1>" + @Session["TipicalTehnOper"]);
+
+    Html.RenderPartial("_GridViewPartialTTO", Model.Spr_tto);
+});
+settings.EnableClientSideAPI = true;
+settings.ClientSideEvents.ActiveTabChanged = "OnActiveTabChanged";
+}).GetHtml()
+
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.ShowFooter = true;
+    settings.ShowHeader = true;
+    settings.FooterText = " ";                      //"ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+    settings.Name = "pcModalModeAddTTO";
+    settings.Width = Unit.Pixel(650);
+    settings.MaxWidth = Unit.Pixel(650);
+    settings.PopupAnimationType = AnimationType.Auto;
+    settings.AllowResize = true;
+    settings.AllowDragging = true;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.CloseOnEscape = true;
+    settings.HeaderText = "Добавить ТТО";
+    settings.ToolTip = "Добавление информации в справочник ТТО";
+    settings.Modal = true;
+    settings.AutoUpdatePosition = true;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+    settings.SetContent(() =>
+    {
+        using (Html.BeginForm("GridViewPartial_TTOAddNew", "Spr_tto_v2", FormMethod.Post, new { id = "popupFormTTO", @class = "edit_form" }))
+        {
+            Html.DevExpress().ComboBox(Combo =>
+            {
+                Combo.Name = "link_kod_TTO";
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                Combo.ToolTip = "Код ТТО";
+                Combo.Width = Unit.Pixel(650);
+                Combo.Properties.ValueField = "Id";
+                Combo.Properties.TextField = "FullInfo";
+                Combo.Properties.ValueType = typeof(string);
+                Combo.Properties.HelpText = "Код ТТО";
+            }).BindList(Session["Skm_Info"]).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().ComboBox(Combo =>
+            {
+                Combo.Name = "link_kod_komp";
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                Combo.Width = Unit.Pixel(650);
+                Combo.Properties.ValueField = "Id";
+                Combo.Properties.TextField = "km";
+                Combo.Properties.ValueType = typeof(int);
+                Combo.Properties.HelpText = "Код компонента";
+            }).BindList(Asu.Web.Controllers.DropDownCollectionController.Get_km_new()).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            //Html.DevExpress().ComboBox(Combo =>
+            //{
+            //    Combo.Name = "link_status";
+            //    Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+            //    Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+            //    Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            //    Combo.Width = Unit.Pixel(650);
+            //    Combo.Properties.ValueField = "Id";
+            //    Combo.Properties.TextField = "status";
+            //    Combo.Properties.ValueType = typeof(int);
+            //    Combo.Properties.HelpText = "Статус документа";
+            //}).BindList(Asu.Web.Controllers.DropDownCollectionController.GetStatus()).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().ComboBox(Combo =>
+            {
+                Combo.Name = "link_cizg";
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                Combo.Width = Unit.Pixel(650);
+                Combo.Properties.ValueField = "Id";
+                Combo.Properties.TextField = "naim_cex";
+                Combo.Properties.ValueType = typeof(int);
+                Combo.Properties.HelpText = "Цех Изготовитель";
+            }).BindList(Asu.Web.Controllers.DropDownCollectionController.GetCex()).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().ComboBox(Combo =>
+            {
+                Combo.Name = "link_prkm";
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                Combo.Width = Unit.Pixel(650);
+                Combo.Properties.ValueField = "Id";
+                Combo.Properties.TextField = "prkm";
+                Combo.Properties.ValueType = typeof(int);
+                Combo.Properties.HelpText = "Признак КМ";
+            }).BindList(Asu.Web.Controllers.DropDownCollectionController.GetPrKm()).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().ComboBox(Combo =>
+            {
+                Combo.Name = "link_prpokr";
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+                Combo.Properties.DropDownStyle = DropDownStyle.DropDown;
+                Combo.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                Combo.Width = Unit.Pixel(650);
+                Combo.Properties.ValueField = "Id";
+                Combo.Properties.TextField = "prpokr";
+                Combo.Properties.ValueType = typeof(int);
+                Combo.Properties.HelpText = "Признак покрытия";
+            }).BindList(Asu.Web.Controllers.DropDownCollectionController.Get_Pr_Pokr()).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "nrm";
+                text_nrm.Text = "0.0000000";
+                AssignTextBoxSettings(text_nrm);
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.ValidationSettings.Display = Display.Dynamic;
+                text_nrm.Properties.ValidationSettings.SetFocusOnError = true;
+                text_nrm.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+                text_nrm.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                text_nrm.Properties.HelpText = "Норма расхода";
+                text_nrm.Attributes.Add("class", "test");
+                //text_nrm.Properties.ClientSideEvents.Init = "OnInit";
+            }).GetHtml();
+
+            //ViewContext.Writer.Write("<input type='text' name='nrm' class='test' id='ci11' style = 'weight:15px; width:650px'/>");
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "vpost";
+                text_nrm.Text = "0";
+                text_nrm.Properties.DisplayFormatString = "0";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.HelpText = "Вид поставки";
+            }).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "nrvp";
+                text_nrm.Text = "0.0000000";
+                //text_nrm.Properties.DisplayFormatString = "0.0000000";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.HelpText = "Норма расхода с учетом вида поставки";
+            }).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().TextBox(text_nrm =>
+            {
+                text_nrm.Name = "krat";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.Properties.HelpText = "Кратность";
+            }).GetHtml();
+
+            ViewContext.Writer.Write("<hr/>");
+
+            Html.DevExpress().SpinEdit(text_nrm =>
+            {
+                text_nrm.Name = "vpost_sh";
+                text_nrm.Properties.AllowMouseWheel = true;
+                //text_nrm.Properties.SelectInputTextOnClick = true;
+                //text_nrm.Properties.DisplayFormatString = "0";
+                text_nrm.Width = Unit.Pixel(650);
+                text_nrm.ShowModelErrors = true;
+                text_nrm.ControlStyle.CssClass = "form_vpost_sh";
+                text_nrm.Properties.HelpText = "Вид поставки от ширины";
+            }).GetHtml();
+
+
+            ViewContext.Writer.Write("</br>");
+
+            Html.DevExpress().Button(button =>
+            {
+                button.Text = "Создать";
+                button.Name = "Create";
+                button.UseSubmitBehavior = true;
+            }).GetHtml();
+        }
+    });
+    settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+}).GetHtml()
+<script src="~/Content/InputKodTTO.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<script>
+        function OnActiveTabChanging(s, e) {
+            var action = e.tab.name;
+        }
+    </script>
+
+
+    @Html.Partial("_PageControlPartial")*@
+
+@*@Html.DevExpress().FormLayout(settings =>
+    {
+        settings.AlignItemCaptionsInAllGroups = true;
+        settings.Width = Unit.Percentage(100);
+        settings.Items.AddEmptyItem();
+        settings.Name = "FormLayout";
+        var groupItem = settings.Items.AddTabbedGroupItem(groupSettings => {
+            groupSettings.Caption = "text";
+            groupSettings.ShowGroupDecoration = true;
+            //groupSettings.Items.Add(i => {
+            //    i.Caption = "Код ТТО";
+            //    i.NestedExtension().TextBox(s => {
+            //        s.Name = "textBox";
+            //        s.Width = Unit.Percentage(100);
+            //        s.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+            //    });
+            //});
+            groupSettings.Items.Add(i => {
+                i.Caption = "Код ТТО";
+                i.SetNestedContent(() => {
+                    //Html.RenderPartial("_GridViewPartial_TTO", Model);
+                    Html.RenderAction("GridViewPartial_TTO", "Spr_tto_v2", "TypicalTechnologicalOperations");
+                });
+            });
+            groupSettings.Items.Add(i =>
+            {
+                i.Name = "k_komp_tto";
+                i.Caption = "Компоненты ТТО";
+                i.SetNestedContent(() =>
+                {
+                    Html.RenderAction("GridViewKodKomp", "Spr_tto_v2", "TypicalTechnologicalOperations");
+                    //Html.RenderPartial("_GridView_Kod_Komp", Model);
+                });
+            });
+        });
+    }).GetHtml()*@

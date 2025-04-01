@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Asu.Web.Models.UsersTask.Spr_nm_task>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Справочник наименования задач</h2>
+
+@*@Html.Action("GridViewPartial")*@
+
+@Html.Action("SprNmTaskGridViewPartial", "Spr_nm_task")
+
+
+

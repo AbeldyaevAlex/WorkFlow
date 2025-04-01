@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutKendoForGrid.cshtml";
+}
+
+<!DOCTYPE html>
+
+<link href="~/Content/kendo/2016.1.412/kendo.default.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2016.1.412/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2016.1.412/kendo.all.min.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetTabStripDetail</title>
+</head>
+<body>
+    <div>
+        <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">Информация о документе</li>
+                <li>Детали документа</li>
+            </ul>
+            <div>
+                <form id="documentForm">
+                    <label for="documentName">Наименование документа:</label>
+                    <input type="text" id="documentName" name="documentName" class="k-textbox" />
+                    <br />
+                    <label for="documentDescription">Описание документа:</label>
+                    <textarea id="documentDescription" name="documentDescription" class="k-textbox"></textarea>
+                    <br />
+                    <label for="documentStatus">Статус:</label>
+                    <input id="documentStatus" name="documentStatus" />
+                </form>
+            </div>
+            <div>
+                <div id="detailGrid"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

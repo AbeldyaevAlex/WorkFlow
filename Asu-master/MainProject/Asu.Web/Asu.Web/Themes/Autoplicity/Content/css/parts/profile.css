@@ -1,0 +1,117 @@
+﻿.profile-page .page-title {
+    background: url(/Themes/Autoplicity/Content/images/forum-header-bg.gif) repeat-x 50%;
+    color: #FFF;
+    border: solid 1px #ccc;
+    height: 28px;
+    line-height: 28px;
+    font-weight: 700;
+    padding-left: 3px;
+}
+
+.profile-page .page-title h1 {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0px;
+}
+
+.profile-page .page-body {
+    margin-top: 15px;
+}
+
+.profile-page .profile-info-box {
+    background: url(/Themes/Autoplicity/Content/images/forum-footer-bg.gif) repeat-x bottom;
+}
+
+.profile-page .profile-info-box, .profile-page .user-last-posts {
+    font-size: 12px;
+}
+
+.profile-page .profile-info-box .profile-stats {
+    border-left: 1px solid #ccc;
+    margin-left: 200px;
+    padding: 10px;
+}
+
+.profile-page .profile-info-box .profile-stats .title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.profile-page .profile-info-box .profile-stats li {
+    list-style: none outside none;
+    padding: 2px;
+}
+
+.profile-page .profile-info-box .profile-stats label {
+    font-weight: 700;
+}
+
+.profile-page .profile-info-box .user-details {
+    width: 180px;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    border-right: solid 1px #ccc;
+    text-align: center;
+}
+
+.profile-page .profile-info-box .user-details .avatar {
+    margin-bottom: 5px;
+}
+
+.profile-page .profile-info-box .user-details .avatar .avatar-img {
+    border: solid 2px #CEDBE1 !important;
+}
+
+.profile-page .profile-info-box .user-stats {
+    margin-bottom: 5px;
+}
+
+.profile-page .profile-info-box .user-stats li {
+    font-weight: 700;
+    list-style: none;
+    padding: 2px;
+}
+
+.profile-page .profile-info-box .user-stats label {
+    font-weight: 700;
+}
+
+.profile-page .profile-info-box .user-stats span {
+    color: #666;
+    font-weight: 400;
+}
+
+.profile-page .user-last-posts .topic {
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+}
+
+.profile-page .user-last-posts .topic-title {
+    font-weight: 700;
+    line-height: 20px;
+    background: #e3f3f3;
+    padding: 3px;
+}
+
+.profile-page .user-last-posts .topic-body {
+    padding: 10px;
+}
+
+.profile-page .user-last-posts .topic-body a {
+    color: #B80709;
+    text-decoration: underline;
+}
+
+.profile-page .user-last-posts .topic-body .quote {
+    padding: 5px;
+    border: dashed 1px #000;
+    background-color: #fff;
+}
+
+.profile-page .user-last-posts .topic-data {
+    background: #f3f3f3;
+    padding: 3px;
+    color: #666;
+    font-size: .9em;
+}

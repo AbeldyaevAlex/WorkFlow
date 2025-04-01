@@ -1,0 +1,587 @@
+﻿@model IList<Asu.Core.Domain.Vehicles.HeaderCategories>
+@using Asu.Web.Models.Vehicles
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain
+
+@{
+    var storeInformationSettings = EngineContext.Current.Resolve<StoreInformationSettings>();
+}
+
+@{
+    var body = new TopMenuModel
+    {
+        Id = 2,
+        Class = "mobile-menu-body",
+        Name = "Body",
+        Link = "/2-body",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 158, Link = "/158-frame", Name = "Frame" },
+            new TopMenuModel { Id = 222, Link = "/222-truck-box", Name = "Truck Box" },
+            new TopMenuModel { Id = 123, Link = "/123-bumper", Name = "Bumper" },
+            new TopMenuModel { Id = 197, Link = "/197-rocker-panel", Name = "Rocker Panel" },
+            new TopMenuModel { Id = 100005, Link = "/100005-trunk-lid-and-compartment", Name = "Trunk Lid & Compartment" },
+            new TopMenuModel { Id = 178, Link = "/178-instrument-panel", Name = "Instrument Panel" },
+            new TopMenuModel { Id = 169, Link = "/169-grille", Name = "Grille" },
+            new TopMenuModel { Id = 199, Link = "/199-seats", Name = "Seats" },
+            new TopMenuModel { Id = 156, Link = "/156-floor", Name = "Floor" },
+            new TopMenuModel { Id = 198, Link = "/198-roof", Name = "Roof" },
+            new TopMenuModel { Id = 139, Link = "/139-doors", Name = "Doors" },
+            new TopMenuModel { Id = 106, Link = "/106-aero-ground-effects-and-body-kits", Name = "Aero Ground Effects & Body Kits" },
+            new TopMenuModel { Id = 152, Link = "/152-fenders", Name = "Fenders" },
+            new TopMenuModel { Id = 166, Link = "/166-glass-windows-and-related-components", Name = "Glass, Windows and Related Components" },
+            new TopMenuModel { Id = 175, Link = "/175-hood", Name = "Hood" },
+            new TopMenuModel { Id = 223, Link = "/223-truck-cab", Name = "Truck Cab" },
+            new TopMenuModel { Id = 212, Link = "/212-tailgate", Name = "Tailgate" },
+            new TopMenuModel { Id = 208, Link = "/208-steering-wheel", Name = "Steering Wheel" }
+            //new TopMenuModel { Id = 184, Link = "/184-mirrors", Name = "Mirrors" },
+            //new TopMenuModel { Id = 100007, Link = "/100007-hardware", Name = "Hardware" },
+            //new TopMenuModel { Id = 283, Link = "/283-universal", Name = "Universal" },
+            //new TopMenuModel { Id = 251, Link = "/251-emblems", Name = "Emblems" },
+            //new TopMenuModel { Id = 129, Link = "/129-console", Name = "Console" },
+            //new TopMenuModel { Id = 100004, Link = "/100004-sensors", Name = "Sensors" },
+            //new TopMenuModel { Id = 131, Link = "/131-control-modules", Name = "Control Modules" },
+            //new TopMenuModel { Id = 315, Link = "/315-service-kits", Name = "Service Kits" },
+            //new TopMenuModel { Id = 357, Link = "/357-dash", Name = "Dash" },
+            //new TopMenuModel { Id = 315, Link = "/315-service-kits", Name = "Service Kits" },
+            //new TopMenuModel { Id = 100001, Link = "/100001-control-cables", Name = "Control Cables" }
+        }
+    };
+
+    var suspension = new TopMenuModel
+    {
+        Id = 16,
+        Class = "mobile-menu-suspension",
+        Name = "Suspension",
+        Link = "/16-suspension",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 100187, Link = "/100187-suspension-springs-and-related-components", Name = "Suspension, Springs & Related Components" },
+            new TopMenuModel { Id = 100186, Link = "/100186-shocks-and-struts", Name = "Shocks & Struts" },
+            new TopMenuModel { Id = 324, Link = "/324-alignment", Name = "Alignment" },
+            new TopMenuModel { Id = 100185, Link = "/100185-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100191, Link = "/100191-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 100180, Link = "/100180-electrical-connectors", Name = "Electrical Connectors" },
+        new TopMenuModel { Id = 100184, Link = "/100184-relays", Name = "Relays" },
+        }
+    };
+
+    var exhaust = new TopMenuModel
+    {
+        Id = 11,
+        Class = "mobile-menu-exhaust",
+        Name = "Exhaust",
+        Link = "/11-exhaust",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 149, Link = "/149-exhaust-and-tail-pipes", Name = "Exhaust & Tail Pipes" },
+            new TopMenuModel { Id = 187, Link = "/187-mufflers", Name = "Mufflers" },
+            new TopMenuModel { Id = 150, Link = "/150-exhaust-manifolds", Name = "Exhaust Manifolds" },
+            new TopMenuModel { Id = 126, Link = "/126-catalytic-converter", Name = "Catalytic Converter" },
+            new TopMenuModel { Id = 100112, Link = "/100112-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 100106, Link = "/100106-brackets-flanges-and-hangers", Name = "Brackets, Flanges & Hangers" },
+            new TopMenuModel { Id = 100109, Link = "/100109-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100114, Link = "/100114-service-kits", Name = "Service Kits" },
+        new TopMenuModel { Id = 100111, Link = "/100111-sensors", Name = "Sensors" }
+        }
+    };
+
+    var airFuelDelivery = new TopMenuModel
+    {
+        Id = 12,
+        Class = "mobile-menu-air",
+        Name = "Air and Fuel Delivery",
+        Link = "/12-air-and-fuel-delivery",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 100121, Link = "/100121-fuel-injection-system-and-related-components", Name = "Fuel Injection System & Related Components" },
+            new TopMenuModel { Id = 161, Link = "/161-fuel-pumps-and-related-components", Name = "Fuel Pumps & Related Components" },
+            new TopMenuModel { Id = 162, Link = "/162-fuel-storage", Name = "Fuel Storage" },
+            new TopMenuModel { Id = 100127, Link = "/100127-turbocharger-supercharger-and-ram-air", Name = "Turbocharger, Supercharger & Ram Air" },
+            new TopMenuModel { Id = 125, Link = "/125-carburetion", Name = "Carburetion" },
+            new TopMenuModel { Id = 100120, Link = "/100120-filters", Name = "Filters" },
+            new TopMenuModel { Id = 100133, Link = "/100133-service-kits", Name = "Service Kits" },
+            new TopMenuModel { Id = 100131, Link = "/100131-fittings", Name = "Fittings" },
+            new TopMenuModel { Id = 100125, Link = "/100125-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 279, Link = "/279-water-injection-system-and-components", Name = "Water Injection System & Components" },
+            new TopMenuModel { Id = 100129, Link = "/100129-wire-cable-and-related-components", Name = "Wire, Cable & Related Components" },
+            new TopMenuModel { Id = 100122, Link = "/100122-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 266, Link = "/266-nitrous-oxide-injection-system", Name = "Nitrous Oxide Injection System" },
+            new TopMenuModel { Id = 100117, Link = "/100117-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100116, Link = "/100116-control-cables", Name = "Control Cables" },
+            new TopMenuModel { Id = 100124, Link = "/100124-relays", Name = "Relays" },
+            new TopMenuModel { Id = 100119, Link = "/100119-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 100130, Link = "/100130-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 100124, Link = "/100126-switches", Name = "Switches" },
+            new TopMenuModel { Id = 292, Link = "/292-carbon-dioxide-injection-system", Name = "Carbon Dioxide Injection System" }
+        }
+    };
+
+    var engine = new TopMenuModel
+    {
+        Id = 10,
+        Class = "mobile-menu-engine",
+        Name = "Engine",
+        Link = "/10-engine",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 100091, Link = "/100091-cylinder-block-components", Name = "Cylinder Block Components" },
+            new TopMenuModel { Id = 227, Link = "/227-valve-train-components", Name = "Valve Train Components" },
+            new TopMenuModel { Id = 100094, Link = "/100094-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100090, Link = "/100090-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100103, Link = "/100103-service-kits", Name = "Service Kits" },
+            new TopMenuModel { Id = 100100, Link = "/100100-wire-cable-and-related-components", Name = "Wire, Cable & Related Components" },
+            new TopMenuModel { Id = 100093, Link = "/100093-filters", Name = "Filters" },
+            new TopMenuModel { Id = 100104, Link = "/100104-bearings", Name = "Bearings" },
+            new TopMenuModel { Id = 100097, Link = "/100097-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100092, Link = "/100092-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 100098, Link = "/100098-switches", Name = "Switches" },
+            new TopMenuModel { Id = 100096, Link = "/100096-sending-units", Name = "Sending Units" },
+            new TopMenuModel { Id = 100095, Link = "/100095-relays", Name = "Relays" },
+            new TopMenuModel { Id = 100101, Link = "/100101-hardware", Name = "Hardware" }
+        }
+    };
+
+    var brake = new TopMenuModel
+    {
+        Id = 3,
+        Class = "mobile-menu-brake",
+        Name = "Brake",
+        Link = "/3-brake",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 141, Link = "/141-drums-and-rotors", Name = "Drums & Rotors" },
+            new TopMenuModel { Id = 100022, Link = "/100022-service-kits", Name = "Service Kits" },
+            new TopMenuModel { Id = 138, Link = "/138-disc-pads-and-brake-shoes", Name = "Disc Pads & Brake Shoes" },
+            new TopMenuModel { Id = 100020, Link = "/100020-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 122, Link = "/122-brake-hydraulics", Name = "Brake Hydraulics" },
+            new TopMenuModel { Id = 177, Link = "/177-hoses-and-pipes", Name = "Hoses & Pipes" },
+            new TopMenuModel { Id = 100017, Link = "/100017-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100013, Link = "/100013-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 101, Link = "/101-abs-components", Name = "ABS Components" },
+            new TopMenuModel { Id = 100015, Link = "/100015-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100016, Link = "/100016-relays", Name = "Relays" },
+            new TopMenuModel { Id = 228, Link = "/228-valves", Name = "Valves" },
+            new TopMenuModel { Id = 100019, Link = "/100019-wire-cable-and-related-components", Name = "Wire, Cable & Related Components" },
+            new TopMenuModel { Id = 328, Link = "/328-assortments", Name = "Assortments" },
+            new TopMenuModel { Id = 286, Link = "/286-fittings", Name = "Fittings" },
+            new TopMenuModel { Id = 100018, Link = "/100018-switches", Name = "Switches" },
+            new TopMenuModel { Id = 118, Link = "/118-body-wiring-harness-and-components", Name = "Body Wiring Harness & Components" },
+            new TopMenuModel { Id = 100014, Link = "/100014-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 100012, Link = "/100012-brackets-flanges-and-hangers", Name = "Brackets, Flanges & Hangers" },
+            new TopMenuModel { Id = 181, Link = "/181-lighting-instrumentation", Name = "Lighting - Instrumentation" }
+        }
+    };
+
+    var electricalLightningBody = new TopMenuModel
+    {
+        Id = 7,
+        Class = "mobile-menu-electrical",
+        Name = "Electrical & Lighting",
+        Link = "/7-electrical-lighting-and-body",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 100067, Link = "/100067-lighting-exterior", Name = "Lighting - Exterior" },
+            new TopMenuModel { Id = 100072, Link = "/100072-switches", Name = "Switches" },
+            new TopMenuModel { Id = 100065, Link = "/100065-glass-windows-and-related-components", Name = "Glass, Windows & Related Components" },
+            new TopMenuModel { Id = 100061, Link = "/100061-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 182, Link = "/182-lighting-interior", Name = "Lighting - Interior" },
+            new TopMenuModel { Id = 100070, Link = "/100070-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100069, Link = "/100069-relays", Name = "Relays" },
+            new TopMenuModel { Id = 107, Link = "/107-air-bag-system", Name = "Air Bag System" },
+            new TopMenuModel { Id = 100063, Link = "/100063-flasher-units-fuses-and-circuit-breakers", Name = "Flasher Units, Fuses & Circuit Breakers" },
+            new TopMenuModel { Id = 100059, Link = "/100059-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100074, Link = "/100074-wire-cable-and-related-components", Name = "Wire, Cable & Related Components" },
+            new TopMenuModel { Id = 100062, Link = "/100062-electrical-sockets", Name = "Electrical Sockets" },
+            new TopMenuModel { Id = 100077, Link = "/100077-body-actuators-and-motors", Name = "Body Actuators & Motors" },
+            new TopMenuModel { Id = 185, Link = "/185-mobile-multi-media", Name = "Mobile Multi-media" },
+            new TopMenuModel { Id = 100075, Link = "/100075-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 100071, Link = "/100071-steering-wheel", Name = "Steering Wheel" },
+            new TopMenuModel { Id = 207, Link = "/207-steering-column", Name = "Steering Column" },
+            new TopMenuModel { Id = 100057, Link = "/100057-body-wiring-harness-and-components", Name = "Body Wiring Harness & Components" },
+            new TopMenuModel { Id = 135, Link = "/135-cruise-control-system", Name = "Cruise Control System" },
+            new TopMenuModel { Id = 100068, Link = "/100068-lighting-instrumentation", Name = "Lighting - Instrumentation" }
+        }
+    };
+
+    var tireWheel = new TopMenuModel
+    {
+        Id = 17,
+        Class = "mobile-menu-tire",
+        Name = "Tire & Wheel",
+        Link = "/17-tire-and-wheel",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 214, Link = "/214-tire", Name = "Tire" },
+            new TopMenuModel { Id = 233, Link = "/233-wheel", Name = "Wheel" },
+            new TopMenuModel { Id = 205, Link = "/205-spare-tire-and-wheel", Name = "Spare Tire & Wheel" }
+        }
+    };
+
+    var accessoriesFluids = new TopMenuModel
+    {
+        Id = 1,
+        Class = "mobile-menu-accessories",
+        Name = "Accessories & Fluids",
+        Link = "/1-accessories-and-fluids",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 112, Link = "/112-appearance-products", Name = "Appearance Products" },
+            new TopMenuModel { Id = 164, Link = "/164-functional-fluid-lubricant-grease-including-additives", Name = "Functional Fluid, Lubricant, Grease (including Additives)" },
+            new TopMenuModel { Id = 258, Link = "/258-safety-products", Name = "Safety Products" },
+            new TopMenuModel { Id = 260, Link = "/260-clothing", Name = "Clothing" },
+            new TopMenuModel { Id = 263, Link = "/263-miscellaneous-merchandise", Name = "Miscellaneous Merchandise" },
+            new TopMenuModel { Id = 339, Link = "/339-rv-and-marine-accessories", Name = "RV & Marine Accessories" },
+            new TopMenuModel { Id = 259, Link = "/259-cleaning-products", Name = "Cleaning Products" },
+            new TopMenuModel { Id = 119, Link = "/119-body-frame-and-paint-equipment", Name = "Body, Frame & Paint Equipment" },
+            new TopMenuModel { Id = 153, Link = "/153-filters", Name = "Filters" },
+            new TopMenuModel { Id = 215, Link = "/215-towing", Name = "Towing" },
+            new TopMenuModel { Id = 290, Link = "/290-adhesives", Name = "Adhesives" },
+            new TopMenuModel { Id = 145, Link = "/145-electronic-accessories", Name = "Electronic Accessories" },
+            new TopMenuModel { Id = 250, Link = "/250-books", Name = "Books" },
+            new TopMenuModel { Id = 262, Link = "/262-wax-and-polish", Name = "Wax & Polish" },
+            new TopMenuModel { Id = 179, Link = "/179-interior", Name = "Interior" },
+            new TopMenuModel { Id = 261, Link = "/261-signs-and-posters", Name = "Signs & Posters" },
+            new TopMenuModel { Id = 271, Link = "/271-jewelry", Name = "Jewelry" }
+        }
+    };
+
+    var toolsEquipment = new TopMenuModel
+    {
+        Id = 18,
+        Class = "mobile-menu-tools",
+        Name = "Tools & Equipment",
+        Link = "/18-tools-and-equipment",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 347, Link = "/347-winch", Name = "Winch" },
+            new TopMenuModel { Id = 249, Link = "/249-shop-equipment", Name = "Shop Equipment" },
+            new TopMenuModel { Id = 163, Link = "/163-fuel-system-service", Name = "Fuel System Service" },
+            new TopMenuModel { Id = 147, Link = "/147-engine-service", Name = "Engine Service" },
+            new TopMenuModel { Id = 100202, Link = "/100202-body-frame-and-paint-equipment", Name = "Body, Frame & Paint Equipment" },
+            new TopMenuModel { Id = 170, Link = "/170-hand-tools", Name = "Hand Tools" },
+            new TopMenuModel { Id = 268, Link = "/268-tire-service", Name = "Tire Service" },
+            new TopMenuModel { Id = 174, Link = "/174-hoist-lift-and-support", Name = "Hoist, Lift & Support" },
+            new TopMenuModel { Id = 109, Link = "/109-air-tools", Name = "Air Tools" },
+            new TopMenuModel { Id = 264, Link = "/264-battery-service", Name = "Battery Service" },
+            new TopMenuModel { Id = 151, Link = "/151-exhaust-system-service", Name = "Exhaust System Service" },
+            new TopMenuModel { Id = 270, Link = "/270-furniture", Name = "Furniture" },
+            new TopMenuModel { Id = 337, Link = "/337-cooling-system-service", Name = "Cooling System Service" },
+            new TopMenuModel { Id = 288, Link = "/288-ac-service", Name = "A/C Service" },
+            new TopMenuModel { Id = 265, Link = "/265-power-tools", Name = "Power Tools" },
+            new TopMenuModel { Id = 294, Link = "/294-hydraulic-system-service", Name = "Hydraulic System Service" },
+            new TopMenuModel { Id = 297, Link = "/297-differential-service", Name = "Differential Service" },
+            new TopMenuModel { Id = 100223, Link = "/100223-brake-system-service", Name = "Brake System Service" },
+            new TopMenuModel { Id = 346, Link = "/346-welding-equipment", Name = "Welding Equipment" },
+            new TopMenuModel { Id = 100224, Link = "/100224-safety-products", Name = "Safety Products" },
+            new TopMenuModel { Id = 284, Link = "/284-transmission-service", Name = "Transmission Service" }
+        }
+    };
+
+    var beltsCooling = new TopMenuModel
+    {
+        Id = 4,
+        Class = "mobile-menu-belts",
+        Name = "Belts & Cooling",
+        Link = "/4-belts-and-cooling",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 193, Link = "/193-radiators-coolers-and-related-components", Name = "Radiators, Coolers & Related Components" },
+            new TopMenuModel { Id = 303, Link = "/303-accessory-drive-belt-system-components", Name = "Accessory Drive Belt System Components" },
+            new TopMenuModel { Id = 132, Link = "/132-cooling-fan-clutch-and-motor", Name = "Cooling Fan, Clutch & Motor" },
+            new TopMenuModel { Id = 231, Link = "/231-water-pump-and-related-components", Name = "Water Pump & Related Components" },
+            new TopMenuModel { Id = 100027, Link = "/100027-hoses-and-pipes", Name = "Hoses & Pipes" },
+            new TopMenuModel { Id = 376, Link = "/376-thermostat-and-housing", Name = "Thermostat & Housing" },
+            new TopMenuModel { Id = 100026, Link = "/100026-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100030, Link = "/100030-switches", Name = "Switches" },
+            new TopMenuModel { Id = 100028, Link = "/100028-relays", Name = "Relays" },
+            new TopMenuModel { Id = 100029, Link = "/100029-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100023, Link = "/100023-control-modules", Name = "Control modules" },
+            new TopMenuModel { Id = 201, Link = "/201-sending-units", Name = "Sending Units" },
+            new TopMenuModel { Id = 100031, Link = "/100031-turbocharger-supercharger-and-ram-air", Name = "Turbocharger, Supercharger & Ram Air" },
+            new TopMenuModel { Id = 100034, Link = "/100034-fittings", Name = "Fittings" }
+        }
+    };
+
+    var transmission = new TopMenuModel
+    {
+        Id = 20,
+        Class = "mobile-menu-transmission",
+        Name = "Transmission",
+        Link = "/20-transmission",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 183, Link = "/183-manual-transmission-components", Name = "Manual Transmission Components" },
+            new TopMenuModel { Id = 219, Link = "/219-transmission-hard-parts", Name = "Transmission Hard Parts" },
+            new TopMenuModel { Id = 100248, Link = "/100248-flywheel", Name = "Flywheel" },
+            new TopMenuModel { Id = 100259, Link = "/100259-service-kits", Name = "Service Kits" },
+            new TopMenuModel { Id = 220, Link = "/220-transmission-valve-body", Name = "Transmission Valve Body" },
+            new TopMenuModel { Id = 247, Link = "/247-automatic-transmission-components", Name = "Automatic Transmission Components" },
+            new TopMenuModel { Id = 155, Link = "/155-flexplate", Name = "Flexplate" },
+            new TopMenuModel { Id = 100260, Link = "/100260-bearings", Name = "Bearings" },
+            new TopMenuModel { Id = 100249, Link = "/100249-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100244, Link = "/100244-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100247, Link = "/100247-filters", Name = "Filters" },
+            new TopMenuModel { Id = 100254, Link = "/100254-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100250, Link = "/100250-hoses-and-pipes", Name = "Hoses & Pipes" },
+            new TopMenuModel { Id = 100255, Link = "/100255-switches", Name = "Swithces" },
+            new TopMenuModel { Id = 100252, Link = "/100252-relays", Name = "Relays" },
+            new TopMenuModel { Id = 128, Link = "/128-clutch-plates", Name = "Clutch Plates" },
+            new TopMenuModel { Id = 217, Link = "/217-transmission-bushings", Name = "Transmission Bushings" },
+            new TopMenuModel { Id = 100245, Link = "/100245-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 216, Link = "/216-transmission-bands", Name = "Transmission Bands" },
+            new TopMenuModel { Id = 100251, Link = "/100251-lighting-instrumentation", Name = "Lighting - Instrumentation" },
+        }
+    };
+
+    var drivelineAxles = new TopMenuModel
+    {
+        Id = 5,
+        Class = "mobile-menu-driveline",
+        Name = "Driveline & Axles",
+        Link = "/5-driveline-and-axles",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 137, Link = "/137-differential", Name = "Differential" },
+            new TopMenuModel { Id = 393, Link = "/393-hubs-and-related-components", Name = "Hubs & Related Components" },
+            new TopMenuModel { Id = 115, Link = "/115-axle-shaft", Name = "Axle Shaft" },
+            new TopMenuModel { Id = 254, Link = "/254-cv-components", Name = "CV Components" },
+            new TopMenuModel { Id = 100047, Link = "/100047-bearings", Name = "Bearings" },
+            new TopMenuModel { Id = 100037, Link = "/100037-drive-shaft", Name = "Drive Shaft" },
+            new TopMenuModel { Id = 100046, Link = "/100046-service-kits", Name = "Service Kits" },
+            new TopMenuModel { Id = 100040, Link = "/100040-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 100045, Link = "/100045-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 392, Link = "/392-cv-boots-and-related-components", Name = "CV Boots and Related Components" },
+            new TopMenuModel { Id = 100045, Link = "/234-wheel-bearings-seals-and-related-components", Name = "Wheel Bearings, Seals, & Related Components" },
+            new TopMenuModel { Id = 100043, Link = "/100043-switches", Name = "Switches" }
+        }
+    };
+
+    var ignition = new TopMenuModel
+    {
+        Id = 14,
+        Class = "mobile-menu-ignition",
+        Name = "Ignition",
+        Link = "/14-ignition",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 244, Link = "/244-ignition-wire-and-related-components", Name = "Ignition Wire and Related Components" },
+            new TopMenuModel { Id = 200, Link = "/200-secondary-ignition", Name = "Secondary Ignition" },
+            new TopMenuModel { Id = 323, Link = "/323-ignition-coil", Name = "Ignition Coil" },
+            new TopMenuModel { Id = 322, Link = "/322-distributor-and-magneto", Name = "Distributor and Magneto" },
+            new TopMenuModel { Id = 190, Link = "/190-primary-ignition", Name = "Primary Ignition" },
+            new TopMenuModel { Id = 100155, Link = "/100155-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 100154, Link = "/100154-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100159, Link = "/100159-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 100160, Link = "/100160-switches", Name = "Swithces" },
+            new TopMenuModel { Id = 100162, Link = "/100162-hardware", Name = "Hardware" },
+            new TopMenuModel { Id = 100158, Link = "/100158-relays", Name = "Relays" }
+        }
+    };
+
+    var emission = new TopMenuModel
+    {
+        Id = 9,
+        Class = "mobile-menu-emission",
+        Name = "Emission Control",
+        Link = "/9-emission-control",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 100084, Link = "/100084-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 148, Link = "/148-evaporative-system", Name = "Evaporative System" },
+            new TopMenuModel { Id = 108, Link = "/108-air-injection-system", Name = "Air Injection System" },
+            new TopMenuModel { Id = 142, Link = "/142-egr-and-related-components", Name = "EGR and Related Components" },
+            new TopMenuModel { Id = 226, Link = "/226-vacuum-system", Name = "Vacuum System" },
+            new TopMenuModel { Id = 134, Link = "/134-crankcase-ventilation-system", Name = "Crankcase Ventilation System" },
+            new TopMenuModel { Id = 282, Link = "/282-emission-components", Name = "Emission Components" },
+            new TopMenuModel { Id = 100081, Link = "/100081-filters", Name = "Filters" },
+            new TopMenuModel { Id = 100082, Link = "/100082-gaskets-and-sealing-systems", Name = "Gaskets and Sealing Systems" },
+            new TopMenuModel { Id = 100086, Link = "/100086-wire-cable-and-related-components", Name = "Wire, Cable and Related Components" },
+            new TopMenuModel { Id = 100083, Link = "/100083-relays", Name = "Relays" }
+        }
+    };
+
+    var hvac = new TopMenuModel
+    {
+        Id = 13,
+        Class = "mobile-menu-hvac",
+        Name = "HVAC",
+        Link = "/13-hvac",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 319, Link = "/319-temperature-controls-and-related-components", Name = "Temperature Controls and Related Components" },
+            new TopMenuModel { Id = 103, Link = "/103-ac-clutch-and-compressor", Name = "A/C Clutch & Compressor" },
+            new TopMenuModel { Id = 104, Link = "/104-ac-condenser-and-evaporator", Name = "A/C Condenser & Evaporator" },
+            new TopMenuModel { Id = 318, Link = "/318-motors-core-case-and-related-components", Name = "Motors, Core, Case and Related Components" },
+            new TopMenuModel { Id = 100141, Link = "/100141-hoses-and-pipes", Name = "Hoses & Pipes" },
+            new TopMenuModel { Id = 100138, Link = "/100138-filters", Name = "Filters" },
+            new TopMenuModel { Id = 100147, Link = "/100147-switches", Name = "Switches" },
+            new TopMenuModel { Id = 100135, Link = "/100135-control-modules", Name = "Control Modules" },
+            new TopMenuModel { Id = 100136, Link = "/100136-electrical-connectors", Name = "Electrical Connectors" },
+            new TopMenuModel { Id = 102, Link = "/102-ac-accumulator-receiver-drier", Name = "A/C Accumulator / Receiver Drier" },
+            new TopMenuModel { Id = 100144, Link = "/100144-relays", Name = "Relays" },
+            new TopMenuModel { Id = 100140, Link = "/100140-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 320, Link = "/320-ac-flow-restrictors", Name = "A/C Flow Restrictors" },
+            new TopMenuModel { Id = 100142, Link = "/100142-instrument-panel", Name = "Instrument Panel" },
+            new TopMenuModel { Id = 100152, Link = "/100152-fittings", Name = "Fittings" },
+            new TopMenuModel { Id = 100146, Link = "/100146-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 171, Link = "/171-heater-control-valve-and-related-components", Name = "Heater Control Valve & Related Components" },
+            new TopMenuModel { Id = 100145, Link = "/100145-resistors", Name = "Resistors" },
+            new TopMenuModel { Id = 100134, Link = "/100134-body-wiring-harness-and-components", Name = "Body Wiring Harness & Components" }
+        }
+    };
+
+    var wiperWasher = new TopMenuModel
+    {
+        Id = 22,
+        Class = "mobile-menu-wiper",
+        Name = "Wiper & Washer",
+        Link = "/22-wiper-and-washer",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 236, Link = "/236-windshield-wiper-arm-blade-and-related-components", Name = "Windshield Wiper Arm, Blade, and Related Components" },
+            new TopMenuModel { Id = 100140, Link = "/100140-gaskets-and-sealing-systems", Name = "Gaskets & Sealing Systems" },
+            new TopMenuModel { Id = 320, Link = "/320-ac-flow-restrictors", Name = "A/C Flow Restrictors" },
+            new TopMenuModel { Id = 100142, Link = "/100142-instrument-panel", Name = "Instrument Panel" },
+            new TopMenuModel { Id = 100152, Link = "/100152-fittings", Name = "Fittings" },
+            new TopMenuModel { Id = 100146, Link = "/100146-sensors", Name = "Sensors" },
+            new TopMenuModel { Id = 171, Link = "/171-heater-control-valve-and-related-components", Name = "Heater Control Valve & Related Components" },
+            new TopMenuModel { Id = 100145, Link = "/100145-resistors", Name = "Resistors" },
+            new TopMenuModel { Id = 100143, Link = "/100143-lighting-instrumentation", Name = "Lighting - Instrumentation" }
+        }
+    };
+
+    var boatMarine = new TopMenuModel
+    {
+        Class = "mobile-menu-boat",
+        Name = "Boat & Marine",
+        SubMenu = new List<TopMenuModel>
+{
+            new TopMenuModel { Id = 200008, Link = "/200008-motors-parts-propellers", Name = "Motors, Parts & Propellers" },
+            new TopMenuModel { Id = 200007, Link = "/200007-hardware-paint-maintenance", Name = "Hardware, Paint & Maintenance" },
+            new TopMenuModel { Id = 200008, Link = "/200005-electronics", Name = "Electronics" },
+            new TopMenuModel { Id = 200009, Link = "/200009-pumps-plumbing", Name = "Pumps & Plumbing" },
+            new TopMenuModel { Id = 200001, Link = "/200001-anchor-dock", Name = "Anchor & Dock" },
+            new TopMenuModel { Id = 200012, Link = "/200012-trailering", Name = "Trailering" },
+            new TopMenuModel { Id = 200004, Link = "/200004-covers-bimini-tps", Name = "Covers & Bimini Tps" },
+            new TopMenuModel { Id = 200003, Link = "/200003-cabin-galley", Name = "Cabin & Galley" },
+            new TopMenuModel { Id = 200002, Link = "/200002-boat-seats", Name = "Boat Seats" },
+            new TopMenuModel { Id = 200013, Link = "/200013-watersports", Name = "Watersports" },
+            new TopMenuModel { Id = 200010, Link = "/200010-safety-survival", Name = "Safety & Survival" },
+            new TopMenuModel { Id = 200006, Link = "/200006-fishing", Name = "Fishing" },
+            new TopMenuModel { Id = 200011, Link = "/200011-sailing", Name = "Sailing" }
+        }
+    };
+
+    //var entertainmentTelematics = new TopMenuModel
+    //{
+    //    Id = 42,
+    //    Class = "EntertainmentTelematics",
+    //    Name = "Entertainment ",
+    //    Link = "/42-entertainment-and-telematics",
+    //    SubMenu = new List<TopMenuModel>
+    //    {
+    //        new TopMenuModel { Id = 193, Link = "/193-radiators-coolers-and-related-components", Name = "Radiators, Coolers and Related Components" },
+    //    }
+    //};
+
+    //var multiFunctionalTerms = new TopMenuModel
+    //{
+    //    Id = 29,
+    //    Class = "MultiFunctionTerms",
+    //    Name = "Multifunction Terms",
+    //    Link = "/29-multifunction-terms",
+    //    SubMenu = new List<TopMenuModel>
+    //    {
+    //        new TopMenuModel { Id = 193, Link = "/193-radiators-coolers-and-related-components", Name = "Radiators, Coolers and Related Components" },
+    //    }
+    //};
+
+    //var HardwareServiceSupplies = new TopMenuModel
+    //{
+    //    Id = 22,
+    //    Class = "HardwareServiceSupplies",
+    //    Name = "Hardware & Service Supplies",
+    //    Link = "/23-hardware-and-service-supplies",
+    //    SubMenu = new List<TopMenuModel>
+    //    {
+    //        new TopMenuModel { Id = 193, Link = "/193-radiators-coolers-and-related-components", Name = "Radiators, Coolers and Related Components" },
+    //    }
+    //};
+
+    //var transferCase = new TopMenuModel
+    //{
+    //    Id = 19,
+    //    Class = "TransferCase",
+    //    Name = "Transfer Case",
+    //    Link = "/19-transfer-case",
+    //    SubMenu = new List<TopMenuModel>
+    //    {
+    //        new TopMenuModel { Id = 193, Link = "/193-radiators-coolers-and-related-components", Name = "Radiators, Coolers and Related Components" },
+    //    }
+    //};
+
+    var menu = new List<TopMenuModel>
+{
+        body,
+        suspension,
+        exhaust,
+        airFuelDelivery,
+        engine,
+        brake,
+        electricalLightningBody,
+        tireWheel,
+        accessoriesFluids,
+        toolsEquipment,
+        beltsCooling,
+        transmission,
+        drivelineAxles,
+        ignition,
+        emission,
+        hvac,
+        wiperWasher,
+        boatMarine
+        //entertainmentTelematics,
+        //HardwareServiceSupplies,
+        //multiFunctionalTerms,
+        //transferCase
+    };
+
+    //if (Model.Count > 0)
+    //{
+    //    foreach (var root in menu)
+    //    {
+    //        root.SubMenu.RemoveAll(i => !Model.Any(x => x.RootId == root.Id && x.Id == i.Id));
+    //    }
+
+    //    menu.RemoveAll(i => Model.All(x => x.RootId != i.Id));
+    //}
+}
+
+@*@if (storeInformationSettings.VehicleSupported && storeInformationSettings.VehicleGarageEnabled)
+{
+    @Html.Action("HeaderGarageOption", "Common")
+}*@
+
+<ul class="mobile-menu-list">
+    @foreach (var item in menu)
+    {
+        <li class="mobile-menu-list-item">
+            <div class="mobile-menu-list-item-wrap">
+                <a href="@item.Link" class="@item.Class limobmenu" id="firstLevelul">
+                    <p>@item.Name</p>
+                </a>
+                <span class="mobile-menu-list-link-expand"></span>
+            </div>
+
+            <ul class="mobile-menu-list-inner">
+                <li>
+                    @foreach (var subItem in item.SubMenu)
+                    {
+                        <a href="@subItem.Link" title="Category @subItem.Name">@subItem.Name</a>
+                    }
+                </li>
+            </ul>
+        </li>
+    }
+</ul>

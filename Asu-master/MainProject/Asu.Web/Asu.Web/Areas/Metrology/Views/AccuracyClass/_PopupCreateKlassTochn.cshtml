@@ -1,0 +1,34 @@
+﻿@using Asu.Core.Domain.Metrology
+@model Spr_klass_tochn
+
+@{
+    ViewBag.Title = "Создать";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h4>Справочник классов точности приборов</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.klass_tochn, new { @placeholder = "Класс точности прибора", @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <br />
+    <div>
+        @Html.DevExpress().Button(settings =>
+            {
+                settings.Text = "Создать";
+                settings.Name = "Create";
+                settings.UseSubmitBehavior = true;
+            }).GetHtml()
+    </div>
+</div>
+}
+

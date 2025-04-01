@@ -1,0 +1,8 @@
+﻿<option value="">--Выбрать изделие--</option>
+@if (ViewBag.PerIzdOption != null)
+{
+    foreach (var item in ViewBag.PerIzdOption)
+    {
+        <option value="@item.Id">@item.Id</option>
+    }
+}

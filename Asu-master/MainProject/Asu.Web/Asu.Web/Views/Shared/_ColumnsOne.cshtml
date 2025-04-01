@@ -1,0 +1,25 @@
+﻿@using Asu.Core
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.GoogleTagManager;
+
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    var store = EngineContext.Current.Resolve<IStoreContext>().CurrentStore;
+}
+
+@if (pageType == PageType.Home)
+{
+    @Html.Widget("main_column_before")
+    @RenderBody()
+    @Html.Widget("main_column_after")
+}
+else
+{
+    <div class="center-1">
+        @Html.Widget("main_column_before")
+        @RenderBody()
+        @Html.Widget("main_column_after")
+    </div>
+}

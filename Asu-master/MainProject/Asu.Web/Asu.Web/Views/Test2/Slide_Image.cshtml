@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Slide_Image";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Slide_Image</h2>
+
+@Html.DevExpress().ImageSlider( settings =>
+{
+    settings.Name = "Images";
+    settings.SettingsSlideShow.AutoPlay = true;
+    settings.SettingsSlideShow.Interval = 2000;
+    settings.SettingsSlideShow.PlayPauseButtonVisibility = ElementVisibilityMode.Always;
+    settings.Width = Unit.Percentage(90);
+    //settings.SettingsSlideShow.
+}).BindToFolder("/Content/Images").GetHtml()

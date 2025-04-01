@@ -1,0 +1,32 @@
+﻿@model AdminHeaderLinksModel
+@using Asu.Web.Models.Common;
+@if (Model.IsCustomerImpersonated || Model.DisplayAdminLink)
+{
+    <div class="admin-header-links">
+        @if (Model.IsCustomerImpersonated)
+        {
+            <span class="impersonate">
+                @string.Format(T("Account.ImpersonatedAs").Text, Model.ImpersonatedCustomerEmailUsername)
+                - <a href="@Url.RouteUrl("Logout")" class="finish-impersonation" title="@T("Account.ImpersonatedAs.Finish.Hint")">@T("Account.ImpersonatedAs.Finish")</a>
+            </span>
+        }
+        @if (Model.DisplayAdminLink)
+        {
+            <a href="@Url.Content("~/admin")" class="administration">@T("Account.Administration")</a>
+        }
+
+        @if (Model.DisplayServerDetails)
+        {
+            <ul class="server-details">
+                <li>
+                    <span>Server:</span>
+                    <span>@Environment.MachineName</span>
+                </li>
+                <li>
+                    <span>OS:</span>
+                    <span>@Environment.OSVersion</span>
+                </li>
+            </ul>
+        }
+    </div>
+}

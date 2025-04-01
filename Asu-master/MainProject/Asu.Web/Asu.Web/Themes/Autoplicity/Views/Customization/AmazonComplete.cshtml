@@ -1,0 +1,56 @@
+﻿@model AmazonCheckoutCompletedModel
+@using Nop.Core.Domain.Customers
+@using Nop.Web.Models.Customization;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Checkout").Text);
+}
+<div class="page checkout-page">
+    <div class="page-title">
+        <h1>@T("Checkout.ThankYou")</h1>
+    </div>
+    <div class="page-body checkout-data">
+        @Html.Widget("checkout_completed_top")
+        @if (string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="section order-completed">
+                <div class="title">
+                    <strong>@T("Checkout.YourOrderHasBeenSuccessfullyProcessed")</strong>
+                </div>
+                <ul class="details">
+                    @*<li>
+                            @T("Checkout.OrderNumber"): @Model.OrderId
+                        </li>*@
+                    <li>
+                        Amazon Order Reference Id: @Model.AmazonOrderReferenceId
+                    </li>
+                    @*<li>
+                            <a href="@Url.RouteUrl("OrderDetails", new { orderID = Model.OrderId })">@T("Checkout.PlacedOrderDetails")</a>
+                        </li>*@
+                </ul>
+                <div class="buttons">
+                    <input type="button" value="@T("Checkout.ThankYou.Continue")" class="button-2 order-completed-continue-button" onclick="setLocation('@Url.RouteUrl("HomePage")')" />
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="section order-error">
+                <div class="title">
+                    <strong>Some error happened</strong>
+                </div>
+            </div>
+            <ul class="details">
+                <li>
+                    Error message: @(string.IsNullOrEmpty(Model.ErrorMessage) ? "Sorry, some internal error happened." : Model.ErrorMessage)
+                </li>
+            </ul>
+            <div class="buttons">
+                <input type="button" value="Go to Cart" class="button-2 order-completed-continue-button" onclick="setLocation('@Url.RouteUrl("ShoppingCart")')" />
+            </div>
+        }
+        @Html.Widget("checkout_completed_bottom")
+    </div>
+</div>

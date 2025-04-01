@@ -1,0 +1,22 @@
+﻿@using Asu.Framework.Themes
+@using Asu.Core.Infrastructure
+
+@{
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+}
+
+@if (true) /*if Banner Active*/
+{
+    <div class="black-friday-banner">
+        <div class="black-friday-top-banner">
+            <div class="black-friday-top-banner-content">
+                <h1>Cyber Monday Savings</h1>
+                <h4>
+                    <span>Up</span>
+                    <span>To</span>
+                </h4>
+                <h2>40% off</h2>
+            </div>
+        </div>
+    </div>
+}

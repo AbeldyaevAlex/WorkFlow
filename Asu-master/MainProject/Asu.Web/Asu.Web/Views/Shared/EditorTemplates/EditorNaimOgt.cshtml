@@ -1,0 +1,73 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Html;
+@using Kendo.Mvc.UI.Fluent;
+@using Kendo.Mvc.Extensions;
+@*@(
+     Html.Kendo().TextBoxFor(model => model.NaimOgt)
+         .Name("NaimOgt")
+         .HtmlAttributes(new { placeholder = "Наименование ОГТ", required = "required", validationmessage = "Обязательное поле", @class = "InputNaimOgt", @id = "InputNaimOgt", @name = "InputNaimOgt" })
+    )*@
+@*@(
+    Html.Kendo().ComboBox()
+        .Name("NaimOgt")
+        .DataTextField("OGT")
+        .DataValueField("Id")
+        .Filter(FilterType.Contains)
+        .HtmlAttributes(new { placeholder = "Наименование ОГТ", required = "required", validationmessage = "Обязательное поле", @class = "InputNaimOgt", @id = "InputNaimOgt", @name = "InputNaimOgt" })
+        //.Template("<span class=\"drop-down-list-item\" alt=\"#=MarkaMater#\">#=MarkaMater#</span>")
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingOgtRead", "Skm");
+            });
+        })
+    )*@
+@*@(
+    Html.Kendo().DropDownList()
+        .Name("OGT")
+        .DataTextField("OGT")
+        .DataValueField("Id")
+        .OptionLabel("Select Type...")
+        .Filter(FilterType.Contains)
+        //.Events(e => e.Change("ComboValChanged"))
+        .HtmlAttributes(new { placeholder = "Наименование ОГТ", required = "required", validationmessage = "Обязательное поле", @class = "InputNaimOgt", @id = "InputNaimOgt", @name = "InputNaimOgt" })
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingOgtRead", "Skm");
+            });
+        })
+    )*@
+@(Html.Kendo().AutoComplete()
+    .Name("NaimOgt")
+    .DataTextField("NaimOgt")
+    .HtmlAttributes(new { style = "width:100%; border:0.5px dashed red;", placeholder = "Наименование ОГТ", required = "required", validationmessage = "Обязателен",
+        @class = "NaimOgt",
+        @id = "NaimOgt",
+    })
+    .Events(p => p.Change("onChangeNaimOgt"))
+    //.HtmlAttributes(new { style = "width:100%" })
+    //.Filter(FilterType.Contains)
+    //.Events(p => p.Change("onChange"))
+    @*.Events(e => e.Change(@<text>
+
+
+                function() {
+                   alert('!!!');
+                }
+            </text>)
+        )*@
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("ComboBoxMemoAddingOgtRead", "Skm");
+        });
+    })
+
+    )

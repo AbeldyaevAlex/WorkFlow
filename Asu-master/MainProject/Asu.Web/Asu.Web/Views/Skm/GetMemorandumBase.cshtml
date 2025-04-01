@@ -1,0 +1,75 @@
+﻿@using Asu.Web.ViewModel
+@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@{
+    Layout = "~/Views/Shared/_LayoutKendoForGrid.cshtml";
+}
+
+<hr />
+
+<div id="grid"></div>
+<script>
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "/Skm/GetMemorandumBaseJs",
+                        dataType: "json"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            NoMemorandumLine: { editable: true, nullable: false, type: "number" },
+                            Description: { editable: true, nullable: false, type: "string" },
+                            CommentForMsz: { editable: true, nullable: false, type: "string" },
+                        }
+                    }
+                },
+                pageSize: 10
+            },
+            editable: "inline",
+            groupable: true,
+            filterable: true,
+            resizable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 10
+            },
+            toolbar: ["create"],
+            columns: [
+                { field: "NoMemorandumLine", title: "NoMemorandumLine", width: "270px" },
+                { field: "Description", title: "Description", width: "80px" },
+                { field: "CommentForMsz", title: "CommentForMsz", width: "175px"},
+            ]
+        });
+        $("#grid").on("dblclick", "tr", function () {
+            debugger;
+            var grid = $('#grid').data('kendoGrid');
+            var dataItem = grid.dataItem(this);
+            window.location.href = "GetTabStripDetail?id=" + dataItem.Id;
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

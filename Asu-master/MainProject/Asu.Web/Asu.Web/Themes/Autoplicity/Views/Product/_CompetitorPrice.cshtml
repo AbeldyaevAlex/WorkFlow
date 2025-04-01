@@ -1,0 +1,55 @@
+﻿@model List<Asu.Core.Domain.Customization.CompetitorPrice>
+@using System.Globalization
+@using Asu.Core.Domain.Customers
+@using Asu.Web.Models.Catalog
+@{
+    var ci = new CultureInfo("en-us");
+    var price = this.ViewData["OurPrice"] as ProductDetailsModel.ProductPriceModel;
+}
+
+@if (!WorkContext.CurrentCustomer.IsAdmin() && Model != null && Model.Count > 0)
+{
+    <a id="competitors-link" class="competitor-prices-link" title="">Competitor Pricing</a>
+    <div id="competitorPrices" class="competitor-prices" style="display: none;">
+        @if (price != null)
+        {
+            <div class="our-price">
+                @if (price.CallForPrice)
+                {
+                    <div class="value">Call For Price</div>
+                }
+                else if (!string.IsNullOrWhiteSpace(price.PriceWithDiscount))
+                {
+                    <div class="title">Price with Discount:</div>
+                    <div class="value">@price.PriceWithDiscount</div>
+                }
+                else if (price.IsPriceHidden)
+                {
+                    if (price.StockQuantity > 0 || price.IsShippingFromManufacturer)
+                    {
+                        <a class="add-to-cart-link">Add to cart to see price</a>
+                    }
+                }
+                else
+                {
+                    <div class="title">Our Price:</div>
+                    <div class="value">@price.Price</div>
+                }
+            </div>
+        }
+        <h6>Competitor Pricing</h6>
+        <div class="competitors-price-table">
+            <ul class="header_of_table">
+                <li>Store</li>
+                <li>Price</li>
+            </ul>
+            <ul>
+                @foreach (var cp in Model)
+                {
+                    <li class="left">@cp.StoreName</li>
+                    <li class="right">@cp.Price.ToString("C", ci)</li>
+                }
+            </ul>
+        </div>
+    </div>
+}

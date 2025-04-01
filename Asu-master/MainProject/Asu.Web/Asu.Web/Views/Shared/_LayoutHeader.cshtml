@@ -1,0 +1,71 @@
+﻿
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            @{ var pageTitleParts = new string[] { ViewBag.Title, "ASP.NET MVC Responsive Project Template | DevExpress" }; }
+            @string.Join(" - ", @pageTitleParts.Where(s => !string.IsNullOrEmpty(s)))
+        </title>
+        <link href="~/Content/bootstrap_bundle.css" rel="stylesheet" />
+        <link href="~/Content/Layout_new.css" rel="stylesheet" />
+        <script src="~/Content/jquery.js"></script>
+        <script src="~/Content/bootstrap.js"></script>       
+        <style>
+            body {
+                background: linear-gradient(90deg, #b9deed, #efefef);
+            }
+
+            .nav-link {
+                min-width: 97px;
+                padding-right: 30px !important;
+                margin-right: auto;
+            }
+
+            .navbar {
+                border-radius: 0px !important;
+            }
+
+            img {
+                position: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand p-0" href="">
+                    <img src="~/Content/Images/plane.png" alt="Logo" width="114" />
+                </a>
+            </div>
+            <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="" href="">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Контакты</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">Информация</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">Личный кабинет</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        @RenderBody()
+    </body>
+</html>

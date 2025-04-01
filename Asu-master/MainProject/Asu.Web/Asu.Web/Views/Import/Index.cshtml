@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h1 align="center">
+    Список тематик:
+</h1>
+@using (Html.BeginForm("Index", "Import", FormMethod.Post))
+{
+    <div class="form-checkboxlist">
+
+        <div>
+            <input type="text" id="checkall" name="check_all" />
+        </div>
+
+        <input type="submit" value="Ок" />
+        <br />
+        <br />
+        <hr />
+        <footer>
+            <input type="checkbox" id="checkall" name="check_all" />
+            <label for="checkall">Выбрать все/Отменить все</label>
+        </footer>
+    </div>
+}

@@ -1,0 +1,83 @@
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        Html.EnableClientValidation();
+        Html.EnableUnobtrusiveJavaScript();
+
+        settings.EnableRowsCache = false;
+
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_Pkp", Action = "GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.SettingsEditing.ShowModelErrorsForEditors = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxHeight = Unit.Percentage(100);
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.Height = 200;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "ImageFileName";
+            columnSettings.Caption = "~";
+            columnSettings.Width = Unit.Pixel(35);
+            //columnSettings.ColumnType = MVCxGridViewColumnType.Image;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                string imageurl = new UrlHelper(HttpContext.Current.Request.RequestContext).Content(
+                    String.Format("~/Content/PkpImage/{0}", DataBinder.Eval(c.DataItem, "ImageFileName")));
+                ViewContext.Writer.Write(String.Format("<img src =\"{0}\" width = '23' height = '20' /> ", imageurl));
+
+            });
+
+        });
+        settings.Columns.Add("pkp");
+        settings.Columns.Add("nm_pkp");
+        settings.Columns.Add("link_razd");
+        settings.Columns.Add("link_razd_dse");
+        settings.Columns.Add("link_status");
+        settings.Columns.Add("link_user");
+        settings.Columns.Add("operation");
+        settings.Columns.Add("operation_date");
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            var editor = (ASPxEdit)e.Editor;
+            editor.ValidationSettings.Display = Display.Dynamic;
+            editor.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        };
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

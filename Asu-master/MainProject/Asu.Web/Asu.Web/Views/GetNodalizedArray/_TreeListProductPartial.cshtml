@@ -1,0 +1,166 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var treeList = Html.DevExpress().TreeList(settings =>
+    {
+        settings.Name = "TreeList";
+        settings.CallbackRouteValues = new { Controller = "GetNodalizedArray", Action = "TreeListProductPartial" };
+
+        settings.Settings.GridLines = System.Web.UI.WebControls.GridLines.Both;
+        settings.SettingsBehavior.AllowFocusedNode = true;
+
+        //settings.SettingsPager.Mode = TreeListPagerMode.ShowPager;
+
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowFilterRowMenu = true;
+
+        settings.SettingsSearchPanel.Visible = true;
+        settings.SettingsFilterControl.ShowAllDataSourceColumns = true;
+
+        settings.KeyFieldName = "Vhodim_str";
+        settings.ParentFieldName = "Vhodim_rod";
+        //settings.RootValue = 0;
+
+        settings.SettingsBehavior.ExpandCollapseAction = TreeListExpandCollapseAction.NodeDblClick;
+
+
+        settings.Images.ExpandedButton.Url = "~/Content/Images/OPENFOLD.BMP";
+        settings.Images.ExpandedButton.Width = 13;
+        settings.Images.ExpandedButton.Height = 13;
+
+
+        settings.Images.CollapsedButton.Url = "~/Content/Images/CLSDFOLD.BMP";
+        settings.Images.CollapsedButton.Width = 13;
+        settings.Images.CollapsedButton.Height = 13;
+
+
+
+        settings.Columns.Add(col =>
+        {
+            col.SetDataCellTemplateContent(c =>
+            {
+                var expanded = DataBinder.Eval(c.DataItem, "Vhodim_str");
+                //var iconName = DataBinder.Eval(c.DataItem, "Code");
+                Html.DevExpress().Image(
+                set =>
+                {
+                    set.Name = "image" + expanded;
+                    set.ImageUrl = c.Expanded ? Url.Content("~/Content/Images/OPENFOLD.BMP") : Url.Content("~/Content/Images/CLSDFOLD.BMP");
+                    set.Width = 15;
+                    set.Height = 15;
+                }).Render();
+            });
+        });
+        settings.Columns.Add(column =>
+        {
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Запись";
+            column.FieldName = "Vhodimost";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Обозначение";
+            column.FieldName = "Obozn";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "ПКП";
+            column.Width = Unit.Pixel(35);
+            column.FieldName = "pkpObozn";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Kizd";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Кол-во";
+            column.Width = Unit.Pixel(60);
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Серия С";
+            column.FieldName = "Ss";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Серия По";
+            column.FieldName = "Spo";
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.FieldName = "Rascex_poln";
+            var x = columnSettings.Caption = "Расцеховка";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Масса на 1шт";
+            column.FieldName = "Mas1sh";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "Масса на изделие";
+            column.FieldName = "Masizd";
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+            columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+            columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+            columnSettings.FieldName = "Rascex_poln";
+            var x = columnSettings.Caption = "Расцеховка";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "ТК1";
+            column.FieldName = "tk1";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "ТК2";
+            column.FieldName = "tk2";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            var x = column.Caption = "ТК3";
+            column.FieldName = "tk3";
+        });
+
+        settings.SettingsCookies.Enabled = true;
+        settings.SettingsCookies.StoreExpandedNodes = true;
+        settings.SettingsCookies.StoreSelection = true;
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsSelection.Enabled = true;
+    });
+    if (ViewData["EditError"] != null)
+    {
+        treeList.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+
+@treeList.Bind(Model).GetHtml()

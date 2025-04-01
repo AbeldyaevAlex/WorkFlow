@@ -1,0 +1,96 @@
+﻿@using Asu.Core.Domain.Customization
+@using Asu.Core.Infrastructure
+
+@{
+    Layout = null;
+    var amazonPaymentSettings = EngineContext.Current.Resolve<AmazonPaymentSettings>();
+    var scriptUrl = amazonPaymentSettings.UseSandbox ? amazonPaymentSettings.SandboxScriptUrl : amazonPaymentSettings.LiveScriptUrl;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LWA Popup</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    @*<script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.cookie.js"></script>*@
+    
+    <script type='text/javascript'>
+        function getURLParameter(name, source) {
+            return decodeURIComponent((new RegExp('[?|&|#]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(source) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        }
+
+        var accessToken = getURLParameter("access_token", location.hash);
+        if (typeof accessToken === 'string' && accessToken.match(/^Atza/)) {
+            $("#lwa-title").text("Redirect to Checkout");
+            $("#lwa-title").css('font-size', '28pt');
+            document.cookie = "amazon_Login_accessToken=" + accessToken + ";secure";
+        }
+
+        window.onAmazonLoginReady = function () {
+            amazon.Login.setClientId("@amazonPaymentSettings.ClientId");
+            amazon.Login.setUseCookie(true);
+        };
+    </script>
+    <script type="text/javascript" src="@(string.Format(scriptUrl, amazonPaymentSettings.MerchantId))"></script>
+</head>
+<body>
+    <div style="font-family: 'Segoe UI Light','Open Sans',Verdana,Arial,Helvetica,sans-serif; font-weight: 200; line-height: 30pt; position: absolute; top: 50%; left: 50%; margin-top: -70px; margin-left: -170px; width: 500px; height: 300px;">
+        <p id="lwa-title" style="font-size:30pt;color:rgba(0, 0, 0, 0.6);margin: 10px;">Login with Amazon</p>
+        <p style="font-size: 22pt; color: rgba(0, 0, 0, 0.4); margin: 10px;">please wait while redirect...</p>
+        <p style="font-size: 19.2pt; color: rgba(0, 0, 0, 0.4); margin: 10px;">DON'T CLOSE THIS WINDOW</p>
+    </div>
+    <div id="addressBookWidgetDiv" style="display: none"></div>
+    <script type="text/javascript">
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        function getCookie(name) {
+            var matches = document.cookie.match(new RegExp(
+              "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        $(document).ready(function () {
+            if (getParameterByName("blank") != "") {
+                return;
+            }
+
+            var amazonOrderReferenceId;
+
+            new OffAmazonPayments.Widgets.AddressBook({
+                sellerId: "@amazonPaymentSettings.MerchantId",
+                design: { size: { width: '472', height: '260' } },
+                onAddressSelect: function () {},
+                onOrderReferenceCreate: function (orderReference) {
+                    $("#lwa-title").text("Redirect to Checkout");
+                    $("#lwa-title").css('font-size', '28pt');
+
+                    amazonOrderReferenceId = orderReference.getAmazonOrderReferenceId();
+                    var amazonAccessToken = accessToken;//getCookie("amazon_Login_accessToken");
+                    if (typeof (amazonAccessToken) === 'undefined' || amazonAccessToken === null) {
+                        /*amazonAccessToken = window.opener.getCookie("amazon_Login_accessToken");
+                    }
+                    if (amazonAccessToken == undefined || typeof (amazonAccessToken) === 'undefined' || amazonAccessToken === null) {*/
+                        amazon.Login.authorize({ scope: "profile postal_code payments:widget payments:shipping_address", popup: false }, "@Url.RouteUrl("LwaPopup")");
+                    }
+                    else {
+                        window.opener.location = "@Url.RouteUrl("SimpleCheckoutAmazonPay")?orderReferenceId=" + amazonOrderReferenceId + "&access_token=" + amazonAccessToken;
+                        window.close();
+                    }
+                },
+                onError: function (error) {
+                    //alert(error.getErrorCode() + " - " + error.getErrorMessage());
+                    amazon.Login.authorize({ scope: "profile postal_code payments:widget payments:shipping_address", popup: false }, "@Url.RouteUrl("LwaPopup")");
+                }
+            }).bind("addressBookWidgetDiv");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model Asu.Web.Models.Msi.Spr_obozn
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl" + ViewData["key"];
+    settings.Width = Unit.Percentage(100);
+    settings.TabPosition = TabPosition.Top;
+    settings.Styles.Content.Border.BorderWidth = Unit.Pixel(6);
+    settings.CallbackRouteValues = new { Controller = "Sostav_Izdelia", Action = "PageControlPartial", key = ViewData["key"] };
+    settings.TabPages.Add("Спецификации").SetContent(() =>
+    {
+        Html.RenderAction("SpecificationGridView", new { key = Model.Id });
+
+    });
+    settings.TabPages.Add("Применяемость").SetContent(() =>
+    {
+        Html.RenderAction("PrimDseGridView", new { key = Model.Id });
+
+    });
+    //settings.TabPages.Add("Материалы").SetContent(() =>
+    //{
+    //    //Html.RenderAction("UserInformationGridView", new { key = Model.Id });
+
+    //});
+    //settings.TabPages.Add("Трудоемкость").SetContent(() =>
+    //{
+    //    //Html.RenderAction("UserInformationGridView", new { key = Model.Id });
+
+    //});
+
+}).GetHtml()

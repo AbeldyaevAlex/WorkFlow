@@ -1,0 +1,129 @@
+﻿@using Asu.Web.Model
+@using Asu.Core
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain.Common;
+@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+
+        @{ var pageTitleParts = new string[] { ViewBag.Title, "ASP.NET MVC Responsive Project Template | DevExpress" }; }
+        @string.Join(" - ", @pageTitleParts.Where(s => !string.IsNullOrEmpty(s)))
+    </title>
+    <link rel="icon" href="~/Content/Images/favicon.PNG" />
+    <link href="~/Content/bootstrap_bundle.css" rel="stylesheet" />
+    <link href="~/Content/Layout_new.css" rel="stylesheet" />
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/bootstrap.js"></script>
+    <style>
+        body {
+/*            background-image: url('../../content/background/1616367301_38-p-fon-dlya-saita-42.png');*/
+            background-image: url('../../content/slide_images/1569095628_2872911fdb694aeeb9c1887726ca2206.jpg');
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            /*background: linear-gradient(90deg, #b9deed, #efefef);*/
+        }
+
+        .container {
+            padding: 0px 0px 0px 0px !important;
+        }
+
+        .navbar.navbar-expand-lg.navbar-dark.bg-dark {
+            padding: 0px;
+        }
+
+        .collapse.navbar-collapse {
+            padding: 0px;
+            height: 96px;
+        }
+
+        .nav-link {
+            min-width: 70px;
+            padding: 0px 20px 0px 0px !important;
+        }
+
+        img {
+            margin-left: 30px;
+        }
+
+        .navbar {
+            border-radius: 0px !important;
+        }
+
+        .navbar-nav {
+            width: max-content;
+        }
+
+        img {
+            position: inherit;
+        }
+
+        .login {
+            margin-top: 23px;
+        }
+    </style>
+</head>
+<body>
+    @{
+        var relativeUrl = this.Context.Request.Path;
+        var customerName = EngineContext.Current.Resolve<IWorkContext>().CurrentCustomer.ShippingAddress.FullNameForGrid;
+    }
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand p-0" href="">
+                <img src="~/Content/Images/plane.png" alt="Logo" width="114" />
+            </a>
+        </div>
+        <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+
+            <div style="float:right;">
+                <ul class="navbar-nav">
+                    @if (@User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink(customerName, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Logout" href="@Url.RouteUrl("Logout", new {returnUrl = relativeUrl, @class ="nav-link"})" rel="nofollow">Выйти</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Выполнить вход", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                        </li>
+                        if (WorkContext.IsAdmin)
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Регистрация", "Register", "Customer", routeValues: null, htmlAttributes: new { id = "registrLink" })
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @*<footer>      
+        <div class="footerDown">
+            <div class="container">
+                <p>@DateTime.Today.Year.ToString() &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>*@
+</body>
+</html>
+
+
+    
+
+
+

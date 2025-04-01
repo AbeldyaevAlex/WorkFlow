@@ -1,0 +1,32 @@
+﻿@model Nop.Web.Models.Catalog.ProductGroupModel 
+    
+<div id="details-tabs" class="product-tabs" style="display:none">
+    <ul id="tab-headers" class="tab-headers">
+        <li><a href="#details">Product Details</a></li>
+        <li><a href="#returns">Return Policy</a></li>
+    </ul>
+    <div class="accordion-header">Product Details</div>
+    <div id="details" class="product-details-tab">
+        <span class="description-product-name">
+            @Model.Name
+        </span>
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <div class="full-description" itemprop="description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+    </div>
+    <div class="accordion-header">Return Policy</div>
+    <div id="returns" class="return-policy-tab">
+        <div class="return-policy-image"></div>
+        <div class="return-policy-text">
+            <span>Returns are easy at Autoplicity</span>
+            <br />
+            Not happy with a purchase? No problem. We've made returning items as easy as possible. And
+            most purchases can be returned for free for 30 days. Learn more about our
+            @Html.RouteLink("Returns Policy", "Topic", new { SeName = Html.GetTopicSeName("shippinginfo") })
+        </div>
+    </div>
+</div>
+

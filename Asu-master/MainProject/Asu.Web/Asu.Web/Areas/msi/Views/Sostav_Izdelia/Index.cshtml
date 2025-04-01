@@ -1,0 +1,22 @@
+﻿@model Asu.Web.Models.Tema
+@*@model Asu.Web.Models.Spr_tem*@
+@{
+
+    ViewBag.Title = "Выбор тематики";
+    Layout = "~/Views/Shared/_SignInLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h1 align="center">
+    Список тематик:
+</h1>
+@using (Html.BeginForm("Index", "Sostav_Izdelia", "msi_default", FormMethod.Post))
+{
+    <div class="form-checkboxlist">
+        @foreach (var item in Model.Spr_tem)
+        {
+            @Html.RadioButtonFor(m => m.SelectedTem, item.Id, new { @value = "tem" })@item.nm_tem_p
+            <br>
+        }
+        <input type="submit" value="Ок" />
+    </div>
+}

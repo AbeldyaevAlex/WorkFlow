@@ -1,0 +1,115 @@
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "skm_test", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "skm_test", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "skm_test", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "skm_test", Action = "GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsPager.PageSize = 50;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCellsWindowLimit;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.None;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = true;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+
+        //settings.Columns.Add(c =>
+        //{
+        //    c.GroupIndex = 0;
+        //    c.FieldName = "nraz_ogt";
+        //    var name = c.Caption = "Группа ОГТ";
+        //    c.Width = Unit.Pixel(150);
+        //});
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "nraz_ogt";
+            //columnSettings.Caption = "test";
+            columnSettings.Width = Unit.Pixel(200);
+            //columnSettings.GroupIndex = 0;
+            columnSettings.SetDataItemTemplateContent(t =>
+            {
+                Html.DevExpress().Label(
+                    l =>
+                    {
+                        l.Text = string.Format("{0} {1}", DataBinder.Eval(t.DataItem, "SPR_OGT.nraz"), DataBinder.Eval(t.DataItem, "SPR_OGT.naim_ogt"));
+                    }).Render();
+            });
+
+            //columnSettings.Visible = true;
+            //columnSettings.UnboundType = DevExpress.Data.UnboundColumnType.String;
+
+
+        });
+        //settings.CustomUnboundColumnData = (s, e) =>
+        //{
+        //    if (e.Column.FieldName == "nraz_ogt")
+        //    {
+        //        string a = (e.GetListSourceFieldValue("dbt")).ToString();
+        //        string b = (e.GetListSourceFieldValue("dsh")).ToString();
+        //        e.Value = string.Format("{0} {1}", a, b);
+        //    }
+        //};
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.GroupIndex = 0;
+            columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            columnSettings.FieldName = "link_GR_Mater";
+            var x = columnSettings.Caption = "Группа материала";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "nm_gr_mater";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetGrMater();
+        });
+        settings.Columns.Add(c =>
+        {
+            c.GroupIndex = 1;
+            c.FieldName = "link_ogt";
+            var name = c.Caption = "Группа ОГТ";
+            c.Width = Unit.Pixel(150);
+        });
+        settings.Columns.Add("km");
+        settings.Columns.Add("dbt");
+        settings.Columns.Add("dsh");
+        settings.Columns.Add("ves");
+        settings.Columns.Add("link_nm_skm");
+        settings.Columns.Add("link_marka");
+        settings.Columns.Add("link_gost");
+        settings.Columns.Add("link_eizm");
+        settings.Columns.Add("link_kgr");
+        settings.Columns.Add("link_ots");
+        //settings.Columns.Add("link_ogt");
+        settings.Columns.Add("link_balsch");
+        settings.Columns.Add("link_prkm");
+
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+    }
+    @*@grid.Bind(Model).GetHtml()*@
+@grid.BindToLINQ("Asu.Web.Models.ASU_AVIAEntities12", "Spr_skm").GetHtml()
+
+

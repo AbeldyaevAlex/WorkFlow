@@ -1,0 +1,235 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridView";
+        settings.KeyFieldName = "Id";
+        settings.CallbackRouteValues = new { Controller = "SprObozn", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "SprObozn", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "SprObozn", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "SprObozn", Action = "GridViewPartialDelete" };
+        settings.CustomActionRouteValues = new { Controller = "SprObozn", Action = "GridViewCustomActionPartial" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+      
+
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+        settings.SettingsBehavior.AllowDragDrop = false;
+
+
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsPager.PageSize = 50;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.Visible = true;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsCustomizationDialog.Enabled = true;
+
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.Settings.EnableFilterControlPopupMenuScrolling = true;
+        settings.Settings.ShowFilterRowMenuLikeItem = true;
+        settings.Settings.ShowStatusBar = GridViewStatusBarMode.Auto;
+        settings.Settings.ShowFilterRow = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsEditing.EditFormColumnCount = 2;
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+
+        settings.Columns.Add(columnSettings =>
+        {
+            var y =columnSettings.FieldName = "obozn";
+            var x = columnSettings.Caption = "Обозначение";
+            columnSettings.Width = Unit.Pixel(300);
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "var";
+            var x = columnSettings.Caption = "Вариант";
+            columnSettings.Width = Unit.Pixel(300);
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_pkp";
+            var x = columnSettings.Caption = "ПКП";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetPkp();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "nm_pkp";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "status";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_naim";
+            var x = columnSettings.Caption = "Наименование";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_det";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetNaim();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_mater";
+            var x = columnSettings.Caption = "Материал";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "nm_mater";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetMater();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "mas1sh";
+            var x = columnSettings.Caption = "Масса на ед.";
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_user";
+            var x = columnSettings.Caption = "Пользователь";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "Full_Name";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetUser();
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            var y = columnSettings.FieldName = "operation";
+            var x = columnSettings.Caption = "Операция";
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            var y = columnSettings.FieldName = "operation_date";
+            var x = columnSettings.Caption = "Дата операции";
+            columnSettings.ColumnType = MVCxGridViewColumnType.DateEdit;
+            columnSettings.Settings.AutoFilterCondition = AutoFilterCondition.Equals;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.SetHeaderCaptionTemplateContent(c =>
+            {
+                ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+            });
+        });
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "link_stsort";
+        //    var x = columnSettings.Caption = "Сортировка";
+        //    columnSettings.Visible = true;
+        //    columnSettings.Width = Unit.Pixel(200);
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    columnSettings.SetHeaderCaptionTemplateContent(c =>
+        //    {
+        //        ViewContext.Writer.Write(string.Format("<h3 align = 'center' style = 'color: #b3d9ff'>{0}</h3>", x));
+        //    });
+
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "sort";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStSort();
+        //});
+
+
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Right;
+            toolbar.Items.Add(item =>
+            {
+                item.Command = GridViewToolbarCommand.ShowCustomizationDialog;
+                item.Text = "Панель Группировки";
+                item.Image.IconID = IconID.ActionsFilter16x16devav;
+            });
+        });
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

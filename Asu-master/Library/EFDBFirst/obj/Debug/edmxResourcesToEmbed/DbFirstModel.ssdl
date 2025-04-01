@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище AsuAviaTestVersionBetaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DirectiveWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PkpId" Type="int" Nullable="false" />
+    <Property Name="OboznId" Type="int" Nullable="false" />
+    <Property Name="CexIzgId" Type="int" Nullable="false" />
+    <Property Name="CexPotrId" Type="int" Nullable="false" />
+    <Property Name="link_uch" Type="int" Nullable="false" />
+    <Property Name="Directive_work_sdeln_izg" Type="decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_povr_izg" Type="decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_sdeln_usl" Type="decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_povr_usl" Type="decimal" Precision="20" Scale="5" />
+    <Property Name="DirectoryOfTypesOfWorkId" Type="int" />
+    <Property Name="Prim" Type="nvarchar(max)" />
+    <Property Name="NomDok" Type="nvarchar(max)" />
+    <Property Name="SprPviId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DocumentStatusId" Type="int" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar(max)" />
+    <Property Name="OperationDate" Type="datetime" />
+    <Property Name="PeriodOpenDate" Type="datetime" />
+    <Property Name="PeriodCloseDate" Type="datetime" />
+    <Property Name="ExceptionForWorkId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExceptionForWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar(max)" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="Prim" Type="nvarchar(max)" />
+    <Property Name="SprPviId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DocumentStatusId" Type="int" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar(max)" />
+    <Property Name="OperationDate" Type="datetime" />
+    <Property Name="PeriodOpenDate" Type="datetime" />
+    <Property Name="PeriodCloseDate" Type="datetime" />
+  </EntityType>
+  <Association Name="DirectiveWork_ExceptionForWork">
+    <End Role="ExceptionForWork" Type="Self.ExceptionForWork" Multiplicity="1" />
+    <End Role="DirectiveWork" Type="Self.DirectiveWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExceptionForWork">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DirectiveWork">
+        <PropertyRef Name="ExceptionForWorkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище AsuAviaTestVersionBetaModelContainer">
+    <EntitySet Name="DirectiveWork" EntityType="Self.DirectiveWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExceptionForWork" EntityType="Self.ExceptionForWork" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="DirectiveWork_ExceptionForWork" Association="Self.DirectiveWork_ExceptionForWork">
+      <End Role="ExceptionForWork" EntitySet="ExceptionForWork" />
+      <End Role="DirectiveWork" EntitySet="DirectiveWork" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,255 @@
+﻿.registration-page, .account-page.customer-info-page .page-body, .account-page.address-edit-page .page-body {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px;
+    width: 420px;
+    display: block;
+    overflow: hidden;
+}
+
+.checkorderform {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 15px;
+    min-height: 320px;
+    padding: 30px;
+    width: 32%;
+    position: relative;
+}
+
+.account-page.downloadable-products-page, .account-page.back-in-stock-subscription-list-page {
+    border-radius: 5px;
+    padding: 0 10px;
+    width: 98%;
+}
+
+.account-page.order-list-page {
+    border-radius: 5px;
+    padding: 0;
+    width: 100%;
+}
+
+.account-page.customer-info-page .birthdate, .account-page.address-edit-page .birthdate {
+    width: 100%;
+    float: left;
+}
+
+.account-page.customer-info-page .page-title, .account-page.address-edit-page .page-title {
+    margin-bottom: 10px;
+}
+
+.account-page.customer-info-page .page-title .page-body {
+    margin: 0;
+    padding: 0;
+    color: #666;
+    background-color: inherit;
+}
+
+.account-page.customer-info-page .page-body .fieldset {
+    width: 100%
+}
+
+.account-page.customer-info-page .gender {
+    display: inline-block;
+}
+
+.account-page.customer-info-page .gender label.radio {
+    margin-right: 10px
+}
+
+.account-page.customer-info-page ul.option-list {
+    display: inline-block;
+}
+
+.account-page.customer-info-page ul.option-list li {
+    list-style: none;
+    display: inline-block;
+}
+
+.account-page.customer-info-page ul.option-list li label {
+    width: auto;
+    margin-left: 0px;
+}
+
+.account-page.customer-info-page .vat-note {
+    display: block;
+}
+
+.account-page.customer-info-page .accept-privacy-policy {
+    float: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    clear: both;
+}
+
+.account-page.customer-info-page .accept-privacy-policy .read {
+    text-decoration: underline;
+}
+
+.account-page.customer-info-page .accept-privacy-policy .read:hover {
+    cursor: pointer;
+}
+
+.account-page.customer-info-page .buttons, .address-edit-page .buttons {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    clear: both;
+}
+
+.account-page.customer-info-page .message-error {
+    margin-bottom: 10px;
+}
+
+.account-page.customer-info-page textarea {
+    height: 100px;
+    width: 500px;
+    border: solid 1px #ccc;
+    vertical-align: top;
+}
+
+.account-page.customer-info-page input[type=radio] {
+    position: absolute;
+    z-index: -1000;
+    top: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+.account-page.customer-info-page input[type=radio] + label {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block !important;
+    float: left;
+    height: 18px !important;
+    line-height: 18px;
+    padding-left: 23px;
+    vertical-align: middle;
+    width: auto;
+}
+
+.account-page.customer-info-page input[type=radio]:checked + label {
+    background-position: 0 -18px;
+}
+
+.account-page.customer-info-page .fieldset .inputs input[type="checkbox"]#Newsletter1 {
+    display: none;
+}
+
+.account-page.customer-info-page .fieldset .inputs input[type="checkbox"] + label {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    background: url(/Themes/Autoplicity/Content/images/tick_unchecked.png) left top no-repeat;
+    cursor: pointer;
+}
+
+.account-page.customer-info-page .fieldset .inputs input[type="checkbox"]:checked + label {
+    background: url(/Themes/Autoplicity/Content/images/tick_checked.png) left top no-repeat;
+    width: 18px;
+    height: 15px;
+}
+
+.account-page.customer-info-page .fieldset .inputs .k-widget {
+    width: 30% !important;
+    margin-right: 10px
+}
+
+.k-widget .k-dropdown-wrap .k-input {
+    display: block !important;
+    height: 27px !important;
+    line-height: 27px !important;
+    padding-left: 5px !important;
+    text-align: left !important;
+}
+
+.k-widget .k-dropdown-wrap .k-select {
+    padding: 7px 0px 0 0 !important;
+    width: 34px !important;
+    border-left: 1px solid #ccc !important;
+    height: 32px !important;
+}
+
+.styled-select {
+    margin-top: 20px;
+    background: url(/Themes/Autoplicity/Content/images/smart_arrows.png) no-repeat 100% 0;
+    height: 34px !important;
+    overflow: hidden;
+    width: 240px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    width: 268px;
+}
+
+.registration-result-page .page-body {
+    margin: 0;
+    padding: 0;
+    color: #666;
+    background-color: inherit;
+}
+
+.registration-result-page .buttons {
+    float: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    clear: both;
+}
+
+.registration-result-page .footermailtextboxblock {
+    display: block;
+    overflow: hidden;
+    float: right;
+    border: 1px solid #ccc;
+    min-height: 200px;
+    border-radius: 5px;
+    padding: 30px;
+    width: 47%;
+}
+
+.registration-result-page .footermailtextboxblock h3 {
+    font-size: 10pt;
+    font-weight: normal;
+    color: #999;
+}
+
+.registration-result-page div.footermailtextbox {
+    width: 300px;
+    float: left;
+}
+
+.registration-result-page .registration-result {
+    float: left;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-height: 200px;
+    padding: 30px;
+    width: 50%;
+}
+
+.footermailtextboxblock #newsletter-result-block {
+    margin-top: 10px;
+    display: block;
+}
+
+.footermailtextboxdiv #subscribe-loading-progress {
+    float: left;
+    margin-top: 20px;
+    padding-left: 20px;
+}

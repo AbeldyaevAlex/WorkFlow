@@ -1,0 +1,707 @@
+﻿@import 'additionally/colors.scss';
+@import 'additionally/fonts.scss';
+
+footer {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+
+    .footer-top {
+        border-bottom: 1px solid $grey;
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        .footer-inner {
+            display: block;
+            margin: 0 auto;
+            padding: 0 10px;
+            position: relative;
+            width: 100%;
+            max-width: 1260px;
+
+            .footer-top-columns {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                .footer-top-columns-left {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    margin: 0 10px 0 0;
+                    width: 100%;
+
+                    .footer-top-information {
+                        padding: 40px 10px 40px 0;
+                        text-align: left;
+
+                        .footer-top-information-logo {
+                            display: inline-block;
+                            cursor: pointer;
+                            margin: 0 0 40px 0;
+
+                            img {
+                                display: block;
+                                width: 100%;
+                                max-width: 190px;
+                            }
+                        }
+
+                        h5 {
+                            color: $grey;
+                            font-weight: 300;
+                            font-size: 14px;
+                            cursor: default;
+                            margin: 0 0 5px 0;
+                        }
+
+                        .footer-top-information-phone {
+                            color: $black;
+                            font-weight: 300;
+                            font-size: 12px;
+                            transition: ease-in-out 0.2s;
+
+                            &:hover {
+                                color: $blue-dark;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+
+                    .footer-top-shipping-returns,
+                    .footer-top-coupons,
+                    .footer-top-my-account {
+                        padding: 40px 10px 20px 0;
+                        text-align: left;
+
+                        h3 {
+                            color: $black;
+                            font-weight: 300;
+                            font-size: 14px;
+                            cursor: default;
+                            margin: 0 0 15px 0;
+                        }
+
+                        ul {
+                            li {
+                                margin: 0 0 15px 0;
+
+                                &:last-child {
+                                    margin: 0;
+                                }
+
+                                a {
+                                    color: $black;
+                                    font-weight: 300;
+                                    font-size: 14px;
+                                    transition: ease-in-out 0.2s;
+
+                                    &:hover {
+                                        color: $blue-dark;
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .footer-top-columns-right {
+                    width: 100%;
+                    max-width: 450px;
+
+                    .footer-top-follow-us {
+                        background-color: $blue-dark;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        padding: 41px 40px;
+                        position: relative;
+                        text-align: left;
+
+                        .footer-top-follow-us-left {
+                            h5 {
+                                color: $white;
+                                margin: 0 0 15px 0;
+                                font-weight: 300;
+                                font-size: 14px;
+                            }
+
+                            .footer-top-follow-us-email {
+                                border: 1px solid $white;
+                                border-radius: 50px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                                margin: 0 0 30px 0;
+                                padding: 4px 5px;
+
+                                input {
+                                    background-color: transparent;
+                                    color: $white;
+                                    border: none;
+                                    font-weight: 300;
+                                    font-size: 14px;
+                                    outline: none;
+                                    text-align: left;
+                                    margin: 0;
+                                    text-underline-position: under;
+                                    width: 100%;
+
+                                    &::placeholder {
+                                        color: $white;
+                                        font-weight: 300;
+                                        font-size: 14px;
+                                    }
+                                }
+
+                                button {
+                                    background-color: $white;
+                                    color: $blue-dark;
+                                    cursor: pointer;
+                                    padding: 11px 30px;
+                                    position: relative;
+                                    border: none;
+                                    border-radius: 50px;
+                                    overflow: hidden;
+                                    transition: ease-in-out 0.2s;
+
+                                    p {
+                                        color: $blue-dark;
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        padding: 0 10px 0 0;
+                                        pointer-events: none;
+                                        margin: 0 auto;
+                                        transition: ease-in-out 0.1s;
+                                    }
+
+                                    &:before {
+                                        background: url("/Content/images/icons-footer/send.svg") no-repeat;
+                                        content: "";
+                                        position: absolute;
+                                        pointer-events: none;
+                                        left: -40px;
+                                        top: 2px;
+                                        height: 34px;
+                                        width: 34px;
+                                        filter: invert(30%) sepia(48%) saturate(3060%) hue-rotate(212deg) brightness(93%) contrast(91%);
+                                        transition: ease-in-out 0.2s;
+                                    }
+
+                                    &:hover {
+                                        p {
+                                            color: $white;
+                                        }
+
+                                        &:before {
+                                            left: 27px;
+                                        }
+                                    }
+                                }
+
+                                .please-wait {
+                                    color: $white;
+                                    font-weight: 300;
+                                    font-size: 14px;
+                                    margin: 0 0 0 3px;
+                                }
+                            }
+                        }
+
+                        .newsletter-result-block {
+                            color: $white;
+                            margin: -20px 0 20px 0;
+                            font-weight: 300;
+                            font-size: 14px;
+                            width: 100%;
+                        }
+
+                        .footer-top-follow-us-right {
+                            .footer-top-follow-us-accounts {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-start;
+                                justify-content: flex-start;
+                                text-align: left;
+
+                                a {
+                                    background-size: contain;
+                                    cursor: pointer;
+                                    margin: 0 25px 0 0;
+                                    height: 20px;
+                                    width: 20px;
+
+                                    &:last-child {
+                                        margin: 0;
+                                    }
+                                }
+
+                                .footer-top-follow-us-twitter {
+                                    background: url("/Content/images/icons-footer/Twitter.svg") no-repeat center;
+                                }
+
+                                .footer-top-follow-us-instagram {
+                                    background: url("/Content/images/icons-footer/Instagram.svg") no-repeat center;
+                                }
+
+                                .footer-top-follow-us-facebook {
+                                    background: url("/Content/images/icons-footer/Facebook.svg") no-repeat center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        display: block;
+        padding: 13px 0;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        .footer-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 0 10px;
+            width: 100%;
+            max-width: 1260px;
+
+            .footer-bottom-copyright {
+                p {
+                    color: $grey;
+                    font-weight: 300;
+                    font-size: 14px;
+                }
+            }
+
+            .footer-bottom-pay-icons {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    li {
+                        background-size: contain;
+                        height: 30px;
+                        width: 70px;
+
+                        &.paypal {
+                            background: url("/Content/images/icons-footer/PP.svg") no-repeat center;
+                        }
+
+                        &.visa {
+                            background: url("/Content/images/icons-footer/V.svg") no-repeat center;
+                        }
+
+                        &.discover {
+                            background: url("/Content/images/icons-footer/DN.svg") no-repeat center;
+                        }
+
+                        &.american-express {
+                            background: url("/Content/images/icons-footer/AE.svg") no-repeat center;
+                        }
+
+                        &.pay {
+                            background: url("/Content/images/icons-footer/P.svg") no-repeat center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-store-theme {
+    }
+
+    .shopper-approved {
+        display: block;
+        text-align: center;
+        width: 100%;
+
+        a {
+            color: #757575;
+            font-weight: 300;
+            font-size: 14px;
+        }
+    }
+}
+
+/* Styles for DirtEverywhere */
+.Boatplicity {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+
+                    .footer-top-columns-right {
+                        .footer-top-follow-us {
+                            background-color: $blue-boatplicity;
+
+                            .footer-top-follow-us-left {
+                                .footer-top-follow-us-email {
+
+                                    button {
+                                        p {
+                                            color: $blue-boatplicity;
+                                        }
+
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(66%) sepia(30%) saturate(360%) hue-rotate(179deg) brightness(77%) contrast(88%);
+                                        }
+
+                                        &:hover {
+                                            p {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+/* Styles for DirtEverywhere */
+.THMotorsports {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+
+                    .footer-top-columns-right {
+                        .footer-top-follow-us {
+                            background-color: $red-thmotorsports-dark;
+
+                            .footer-top-follow-us-left {
+                                .footer-top-follow-us-email {
+
+                                    button {
+                                        p {
+                                            color: $red-thmotorsports-dark;
+                                        }
+
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                                        }
+
+                                        &:hover {
+                                            p {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+/* Styles for Cycleplicity */
+.Cycleplicity {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+
+                    .footer-top-columns-right {
+                        .footer-top-follow-us {
+                            background-color: $red-cycleplicity-dark;
+
+                            .footer-top-follow-us-left {
+                                .footer-top-follow-us-email {
+
+                                    button {
+                                        p {
+                                            color: $red-cycleplicity-dark;
+                                        }
+
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                                        }
+
+                                        &:hover {
+                                            p {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Styles for Cycleplicity */
+
+/* Styles for DirtEverywhere */
+.DirtEverywhere {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+
+                    .footer-top-columns-right {
+                        .footer-top-follow-us {
+                            background-color: $yellow-dark-dirtEverywhere;
+
+                            .footer-top-follow-us-left {
+                                .footer-top-follow-us-email {
+
+                                    button {
+                                        p {
+                                            color: $yellow-dark-dirtEverywhere;
+                                        }
+
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                        }
+
+                                        &:hover {
+                                            p {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+/* === === === === === === === === === === === === MOBILE === === === === === === === === === === === === */
+@media only screen and (max-width: 960px) {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+                    flex-direction: column;
+
+                    .footer-top-columns-left {
+                        order: 2;
+
+                        .footer-top-information {
+                            .footer-top-information-logo {
+                            }
+
+                            h5 {
+                            }
+
+                            .footer-top-information-phone {
+                            }
+                        }
+
+                        .footer-top-shipping-returns,
+                        .footer-top-coupons,
+                        .footer-top-my-account {
+
+                            h3 {
+                            }
+
+                            ul {
+                                li {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .footer-top-columns-right {
+                        max-width: none;
+                        order: 1;
+
+                        .footer-top-follow-us {
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .footer-top-follow-us-left {
+                                min-width: 300px;
+
+                                h5 {
+                                }
+
+                                .footer-top-follow-us-email {
+                                    margin: 0;
+                                    max-width: 300px;
+
+                                    input {
+                                    }
+
+                                    button {
+                                        p {
+                                        }
+                                    }
+                                }
+                            }
+
+                            .footer-top-follow-us-right {
+                                .footer-top-follow-us-accounts {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-bottom {
+            .footer-inner {
+                .footer-bottom-copyright {
+                    p {
+                    }
+                }
+
+                .footer-bottom-pay-icons {
+                    ul {
+                        li {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    footer {
+        .footer-top {
+            .footer-inner {
+                .footer-top-columns {
+
+                    .footer-top-columns-left {
+                        flex-wrap: wrap;
+                        margin: 10px 0 40px;
+
+                        .footer-top-information {
+                            padding: 40px 10px 40px 0;
+                            width: 100%;
+
+                            .footer-top-information-logo {
+                                margin: 0 0 20px 0;
+                            }
+
+                            h5 {
+                            }
+
+                            .footer-top-information-phone {
+                            }
+                        }
+
+                        .footer-top-shipping-returns,
+                        .footer-top-coupons,
+                        .footer-top-my-account {
+                            padding: 5px 10px 5px 0;
+                            width: 33%;
+
+                            &:last-child {
+                                padding: 5px 0 5px 0;
+                            }
+
+                            h3 {
+                                display: none;
+                            }
+
+                            ul {
+                                li {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .footer-top-columns-right {
+
+                        .footer-top-follow-us {
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+
+                            .footer-top-follow-us-left {
+                                h5 {
+                                }
+
+                                .footer-top-follow-us-email {
+                                    margin: 0 0 30px 0;
+
+                                    input {
+                                    }
+
+                                    button {
+                                        p {
+                                        }
+                                    }
+                                }
+                            }
+
+                            .footer-top-follow-us-right {
+                                .footer-top-follow-us-accounts {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-bottom {
+            .footer-inner {
+                flex-direction: column-reverse;
+                margin: 15px auto;
+
+                .footer-bottom-copyright {
+                    p {
+                        margin: 15px 0 0;
+                    }
+                }
+
+                .footer-bottom-pay-icons {
+                    ul {
+                        li {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

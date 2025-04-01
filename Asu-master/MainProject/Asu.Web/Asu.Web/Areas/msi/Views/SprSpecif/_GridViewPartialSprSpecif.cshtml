@@ -1,0 +1,167 @@
+@model List<Asu.Web.Models.Spr_specif>
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "SprSpecif", Action = "GridViewPartialSprSpecif", ControllerName = ViewData["ConName"] };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "SprSpecif", Action = "GridViewPartialSprSpecifAddNew", ControllerName = ViewData["ConName"] };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "SprSpecif", Action = "GridViewPartialSprSpecifUpdate", ControllerName = ViewData["ConName"] };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "SprSpecif", Action = "GridViewPartialSprSpecifDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_kts";
+            var x = columnSettings.Caption = "КТС";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetObozn();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "obozn";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_obozn";
+            var x = columnSettings.Caption = "Обозначение";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetObozn();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "obozn";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "T_TV";
+            columnSettings.Width = Unit.Pixel(90);
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+
+            columnSettings.EditorProperties().ComboBox(comboBoxProperties =>
+            {
+                comboBoxProperties.ShowImageInEditBox = false;
+                comboBoxProperties.Items.Add("Т", "Т");
+                comboBoxProperties.Items.Add("TV", "ТV");
+                comboBoxProperties.Items.Add(" ", " ");
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_kdan";
+            var x = columnSettings.Caption = "Код данного";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetKdan();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "nm_kdan";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_razdizd";
+            var x = columnSettings.Caption = "Раздел изделия";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            //columnSettings.GroupIndex = 0;
+            //columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetRazDet();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_razd";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "ksb";
+            var x = columnSettings.Caption = "Количество на сборку";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(30);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_komplekt";
+            var x = columnSettings.Caption = "Комплект";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetKompl();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "komplekt";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "prim_texn";
+            var x = columnSettings.Caption = "Примечание технолога";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(75);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "prim_konstrukt";
+            var x = columnSettings.Caption = "Примечание конструктора";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(75);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "status";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            Html.RenderAction("Index", "Prim_dse", new { obozn = DataBinder.Eval(c.DataItem, "Id") });
+        });
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Right;
+            toolbar.Items.Add(GridViewToolbarCommand.ShowGroupPanel);
+            toolbar.Items.Add(GridViewToolbarCommand.ShowFilterRowMenu);
+        });
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

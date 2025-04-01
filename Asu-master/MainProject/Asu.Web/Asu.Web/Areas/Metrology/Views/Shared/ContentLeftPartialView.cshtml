@@ -1,0 +1,22 @@
+﻿
+<div class="leftPanel">
+
+    @Html.DevExpress().NavBar(settings =>
+{
+settings.Name = "LeftNavBar";
+settings.AutoCollapse = false;
+settings.EnableAnimation = true;
+settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(2);
+settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(10);
+}).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()
+</div>
+
+
+
+
+
+
+
+
+

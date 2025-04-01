@@ -1,0 +1,38 @@
+﻿.breadcrumb {
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0px 0 10px;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.breadcrumb ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.breadcrumb li {
+    list-style: none;
+    display: inline;
+}
+
+.breadcrumb li strong {
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    font-size: 0.9em;
+    text-decoration: none;
+    color: #999;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+    color: #666;
+}
+
+.breadcrumb .current-item {
+    font-size: 0.9em;
+    font-weight: normal;
+}

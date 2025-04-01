@@ -1,0 +1,21 @@
+﻿@model Nop.Web.Models.SalesQuote.SalesQuoteModel
+
+<div class="box-loader" style="display: none;"><div class="load_animate"><span></span></div></div>
+<div class="title">
+    <strong>Create new quote</strong>
+</div>
+@using (Html.BeginForm("Create", "SalesQuote", FormMethod.Post, new { id = "quote-form" }))
+{
+    <div class="quote-inputs">
+        @Html.TextBoxFor(m => m.CustomerName, new { id = "quote-customer-name", placeholder = "Customer full name" })
+        @Html.TextBoxFor(m => m.Email, new { id = "quote-customer-email", placeholder = "E-mail address" })
+        @Html.TextAreaFor(m => m.Note, new { @class = "quote-notes",  placeholder = "Admin notes" })
+    </div>
+    <button type="button" class="btn_default" id="submit-quote">Submit</button>
+}
+<div id="helper-errors" style="display: none;">
+    <span class="helper-error-text">Sorry, were an error when request. Please try again.</span>
+    <button id="retry" type="button" class="btn_default">Try again</button>
+    <button id="helper-cancel" type="button">Cancel</button>
+</div>
+

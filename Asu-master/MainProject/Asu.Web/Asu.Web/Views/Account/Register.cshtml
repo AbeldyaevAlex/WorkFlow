@@ -1,0 +1,91 @@
+@using Asu.Web.Models
+
+@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head {
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/SignInRegister.css")" />*@
+    <script type="text/javascript" src="@Url.Content("~/Content/SignInRegister.js")"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@functions{
+    private void AssignTextBoxSettings(TextBoxSettings s)
+    {
+        s.Width = Unit.Percentage(100);
+        s.ShowModelErrors = true;
+        s.Properties.ValidationSettings.Display = Display.Dynamic;
+        s.Properties.ValidationSettings.SetFocusOnError = true;
+        s.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        s.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        s.Properties.ValidationSettings.ErrorFrameStyle.Wrap = DefaultBoolean.True;
+    }
+}
+<div>
+    @Html.ValidationMessageFor(model => model.Password,"", new {@class = "text-danger"})
+</div>
+<div class="formLayout-verticalAlign">
+    <div class="formLayout-container">
+        <div>
+            <h2>Регистрация</h2>
+        </div>
+
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Создайте новую учетную запись.</h4>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MiddleName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.BirthDate, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Регистрация" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

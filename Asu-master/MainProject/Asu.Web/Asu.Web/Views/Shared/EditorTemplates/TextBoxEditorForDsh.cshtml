@@ -1,0 +1,25 @@
+﻿@*@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@(
+   Html.Kendo().TextBoxFor(model => model.Dsh)
+       .Name("Dsh")
+       .HtmlAttributes(new { placeholder = "Введите длина, ширина", @class = "form-control" })
+  )*@
+@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoCompleteFor(m => m.Dsh)
+            .Name("Dsh")
+            .DataTextField("Dsh")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "Введите длина, ширина", @name = "Dsh"/*, required = "required", validationmessage = "Обязательное поле"*/ })
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialDshRead", "Skm").Data("onAdditionalData");
+                }).ServerFiltering(true);
+            })
+            )
+    </div>
+</div>

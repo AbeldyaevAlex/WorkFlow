@@ -1,0 +1,259 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.Models
+@*@using System.Data.Entity*@
+
+
+@Html.DevExpress().GridView(settings =>
+{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    settings.EnableRowsCache = false;
+
+    settings.Name = "gvUniq";
+    settings.CallbackRouteValues = new { Controller = "TypicalTechnologicalOperations", Action = "GridViewPartialUniq" };
+    //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewPartial_TTOUpdate" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "TypicalTechnologicalOperations", Action = "GridViewPartial_TTODelete" };
+    settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+    settings.KeyFieldName = "KodTTOId";
+
+    settings.SettingsBehavior.ConfirmDelete = true;
+
+    settings.Settings.VerticalScrollBarMode = ScrollBarMode.Auto;
+    settings.Settings.VerticalScrollableHeight = 550;
+    settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+
+    settings.Width = Unit.Percentage(100);
+    settings.SettingsBehavior.AllowDragDrop = true;
+    settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+    settings.SettingsPager.PageSize = 20;
+    settings.SettingsPager.EnableAdaptivity = false;
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.Visible = true;
+    settings.Settings.ShowGroupPanel = true;
+    settings.Settings.ShowFilterRow = true;
+    settings.CommandColumn.Width = Unit.Pixel(175);
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowNewButton = false;
+
+
+    settings.CommandColumn.CellStyle.Wrap = DefaultBoolean.True;
+    settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Button;
+    settings.SettingsCustomizationDialog.Enabled = true;
+
+    GridViewCommandColumnCustomButton custombuttonAddTTO = new GridViewCommandColumnCustomButton() { Text = "Добавить " };
+    settings.CommandColumn.CustomButtons.Add(custombuttonAddTTO);
+    custombuttonAddTTO.Image.IconID = IconID.ActionsAdd16x16;
+    custombuttonAddTTO.Image.ToolTip = "Создать ТТО";
+    settings.ClientSideEvents.CustomButtonClick = "function(s, e) { pcModalModeAddTTO.Show(); }";
+
+    //settings.CommandColumn.ShowDeleteButton = true;
+    //settings.SettingsCommandButton.DeleteButton.Image.IconID = IconID.IconbuilderActionsDeleteSvgGray16x16;
+    //settings.SettingsCommandButton.DeleteButton.Text = "Удалить";
+    //settings.SettingsCommandButton.DeleteButton.Styles.Style.Width = Unit.Pixel(80);
+    //settings.SettingsCommandButton.DeleteButton.Image.Width = Unit.Pixel(12);
+    //settings.SettingsCommandButton.DeleteButton.Styles.Style.Spacing = Unit.Pixel(50);
+    //settings.SettingsCommandButton.DeleteButton.Image.Height = Unit.Pixel(12);
+
+    //settings.CommandColumn.ShowEditButton = true;
+    //settings.SettingsCommandButton.EditButton.Image.IconID = IconID.ActionsInsert16x16;
+    //settings.SettingsCommandButton.EditButton.Text = "Изменить";
+    //settings.SettingsCommandButton.EditButton.Styles.Style.Width = Unit.Pixel(80);
+    //settings.SettingsCommandButton.EditButton.Styles.Style.Spacing = Unit.Pixel(50);
+    //settings.SettingsCommandButton.EditButton.Image.Width = Unit.Pixel(12);
+    //settings.SettingsCommandButton.EditButton.Image.Height = Unit.Pixel(12);
+
+    settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+    settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+    settings.SettingsBehavior.AllowEllipsisInText = true;
+
+    settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+    settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+    settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+    settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+    settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+    settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+    settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+
+
+    settings.ControlStyle.Border.BorderColor = System.Drawing.Color.Black;
+    settings.ControlStyle.Border.BorderStyle = BorderStyle.Solid;
+    settings.ControlStyle.Border.BorderWidth = 1;
+    //settings.Columns.Add(column =>
+    //{
+    //    column.FieldName = "dsh";
+    //    column.Caption = "Признак ТТО";
+    //    column.Width = Unit.Pixel(70);
+    //    column.CellStyle.Wrap = DefaultBoolean.True;
+    //    column.HeaderStyle.Wrap = DefaultBoolean.True;
+    //    column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    //    column.HeaderStyle.CssClass = "header";
+    //});
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "KodTTOId";
+        column.Visible = false;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Km";
+        column.Caption = "Код ТТО";
+        column.Width = Unit.Pixel(120);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        //column.HeaderStyle.CssClass = "header";
+        //column.SetHeaderTemplateContent(c => {
+        //    ViewContext.Writer.Write("<span style='font-weight: 800'>" + c.Column.Caption + "</span>");
+        //});
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "prpokr";
+        var x = columnSettings.Caption = "Признак покрытия";
+        //columnSettings.GroupIndex = 0;
+        columnSettings.Visible = true;
+        columnSettings.Width = Unit.Pixel(200);
+        columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "nm_mater";
+        column.Caption = "Намименование ТТО";
+        column.Width = Unit.Pixel(380);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "marka_mater";
+        column.Caption = "Марка";
+        column.Width = Unit.Pixel(200);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "gost";
+        column.Caption = "ГОСТ";
+        column.Width = Unit.Pixel(185);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Dbt";
+        column.Caption = "Типоразмеры";
+        column.Width = Unit.Pixel(120);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Ves";
+        column.Visible = false;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "krat_naim_eizm";
+        column.Caption = "Ед.изм";
+        column.Width = Unit.Pixel(100);
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "kgr";
+        column.Visible = false;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "kod_sklad";
+        column.Visible = false;
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "link_ogt";
+        var x = columnSettings.Caption = "ОГТ";
+        //columnSettings.GroupIndex = 0;
+        columnSettings.Visible = true;
+        columnSettings.Width = Unit.Pixel(90);
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        comboBoxProperties.ValueField = "Id";
+        comboBoxProperties.TextField = "OGT";
+        comboBoxProperties.ValueType = typeof(string);
+        //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetOgt();
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Naimogt";
+        var x = columnSettings.Caption = "Наименование ОГТ";
+        //columnSettings.GroupIndex = 0;
+        columnSettings.Visible = true;
+        columnSettings.Width = Unit.Pixel(280);
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        //columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //comboBoxProperties.ValueField = "Id";
+        //comboBoxProperties.TextField = "naim_ogt";
+        //comboBoxProperties.ValueType = typeof(string);
+        //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetOgt();
+    });
+
+
+
+    settings.Toolbars.Add(toolbar =>
+    {
+        toolbar.Enabled = true;
+        toolbar.Position = GridToolbarPosition.Top;
+        toolbar.ItemAlign = GridToolbarItemAlign.Left;
+        toolbar.Items.Add(subbar =>
+        {
+            subbar.Command = GridViewToolbarCommand.Delete;
+            subbar.Text = "Удалить";
+        });
+        toolbar.Items.Add(item =>
+        {
+            item.Command = GridViewToolbarCommand.ShowCustomizationDialog;
+            item.Text = "Панель Группировки";
+            item.Image.IconID = IconID.ActionsFilter16x16devav;
+        });
+        toolbar.Items.Add(item =>
+        {
+            item.Command = GridViewToolbarCommand.ShowSearchPanel;
+            item.Text = "Расширенный поиск";
+            item.Image.IconID = IconID.ActionsChangeview16x16devav;
+        });
+        //toolbar.Items.Add(item =>
+        //{
+        //    item.NavigateUrl = Url.Action("ShowDeletetedRow", "Spr_skm");
+        //    item.Text = "Показать удаленные";
+        //    item.Image.IconID = IconID.HybriddemoiconsBottompanelHybriddemoCancelSvg16x16;
+        //});
+    });
+    settings.SettingsBehavior.AllowFocusedRow = true;
+    settings.SettingsBehavior.AllowClientEventsOnLoad = false;
+    settings.ClientSideEvents.RowDblClick = "OnFocusedRowChanged";
+}).Bind(Model).GetHtml()
+<link href="~/Content/FormTTO.css" rel="stylesheet" />
+
+
+
+

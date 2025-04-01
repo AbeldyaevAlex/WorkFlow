@@ -1,0 +1,135 @@
+﻿@model Asu.Web.Areas.msi.Controllers.ThemeDirectoryViewModel
+@{
+    ViewBag.Title = "Классификатор задач";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap_bundle.css" rel="stylesheet" />
+    <link href="~/Content/Layout_new.css" rel="stylesheet" />
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/bootstrap-multiselect.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#Product').multiselect({
+                selectAllText: 'Выбрать все',
+                enableCaseInsensitiveFiltering: true,
+                enableFiltering: true,
+                maxHeight: '800',
+                buttonWidth: '650',
+                numberDisplayed: 2,
+                includeSelectAllOption: true,
+                nonSelectedText: 'Выбрать изделие',
+            });
+
+
+            $("#Theme").change(function () {
+                var themeId = $("#Theme").val();
+                $.ajax({
+                    type: 'GET',
+                    url: '/Sostav_Izdelia/GetProducts/' + themeId,
+                    success: function (result) {
+                        $("#Product").empty();
+                        $('#Product').multiselect('destroy');
+
+                        $.each(result, function (i, product) {
+                            $("#Product").append('<option value="' + product.Value + '">' + product.Text + '</option>');
+                        });
+                        $('#Product').multiselect({
+                            selectAllValue: 'multiselect-all',
+                            enableCaseInsensitiveFiltering: true,
+                            enableFiltering: true,
+                            maxHeight: '800',
+                            buttonWidth: '650',
+                            numberDisplayed: 2,
+                            includeSelectAllOption: true,
+                            selectAllText: 'Выбрать все',
+                            nonSelectedText: 'Выбрать изделие',
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        label {
+            margin-left: 10px;
+        }
+
+        .form-check-label {
+            padding-right: 5px;
+        }
+
+        .multiselect-container .multiselect-option .form-check, .multiselect-container .multiselect-group .form-check, .multiselect-container .multiselect-all .form-check {
+            padding: 0 5px 0 3px;
+        }
+
+        #Theme.form-control {
+            height: 50px;
+            width: 650px;
+            margin-top: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+            #Theme.form-control:hover {
+                background-color: none !important;
+            }
+
+        p {
+            margin-right: 8px;
+            text-align: center;
+        }
+
+        .btn {
+            margin-left: 71%;
+            margin-top: -5%;
+        }
+
+        .multiselect-search.form-control {
+            margin-left: 10px !important;
+            width: 630px !important;
+        }
+
+        .dropdown-item {
+            margin-top: 10px;
+            margin-left: 10px !important;
+            margin-right: 10px !important;
+            margin-bottom: 3px;
+            width: 630px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("GetThemesAndProduct", "Sostav_Izdelia", FormMethod.Post))
+        {
+            @*<label>Select Country : @Html.ListBox("Country", ViewBag.CountryList as List<SelectListItem>, "---Select---") </label>*@
+            @Html.CustomDropDownListFor(m => m.Id, Model.Theme, "Выбрать тему", new { id = "Theme", @class = "form-control", @name = "Theme" })
+            <br />
+            <p>
+                <label>
+
+                    @Html.ListBox("Product", new SelectList(new string[] { }))
+                </label>
+            </p>
+
+            <input class="btn btn-primary" id="btnSubmit" type="submit" value="Применить" />
+        }
+    </div>
+</body>
+</html>

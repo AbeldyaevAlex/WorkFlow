@@ -1,0 +1,46 @@
+﻿@using Asu.Web.Models.Customer;
+
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+
+    //title
+    Html.AddTitleParts("Member's Club");
+}
+@section left
+{
+    @Html.Action("CustomerNavigation", "Customer", new { selectedTabId = CustomerNavigationEnum.MembersClub })
+}
+<div class="page password-recovery-page">
+    <div class="page-title">
+        <h1>You are a member of the Autoplicity Loyalty Program</h1>
+    </div>
+    <div class="page-body">
+        <div class="fieldset">
+            <div class="form-fields">
+                <div class="inputs">
+                    <div>
+                        <ul>
+                            <li>Member only sales and cutomer service dedicated assistance</li>
+                            <li>Up to an additional 30% off on selected products</li>
+                            <li>Free returns</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            Joined by @DateTime.UtcNow.ToShortDateString()
+                        </div>
+                        <div>
+                            Your total savings: $143.67
+                        </div>
+                    </div>
+                    @*@Html.LabelFor(model => model.Email, new { }, ":")
+                        @Html.TextBoxFor(model => model.Email, new { @class = "email" })
+                        @Html.RequiredHint()
+                        @Html.ValidationMessageFor(model => model.Email)*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

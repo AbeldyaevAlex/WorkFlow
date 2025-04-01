@@ -1,0 +1,71 @@
+
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView2";
+        settings.CallbackRouteValues = new { Controller = "Spr_specif", Action = "Index" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_specif", Action = "GridView2PartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_specif", Action = "GridView2PartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_specif", Action = "GridView2PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsPager.PageSize = 50;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Spr_obozn.obozn";
+            columnSettings.Caption = "КТС";
+            columnSettings.Width = Unit.Pixel(400);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Spr_obozn1.obozn";
+            columnSettings.Caption = "Обозначение";
+            columnSettings.Width = Unit.Pixel(400);
+        });
+
+        settings.Columns.Add("link_kts");
+        settings.Columns.Add("link_obozn");
+        settings.Columns.Add("T_TV");
+        settings.Columns.Add("kdan");
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Raz_det.naim_razd";
+            columnSettings.Caption = "Наименование раздела";
+            columnSettings.Width = Unit.Pixel(400);
+        });
+        settings.Columns.Add("link_razdizd");
+        settings.Columns.Add("ksb");
+        settings.Columns.Add("link_komplekt");
+        settings.Columns.Add("prim_texn");
+        settings.Columns.Add("prim_konstrukt");
+        settings.Columns.Add("link_status");
+        settings.Columns.Add("link_user");
+        settings.Columns.Add("operation");
+        settings.Columns.Add("operation_date");
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+        settings.Columns.Add("sort");
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

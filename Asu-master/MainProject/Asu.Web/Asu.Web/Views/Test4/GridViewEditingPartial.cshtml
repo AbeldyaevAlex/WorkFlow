@@ -1,0 +1,17 @@
+﻿@model List<Asu.Core.Domain.Msi.Spr_pkp>
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "grid";
+    settings.KeyFieldName = "Id";
+    settings.CallbackRouteValues = new { Controller = "Test4", Action = "GridViewEditingPartial" };
+
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowSelectCheckbox = true;
+    settings.ClientSideEvents.SelectionChanged = "OnSelectionChanged";
+    settings.ClientSideEvents.BeginCallback = "OnBeginCallback";
+
+    settings.SettingsPager.PageSize = 5;
+
+    settings.Columns.Add("Id");
+    settings.Columns.Add("Pkp");
+}).Bind(Model).GetHtml()

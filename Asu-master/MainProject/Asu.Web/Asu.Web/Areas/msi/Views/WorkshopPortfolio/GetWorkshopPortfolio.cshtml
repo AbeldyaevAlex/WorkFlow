@@ -1,0 +1,83 @@
+﻿
+@model Asu.Web.Models.SubjectAndProductsViewModel
+@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@{
+    ViewBag.Title = "Параметры для получения портфеля цеха";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("GetWorkshopPortfolioFromStoredProcedure", "WorkshopPortfolio", "msi", FormMethod.Get))
+{
+    <div style="margin-top: 100px; margin-bottom: 200px; padding: 0 0 100px 0;">
+        <h1 align="center">Введите параметры для получения портфеля цеха</h1>
+        <div class="container">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.SubjecId, Model.ThemeList, "- Выбрать тему -", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SubjecId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.ProductId, new SelectList(" "), "- Выбрать изделие -", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.Series, new SelectList(" "), "- Выбрать серию -", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.srez_sostoyanieId, Model.AvaliableConditions, "- Выбрать Состояние -", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.srez_sostoyanieId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @if (WorkContext.CurrentCustomer.IsAdmin())
+        {
+            <div class="container">
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.WorkShopId, Model.AvaliableWorkShop, "- Выбрать Цех -", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.WorkShopId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <div align="center">
+            <input type="submit" value="Ok" />
+        </div>
+    </div>
+}
+
+<link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#SubjecId').change(function () {
+            $.get("/msi/WorkshopPortfolio/GetProductList", { SubjecId: $("#SubjecId").val() }, function (data) {
+                $('#ProductId').empty();
+                $.each(data, function (index, row) {
+                    $('#ProductId').append("<option value = '" + row.Id + "'>" + row.NmIzd + "</option>")
+                });
+            });
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ProductId').change(function () {
+            $.get("/msi/WorkshopPortfolio/GetSeriaList", { ProductId: $("#ProductId").val() }, function (data) {
+                $('#Series').empty();
+                $.each(data, function (index, row) {
+                    $('#Series').append("<option value = '" + row.NomMash + "'>" + row.NomMash + "</option>")
+                });
+            });
+        })
+    })
+</script>
+
+
+

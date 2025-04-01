@@ -1,0 +1,77 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Html;
+@using Kendo.Mvc.UI.Fluent;
+@using Kendo.Mvc.Extensions;
+@*@(
+   Html.Kendo().TextBoxFor(model => model.Km)
+       .Name("Km")
+       .HtmlAttributes(new { placeholder = "Введите КМ", required = "required", validationmessage = "Обязателен", @class = "InputKm", @id ="InputKm" })
+  )*@
+
+
+@*<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("Km")
+            .DataTextField("Km")
+            .HtmlAttributes(new {
+                style = "width:100%",
+                placeholder = "Введите КМ",
+                @class = "InputKm",
+                @id = "InputKm",
+                required = "required",
+                validationmessage = "Обязателен"
+            })
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingKmRead", "Skm");
+                }).ServerFiltering(true);
+            })
+            )
+
+    </div>
+</div>*@
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoCompleteFor(m => m.Km)
+            .Name("Km")
+            .DataTextField("Km")
+            .HtmlAttributes(new { style = "width:100%",@name = "Km", @id = "InputKm", @class = "InputKm", required = "required", placeholder = "Введите КМ", validationmessage = "Обязателен" })
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingKmRead", "Skm").Data("onAdditionalData");
+                }).ServerFiltering(true);
+            })
+            )
+    </div>
+</div>
+
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            $("$Km").change(function () {
+                var temId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "Post",
+                    url: "/Test3/GetPerIzd?link_tema=" + temId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $("PerIzdId").empty();
+                        $("PerIzdId").append(response);
+                    }
+                })
+            })
+        })
+    </script>*@

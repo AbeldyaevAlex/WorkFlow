@@ -1,0 +1,169 @@
+﻿@using System.Web.Optimization
+@using Asu.Core
+@using Asu.Core.Domain.Seo
+@using Asu.Core.Infrastructure
+@using Asu.Services.Localization
+@using Asu.Web.Extensions;
+@model Asu.Web.Models.Catalog.ProductGroupModel
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hgroup") : Html.InlineStyles("~/styles/hgroup"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fgroup") : Html.InlineStyles("~/styles/fgroup"))
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/coverking") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/coverking"))
+}
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    // title, meta
+    Html.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var seoSettings = EngineContext.Current.Resolve<SeoSettings>();
+
+    // canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        string productUrl = Url.RouteUrl("Product", new { Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(productUrl);
+    }
+
+    var img = Model.DigitalDataModels.FirstOrDefault();
+    // open graph META tags
+    if (seoSettings.OpenGraphMetaTags)
+    {
+        string storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+        Html.AddHeadCustomParts("<meta property=\"og:type\" content=\"product\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:description\" content=\"" + Html.Encode(Model.MetaDescription) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:image\" content=\"" + (img == null ? string.Empty : img.Url) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:url\" content=\"" + this.Request.Url.AbsoluteUri + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"og:site_name\" content=\"" + Html.Encode(storeName) + "\" />");
+    }
+
+    // Twitter META tags
+    if (seoSettings.TwitterMetaTags)
+    {
+        string storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+        Html.AddHeadCustomParts("<meta property=\"twitter:card\" content=\"summary\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:site\" content=\"" + Html.Encode(storeName) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:title\" content=\"" + Html.Encode(Model.Name) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:description\" content=\"" + Html.Encode(Model.MetaDescription) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + (img == null ? string.Empty : img.Url) + "\" />");
+        Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + this.Request.Url.AbsoluteUri + "\" />");
+    }
+
+    var workContext = EngineContext.Current.Resolve<IWorkContext>();
+}
+<nav class="breadcrumb">
+    <ul>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/" title="Home" itemprop="url"><span itemprop="title">Home</span></a>
+            <span class="delimiter">/</span>
+        </li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/brands" title="All brands" itemprop="url"><span itemprop="title">All brands</span></a>
+            <span class="delimiter">/</span>
+        </li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="/g/coverking" title="Coverking" itemprop="url"><span itemprop="title">Coverking</span></a>
+            <span class="delimiter">/</span>
+        </li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.RouteUrl("ProductGroupSeo", new { ParentEntitySlug = Model.Category.BrandSlug, EntitySlug = Model.Category.SeName })" title="Coverking" itemprop="url"><span itemprop="title">@Model.Category.Name</span></a>
+        </li>
+    </ul>
+</nav>
+<input id="ptsProductId" type="hidden" value="-1" />
+<div class="page product-details-page product-group-page">
+    <div class="page-body">
+        <div id="product-details-form">
+            <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
+                <div class="product-essential">
+                    <div class="gr-gallery">
+                        <div class="product-name">
+                            <h1 itemprop="name">
+                                @Html.Partial("~/Views/Product/_ProductManufacturerPictures.cshtml", Model.Manufacturers) @Model.Name
+                            </h1>
+                            @Html.Partial("~/Themes/Autoplicity/Views/Product/_ProductManufacturers.cshtml", Model.Manufacturers)
+                            @Html.Partial("_ProductGroupRatings", Model.RatingModel)
+                        </div>
+                        @Html.Partial("_ProductGroupDetailsPictures", Model)
+                    </div>
+                    <div class="add-to-cart">
+                        <div class="rightinfoblock">
+                            @Html.Partial("_ProductGroupPrice", Model.PriceModel)
+                            @Html.Partial("_ProductGroupStock", Model)
+                            @if (Model.IsFreeShipping)
+                            {
+                                <div class="free-shipping">Free Shipping</div>
+                            }
+                        </div>
+                        <hr />
+                        <div class="add-to-cart-panel">
+                            <div class="vehicle-specific">
+                                <div class="vehicle-specific-title"> Vehicle Specific</div>
+                                <div class="vehicle-specific-fitmentnotes"> Fitment Notes:</div>
+                                View Product Options
+                            </div>
+                            <div class="garantbanner">
+                                <ul class="garantbanner_top">
+                                    <li>
+                                    </li>
+                                    <li>
+                                        <span></span>
+                                        <p>Satisfaction guarantee</p>
+                                    </li>
+                                </ul>
+                                <ul class="garantbanner_bottom">
+                                    <li>
+                                        <span></span>
+                                        <p>No Hassle Returns</p>
+                                    </li>
+                                    <li>
+                                        <span></span>
+                                        <p>Live-in-stock inventory</p>
+                                    </li>
+                                    <li>
+                                        <span></span>
+                                        <p>Save 60% over retail</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="add-to-cart-button-block">
+                                <div>
+                                    <button type="button" id="btn-options" class="btn_option green_btn">
+                                        <span>Product Options</span>
+                                    </button>
+                                    <button type="button" id="btn-add-to-cart" class="btn_add_to_cart grey_btn" value="Add To Cart">
+                                        <span>Add To Cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("~/Themes/Autoplicity/Views/ProductGroup/_ProductDetails.cshtml", Model)
+            </div>
+        </div>
+    </div>
+</div>
+<div id="configurator" style="display: none;">
+    <iframe scrolling="auto"></iframe>
+</div>
+<script>
+    APL.group = {
+        trigger: "#btn-options, #btn-add-to-cart",
+        gallery: "#neysgallery",
+        configurator: "#configurator",
+        data: {
+            sid: "@(workContext.CurrentCustomer.CustomerGuid)",
+            material: "@(Model.MaterialCode)",
+            prodCategory: "@(Model.LineCode)",
+            dealer: "APC60"
+        }
+    };
+</script>

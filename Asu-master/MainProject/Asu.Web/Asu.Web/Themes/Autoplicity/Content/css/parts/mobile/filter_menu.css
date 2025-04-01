@@ -1,0 +1,159 @@
+﻿@media (max-width: 768px) {
+    html.filter-opened, body.filter-opened {
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+    }
+
+    #searchFilter.filter-opened {
+        display: block !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main-content-overlay {
+        opacity: .75;
+        -webkit-transition: opacity 0.3s ease, height 0s 0s ease;
+        transition: opacity 0.3s ease, height 0s 0s ease;
+        height: 100%;
+        z-index: 9998;
+        background: #000;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+    }
+
+    .master-wrapper-main .side-2.filter-opened {
+        position: unset;
+    }
+
+    #searchFilter {
+        display: none !important;
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        overflow: hidden;
+        background: transparent;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        z-index: 9999;
+    }
+
+    .search-filter-content {
+        overflow-y: scroll !important;
+        z-index: 10000;
+        width: 320px;
+        background: #fff;
+        right: 0;
+        position: fixed;
+        margin: 0;
+        height: 100%;
+        top: 0;
+        padding: 0;
+    }
+
+    .slimScrollDiv {
+        border-bottom: 0;
+    }
+
+    .top-items-line {
+        border-bottom: solid 1px #ddd !important;
+    }
+
+
+    #searchFilter label.filterName {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background: transparent;
+        font-size: 14px;
+        font-weight: 400;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        text-transform: uppercase !important;
+        margin-bottom: 0 !important;
+    }
+
+    .sort-by {
+        display: block !important;
+    }
+
+    .filterClearcss {
+        display: inline-block !important;
+    }
+
+    #searchFilter #filterClear {
+        display: inline-block !important;
+    }
+
+    .filterClearcss a#filterClear {
+        margin: 0;
+    }
+
+    .mobile-filter-open-btn {
+        display: block !important;
+        background-position: 35% center;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCA5NzEuOTg2IDk3MS45ODYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDk3MS45ODYgOTcxLjk4NjsiCgkgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTM3MC4yMTYsNDU5LjNjMTAuMiwxMS4xLDE1LjgsMjUuNiwxNS44LDQwLjZ2NDQyYzAsMjYuNjAxLDMyLjEsNDAuMTAxLDUxLjEsMjEuNGwxMjMuMy0xNDEuMwoJCWMxNi41LTE5LjgsMjUuNi0yOS42MDEsMjUuNi00OS4yVjUwMGMwLTE1LDUuNy0yOS41LDE1LjgtNDAuNjAxTDk1NS42MTUsNzUuNWMyNi41LTI4LjgsNi4xMDEtNzUuNS0zMy4xLTc1LjVoLTg3MwoJCWMtMzkuMiwwLTU5LjcsNDYuNi0zMy4xLDc1LjVMMzcwLjIxNiw0NTkuM3oiLz4KPC9nPgoKPC9zdmc+Cg==") !important;
+    }
+
+    @media screen and (max-width: 700px) {
+        .mobile-filter-open-btn {
+            background-position: 30% center;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        .mobile-filter-open-btn {
+            background-position: 25% center;
+        }
+    }
+
+    .collapsed {
+        display: none !important;
+    }
+
+    .expanded {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIyIiB2aWV3Qm94PSIwIDAgMTAgMiI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTAgMGgxMHYySDB6Ii8+PC9zdmc+");
+        position: absolute;
+        content: "";
+        background-position: center;
+        height: 15px;
+        width: 15px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    #sort-by > li {
+        font-size: 14px;
+    }
+
+    .product-sorting {
+        display: none !important;
+    }
+
+    #sub-category-list li {
+        margin-bottom: 16px !important;
+    }
+
+    .filters-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .filters-btn {
+        border-radius: 4px;
+        border: 1px solid #666;
+        bottom: auto;
+        cursor: pointer;
+        font-size: 14px;
+        right: 0;
+        text-align: center;
+        margin: 7px 0;
+        padding: 10px;
+        background-color: white;
+    }
+}

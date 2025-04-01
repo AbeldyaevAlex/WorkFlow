@@ -1,0 +1,316 @@
+﻿@{
+    ViewBag.Title = "Справочник кодификаторов материала";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.CustomAttribute;
+@using DevExpress.Data.Filtering;
+        @{
+            var grid = Html.DevExpress().GridView(settings =>
+            {
+                settings.Name = "GridViewSkmTest";
+                settings.CallbackRouteValues = new { Controller = "Spr_skm", Action = "TestGridSkm" };
+
+
+
+                settings.KeyFieldName = "Id";
+
+                settings.SettingsPager.Visible = true;
+
+
+
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_ogt";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    var x = columnSettings.Caption = "ОГТ";
+                    //columnSettings.GroupIndex = 1;
+                    columnSettings.Width = Unit.Pixel(70);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "OGT";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetOgt();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.FieldName = "km";
+                    var name = columnSettings.Caption = "Код материала";
+                    columnSettings.Width = Unit.Pixel(110);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_prkm";
+                    var x = columnSettings.Caption = "Признак км";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(80);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "prkm";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetPrKm();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "sort_OGT";
+                    columnSettings.Visible = false;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+                    var name = columnSettings.Caption = "Сортировка ОГТ";
+                    columnSettings.Width = Unit.Pixel(75);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_nm_skm";
+                    var x = columnSettings.Caption = "Наименование материала";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(250);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "nm_mater1";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetNmMater();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_marka";
+                    var x = columnSettings.Caption = "Марка материала";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(115);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "marka_mater";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetMarka();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_gost";
+                    var x = columnSettings.Caption = "ГОСТ";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(130);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "gost";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetGost();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "dbt";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    var name = columnSettings.Caption = "Диаметр, Высота";
+                    columnSettings.Width = Unit.Pixel(120);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "dsh";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    var name = columnSettings.Caption = "Длина, Ширина";
+                    columnSettings.Width = Unit.Pixel(120);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_eizm";
+                    var x = columnSettings.Caption = "Еденица измерения";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(100);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "krat_naim_eizm";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetEizm();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "ves";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    var name = columnSettings.Caption = "Вес материала";
+                    columnSettings.Width = Unit.Pixel(100);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_ots";
+                    var x = columnSettings.Caption = "ОТС";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(70);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "kod_sklad";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetOTS();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.GroupIndex = 0;
+                    //columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+                    columnSettings.FieldName = "link_GR_Mater";
+                    var x = columnSettings.Caption = "Группа материала";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(200);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "nm_gr_mater";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetGrMater();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_ogt";
+                    var x = columnSettings.Caption = "Наименование ОГТ";
+                    columnSettings.GroupIndex = 1;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(150);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "naim_ogt";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetOgt();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_status";
+                    var x = columnSettings.Caption = "Статус документа";
+                    columnSettings.Visible = true;
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.Width = Unit.Pixel(115);
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "status";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "link_user";
+                    var x = columnSettings.Caption = "Пользователь";
+                    columnSettings.Visible = true;
+                    columnSettings.Width = Unit.Pixel(125);
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+                    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+                    comboBoxProperties.ValueField = "Id";
+                    comboBoxProperties.TextField = "Full_Name";
+                    comboBoxProperties.ValueType = typeof(string);
+                    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetUserNew();
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "operation";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    var name = columnSettings.Caption = "Операция";
+                    columnSettings.Width = Unit.Pixel(150);
+                });
+                settings.Columns.Add(columnSettings =>
+                {
+                    columnSettings.FieldName = "operation_date";
+                    columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+                    columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+                    columnSettings.ColumnType = MVCxGridViewColumnType.DateEdit;
+                    var name = columnSettings.Caption = "Дата операции";
+                    columnSettings.Width = Unit.Pixel(150);
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "period_open_date";
+                    var name = column.Caption = "Дата открытия";
+                    column.Width = Unit.Pixel(150);
+                    column.ColumnType = MVCxGridViewColumnType.DateEdit;
+                    column.ReadOnly = true;
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "period_close_date";
+                    var name = column.Caption = "Дата закрытия";
+                    column.Width = Unit.Pixel(150);
+                    column.ColumnType = MVCxGridViewColumnType.DateEdit;
+                    column.ReadOnly = true;
+                });
+
+
+
+
+            });
+            if (ViewData["EditError"] != null)
+            {
+                grid.SetEditErrorText((string)ViewData["EditError"]);
+            }
+        }
+        @grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+        {
+            e.KeyExpression = "Id";
+            e.QueryableSource = Model;
+        }).GetHtml()
+

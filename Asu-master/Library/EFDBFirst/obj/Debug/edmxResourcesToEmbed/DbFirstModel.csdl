@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AsuAviaTestVersionBetaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DirectiveWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PkpId" Type="Int32" Nullable="false" />
+    <Property Name="OboznId" Type="Int32" Nullable="false" />
+    <Property Name="CexIzgId" Type="Int32" Nullable="false" />
+    <Property Name="CexPotrId" Type="Int32" Nullable="false" />
+    <Property Name="link_uch" Type="Int32" Nullable="false" />
+    <Property Name="Directive_work_sdeln_izg" Type="Decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_povr_izg" Type="Decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_sdeln_usl" Type="Decimal" Precision="20" Scale="5" />
+    <Property Name="Directive_work_povr_usl" Type="Decimal" Precision="20" Scale="5" />
+    <Property Name="DirectoryOfTypesOfWorkId" Type="Int32" />
+    <Property Name="Prim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NomDok" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SprPviId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DocumentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperationDate" Type="DateTime" Precision="3" />
+    <Property Name="PeriodOpenDate" Type="DateTime" Precision="3" />
+    <Property Name="PeriodCloseDate" Type="DateTime" Precision="3" />
+    <Property Name="ExceptionForWorkId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ExceptionForWork" Relationship="Self.DirectiveWork_ExceptionForWork" FromRole="DirectiveWork" ToRole="ExceptionForWork" />
+  </EntityType>
+  <EntityType Name="ExceptionForWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SprPviId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DocumentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperationDate" Type="DateTime" Precision="3" />
+    <Property Name="PeriodOpenDate" Type="DateTime" Precision="3" />
+    <Property Name="PeriodCloseDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DirectiveWork" Relationship="Self.DirectiveWork_ExceptionForWork" FromRole="ExceptionForWork" ToRole="DirectiveWork" />
+  </EntityType>
+  <Association Name="DirectiveWork_ExceptionForWork">
+    <End Role="ExceptionForWork" Type="Self.ExceptionForWork" Multiplicity="1" />
+    <End Role="DirectiveWork" Type="Self.DirectiveWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExceptionForWork">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DirectiveWork">
+        <PropertyRef Name="ExceptionForWorkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AsuAviaTestVersionBetaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DirectiveWork" EntityType="Self.DirectiveWork" />
+    <EntitySet Name="ExceptionForWork" EntityType="Self.ExceptionForWork" />
+    <AssociationSet Name="DirectiveWork_ExceptionForWork" Association="Self.DirectiveWork_ExceptionForWork">
+      <End Role="ExceptionForWork" EntitySet="ExceptionForWork" />
+      <End Role="DirectiveWork" EntitySet="DirectiveWork" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,14 @@
+﻿@(
+    Html.Kendo().DropDownList()
+        .Name("ExeptionOfWork")
+        .DataTextField("FullName")
+        .DataValueField("Id")
+        .Filter(FilterType.Contains)
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("GetExeptionOfWork", "WorkshopPortfolio", "msi");
+            });
+        })
+    )

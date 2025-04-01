@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Asu.Web.Models.Spr_Perizd>
+
+@Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList },
+        new StyleSheet { ExtensionType = ExtensionType.ListBox }
+    )
+@Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList },
+        new Script { ExtensionType = ExtensionType.ListBox }
+    )
+
+@Html.DevExpress().Button(
+    settings =>
+    {
+        settings.Name = "btShowModal";
+        settings.Text = "Выбрать изделие";
+        settings.Images.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsAdd16x16;
+        settings.ClientSideEvents.Click = "function(s, e) { pcModalMode.Show(); }";
+    }).GetHtml()
+
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.ShowFooter = true;
+        settings.ShowHeader = true;
+        settings.ShowPinButton = true;
+        settings.FooterText = "ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+        settings.Name = "pcModalMode";
+        settings.Width = 320;
+        settings.AllowResize = true;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = AnimationType.Slide;
+        settings.HeaderText = "Создать запись";
+        settings.Modal = true;
+        settings.AutoUpdatePosition = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+            using (Html.BeginForm("Index", "Vib_Izd", FormMethod.Post))
+            {
+                Html.RenderPartial("Popup_Vib_Izd");                
+            };
+        });
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+    }).GetHtml()
+
+
+
+
+
+
+
+    @Html.DevExpress().ListBox(a =>
+    {
+        a.Name = "ListIzdelia";
+        a.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        a.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+        a.Properties.EnableClientSideAPI = true;
+        a.Properties.ValueField = "id";
+        a.Properties.ValueType = typeof(string);
+        a.Properties.Columns.Add("kod_izd", "Изделие");
+        a.Width = System.Web.UI.WebControls.Unit.Pixel(400);
+    }).BindList(Model).GetHtml()
+
+@Html.DevExpress().Button(setting =>
+{
+    setting.Name = "Add";
+    setting.Text = "Add";
+    setting.ClientSideEvents.Click = "function(s, e) { AddSelectedItems(); }";
+}).GetHtml()
+
+
+@*var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+    comboBoxProperties.ValueField = "Id";
+    comboBoxProperties.TextField = "FullName";
+    comboBoxProperties.ValueType = typeof(string);
+    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetUser();*@

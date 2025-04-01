@@ -1,0 +1,91 @@
+﻿@using Nop.Core.Infrastructure;
+@using Nop.Core;
+@using Nop.Core.Domain.Customers; 
+@model Nop.Web.Models.ProductGroups.ProductGroupModel
+
+
+@{
+    var isUserRegistered = EngineContext.Current.Resolve<IWorkContext>().CurrentCustomer.IsRegistered().ToString();
+ }
+
+    <div id="details-tabs" class="product-tabs" style="display:none">
+        <ul id="tab-headers" class="tab-headers">
+            <li><a href="#details">Product Details</a></li>
+            <li><a href="#returns">Return Policy</a></li>
+            <li><a href="#review">Reviews(count)</a></li>
+        </ul>
+        <div class="accordion-header">Product Detail</div>
+        <div id="details" class="product-details-tab">
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                <div class="full-description" itemprop="description">
+                    @Html.Raw(Model.Description)
+                </div>
+            }
+
+            <div class="product-group-specifications">
+                @*@Html.Partial("_ProductSpecifications", Model.ProductSpecifications)*@
+            </div>
+        </div>
+        <div class="accordion-header">Return Policy</div>
+        <div id="returns" class="return-policy-tab">
+            <div class="return-policy-image"></div>
+            <div class="return-policy-text">
+                <span>Returns are easy at Autoplicity</span>
+                <br />
+                Not happy with a purchase? No problem. We've made returning items as easy as possible. And
+                most purchases can be returned for free for 30 days. Learn more about our
+                @Html.RouteLink("Returns Policy", "Topic", new { SeName = Html.GetTopicSeName("shippinginfo") })
+            </div>
+        </div>
+
+        <div class="accordion-header">Review</div>
+        <div id="review" class="return-policy-tab">
+            <div class="return-policy-text">
+                <h1 id="message-for-user" style="display:none">Unregistered user cannot submit review</h1>
+                <input id="registredField" type = "hidden" value="@(isUserRegistered)">
+                
+               <div id='template1' style="display: none">
+                    <div id="Rating" class="review-rating"></div>
+                    <div id ="Title" class="review-title"></div>
+                    <div id="ReviewText" class="review-review-text"></div>
+                    <div>
+                        <span class="review-user-icon"></span>
+                    </div>
+                    <div>
+                        <div id="CustomerName" class="review-customer-info">Posted by Michael Arizona /September 15</div>
+                        <div id="VehicleName" class="review-customer-vehicle">BMW X5</div>
+                    </div>
+                    <div class="review-is-it-helpful">
+                        <span>Was this review helpful?(add yes button)</span>
+                        <button class="review-is-helpful-button">YES</button>
+                    </div>
+                </div>
+                <div id="root" style="">
+                    <button onclick="hideShowAddReviewBlock()">add your review</button>
+                    <div id='submitReviewBlock' style="display: none">
+                        <p id='reviewTitle'>Review title</p>
+                        <input id="txtReviewTitle" />
+                        <p></p>
+                        <textarea id="taReviewText"></textarea>
+                        <p />
+                        <input type="radio" name='rating' value="1">
+                        <input type="radio" name='rating' value="2">
+                        <input type="radio" name='rating' value="3">
+                        <input type="radio" name='rating' value="4">
+                        <input type="radio" name='rating' value="5">
+                        <p />
+                        <button onclick="reviewSender()">Submit review</button>
+                    </div>
+
+                    <div id="reviews">
+                        <div id="reviewItems">
+                        </div>
+                        <button onclick="reviewFetcher()">Show more reviews</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+

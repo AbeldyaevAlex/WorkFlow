@@ -1,0 +1,7 @@
+<svg x="0px" y="0px" viewBox="0 0 450 300" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <ellipse ry="100" rx="100" cy="125" cx="225" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="#008200"/>
+  <path d="m285.280439,74.866205c-24.972939,0 -44.104727,-7.134885 -60.282713,-22.866205c-16.176304,15.73132 -35.30725,22.866205 -60.278086,22.866205c0,40.967548 -8.476987,99.653281 60.277666,123.486842c68.7597,-23.833141 60.283133,-82.518874 60.283133,-123.486842zm-65.276375,72.091612l-20.082741,-20.085686l8.991789,-8.991368l11.090953,11.093476l21.08038,-21.080801l8.991368,8.991368l-30.071749,30.073011z" fill="#FFFFFF" stroke="null"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="48" y="280" x="88.5625" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="null" fill="#555555">WARRANTY</text>
+ </g>
+</svg>

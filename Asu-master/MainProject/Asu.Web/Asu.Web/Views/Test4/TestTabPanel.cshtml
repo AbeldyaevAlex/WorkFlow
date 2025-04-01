@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding: 70px 10px 10px 10px; ">
+    <div style="height: 900px; border: 1px solid black; padding: 10px 10px 10px 10px; ">
+        @Html.DevExpress().TabControl(settings =>
+   {
+       settings.Name = "tab";
+       settings.Width = 300;
+       settings.Height = 100;
+
+       settings.Tabs.Add("Tab1", "Tab1", "");
+       settings.Tabs.Add("Tab2", "Tab2", "");
+       settings.Tabs.Add("Tab3", "Tab3", "");
+   }).GetHtml()
+    </div>
+</div>

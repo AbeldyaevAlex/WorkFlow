@@ -1,0 +1,61 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.body-content .form-control {
+    width: 100% !important;
+}
+
+
+.nav-blue {
+    background-color: #F5F5F5;
+}
+
+/* Test CSS -- Remove it */
+
+.body-content {
+    padding-top: 2%;
+}
+
+/* TEST CSS -- Remove it */
+
+
+
+/* Form Accordion */
+
+.formSection.panel {
+    border: 2px solid #e0e0eb;
+    border-radius: 10px;
+}
+
+.formSection .panel-heading {
+    color: #FFFFFF;
+    background-color: #38567D;
+    margin: 10px 10px 10px 10px;
+}
+
+.formSection .panel-heading {
+    padding: 5px 15px;
+    border-radius: 6px;
+}

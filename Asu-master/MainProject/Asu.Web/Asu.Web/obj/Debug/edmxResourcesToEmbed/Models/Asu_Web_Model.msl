@@ -1,0 +1,1679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ASU_AVIAModelContainer" CdmEntityContainer="ASU_AVIA_Context">
+    <EntitySetMapping Name="Der_btp">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Der_btp">
+        <MappingFragment StoreEntitySet="Der_btp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_rod" ColumnName="link_rod" />
+          <ScalarProperty Name="dlin" ColumnName="dlin" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="link_kts" ColumnName="link_kts" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="kol" ColumnName="kol" />
+          <ScalarProperty Name="tk" ColumnName="tk" />
+          <ScalarProperty Name="link_agr" ColumnName="link_agr" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="sz" ColumnName="sz" />
+          <ScalarProperty Name="n_specif" ColumnName="n_specif" />
+          <ScalarProperty Name="zakaz" ColumnName="zakaz" />
+          <ScalarProperty Name="serii" ColumnName="serii" />
+          <ScalarProperty Name="bull" ColumnName="bull" />
+          <ScalarProperty Name="nm_gr_sz" ColumnName="nm_gr_sz" />
+          <ScalarProperty Name="poz" ColumnName="poz" />
+          <ScalarProperty Name="list" ColumnName="list" />
+          <ScalarProperty Name="rascex" ColumnName="rascex" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Der_izd">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Der_izd">
+        <MappingFragment StoreEntitySet="Der_izd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="link_rod" ColumnName="link_rod" />
+          <ScalarProperty Name="dlin" ColumnName="dlin" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="link_komplekt" ColumnName="link_komplekt" />
+          <ScalarProperty Name="link_kts" ColumnName="link_kts" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="kol" ColumnName="kol" />
+          <ScalarProperty Name="tk" ColumnName="tk" />
+          <ScalarProperty Name="link_agr" ColumnName="link_agr" />
+          <ScalarProperty Name="link_razdizd" ColumnName="link_razdizd" />
+          <ScalarProperty Name="link_grrazdizd" ColumnName="link_grrazdizd" />
+          <ScalarProperty Name="ss" ColumnName="ss" />
+          <ScalarProperty Name="spo" ColumnName="spo" />
+          <ScalarProperty Name="vhodim" ColumnName="vhodim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dokum_Obosnov">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Dokum_Obosnov">
+        <MappingFragment StoreEntitySet="Dokum_Obosnov">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Obosnov" ColumnName="Obosnov" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gos_ree">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Gos_ree">
+        <MappingFragment StoreEntitySet="Gos_ree">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_gos_ree" ColumnName="n_gos_ree" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GOST_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.GOST_mater">
+        <MappingFragment StoreEntitySet="GOST_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="gost" ColumnName="gost" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GR_RAZDIZD">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.GR_RAZDIZD">
+        <MappingFragment StoreEntitySet="GR_RAZDIZD">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="link_razdizd" ColumnName="link_razdizd" />
+          <ScalarProperty Name="shifr" ColumnName="shifr" />
+          <ScalarProperty Name="nm_grup" ColumnName="nm_grup" />
+          <ScalarProperty Name="link_gol_sb" ColumnName="link_gol_sb" />
+          <ScalarProperty Name="link_zakaz" ColumnName="link_zakaz" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupp">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Grupp">
+        <MappingFragment StoreEntitySet="Grupp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_vidiz" ColumnName="n_vidiz" />
+          <ScalarProperty Name="nmvidiz" ColumnName="nmvidiz" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image_old">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Image_old">
+        <MappingFragment StoreEntitySet="Image_old">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+          <ScalarProperty Name="Format_screen" ColumnName="Format_screen" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image_old_v2">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Image_old_v2">
+        <MappingFragment StoreEntitySet="Image_old_v2">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="UrlAction" ColumnName="UrlAction" />
+          <ScalarProperty Name="Alt" ColumnName="Alt" />
+          <ScalarProperty Name="Controller_Name" ColumnName="Controller_Name" />
+          <ScalarProperty Name="Action_Name" ColumnName="Action_Name" />
+          <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+          <ScalarProperty Name="RouteUrl" ColumnName="RouteUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Konserv">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Konserv">
+        <MappingFragment StoreEntitySet="Konserv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kod_konserv" ColumnName="kod_konserv" />
+          <ScalarProperty Name="nm_konserv" ColumnName="nm_konserv" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Poverk">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.M_Poverk">
+        <MappingFragment StoreEntitySet="M_Poverk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="mesto" ColumnName="mesto" />
+          <ScalarProperty Name="p_nm_mesto" ColumnName="p_nm_mesto" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mark_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Mark_mater">
+        <MappingFragment StoreEntitySet="Mark_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="marka_mater" ColumnName="marka_mater" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nazn_prib">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Nazn_prib">
+        <MappingFragment StoreEntitySet="Nazn_prib">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_naznach" ColumnName="n_naznach" />
+          <ScalarProperty Name="naznach" ColumnName="naznach" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nm_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Nm_mater">
+        <MappingFragment StoreEntitySet="Nm_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_mater1" ColumnName="nm_mater" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nm_prib">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Nm_prib">
+        <MappingFragment StoreEntitySet="Nm_prib">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_prib1" ColumnName="nm_prib1" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nm_vidiz">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Nm_vidiz">
+        <MappingFragment StoreEntitySet="Nm_vidiz">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_vidiz1" ColumnName="nm_vidiz1" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Period_pover">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Period_pover">
+        <MappingFragment StoreEntitySet="Period_pover">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podgr_prib">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Podgr_prib">
+        <MappingFragment StoreEntitySet="Podgr_prib">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_vidiz" ColumnName="link_vidiz" />
+          <ScalarProperty Name="n_podgrupp" ColumnName="n_podgrupp" />
+          <ScalarProperty Name="link_nmprib" ColumnName="link_nmprib" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podgrupp">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Podgrupp">
+        <MappingFragment StoreEntitySet="Podgrupp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_vidiz" ColumnName="link_vidiz" />
+          <ScalarProperty Name="n_podgrupp" ColumnName="n_podgrupp" />
+          <ScalarProperty Name="nm_prib" ColumnName="nm_prib" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predpr_izg">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Predpr_izg">
+        <MappingFragment StoreEntitySet="Predpr_izg">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="predpr" ColumnName="predpr" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predpr_Postav">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Predpr_Postav">
+        <MappingFragment StoreEntitySet="Predpr_Postav">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Predpr" ColumnName="Predpr" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raz_det">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Raz_det">
+        <MappingFragment StoreEntitySet="Raz_det">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="razd" ColumnName="razd" />
+          <ScalarProperty Name="naim_razd" ColumnName="naim_razd" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rod_poverk">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Rod_poverk">
+        <MappingFragment StoreEntitySet="Rod_poverk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_rod_poverk" ColumnName="n_rod_poverk" />
+          <ScalarProperty Name="naim_rod" ColumnName="naim_rod" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Mapping">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Role_Mapping">
+        <MappingFragment StoreEntitySet="Role_Mapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sort_Mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Sort_Mater">
+        <MappingFragment StoreEntitySet="Sort_Mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="usl_ru" ColumnName="usl_ru" />
+          <ScalarProperty Name="sort_usl" ColumnName="sort_usl" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_agr">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_agr">
+        <MappingFragment StoreEntitySet="Spr_agr">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="gr_konstr" ColumnName="gr_konstr" />
+          <ScalarProperty Name="agrk_k" ColumnName="agrk_k" />
+          <ScalarProperty Name="agrk_p" ColumnName="agrk_p" />
+          <ScalarProperty Name="link_agrgr" ColumnName="link_agrgr" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_balsch">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_balsch">
+        <MappingFragment StoreEntitySet="Spr_balsch">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="bal_schet" ColumnName="bal_schet" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_cen_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_cen_mater">
+        <MappingFragment StoreEntitySet="Spr_cen_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_SKM" ColumnName="link_SKM" />
+          <ScalarProperty Name="cmat" ColumnName="cmat" />
+          <ScalarProperty Name="link_Valuta" ColumnName="link_Valuta" />
+          <ScalarProperty Name="god_prim_cen" ColumnName="god_prim_cen" />
+          <ScalarProperty Name="link_Obosnov" ColumnName="link_Obosnov" />
+          <ScalarProperty Name="link_Predpr" ColumnName="link_Predpr" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_cena_del">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_cena_del">
+        <MappingFragment StoreEntitySet="Spr_cena_del">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cena_del" ColumnName="cena_del" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_cex">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_cex">
+        <MappingFragment StoreEntitySet="Spr_cex">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cex" ColumnName="cex" />
+          <ScalarProperty Name="naim_cex" ColumnName="naim_cex" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="nm_cex_krat" ColumnName="nm_cex_krat" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_cex_real" ColumnName="link_cex_real" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_cex_prizn">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_cex_prizn">
+        <MappingFragment StoreEntitySet="Spr_cex_prizn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_prcex_k" ColumnName="nm_prcex_k" />
+          <ScalarProperty Name="nm_prcex_p" ColumnName="nm_prcex_p" />
+          <ScalarProperty Name="nm_grup" ColumnName="nm_grup" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_dse">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_dse">
+        <MappingFragment StoreEntitySet="Spr_dse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_pkp" ColumnName="link_pkp" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_km" ColumnName="link_km" />
+          <ScalarProperty Name="link_nm_metodic" ColumnName="link_nm_metodic" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="bz" ColumnName="bz" />
+          <ScalarProperty Name="lz" ColumnName="lz" />
+          <ScalarProperty Name="nr" ColumnName="nr" />
+          <ScalarProperty Name="vpost" ColumnName="vpost" />
+          <ScalarProperty Name="nrvp" ColumnName="nrvp" />
+          <ScalarProperty Name="link_primdse" ColumnName="link_primdse" />
+          <ScalarProperty Name="vpost_sh" ColumnName="vpost_sh" />
+          <ScalarProperty Name="krat" ColumnName="krat" />
+          <ScalarProperty Name="ndoc" ColumnName="ndoc" />
+          <ScalarProperty Name="link_tema" ColumnName="link_tema" />
+          <ScalarProperty Name="link_rascex" ColumnName="link_rascex" />
+          <ScalarProperty Name="ree" ColumnName="ree" />
+          <ScalarProperty Name="pr_got_ci" ColumnName="pr_got_ci" />
+          <ScalarProperty Name="pr_othod" ColumnName="pr_othod" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="prascr" ColumnName="prascr" />
+          <ScalarProperty Name="tehn_izgot" ColumnName="tehn_izgot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_eizm">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_eizm">
+        <MappingFragment StoreEntitySet="Spr_eizm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="krat_naim_eizm" ColumnName="krat_naim_eizm" />
+          <ScalarProperty Name="poln_naim_eizm" ColumnName="poln_naim_eizm" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_GR_Mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_GR_Mater">
+        <MappingFragment StoreEntitySet="Spr_GR_Mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nomer_gr_mater" ColumnName="nomer_gr_mater" />
+          <ScalarProperty Name="nm_gr_mater" ColumnName="nm_gr_mater" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_GR_tematik">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_GR_tematik">
+        <MappingFragment StoreEntitySet="Spr_GR_tematik">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_GR_tematik_p" ColumnName="nm_GR_tematik_p" />
+          <ScalarProperty Name="nm_GR_tematik_k" ColumnName="nm_GR_tematik_k" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_kdan">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_kdan">
+        <MappingFragment StoreEntitySet="Spr_kdan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kdan" ColumnName="kdan" />
+          <ScalarProperty Name="nm_kdan" ColumnName="nm_kdan" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_kgr">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_kgr">
+        <MappingFragment StoreEntitySet="Spr_kgr">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kgr" ColumnName="kgr" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="nomenkl" ColumnName="nomenkl" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_klass_tochn">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_klass_tochn">
+        <MappingFragment StoreEntitySet="Spr_klass_tochn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="klass_tochn" ColumnName="klass_tochn" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_kompl">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_kompl">
+        <MappingFragment StoreEntitySet="Spr_kompl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="komplekt" ColumnName="komplekt" />
+          <ScalarProperty Name="na_kompl" ColumnName="na_kompl" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_mash">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_mash">
+        <MappingFragment StoreEntitySet="Spr_mash">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom_mash" ColumnName="nom_mash" />
+          <ScalarProperty Name="naim_mash" ColumnName="naim_mash" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="ser_s" ColumnName="ser_s" />
+          <ScalarProperty Name="ser_po" ColumnName="ser_po" />
+          <ScalarProperty Name="link_zakaz" ColumnName="link_zakaz" />
+          <ScalarProperty Name="kol_kompl" ColumnName="kol_kompl" />
+          <ScalarProperty Name="shag" ColumnName="shag" />
+          <ScalarProperty Name="gr_kol" ColumnName="gr_kol" />
+          <ScalarProperty Name="pr_zrasc" ColumnName="pr_zrasc" />
+          <ScalarProperty Name="pr_kompl" ColumnName="pr_kompl" />
+          <ScalarProperty Name="ud_ss" ColumnName="ud_ss" />
+          <ScalarProperty Name="ud_spo" ColumnName="ud_spo" />
+          <ScalarProperty Name="soot_s" ColumnName="soot_s" />
+          <ScalarProperty Name="soot_po" ColumnName="soot_po" />
+          <ScalarProperty Name="soot_ud_ss" ColumnName="soot_ud_ss" />
+          <ScalarProperty Name="soot_ud_spo" ColumnName="soot_ud_spo" />
+          <ScalarProperty Name="kompl1" ColumnName="kompl1" />
+          <ScalarProperty Name="kompl2" ColumnName="kompl2" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="rspo" ColumnName="rspo" />
+          <ScalarProperty Name="kmash" ColumnName="kmash" />
+          <ScalarProperty Name="kod_o" ColumnName="kod_o" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_mash_sg">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_mash_sg">
+        <MappingFragment StoreEntitySet="Spr_mash_sg">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom_mash" ColumnName="nom_mash" />
+          <ScalarProperty Name="naim_mash" ColumnName="naim_mash" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="ser_s" ColumnName="ser_s" />
+          <ScalarProperty Name="ser_po" ColumnName="ser_po" />
+          <ScalarProperty Name="link_zakaz" ColumnName="link_zakaz" />
+          <ScalarProperty Name="kol_kompl" ColumnName="kol_kompl" />
+          <ScalarProperty Name="shag" ColumnName="shag" />
+          <ScalarProperty Name="gr_kol" ColumnName="gr_kol" />
+          <ScalarProperty Name="pr_zrasc" ColumnName="pr_zrasc" />
+          <ScalarProperty Name="pr_kompl" ColumnName="pr_kompl" />
+          <ScalarProperty Name="ud_ss" ColumnName="ud_ss" />
+          <ScalarProperty Name="ud_spo" ColumnName="ud_spo" />
+          <ScalarProperty Name="soot_s" ColumnName="soot_s" />
+          <ScalarProperty Name="soot_po" ColumnName="soot_po" />
+          <ScalarProperty Name="soot_ud_ss" ColumnName="soot_ud_ss" />
+          <ScalarProperty Name="soot_ud_spo" ColumnName="soot_ud_spo" />
+          <ScalarProperty Name="kompl1" ColumnName="kompl1" />
+          <ScalarProperty Name="kompl2" ColumnName="kompl2" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="rspo" ColumnName="rspo" />
+          <ScalarProperty Name="kmash" ColumnName="kmash" />
+          <ScalarProperty Name="kod_o" ColumnName="kod_o" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_mater">
+        <MappingFragment StoreEntitySet="Spr_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_mater" ColumnName="nm_mater" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_METODIC">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_METODIC">
+        <MappingFragment StoreEntitySet="Spr_METODIC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nomer_metodic" ColumnName="nomer_metodic" />
+          <ScalarProperty Name="naim_metodic" ColumnName="naim_metodic" />
+          <ScalarProperty Name="opis_metodic" ColumnName="opis_metodic" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_metrol">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_metrol">
+        <MappingFragment StoreEntitySet="Spr_metrol">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_podgrupp" ColumnName="link_podgrupp" />
+          <ScalarProperty Name="link_group" ColumnName="link_group" />
+          <ScalarProperty Name="link_naznach" ColumnName="link_naznach" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_period_poverk" ColumnName="link_period_poverk" />
+          <ScalarProperty Name="link_mesto_poverk" ColumnName="link_mesto_poverk" />
+          <ScalarProperty Name="link_rod_poverk" ColumnName="link_rod_poverk" />
+          <ScalarProperty Name="link_tip_pribora" ColumnName="link_tip_pribora" />
+          <ScalarProperty Name="link_konserv" ColumnName="link_konserv" />
+          <ScalarProperty Name="n_pasporta" ColumnName="n_pasporta" />
+          <ScalarProperty Name="n_zavod" ColumnName="n_zavod" />
+          <ScalarProperty Name="data_pover" ColumnName="data_pover" />
+          <ScalarProperty Name="data_pred_pov" ColumnName="data_pred_pov" />
+          <ScalarProperty Name="link_usl" ColumnName="link_usl" />
+          <ScalarProperty Name="link_ree" ColumnName="link_ree" />
+          <ScalarProperty Name="link_stan" ColumnName="link_stan" />
+          <ScalarProperty Name="god_vip" ColumnName="god_vip" />
+          <ScalarProperty Name="link_predpr" ColumnName="link_predpr" />
+          <ScalarProperty Name="data_izm" ColumnName="data_izm" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_nm_task">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_nm_task">
+        <MappingFragment StoreEntitySet="Spr_nm_task">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="Naim_task" ColumnName="Naim_task" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="Id_Roditel" ColumnName="Id_Roditel" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+          <ScalarProperty Name="naim_screen" ColumnName="naim_screen" />
+          <ScalarProperty Name="AlternativeText" ColumnName="AlternativeText" />
+          <ScalarProperty Name="Controller_Name" ColumnName="Controller_Name" />
+          <ScalarProperty Name="Action_Name" ColumnName="Action_Name" />
+          <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+          <ScalarProperty Name="RouteUrl" ColumnName="RouteUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_nmdet">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_nmdet">
+        <MappingFragment StoreEntitySet="Spr_nmdet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="naim_det" ColumnName="naim_det" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_normali">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_normali">
+        <MappingFragment StoreEntitySet="Spr_normali">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_pkp" ColumnName="link_pkp" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_km" ColumnName="link_km" />
+          <ScalarProperty Name="link_nm_metodic" ColumnName="link_nm_metodic" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="bz" ColumnName="bz" />
+          <ScalarProperty Name="lz" ColumnName="lz" />
+          <ScalarProperty Name="nr" ColumnName="nr" />
+          <ScalarProperty Name="vpost" ColumnName="vpost" />
+          <ScalarProperty Name="nrvp" ColumnName="nrvp" />
+          <ScalarProperty Name="link_primdse" ColumnName="link_primdse" />
+          <ScalarProperty Name="vpost_sh" ColumnName="vpost_sh" />
+          <ScalarProperty Name="krat" ColumnName="krat" />
+          <ScalarProperty Name="ndoc" ColumnName="ndoc" />
+          <ScalarProperty Name="link_tema" ColumnName="link_tema" />
+          <ScalarProperty Name="link_rascex" ColumnName="link_rascex" />
+          <ScalarProperty Name="ree" ColumnName="ree" />
+          <ScalarProperty Name="pr_got_ci" ColumnName="pr_got_ci" />
+          <ScalarProperty Name="pr_othod" ColumnName="pr_othod" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="prascr" ColumnName="prascr" />
+          <ScalarProperty Name="tehn_izgot" ColumnName="tehn_izgot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_obozn">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_obozn">
+        <MappingFragment StoreEntitySet="Spr_obozn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="obozn" ColumnName="obozn" />
+          <ScalarProperty Name="var" ColumnName="var" />
+          <ScalarProperty Name="link_pkp" ColumnName="link_pkp" />
+          <ScalarProperty Name="link_naim" ColumnName="link_naim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="obozn_p" ColumnName="obozn_p" />
+          <ScalarProperty Name="obozn_dos" ColumnName="obozn_dos" />
+          <ScalarProperty Name="stsort_kt" ColumnName="stsort_kt" />
+          <ScalarProperty Name="stsort_tip" ColumnName="stsort_tip" />
+          <ScalarProperty Name="stsort_tr_1" ColumnName="stsort_tr_1" />
+          <ScalarProperty Name="stsort_tr_2" ColumnName="stsort_tr_2" />
+          <ScalarProperty Name="stsort_tr_3" ColumnName="stsort_tr_3" />
+          <ScalarProperty Name="stsort_tr_4" ColumnName="stsort_tr_4" />
+          <ScalarProperty Name="stsort_tr_5" ColumnName="stsort_tr_5" />
+          <ScalarProperty Name="stsort_tr_6" ColumnName="stsort_tr_6" />
+          <ScalarProperty Name="stsort_tr_7" ColumnName="stsort_tr_7" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_obozn_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_obozn_mater">
+        <MappingFragment StoreEntitySet="Spr_obozn_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="mas1sh" ColumnName="mas1sh" />
+          <ScalarProperty Name="link_mater" ColumnName="link_mater" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_obraz">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_obraz">
+        <MappingFragment StoreEntitySet="Spr_obraz">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_pkp" ColumnName="link_pkp" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_km" ColumnName="link_km" />
+          <ScalarProperty Name="link_nm_metodic" ColumnName="link_nm_metodic" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="bz" ColumnName="bz" />
+          <ScalarProperty Name="lz" ColumnName="lz" />
+          <ScalarProperty Name="nr" ColumnName="nr" />
+          <ScalarProperty Name="vpost" ColumnName="vpost" />
+          <ScalarProperty Name="kobr" ColumnName="kobr" />
+          <ScalarProperty Name="kisp" ColumnName="kisp" />
+          <ScalarProperty Name="vpost_sh" ColumnName="vpost_sh" />
+          <ScalarProperty Name="krat" ColumnName="krat" />
+          <ScalarProperty Name="kol_p" ColumnName="kol_p" />
+          <ScalarProperty Name="date_doc" ColumnName="date_doc" />
+          <ScalarProperty Name="n_doc" ColumnName="n_doc" />
+          <ScalarProperty Name="link_tema" ColumnName="link_tema" />
+          <ScalarProperty Name="link_rascex" ColumnName="link_rascex" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPR_OGT">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.SPR_OGT">
+        <MappingFragment StoreEntitySet="SPR_OGT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="naim_ogt" ColumnName="naim_ogt" />
+          <ScalarProperty Name="OGT" ColumnName="OGT" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_gr_mater" ColumnName="link_gr_mater" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="link_sort" ColumnName="link_sort" />
+          <ScalarProperty Name="ksim_km" ColumnName="ksim_km" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPR_OTS">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.SPR_OTS">
+        <MappingFragment StoreEntitySet="SPR_OTS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kod_sklad" ColumnName="kod_sklad" />
+          <ScalarProperty Name="per" ColumnName="per" />
+          <ScalarProperty Name="ots" ColumnName="ots" />
+          <ScalarProperty Name="nomer_sklad" ColumnName="nomer_sklad" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_per_dok_ob">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_per_dok_ob">
+        <MappingFragment StoreEntitySet="Spr_per_dok_ob">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_prim_dse" ColumnName="link_prim_dse" />
+          <ScalarProperty Name="docum" ColumnName="docum" />
+          <ScalarProperty Name="date_izm_docum" ColumnName="date_izm_docum" />
+          <ScalarProperty Name="link_razd" ColumnName="link_razd" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Perizd">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_Perizd">
+        <MappingFragment StoreEntitySet="Spr_Perizd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="izdelie" ColumnName="izdelie" />
+          <ScalarProperty Name="kod_izd" ColumnName="kod_izd" />
+          <ScalarProperty Name="nm_izd" ColumnName="nm_izd" />
+          <ScalarProperty Name="ser_ss" ColumnName="ser_ss" />
+          <ScalarProperty Name="ser_spo" ColumnName="ser_spo" />
+          <ScalarProperty Name="kgk1_1" ColumnName="kgk1_1" />
+          <ScalarProperty Name="kgk1_n" ColumnName="kgk1_n" />
+          <ScalarProperty Name="kgk1_m" ColumnName="kgk1_m" />
+          <ScalarProperty Name="tek_ser_s" ColumnName="tek_ser_s" />
+          <ScalarProperty Name="tek_ser_po" ColumnName="tek_ser_po" />
+          <ScalarProperty Name="link_tema" ColumnName="link_tema" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="Model_tehnol_podgot_proizv" ColumnName="Model_tehnol_podgot_proizv" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_tematik" ColumnName="link_tematik" />
+          <ScalarProperty Name="pr_komplektov" ColumnName="pr_komplektov" />
+          <ScalarProperty Name="soot_ss" ColumnName="soot_ss" />
+          <ScalarProperty Name="soot_spo" ColumnName="soot_spo" />
+          <ScalarProperty Name="link_zakaz" ColumnName="link_zakaz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_PKP">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_PKP">
+        <MappingFragment StoreEntitySet="Spr_PKP">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pkp" ColumnName="pkp" />
+          <ScalarProperty Name="nm_pkp" ColumnName="nm_pkp" />
+          <ScalarProperty Name="link_razd" ColumnName="link_razd" />
+          <ScalarProperty Name="link_razd_dse" ColumnName="link_razd_dse" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="pkp_dos" ColumnName="pkp_dos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_predel">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_predel">
+        <MappingFragment StoreEntitySet="Spr_predel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="predel" ColumnName="predel" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_prim_dse">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_prim_dse">
+        <MappingFragment StoreEntitySet="Spr_prim_dse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_specif" ColumnName="link_specif" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="link_grrazdizd" ColumnName="link_grrazdizd" />
+          <ScalarProperty Name="kizd" ColumnName="kizd" />
+          <ScalarProperty Name="kp1" ColumnName="kp1" />
+          <ScalarProperty Name="kp2" ColumnName="kp2" />
+          <ScalarProperty Name="kp3" ColumnName="kp3" />
+          <ScalarProperty Name="tk1" ColumnName="tk1" />
+          <ScalarProperty Name="tk2" ColumnName="tk2" />
+          <ScalarProperty Name="tk3" ColumnName="tk3" />
+          <ScalarProperty Name="masizd" ColumnName="masizd" />
+          <ScalarProperty Name="link_rascizd" ColumnName="link_rascizd" />
+          <ScalarProperty Name="ss" ColumnName="ss" />
+          <ScalarProperty Name="spo" ColumnName="spo" />
+          <ScalarProperty Name="n_list" ColumnName="n_list" />
+          <ScalarProperty Name="n_poz" ColumnName="n_poz" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="CP1" ColumnName="CP1" />
+          <ScalarProperty Name="CP2" ColumnName="CP2" />
+          <ScalarProperty Name="CP3" ColumnName="CP3" />
+          <ScalarProperty Name="rascex" ColumnName="rascex" />
+          <ScalarProperty Name="link_kts" ColumnName="link_kts" />
+          <ScalarProperty Name="link_obozn_mater" ColumnName="link_obozn_mater" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPR_PRKM">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.SPR_PRKM">
+        <MappingFragment StoreEntitySet="SPR_PRKM">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="prkm" ColumnName="prkm" />
+          <ScalarProperty Name="nm_prkm" ColumnName="nm_prkm" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_prpokr">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_prpokr">
+        <MappingFragment StoreEntitySet="Spr_prpokr">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="prpokr" ColumnName="prpokr" />
+          <ScalarProperty Name="nm_prpokr" ColumnName="nm_prpokr" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_pvi">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_pvi">
+        <MappingFragment StoreEntitySet="Spr_pvi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pvi" ColumnName="pvi" />
+          <ScalarProperty Name="naim_pvi" ColumnName="naim_pvi" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_rasc_vert">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_rasc_vert">
+        <MappingFragment StoreEntitySet="Spr_rasc_vert">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_rascex_poln" ColumnName="link_rascex_poln" />
+          <ScalarProperty Name="npp" ColumnName="npp" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_cex_prizn" ColumnName="link_cex_prizn" />
+          <ScalarProperty Name="pr_cex_osn" ColumnName="pr_cex_osn" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_cex_potr" ColumnName="link_cex_potr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_rascex">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_rascex">
+        <MappingFragment StoreEntitySet="Spr_rascex">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CI11" ColumnName="CI11" />
+          <ScalarProperty Name="CI12" ColumnName="CI12" />
+          <ScalarProperty Name="CI13" ColumnName="CI13" />
+          <ScalarProperty Name="CI2" ColumnName="CI2" />
+          <ScalarProperty Name="CI3" ColumnName="CI3" />
+          <ScalarProperty Name="CI4" ColumnName="CI4" />
+          <ScalarProperty Name="CI5" ColumnName="CI5" />
+          <ScalarProperty Name="CI6" ColumnName="CI6" />
+          <ScalarProperty Name="CI7" ColumnName="CI7" />
+          <ScalarProperty Name="CTO" ColumnName="CTO" />
+          <ScalarProperty Name="CPK1" ColumnName="CPK1" />
+          <ScalarProperty Name="CPK2" ColumnName="CPK2" />
+          <ScalarProperty Name="CPK3" ColumnName="CPK3" />
+          <ScalarProperty Name="CPK4" ColumnName="CPK4" />
+          <ScalarProperty Name="CUS1" ColumnName="CUS1" />
+          <ScalarProperty Name="CUS2" ColumnName="CUS2" />
+          <ScalarProperty Name="CUS3" ColumnName="CUS3" />
+          <ScalarProperty Name="CUS4" ColumnName="CUS4" />
+          <ScalarProperty Name="CUS5" ColumnName="CUS5" />
+          <ScalarProperty Name="CUS6" ColumnName="CUS6" />
+          <ScalarProperty Name="CUS7" ColumnName="CUS7" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="CI8" ColumnName="CI8" />
+          <ScalarProperty Name="CI9" ColumnName="CI9" />
+          <ScalarProperty Name="CI10" ColumnName="CI10" />
+          <ScalarProperty Name="CUS8" ColumnName="CUS8" />
+          <ScalarProperty Name="CUS9" ColumnName="CUS9" />
+          <ScalarProperty Name="CUS10" ColumnName="CUS10" />
+          <ScalarProperty Name="rascex_small" ColumnName="rascex_small" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_rascex_poln">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_rascex_poln">
+        <MappingFragment StoreEntitySet="Spr_rascex_poln">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_rascex" ColumnName="link_rascex" />
+          <ScalarProperty Name="CI11" ColumnName="CI11" />
+          <ScalarProperty Name="CP1" ColumnName="CP1" />
+          <ScalarProperty Name="CI12" ColumnName="CI12" />
+          <ScalarProperty Name="CP2" ColumnName="CP2" />
+          <ScalarProperty Name="CI13" ColumnName="CI13" />
+          <ScalarProperty Name="CP3" ColumnName="CP3" />
+          <ScalarProperty Name="CI2" ColumnName="CI2" />
+          <ScalarProperty Name="CI3" ColumnName="CI3" />
+          <ScalarProperty Name="CI4" ColumnName="CI4" />
+          <ScalarProperty Name="CI5" ColumnName="CI5" />
+          <ScalarProperty Name="CI6" ColumnName="CI6" />
+          <ScalarProperty Name="CI7" ColumnName="CI7" />
+          <ScalarProperty Name="CTO" ColumnName="CTO" />
+          <ScalarProperty Name="CPK1" ColumnName="CPK1" />
+          <ScalarProperty Name="CPK2" ColumnName="CPK2" />
+          <ScalarProperty Name="CPK3" ColumnName="CPK3" />
+          <ScalarProperty Name="CPK4" ColumnName="CPK4" />
+          <ScalarProperty Name="CUS1" ColumnName="CUS1" />
+          <ScalarProperty Name="CUS2" ColumnName="CUS2" />
+          <ScalarProperty Name="CUS3" ColumnName="CUS3" />
+          <ScalarProperty Name="CUS4" ColumnName="CUS4" />
+          <ScalarProperty Name="CUS5" ColumnName="CUS5" />
+          <ScalarProperty Name="CUS6" ColumnName="CUS6" />
+          <ScalarProperty Name="CUS7" ColumnName="CUS7" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="CI8" ColumnName="CI8" />
+          <ScalarProperty Name="CI9" ColumnName="CI9" />
+          <ScalarProperty Name="CI10" ColumnName="CI10" />
+          <ScalarProperty Name="CUS8" ColumnName="CUS8" />
+          <ScalarProperty Name="CUS9" ColumnName="CUS9" />
+          <ScalarProperty Name="CUS10" ColumnName="CUS10" />
+          <ScalarProperty Name="rascex_small" ColumnName="rascex_small" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Razd_DSE">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_Razd_DSE">
+        <MappingFragment StoreEntitySet="Spr_Razd_DSE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_razd_k" ColumnName="nm_razd_k" />
+          <ScalarProperty Name="nm_razd_p" ColumnName="nm_razd_p" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Razd_Izd">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_Razd_Izd">
+        <MappingFragment StoreEntitySet="Spr_Razd_Izd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_razd_izd" ColumnName="nm_razd_izd" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_razd_izm">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_razd_izm">
+        <MappingFragment StoreEntitySet="Spr_razd_izm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="naim_razdel_krat" ColumnName="naim_razdel_krat" />
+          <ScalarProperty Name="naim_razdel_poln" ColumnName="naim_razdel_poln" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_skm">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_skm">
+        <MappingFragment StoreEntitySet="Spr_skm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="km" ColumnName="km" />
+          <ScalarProperty Name="dbt" ColumnName="dbt" />
+          <ScalarProperty Name="dsh" ColumnName="dsh" />
+          <ScalarProperty Name="ves" ColumnName="ves" />
+          <ScalarProperty Name="link_nm_skm" ColumnName="link_nm_skm" />
+          <ScalarProperty Name="link_marka" ColumnName="link_marka" />
+          <ScalarProperty Name="link_gost" ColumnName="link_gost" />
+          <ScalarProperty Name="link_eizm" ColumnName="link_eizm" />
+          <ScalarProperty Name="link_kgr" ColumnName="link_kgr" />
+          <ScalarProperty Name="link_ots" ColumnName="link_ots" />
+          <ScalarProperty Name="link_ogt" ColumnName="link_ogt" />
+          <ScalarProperty Name="link_balsch" ColumnName="link_balsch" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_GR_Mater" ColumnName="link_GR_Mater" />
+          <ScalarProperty Name="nomenkl_nomer" ColumnName="nomenkl_nomer" />
+          <ScalarProperty Name="sort_OGT" ColumnName="sort_OGT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPR_sortam">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.SPR_sortam">
+        <MappingFragment StoreEntitySet="SPR_sortam">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sortament" ColumnName="sortament" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_specif">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_specif">
+        <MappingFragment StoreEntitySet="Spr_specif">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_kts" ColumnName="link_kts" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="link_pkp_T_TV" ColumnName="link_pkp_T_TV" />
+          <ScalarProperty Name="link_kdan" ColumnName="link_kdan" />
+          <ScalarProperty Name="link_razd_det" ColumnName="link_razd_det" />
+          <ScalarProperty Name="ksb" ColumnName="ksb" />
+          <ScalarProperty Name="link_komplekt" ColumnName="link_komplekt" />
+          <ScalarProperty Name="prim_texn" ColumnName="prim_texn" />
+          <ScalarProperty Name="prim_konstrukt" ColumnName="prim_konstrukt" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="prim_kts" ColumnName="prim_kts" />
+          <ScalarProperty Name="link_spec" ColumnName="link_spec" />
+          <ScalarProperty Name="link_svyz_prim" ColumnName="link_svyz_prim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_stan">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_stan">
+        <MappingFragment StoreEntitySet="Spr_stan">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_stan" ColumnName="n_stan" />
+          <ScalarProperty Name="stan" ColumnName="stan" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Tehnizg">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_Tehnizg">
+        <MappingFragment StoreEntitySet="Spr_Tehnizg">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tehn_izg_k" ColumnName="Tehn_izg_k" />
+          <ScalarProperty Name="Tehn_izg_p" ColumnName="Tehn_izg_p" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_tehnol_izgot_proizv">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_tehnol_izgot_proizv">
+        <MappingFragment StoreEntitySet="Spr_tehnol_izgot_proizv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_GR_tematik_p" ColumnName="nm_GR_tematik_p" />
+          <ScalarProperty Name="nm_GR_tematik_k" ColumnName="nm_GR_tematik_k" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_tem">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_tem">
+        <MappingFragment StoreEntitySet="Spr_tem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_tem_p" ColumnName="nm_tem_p" />
+          <ScalarProperty Name="nm_tem_k" ColumnName="nm_tem_k" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_tematik">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_tematik">
+        <MappingFragment StoreEntitySet="Spr_tematik">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nm_tematik_p" ColumnName="nm_tematik_p" />
+          <ScalarProperty Name="nm_tematik_k" ColumnName="nm_tematik_k" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_tto">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_tto">
+        <MappingFragment StoreEntitySet="Spr_tto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_kod_TTO" ColumnName="link_kod_TTO" />
+          <ScalarProperty Name="link_kod_komp" ColumnName="link_kod_komp" />
+          <ScalarProperty Name="link_cizg" ColumnName="link_cizg" />
+          <ScalarProperty Name="link_prkm" ColumnName="link_prkm" />
+          <ScalarProperty Name="link_prpokr" ColumnName="link_prpokr" />
+          <ScalarProperty Name="nrm" ColumnName="nrm" />
+          <ScalarProperty Name="vpost" ColumnName="vpost" />
+          <ScalarProperty Name="nrvp" ColumnName="nrvp" />
+          <ScalarProperty Name="krat" ColumnName="krat" />
+          <ScalarProperty Name="vpost_sh" ColumnName="vpost_sh" />
+          <ScalarProperty Name="sort_kod_TTO" ColumnName="sort_kod_TTO" />
+          <ScalarProperty Name="sort_kod_komp" ColumnName="sort_kod_komp" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_uch_cex">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_uch_cex">
+        <MappingFragment StoreEntitySet="Spr_uch_cex">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="nom_uch" ColumnName="nom_uch" />
+          <ScalarProperty Name="naim_uch" ColumnName="naim_uch" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Zakaz">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Spr_Zakaz">
+        <MappingFragment StoreEntitySet="Spr_Zakaz">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="zakaz" ColumnName="zakaz" />
+          <ScalarProperty Name="nm_zakaz" ColumnName="nm_zakaz" />
+          <ScalarProperty Name="zakaz_open_date" ColumnName="zakaz_open_date" />
+          <ScalarProperty Name="zakaz_close_date" ColumnName="zakaz_close_date" />
+          <ScalarProperty Name="osnovanie" ColumnName="osnovanie" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_dok">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Status_dok">
+        <MappingFragment StoreEntitySet="Status_dok">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nm_status_krat" ColumnName="nm_status_krat" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Tasks">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_nm_task" ColumnName="link_nm_task" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tip_pribora">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Tip_pribora">
+        <MappingFragment StoreEntitySet="Tip_pribora">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tip_naim" ColumnName="tip_naim" />
+          <ScalarProperty Name="link_predel" ColumnName="link_predel" />
+          <ScalarProperty Name="link_cena_del" ColumnName="link_cena_del" />
+          <ScalarProperty Name="link_klass_tochn" ColumnName="link_klass_tochn" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trud_ob">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Trud_ob">
+        <MappingFragment StoreEntitySet="Trud_ob">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="link_izd" ColumnName="link_izd" />
+          <ScalarProperty Name="link_pkp" ColumnName="link_pkp" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="link_obozn" ColumnName="link_obozn" />
+          <ScalarProperty Name="uchastok" ColumnName="uchastok" />
+          <ScalarProperty Name="vidrabot" ColumnName="vidrabot" />
+          <ScalarProperty Name="tr_sdel" ColumnName="tr_sdel" />
+          <ScalarProperty Name="rascen" ColumnName="rascen" />
+          <ScalarProperty Name="tr_povr" ColumnName="tr_povr" />
+          <ScalarProperty Name="ndok" ColumnName="ndok" />
+          <ScalarProperty Name="vidrab_izg_usl" ColumnName="vidrab_izg_usl" />
+          <ScalarProperty Name="vidrabi" ColumnName="vidrabi" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="link_cex" ColumnName="link_cex" />
+          <ScalarProperty Name="date_registr" ColumnName="date_registr" />
+          <ScalarProperty Name="date_visit" ColumnName="date_visit" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usl_expluat">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Usl_expluat">
+        <MappingFragment StoreEntitySet="Usl_expluat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="naim_usl" ColumnName="naim_usl" />
+          <ScalarProperty Name="kod_usl" ColumnName="kod_usl" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uvedomlenie_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Uvedomlenie_mater">
+        <MappingFragment StoreEntitySet="Uvedomlenie_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uvedoml" ColumnName="uvedoml" />
+          <ScalarProperty Name="link_to_user" ColumnName="link_to_user" />
+          <ScalarProperty Name="full_to_user" ColumnName="full_to_user" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vid_izmer">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Vid_izmer">
+        <MappingFragment StoreEntitySet="Vid_izmer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="n_vidiz" ColumnName="n_vidiz" />
+          <ScalarProperty Name="link_nmvidiz" ColumnName="link_nmvidiz" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zayvka_mater">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Zayvka_mater">
+        <MappingFragment StoreEntitySet="Zayvka_mater">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kod_TTO" ColumnName="kod_TTO" />
+          <ScalarProperty Name="kod_komp" ColumnName="kod_komp" />
+          <ScalarProperty Name="cizg" ColumnName="cizg" />
+          <ScalarProperty Name="prkm" ColumnName="prkm" />
+          <ScalarProperty Name="prpokr" ColumnName="prpokr" />
+          <ScalarProperty Name="nrm" ColumnName="nrm" />
+          <ScalarProperty Name="vpost" ColumnName="vpost" />
+          <ScalarProperty Name="nrvp" ColumnName="nrvp" />
+          <ScalarProperty Name="krat" ColumnName="krat" />
+          <ScalarProperty Name="vpost_sh" ColumnName="vpost_sh" />
+          <ScalarProperty Name="prim" ColumnName="prim" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temp_Spr_eizm">
+      <EntityTypeMapping TypeName="ASU_AVIAModel.Temp_Spr_eizm">
+        <MappingFragment StoreEntitySet="Temp_Spr_eizm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="krat_naim_eizm" ColumnName="krat_naim_eizm" />
+          <ScalarProperty Name="poln_naim_eizm" ColumnName="poln_naim_eizm" />
+          <ScalarProperty Name="link_status" ColumnName="link_status" />
+          <ScalarProperty Name="link_user" ColumnName="link_user" />
+          <ScalarProperty Name="period_open_date" ColumnName="period_open_date" />
+          <ScalarProperty Name="period_close_date" ColumnName="period_close_date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="operation_date" ColumnName="operation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

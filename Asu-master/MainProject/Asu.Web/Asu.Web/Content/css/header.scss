@@ -1,0 +1,3305 @@
+﻿@import 'additionally/colors.scss';
+@import 'additionally/fonts.scss';
+
+.header {
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .header-inner {
+        display: block;
+        margin: 0 auto;
+        padding: 0 10px;
+        width: 100%;
+        max-width: 1260px;
+
+        .header-top {
+            border-bottom: 1px solid $grey;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 0 10px;
+            height: 110px;
+            width: 100%;
+
+            .mobile-menu-btn-wrap {
+                height: 42px;
+                width: 42px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin: 0 10px 0 0;
+                display: none;
+
+                .mobile-menu-btn {
+                    background: url("/Content/images/icons-header/menu-header/mobile-menu.svg") no-repeat center;
+                    background-size: contain;
+                    cursor: pointer;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+
+            .left-side {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                .header-logo {
+                    margin: 0 15px 0 0;
+                    width: 100%;
+                    max-width: 238px;
+
+                    a {
+                        display: block;
+                        cursor: pointer;
+
+                        img {
+                            width: 100%;
+                            max-width: 238px;
+                        }
+                    }
+                }
+
+                form {
+                    .header-search {
+                        width: 100%;
+                        max-width: 350px;
+
+                        .header-search-field {
+                            border: 1px solid $grey;
+                            border-radius: 50px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            padding: 10px 15px;
+
+                            &:hover {
+                                text-decoration: none;
+
+                                .header-search-icon {
+                                    animation-name: shake-icon;
+                                    animation-duration: 0.4s;
+                                    animation-iteration-count: 1;
+                                }
+                            }
+
+                            .header-search-icon {
+                                background: url("/Content/images/icons-header/top-header/loop.svg") no-repeat center;
+                                background-size: contain;
+                                pointer-events: none;
+                                height: 24px;
+                                width: 24px;
+
+                                @keyframes shake-icon {
+                                    20% {
+                                        transform: rotate(4deg);
+                                    }
+
+                                    40% {
+                                        transform: rotate(-4deg);
+                                    }
+
+                                    60% {
+                                        transform: rotate(4deg);
+                                    }
+
+                                    80% {
+                                        transform: rotate(-4deg);
+                                    }
+                                }
+                            }
+
+                            .search-box-text {
+                                border: none;
+                                cursor: pointer;
+                                outline: none;
+                                margin: 0;
+                                text-underline-position: under;
+                                min-width: 200px;
+                                width: 100%;
+                                max-width: 350px;
+
+                                &:hover {
+                                    text-decoration: none;
+                                }
+
+                                p {
+                                    color: $black;
+                                    font-weight: 300;
+                                    font-size: 14px;
+                                    pointer-events: none;
+                                    margin: 0 0 0 5px;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right-side {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                .garage-option {
+                    border-right: 2px solid #F3F2F4;
+                    display: inline-block;
+                    margin: 0;
+                    padding: 7px 5px 7px 0;
+                    position: relative;
+                    width: 96px;
+                    order: 0;
+
+                    &:hover {
+                        .garage-option-content {
+                            display: flex;
+                        }
+                    }
+
+                    .garage-option-icon {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+
+                        p {
+                            &:before {
+                                background: url("/Content/Images/icons-header/garage/down-arrow.svg") no-repeat;
+                                background-size: contain;
+                                content: "";
+                                position: absolute;
+                                height: 9px;
+                                width: 9px;
+                                right: 0;
+                                top: 3px;
+                            }
+                        }
+
+                        .garage-option-count-item {
+                            background-color: #d4252a;
+                            border-radius: 50%;
+                            box-sizing: border-box;
+                            color: #fff;
+                            font-size: 8px;
+                            font-weight: 700;
+                            line-height: 16px;
+                            min-width: 8px;
+                            padding: 0 3px;
+                            position: absolute;
+                            text-align: center;
+                            left: 26px;
+                            top: -2px;
+                            width: 16px;
+                            display: none;
+                        }
+
+                        img {
+                            max-height: 28px;
+                            max-width: 28px;
+                        }
+
+                        p.garage-option-empty {
+                            color: $black;
+                            font-size: 13px;
+                            font-weight: bold;
+                            padding: 3px 13px 0 5px;
+                            position: relative;
+                            text-transform: uppercase;
+                        }
+
+                        p.garage-option-selected {
+                            color: $black;
+                            font-size: 13px;
+                            padding: 0 13px 0 5px;
+                            margin: 0;
+                            position: relative;
+                            display: block;
+
+                            &:before {
+                                right: 33px;
+                            }
+
+                            span {
+                                display: block;
+                                color: #757575;
+                                font-size: 13px;
+                                padding: 0;
+                                position: relative;
+                            }
+                        }
+                    }
+
+                    .garage-option-content {
+                        background: $white;
+                        box-sizing: border-box;
+                        -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                        -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                        box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+                        display: none;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 20px 10px 5px;
+                        position: absolute;
+                        top: 38px;
+                        left: -114px;
+                        width: 310px;
+                        transition: ease-in-out 0.2s;
+                        z-index: 1111;
+
+                        .garage-option-empty {
+                            button {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                background-color: $green;
+                                border: 1px solid $green;
+                                border-radius: 4px;
+                                box-sizing: border-box;
+                                color: $white;
+                                cursor: pointer;
+                                display: inline-block;
+                                font-size: 13px;
+                                font-weight: 700;
+                                line-height: 1.2;
+                                margin: 0 0 15px 0;
+                                outline: none;
+                                padding: 14px 16px;
+                                text-align: center;
+                                text-transform: uppercase;
+                                width: 100%;
+                                transition: ease-in-out 0.2s;
+
+                                &:hover {
+                                    background-color: transparent;
+                                    color: $green;
+                                }
+                            }
+
+                            ul {
+                                width: auto;
+
+                                li {
+                                    color: $black;
+                                    cursor: default;
+                                    font-size: 13px;
+                                    padding: 18px 0 18px 45px;
+                                    position: relative;
+                                    text-align: center;
+
+                                    &:before {
+                                        background-size: contain !important;
+                                        content: "";
+                                        position: absolute;
+                                        height: 35px;
+                                        width: 35px;
+                                        left: 0;
+                                        top: 7px;
+                                    }
+
+                                    &:nth-child(1) {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/garage/garage-car.svg") no-repeat;
+                                        }
+                                    }
+
+                                    &:nth-child(2) {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/garage/innovation.svg") no-repeat;
+                                        }
+                                    }
+
+                                    &:nth-child(3) {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/garage/settings.svg") no-repeat;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                /* Selected Vehicle */
+                .garage-option-content .garage-option-selected {
+                    width: 100%;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-header {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-header h3 {
+                    display: inline-block;
+                    color: #111;
+                    cursor: default;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-header .garage-option-clear-all {
+                    color: #3761bf;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight: 400;
+                    float: right;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles ul {
+                    width: 100%;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles ul li {
+                    border-bottom: 1px solid #f0f0f0;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles ul li:last-child {
+                    border-bottom: none;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles ul li > div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-vehicle-title {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #757575;
+                    cursor: pointer;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #111;
+                    transition: ease-in-out 0.2s;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-vehicle-title:hover {
+                    text-decoration: underline;
+                }
+
+                .garage-option-main-vehicle-label {
+                    background-color: #d4252a;
+                    color: #fff;
+                    display: inline-block;
+                    font-size: 10px;
+                    margin-left: 5px;
+                    padding: 1px 3px;
+                    text-transform: uppercase;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-catalog {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 18px;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-catalog:hover {
+                    text-decoration: none;
+                }
+
+                .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-delete {
+                    background: url("/Content/Images/icons-header/garage/bin.svg") no-repeat;
+                    background-size: contain;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    display: inline-block;
+                    height: 24px;
+                    width: 22px;
+                }
+
+                .garage-option-content .garage-option-selected button {
+                    background-color: transparent;
+                    border: 2px solid #4eac71;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 1.2;
+                    margin: 0;
+                    outline: none;
+                    padding: 14px 16px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #4eac71;
+                    position: relative;
+                    padding: 14px 32px;
+                    margin: 17px 0;
+                    width: 100%;
+                    transition: ease-in-out 0.2s;
+                }
+
+                .garage-option-content .garage-option-selected button:hover {
+                    background-color: #4eac71;
+                    color: #fff;
+                }
+
+                .garage-option.selected {
+                    width: 143px;
+                    margin: 0;
+                }
+
+                .garage-option.selected .garage-option-icon .garage-option-count-item {
+                    background-color: #d4252a;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    color: #fff;
+                    display: inline-block;
+                    font-size: 8px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    min-width: 8px;
+                    padding: 0 3px;
+                    position: absolute;
+                    text-align: center;
+                    left: 24px;
+                    top: 11px;
+                    width: 16px;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-vehicle-title {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #757575;
+                    cursor: pointer;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #111;
+                    transition: ease-in-out 0.2s;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-vehicle-title:hover {
+                    text-decoration: underline;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-catalog {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 18px;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-catalog:hover {
+                    text-decoration: none;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected .garage-option-my-vehicles .garage-option-delete {
+                    background: url("/Content/Images/icons-header/garage/bin.svg") no-repeat;
+                    background-size: contain;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    display: inline-block;
+                    height: 24px;
+                    width: 22px;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected button {
+                    background-color: transparent;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    border: 1px solid #111;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 1.2;
+                    margin: 0;
+                    outline: none;
+                    padding: 14px 16px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #111;
+                    position: relative;
+                    padding: 14px 32px;
+                    margin: 17px 0;
+                    width: 100%;
+                    transition: ease-in-out 0.2s;
+                }
+
+                .garage-option.selected .garage-option-content .garage-option-selected button:hover {
+                    background-color: #111;
+                    color: #fff;
+                }
+
+                .header-account-list {
+                    ul {
+                        list-style-type: none;
+
+                        li {
+                            a {
+                                color: $black;
+                                cursor: pointer;
+                                font-size: 12px;
+                                font-weight: bold;
+                                padding: 13.5px 10px;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                opacity: 1;
+                                transition: ease-in-out 0.3s;
+
+                                &:hover {
+                                    opacity: 0.7;
+                                }
+
+                                &.account-mail {
+                                }
+
+                                &.account-login {
+                                }
+
+                                &.account-logout {
+                                }
+
+                                &.account-register {
+                                    border-left: 2px solid $grey-light;
+                                    border-right: 2px solid $grey-light;
+                                }
+
+                                &.account-orders {
+                                    border-left: 2px solid $grey-light;
+                                    border-right: 2px solid $grey-light;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .header-cart {
+                    position: relative;
+
+                    .header-cart-button {
+                        background-color: $grey-light;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 0 0 10px;
+                        padding: 12px 16px;
+                        position: relative;
+                        min-width: 122px;
+                        opacity: 1;
+                        transition: ease-in-out 0.3s;
+
+                        &:hover {
+                            opacity: 0.7;
+                            text-decoration: none;
+
+                            ~ .header-cart-drop-down {
+                                display: block;
+                            }
+
+                            span {
+                                animation-name: shake-icon;
+                                animation-duration: 0.4s;
+                                animation-iteration-count: 1;
+                            }
+                        }
+
+                        i {
+                            background-color: $blue-dark;
+                            border-radius: 50%;
+                            border: 3px solid #FFFFFF;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            color: $white;
+                            font-weight: 300;
+                            font-size: 0;
+                            position: absolute;
+                            top: -8px;
+                            right: -8px;
+                            height: 0;
+                            width: 0;
+                        }
+
+                        &.not-empty {
+                            background-color: transparent;
+                            border-radius: 8px;
+                            border: 1px solid $grey-light;
+
+                            &:hover {
+                                border: 1px solid $blue-dark;
+                                opacity: 1;
+                            }
+
+                            span {
+                                background: url("/Content/images/icons-header/top-header/cart-full.svg") no-repeat center;
+                            }
+
+                            p {
+                                color: $blue-dark;
+                            }
+
+                            i {
+                                font-size: 12px;
+                                height: 23px;
+                                width: 23px;
+                            }
+                        }
+
+                        p {
+                            color: $black;
+                            font-size: 13px;
+                            font-weight: 400;
+                            margin: 0 10px 0 0;
+                        }
+
+                        span {
+                            background: url("/Content/images/icons-header/top-header/cart.svg") no-repeat center;
+                            background-size: contain;
+                            display: block;
+                            height: 16px;
+                            width: 16px;
+
+                            @keyframes shake-icon {
+                                20% {
+                                    transform: rotate(4deg);
+                                }
+
+                                40% {
+                                    transform: rotate(-4deg);
+                                }
+
+                                60% {
+                                    transform: rotate(4deg);
+                                }
+
+                                80% {
+                                    transform: rotate(-4deg);
+                                }
+                            }
+                        }
+                    }
+
+                    .header-cart-drop-down {
+                        background-color: $white;
+                        box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.08);
+                        padding: 30px 20px;
+                        position: absolute;
+                        display: none;
+                        max-height: 800px;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        top: 42px;
+                        right: 0;
+                        width: 420px;
+                        z-index: 9;
+
+                        &:hover {
+                            display: block;
+                        }
+
+                        .drop-down-header {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+                            margin: 0 0 10px 0;
+
+                            h4 {
+                                color: $blue-dark;
+                                cursor: default;
+                                font-size: 14px;
+                                font-weight: 300;
+                                letter-spacing: 0.3px;
+                                margin: 0 10px 0 0;
+                            }
+
+                            span {
+                                background: url("/Content/images/icons-header/top-header/cart-full.svg") no-repeat center;
+                                display: block;
+                                height: 16px;
+                                width: 16px;
+                            }
+                        }
+
+                        .drop-down-content {
+                            border-radius: 8px;
+                            border: 1px solid $grey-light;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+                            margin: 0 0 10px 0;
+                            padding: 10px;
+
+                            .drop-down-content-left {
+                                width: 48px;
+
+                                img {
+                                    display: block;
+                                    max-height: 48px;
+                                    max-width: 48px;
+                                }
+                            }
+
+                            .drop-down-content-right {
+                                margin: 0 0 0 10px;
+                                width: 100%;
+
+                                .drop-down-content-title {
+                                    margin: 0 0 10px 0;
+                                    text-align: left;
+
+                                    > a {
+                                        color: $black;
+                                        cursor: pointer;
+                                        font-size: 14px;
+                                        line-height: 1.5;
+                                        letter-spacing: 0.3px;
+                                        text-align: left;
+                                    }
+                                }
+
+                                .drop-down-content-raiting {
+                                    display: block;
+                                    padding: 10px 0;
+
+                                    .drop-down-content-raiting-stars {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: start;
+
+                                        .drop-down-content-raiting-star {
+                                            background: url("/Content/images/icons-header/top-header/empty-star.svg") no-repeat center center;
+                                            display: block;
+                                            filter: invert(41%) sepia(0%) saturate(42%) hue-rotate(50deg) brightness(100%) contrast(0%);
+                                            margin: 0 10px 0 0;
+                                            height: 16px;
+                                            width: 16px;
+
+                                            &:last-child {
+                                                margin: 0;
+                                            }
+                                        }
+
+                                        &.one-star {
+                                            .drop-down-content-raiting-star {
+                                                &:nth-child(1) {
+                                                    background: url("/Content/images/icons-slider/star.svg") no-repeat center center;
+                                                    filter: invert(59%) sepia(69%) saturate(2952%) hue-rotate(184deg) brightness(96%) contrast(86%);
+                                                }
+                                            }
+                                        }
+
+                                        &.two-star {
+                                            .drop-down-content-raiting-star {
+                                                &:nth-child(1), &:nth-child(2) {
+                                                    background: url("/Content/images/icons-slider/star.svg") no-repeat center center;
+                                                    filter: invert(59%) sepia(69%) saturate(2952%) hue-rotate(184deg) brightness(96%) contrast(86%);
+                                                }
+                                            }
+                                        }
+
+                                        &.three-star {
+                                            .drop-down-content-raiting-star {
+                                                &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+                                                    background: url("/Content/images/icons-slider/star.svg") no-repeat center center;
+                                                    filter: invert(59%) sepia(69%) saturate(2952%) hue-rotate(184deg) brightness(96%) contrast(86%);
+                                                }
+                                            }
+                                        }
+
+                                        &.four-star {
+                                            .drop-down-content-raiting-star {
+                                                &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+                                                    background: url("/Content/images/icons-slider/star.svg") no-repeat center center;
+                                                    filter: invert(59%) sepia(69%) saturate(2952%) hue-rotate(184deg) brightness(96%) contrast(86%);
+                                                }
+                                            }
+                                        }
+
+                                        &.five-star {
+                                            .drop-down-content-raiting-star {
+                                                &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+                                                    background: url("/Content/images/icons-slider/star.svg") no-repeat center center;
+                                                    filter: invert(59%) sepia(69%) saturate(2952%) hue-rotate(184deg) brightness(96%) contrast(86%);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .drop-down-content-product-info {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                    margin: 0 0 10px 0;
+
+                                    .drop-down-content-manufacturer {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        margin: 0 0 10px 0;
+
+                                        span {
+                                            color: $black;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            letter-spacing: 0.3px;
+                                        }
+
+                                        p {
+                                            color: $grey;
+                                            cursor: default;
+                                            font-size: 12px;
+                                            font-weight: 300;
+                                            letter-spacing: 0.3px;
+                                            margin: 0 12px 0 0;
+                                        }
+
+                                        img {
+                                            max-width: 78px;
+                                            margin: 0 0 0 10px;
+                                        }
+                                    }
+
+                                    .drop-down-content-part-number {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        margin: 0 0 10px 0;
+
+                                        p {
+                                            color: $grey;
+                                            cursor: default;
+                                            font-size: 12px;
+                                            font-weight: 300;
+                                            letter-spacing: 0.3px;
+                                            margin: 0 12px 0 0;
+                                        }
+
+                                        span {
+                                            color: $black;
+                                            cursor: default;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+
+                                .drop-down-content-bottom {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: flex-start;
+                                    justify-content: space-between;
+
+                                    .drop-down-content-qty {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        width: 100%;
+
+                                        h5 {
+                                        }
+                                    }
+                                }
+
+                                .drop-down-content-price {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 120px;
+
+                                    p {
+                                        color: $grey;
+                                        cursor: default;
+                                        font-size: 12px;
+                                        font-weight: 400;
+                                        letter-spacing: 0.3px;
+                                        margin: 0 5px 0 0;
+                                    }
+
+                                    span {
+                                        color: $black;
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        letter-spacing: 0.3px;
+
+                                        i {
+                                            color: $black;
+                                            font-size: 14px;
+                                            letter-spacing: 0.3px;
+                                            margin: 0 3px 0 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .drop-down-price-information {
+                        margin: 0 0 12px 0;
+                        width: 90%;
+                        float: right;
+
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+
+                            &:nth-child(1) {
+                                margin: 0 0 5px 0;
+                            }
+
+                            p {
+                                color: $grey;
+                                cursor: default;
+                                font-size: 12px;
+                                font-weight: 300;
+                                letter-spacing: 0.3px;
+                            }
+
+                            span {
+                                color: $green;
+                                cursor: default;
+                                font-size: 14px;
+                                font-weight: bold;
+                                letter-spacing: 0.3px;
+
+                                i {
+                                    margin: 0 3px 0 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .drop-down-buttons {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin: 10px 0 0 0;
+                        width: 90%;
+                        float: right;
+
+                        .go-to-cart-btn,
+                        .checkout-btn {
+                            border-radius: 8px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            cursor: pointer;
+                            padding: 14px 23px;
+                            max-height: 50px;
+                            transition: ease-in-out 0.1s;
+
+                            p {
+                                color: $white;
+                                font-size: 14px;
+                                font-weight: bold;
+                                letter-spacing: 0.3px;
+                                margin: 0 10px 0 0;
+                                pointer-events: none;
+                                transition: ease-in-out 0.1s;
+                            }
+
+                            span {
+                                background-size: contain;
+                                filter: none;
+                                display: block;
+                                pointer-events: none;
+                                height: 17px;
+                                width: 17px;
+                            }
+                        }
+
+                        .go-to-cart-btn {
+                            background-color: $green;
+                            border: 2px solid $green;
+                            margin: 0 5px 0 0;
+
+                            &:hover {
+                                background-color: transparent;
+                                text-decoration: none;
+
+                                p {
+                                    color: $green;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(80%) sepia(15%) saturate(1118%) hue-rotate(88deg) brightness(91%) contrast(91%);
+                                }
+                            }
+
+                            span {
+                                background: url("/Content/images/icons-header/top-header/cart-white.svg") no-repeat center;
+                            }
+                        }
+
+                        .checkout-btn {
+                            background-color: $blue-dark;
+                            border: 2px solid $blue-dark;
+                            margin: 0;
+
+                            &:hover {
+                                background-color: transparent;
+                                text-decoration: none;
+
+                                p {
+                                    color: $blue-dark;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(33%) sepia(90%) saturate(3516%) hue-rotate(216deg) brightness(92%) contrast(92%);
+                                }
+                            }
+
+                            span {
+                                background: url("/Content/images/icons-header/top-header/dollar.svg") no-repeat center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-mobile-search {
+        display: none;
+    }
+
+    .header-menu {
+        border-bottom: 1px solid $grey;
+        display: block;
+        width: 100%;
+
+        > ul {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            li {
+                position: relative;
+                width: 9%;
+
+                > a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    height: 90px;
+                    padding: 10px 0;
+
+                    &:hover {
+                        text-decoration: none;
+
+                        ~ .header-menu-inner {
+                            display: block;
+                        }
+
+                        span {
+                            animation-name: shake-icon;
+                            animation-duration: 0.4s;
+                            animation-iteration-count: 1;
+                        }
+                    }
+
+                    span {
+                        background-size: contain !important;
+                        display: block;
+                        margin: 0 auto;
+                        pointer-events: none;
+                        height: 28px;
+                        width: 28px;
+
+                        @keyframes shake-icon {
+                            20% {
+                                transform: rotate(4deg);
+                            }
+
+                            40% {
+                                transform: rotate(-4deg);
+                            }
+
+                            60% {
+                                transform: rotate(4deg);
+                            }
+
+                            80% {
+                                transform: rotate(-4deg);
+                            }
+                        }
+                    }
+
+                    p {
+                        color: $black;
+                        font-size: 13px;
+                        font-weight: 400;
+                        margin: 10px 0 0 0;
+                        pointer-events: none;
+                        text-align: center;
+                        width: 100%;
+                    }
+
+                    &.menu-body {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/body.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-suspension {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/suspension.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-exhaust {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/exhaust.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-air {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/air.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-engine {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/engine.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-brake {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/brake.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-electrical {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/electrical.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-driveline {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/driveline.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-tire {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/tire.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-accessories {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/fluids.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-tools {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/tools.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-belt {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/belt.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-transmission {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/transmission.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-ignition {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/ignition.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-motors {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/propeller.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-hardware {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/artist.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-electronics {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/gps-navigator.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-pumps {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/toilet.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-anchor {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/anchor.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-trailering {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/trailer.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-covers {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/cabin.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-cabin {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/dishwasher.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-watersports {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/sailing.svg") no-repeat center;
+                        }
+                    }
+
+                    &.menu-boat {
+                        span {
+                            background: url("/Content/Images/icons-header/menu-header/car-seat.svg") no-repeat center;
+                        }
+                    }
+                }
+
+                .header-menu-inner {
+                    position: absolute;
+                    left: 0;
+                    top: 89px;
+                    -webkit-box-shadow: 3px 3px 6px 1px rgba(34, 60, 80, 0.24);
+                    -moz-box-shadow: 3px 3px 6px 1px rgba(34, 60, 80, 0.24);
+                    box-shadow: 3px 3px 6px 1px rgba(34, 60, 80, 0.24);
+                    background: $white;
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    padding: 6px 4px;
+                    display: none;
+                    width: 150%;
+                    z-index: 6;
+
+                    &:hover {
+                        display: block;
+                    }
+
+                    li {
+                        width: 100%;
+
+                        a {
+                            display: block;
+                            padding: 5px 0;
+                            color: $black;
+                            font-size: 13px;
+                            font-weight: 300;
+                            text-align: left;
+                            height: auto;
+                            width: 100%;
+                            transition: ease-in-out 0.2s;
+
+                            &:hover {
+                                color: $blue-dark;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Styles for DirtEverywhere */
+.Boatplicity {
+    .header {
+        .mobile-menu {
+            .mobile-menu-inner {
+                .mobile-menu-content {
+                    .mobile-menu-cart-btn {
+                        .mobile-menu-cart-btn-full {
+                            p {
+                                color: $blue-boatplicity;
+                            }
+
+                            span {
+                                background-color: $blue-boatplicity;
+                            }
+
+                            i {
+                                filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                            }
+                        }
+                    }
+
+                    .mobile-menu-list {
+                        .mobile-menu-list-item {
+                            .mobile-menu-list-item-wrap {
+                                &.active {
+                                    a {
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                                        }
+
+                                        p {
+                                            color: $blue-boatplicity;
+                                        }
+                                    }
+
+                                    .mobile-menu-list-link-expand {
+                                        filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-no-login {
+                        .mobile-menu-no-login-mobile {
+                            p {
+                                color: $blue-boatplicity;
+                            }
+
+                            span {
+                                filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+            .header-top {
+                .right-side {
+                    .header-cart {
+                        .header-cart-button {
+                            &.not-empty {
+                                border: 1px solid $blue-boatplicity;
+
+                                &:hover {
+                                    border: 1px solid $blue-boatplicity;
+                                    opacity: 1;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                                }
+
+                                p {
+                                    color: $blue-boatplicity;
+                                }
+
+                                i {
+                                    background-color: $blue-boatplicity;
+                                }
+                            }
+                        }
+
+                        .header-cart-drop-down {
+                            .drop-down-header {
+                                h4 {
+                                    color: $blue-dark-boatplicity;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(58%) sepia(28%) saturate(403%) hue-rotate(179deg) brightness(88%) contrast(82%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                ul {
+                    li {
+                        a {
+                            span {
+                                filter: brightness(0) saturate(100%) invert(7%) sepia(15%) saturate(6652%) hue-rotate(204deg) brightness(96%) contrast(97%);
+                            }
+
+                            p {
+                                color: $blue-dark-boatplicity;
+                            }
+
+                            &:hover {
+
+                                p {
+                                    color: $blue-boatplicity;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(70%) sepia(14%) saturate(6871%) hue-rotate(197deg) brightness(79%) contrast(57%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+/* Styles for DirtEverywhere */
+.THMotorsports {
+    .header {
+        .mobile-menu {
+            .mobile-menu-inner {
+                .mobile-menu-content {
+                    .mobile-menu-cart-btn {
+                        .mobile-menu-cart-btn-full {
+                            p {
+                                color: $red-thmotorsports-dark;
+                            }
+
+                            span {
+                                background-color: $red-thmotorsports-dark;
+                            }
+
+                            i {
+                                filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                            }
+                        }
+                    }
+
+                    .mobile-menu-list {
+                        .mobile-menu-list-item {
+                            .mobile-menu-list-item-wrap {
+                                &.active {
+                                    a {
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                                        }
+
+                                        p {
+                                            color: $red-thmotorsports-dark;
+                                        }
+                                    }
+
+                                    .mobile-menu-list-link-expand {
+                                        filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-no-login {
+                        .mobile-menu-no-login-mobile {
+                            p {
+                                color: $red-thmotorsports-dark;
+                            }
+
+                            span {
+                                filter: brightness(0) saturate(100%) invert(16%) sepia(31%) saturate(5914%) hue-rotate(350deg) brightness(94%) contrast(107%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+            .header-top {
+                .right-side {
+                    .header-cart {
+                        .header-cart-button {
+                            &.not-empty {
+                                border: 1px solid $red-thmotorsports-dark;
+
+                                &:hover {
+                                    border: 1px solid $red-thmotorsports-dark;
+                                    opacity: 1;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                }
+
+                                p {
+                                    color: $red-thmotorsports-dark;
+                                }
+
+                                i {
+                                    background-color: $red-thmotorsports-dark;
+                                }
+                            }
+                        }
+
+                        .header-cart-drop-down {
+                            .drop-down-header {
+                                h4 {
+                                    color: $red-thmotorsports-dark;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                ul {
+                    li {
+                        a {
+                            span {
+                                filter: brightness(0) saturate(100%) invert(5%) sepia(0%) saturate(2708%) hue-rotate(87deg) brightness(117%) contrast(98%);
+                            }
+
+                            p {
+                                color: $black;
+                            }
+
+                            &:hover {
+
+                                p {
+                                    color: $red-thmotorsports-dark;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(12%) sepia(59%) saturate(4202%) hue-rotate(2deg) brightness(99%) contrast(98%);
+                                }
+                            }
+                        }
+
+                        .header-menu-inner {
+                            li {
+                                a {
+                                    &:hover {
+                                        color: $red-thmotorsports-dark;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .center-1 > .customer-header-panel {
+        margin: 20px auto;
+
+        > .headerphone {
+            color: $red-thmotorsports-dark;
+            font-size: 19px;
+        }
+
+        .mobile-phone {
+            background: url("/Content/Images/icons-general/phone.svg") no-repeat center;
+            background-size: 12px;
+            height: 30px;
+            width: 30px;
+            filter: brightness(0) saturate(100%) invert(12%) sepia(59%) saturate(4202%) hue-rotate(2deg) brightness(99%) contrast(98%);
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+/* Styles for Cycleplicity */
+.Cycleplicity {
+    .header {
+        .mobile-menu {
+            .mobile-menu-inner {
+                .mobile-menu-content {
+                    .mobile-menu-cart-btn {
+                        .mobile-menu-cart-btn-full {
+                            p {
+                                color: $red-thmotorsports-dark;
+                            }
+
+                            span {
+                                background-color: $red-thmotorsports-dark;
+                            }
+
+                            i {
+                                filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                            }
+                        }
+                    }
+
+                    .mobile-menu-list {
+                        .mobile-menu-list-item {
+                            .mobile-menu-list-item-wrap {
+                                &.active {
+                                    a {
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                        }
+
+                                        p {
+                                            color: $red-thmotorsports-dark;
+                                        }
+                                    }
+
+                                    .mobile-menu-list-link-expand {
+                                        filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-no-login {
+                        .mobile-menu-no-login-mobile {
+                            p {
+                                color: $red-thmotorsports-dark;
+                            }
+
+                            span {
+                                filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+            .header-top {
+                border-bottom: none;
+
+                .right-side {
+                    .header-cart {
+                        .header-cart-button {
+                            &.not-empty {
+                                border: 1px solid $red-thmotorsports-dark;
+
+                                &:hover {
+                                    border: 1px solid $red-thmotorsports-dark;
+                                    opacity: 1;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                }
+
+                                p {
+                                    color: $red-thmotorsports-dark;
+                                }
+
+                                i {
+                                    background-color: $red-thmotorsports-dark;
+                                }
+                            }
+                        }
+
+                        .header-cart-drop-down {
+                            .drop-down-header {
+                                h4 {
+                                    color: $red-thmotorsports-dark;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(5058%) hue-rotate(4deg) brightness(92%) contrast(102%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                background: rgb(51,51,51);
+                background: linear-gradient(180deg, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 100%);
+                border: none;
+                display: inline-block;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                width: 100%;
+
+                &:before, &:after {
+                    background: rgb(51,51,51);
+                    background: linear-gradient(180deg, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 100%);
+                    border: none;
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                &:before {
+                    left: -99%;
+                }
+
+                &:after {
+                    right: -99%;
+                }
+
+                ul {
+                    li {
+                        a {
+                            span {
+                                filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(174deg) brightness(105%) contrast(101%);
+                            }
+
+                            p {
+                                color: $white;
+                            }
+                        }
+
+                        .header-menu-inner {
+                            li {
+                                a {
+                                    &:hover {
+                                        color: $red;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .center-1 > .customer-header-panel {
+        margin: 20px auto;
+
+        > .headerphone {
+            color: $red-thmotorsports-dark;
+            font-size: 19px;
+        }
+
+        .mobile-phone {
+            background: url("/Content/Images/icons-general/phone.svg") no-repeat center;
+            background-size: 12px;
+            height: 30px;
+            width: 30px;
+            filter: brightness(0) saturate(100%) invert(12%) sepia(59%) saturate(4202%) hue-rotate(2deg) brightness(99%) contrast(98%);
+        }
+    }
+}
+/* End Styles for Cycleplicity */
+
+/* Styles for DirtEverywhere */
+.DirtEverywhere {
+    .header {
+        .mobile-menu {
+            .mobile-menu-inner {
+                .mobile-menu-content {
+                    .mobile-menu-cart-btn {
+                        .mobile-menu-cart-btn-full {
+                            p {
+                                color: $yellow-dark-dirtEverywhere;
+                            }
+
+                            span {
+                                background-color: $yellow-dark-dirtEverywhere;
+                            }
+
+                            i {
+                                filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                            }
+                        }
+                    }
+
+                    .mobile-menu-list {
+                        .mobile-menu-list-item {
+                            .mobile-menu-list-item-wrap {
+                                &.active {
+                                    a {
+                                        &:before {
+                                            filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                        }
+
+                                        p {
+                                            color: $yellow-dark-dirtEverywhere;
+                                        }
+                                    }
+
+                                    .mobile-menu-list-link-expand {
+                                        filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-no-login {
+                        .mobile-menu-no-login-mobile {
+                            p {
+                                color: $yellow-dark-dirtEverywhere;
+                            }
+
+                            span {
+                                filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+            .header-top {
+                border-bottom: none;
+
+                .right-side {
+                    .header-cart {
+                        .header-cart-button {
+                            &.not-empty {
+                                border: 1px solid $yellow-dark-dirtEverywhere;
+
+                                &:hover {
+                                    border: 1px solid $yellow-dark-dirtEverywhere;
+                                    opacity: 1;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                }
+
+                                p {
+                                    color: $yellow-dark-dirtEverywhere;
+                                }
+
+                                i {
+                                    background-color: $yellow-dark-dirtEverywhere;
+                                }
+                            }
+                        }
+
+                        .header-cart-drop-down {
+                            .drop-down-header {
+                                h4 {
+                                    color: $yellow-dark-dirtEverywhere;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                background: #111111;
+                border: none;
+                display: inline-block;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                width: 100%;
+
+                &:before, &:after {
+                    background: #111111;
+                    border: none;
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                &:before {
+                    left: -99%;
+                }
+
+                &:after {
+                    right: -99%;
+                }
+
+                ul {
+                    li {
+                        a {
+                            span {
+                                filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(174deg) brightness(105%) contrast(101%);
+                            }
+
+                            p {
+                                color: $white;
+                            }
+
+                            &:hover {
+
+                                p {
+                                    color: $yellow-dark-dirtEverywhere;
+                                }
+
+                                span {
+                                    filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+                                }
+                            }
+                        }
+
+                        .header-menu-inner {
+                            li {
+                                a {
+                                    &:hover {
+                                        color: $yellow-dark-dirtEverywhere;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .center-1 > .customer-header-panel {
+        margin: 20px auto;
+
+        > .headerphone {
+            color: $yellow-dark-dirtEverywhere;
+            font-size: 19px;
+        }
+
+        .mobile-phone {
+            background: url("/Content/Images/icons-general/phone.svg") no-repeat center;
+            background-size: 12px;
+            height: 30px;
+            width: 30px;
+            filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(401%) hue-rotate(3deg) brightness(107%) contrast(83%);
+        }
+    }
+}
+/* End Styles for DirtEverywhere */
+
+
+/* === === === === === === === === === === === === MOBILE === === === === === === === === === === === === */
+@media only screen and (max-width: 1100px) {
+    body {
+        .header {
+            .header-inner {
+                .header-top {
+                    .left-side {
+                        .header-logo {
+                            max-width: 190px;
+
+                            a {
+                                img {
+                                    max-width: 190px;
+                                }
+                            }
+                        }
+
+                        form {
+                            .header-search {
+                                max-width: 170px;
+
+                                .header-search-field {
+
+                                    .header-search-icon {
+                                        height: 22px;
+                                        width: 22px;
+                                    }
+
+                                    .search-box-text {
+                                        font-size: 13px;
+                                        min-width: 100px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .right-side {
+
+                        .garage-option {
+                            .garage-option-icon {
+                                .garage-option-count-item {
+                                }
+
+                                img {
+                                }
+
+                                .garage-option-empty {
+                                    font-size: 11px;
+                                }
+                            }
+
+                            .garage-option-content {
+                                .garage-option-empty {
+                                    button {
+                                    }
+
+                                    ul {
+                                        li {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .header-account-list {
+                            ul {
+                                li {
+                                    a {
+                                        font-size: 11px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .header-cart {
+                            .header-cart-button {
+                                padding: 12px 10px;
+
+                                p {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .header-menu {
+                    ul {
+                        li {
+                            width: 9%;
+
+                            a {
+                                span {
+                                    height: 22px;
+                                    width: 22px;
+                                }
+
+                                p {
+                                    font-size: 12px;
+                                    margin: 6px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header {
+        .mobile-menu {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background: rgba(0,0,0,.7);
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 9999;
+
+            &.active {
+                display: flex;
+            }
+
+            .mobile-menu-inner {
+                background: #fff;
+                padding: 20px;
+                overflow-y: auto;
+                height: 100%;
+                max-height: 100%;
+                width: 100%;
+                max-width: 330px;
+
+                .mobile-menu-content {
+                    .mobile-menu-head {
+                        border-bottom: 1px solid $grey;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        padding: 15px 0;
+
+                        .mobile-menu-close-btn {
+                            background: url("/Content/images/icons-header/menu-header/close.svg") no-repeat;
+                            background-size: contain;
+                            display: block;
+                            cursor: pointer;
+                            margin: 0 10px 0 0;
+                            filter: none;
+                            padding: 7px;
+                            height: 10px;
+                            width: 10px;
+                            transition: ease-in-out 0.2s;
+
+                            &:hover {
+                                filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                            }
+                        }
+
+                        img {
+                            width: 100%;
+                            max-width: 155px;
+                        }
+                    }
+
+                    .mobile-menu-cart-btn {
+                        width: 100%;
+
+                        a {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 8px;
+                            border: 1px solid $grey-light;
+                            cursor: pointer;
+                            height: 40px;
+                            padding: 0 10px;
+                            margin: 20px 0 5px;
+
+                            p {
+                                color: $black;
+                                font-weight: 400;
+                                font-size: 14px;
+                                letter-spacing: 0.3px;
+                                margin: 0 10px 0 0;
+                            }
+
+                            i {
+                                background: url("/Content/images/icons-header/top-header/cart.svg") no-repeat center;
+                                display: block;
+                                margin: 0 5px 0 0;
+                                height: 16px;
+                                width: 16px;
+                            }
+
+                            span {
+                                display: none;
+                            }
+
+                            &.mobile-menu-cart-btn-full {
+                                p {
+                                    color: $blue-dark;
+                                    pointer-events: none;
+                                }
+
+                                i {
+                                    filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                                    pointer-events: none;
+                                }
+
+                                span {
+                                    background-color: $blue-dark;
+                                    border-radius: 50%;
+                                    color: $white;
+                                    pointer-events: none;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 300;
+                                    font-size: 13px;
+                                    position: relative;
+                                    top: -10px;
+                                    right: 9px;
+                                    height: 21px;
+                                    width: 21px;
+                                }
+
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .garage-option {
+                        cursor: pointer;
+                        min-height: 40px;
+                        padding: 0;
+                        position: relative;
+                        margin: 20px 0 5px;
+
+                        &:before {
+                            background: url("/Content/Images/icons-header/menu-header/arrow.svg") no-repeat;
+                            content: "";
+                            position: absolute;
+                            right: 10px;
+                            top: 11px;
+                            background-size: 100%;
+                            height: 18px;
+                            width: 18px;
+                        }
+
+                        &.active {
+                            &:before {
+                                transform: rotate(-90deg);
+                            }
+
+                            .garage-option-icon {
+                                border-bottom-left-radius: 0;
+                                border-bottom-right-radius: 0;
+                            }
+
+                            .garage-option-content {
+                                border-bottom: 1px solid #F3F2F4;
+                                border-left: 1px solid #F3F2F4;
+                                border-right: 1px solid #F3F2F4;
+                                display: block;
+                            }
+                        }
+
+                        .garage-option-icon {
+                            border: 1px solid #F3F2F4;
+                            border-radius: 6px;
+                            padding: 5px 10px 6px 10px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+
+                            .garage-option-count-item {
+                                background-color: #d4252a;
+                                border-radius: 50%;
+                                box-sizing: border-box;
+                                color: #fff;
+                                font-size: 8px;
+                                font-weight: 700;
+                                line-height: 16px;
+                                min-width: 8px;
+                                padding: 0 3px;
+                                position: absolute;
+                                text-align: center;
+                                left: 26px;
+                                top: -2px;
+                                width: 16px;
+                                display: none;
+                            }
+
+                            img {
+                                pointer-events: none;
+                                max-height: 28px;
+                                max-width: 28px;
+                            }
+
+                            .garage-option-empty {
+                                color: #110F11;
+                                font-size: 13px;
+                                font-weight: bold;
+                                padding: 3px 13px 0 5px;
+                                pointer-events: none;
+                                position: relative;
+                                text-transform: uppercase;
+
+                                &:before {
+                                    background: url("/Content/Images/icons-header/garage/down-arrow.svg") no-repeat;
+                                    background-size: contain;
+                                    content: "";
+                                    position: absolute;
+                                    height: 9px;
+                                    width: 9px;
+                                    right: 0;
+                                    top: 3px;
+                                }
+                            }
+                        }
+
+                        .garage-option-content {
+                            background: white;
+                            border-bottom-left-radius: 6px;
+                            border-bottom-right-radius: 6px;
+                            display: block;
+                            padding: 15px 5px 5px;
+                            position: relative;
+                            top: -1px;
+                            display: none;
+
+                            .garage-option-empty {
+                                button {
+                                    background-color: $green;
+                                    border: none;
+                                    border-radius: 8px;
+                                    color: white;
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    padding: 12px 0;
+                                    margin: 5px auto 15px;
+                                    text-align: center;
+                                    width: 100%;
+                                }
+
+                                ul {
+                                    li {
+                                        color: #111;
+                                        cursor: default;
+                                        font-weight: 400;
+                                        font-size: 13px;
+                                        padding: 18px 0 18px 40px;
+                                        position: relative;
+                                        text-align: center;
+
+                                        &:before {
+                                            background-size: contain !important;
+                                            content: "";
+                                            position: absolute;
+                                            height: 35px;
+                                            width: 35px;
+                                            left: 0;
+                                            top: 11px;
+                                        }
+
+                                        &:nth-child(1) {
+                                            &:before {
+                                                background: url("/Content/Images/icons-header/garage/garage-car.svg") no-repeat;
+                                            }
+                                        }
+
+                                        &:nth-child(2) {
+                                            &:before {
+                                                background: url("/Content/Images/icons-header/garage/innovation.svg") no-repeat;
+                                            }
+                                        }
+
+                                        &:nth-child(3) {
+                                            &:before {
+                                                background: url("/Content/Images/icons-header/garage/settings.svg") no-repeat;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-alredy-login {
+                        display: inline-block;
+                        margin: 0 0 20px;
+                        width: 100%;
+
+                        .mobile-menu-alredy-email {
+                            color: $black;
+                            margin: 0 0 5px 0;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-radius: 8px;
+                            border: 1px solid $grey-light;
+                            cursor: pointer;
+                            height: 40px;
+                            padding: 0 10px;
+                            position: relative;
+                            transition: ease-in-out 0.2s;
+
+                            &:after {
+                                background: url("/Content/images/icons-general/arrow.svg") no-repeat center;
+                                content: "";
+                                position: absolute;
+                                right: 10px;
+                                top: 9px;
+                                height: 18px;
+                                width: 17px;
+                                transition: ease-in-out 0.2s;
+                            }
+
+                            &:hover {
+                                color: $blue-dark;
+                                text-decoration: none;
+
+                                &:after {
+                                    filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                                }
+                            }
+
+                            p {
+                                color: $black;
+                            }
+
+                            span {
+                                background: url("/Content/images/icons-header/menu-header/arrow.svg") no-repeat center;
+                            }
+
+                            &.active {
+                                color: $blue-dark;
+
+                                &:after {
+                                    filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                                    top: 10px;
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+
+                        .mobile-menu-hidden-list {
+                            display: none;
+                            transition: ease-in-out 0.2s;
+
+                            &.active {
+                                display: block;
+                            }
+
+                            li {
+                                margin: 0 0 5px 0;
+
+                                a {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    border-radius: 8px;
+                                    border: 1px solid $grey-light;
+                                    cursor: pointer;
+                                    height: 40px;
+                                    padding: 0 10px;
+                                    margin: 0;
+
+                                    p {
+                                        font-size: 12px;
+                                        font-weight: bold;
+                                        text-align: left;
+                                        text-transform: uppercase;
+                                    }
+
+                                    span {
+                                        display: block;
+                                        background-size: 100%;
+                                        pointer-events: none;
+                                        height: 18px;
+                                        width: 18px;
+                                    }
+
+                                    &.mobile-menu-account {
+                                        color: $black;
+                                    }
+
+                                    &.mobile-menu-orders {
+                                        color: $black;
+                                    }
+
+                                    &.mobile-menu-logout {
+                                        color: $black;
+                                    }
+
+                                    &.mobile-menu-alredy-mobile {
+                                        p {
+                                            color: $blue-dark;
+                                        }
+
+                                        span {
+                                            background: url("/Content/images/icons-header/menu-header/phone.svg") no-repeat center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-list {
+                        display: inline-block;
+                        margin: 0;
+                        width: 100%;
+
+                        .mobile-menu-list-item {
+                            display: block;
+                            width: 100%;
+
+                            .mobile-menu-list-item-wrap {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                &.active {
+                                    display: flex;
+
+                                    > a {
+
+                                        &:before {
+                                            filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                                        }
+
+                                        p {
+                                            color: $blue-dark;
+                                        }
+                                    }
+
+                                    > span {
+                                        transform: rotate(180deg);
+                                        filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate(189deg) brightness(85%) contrast(113%);
+                                    }
+
+                                    ~ .mobile-menu-list-inner {
+                                        display: block;
+                                    }
+                                }
+
+                                > a {
+                                    color: $black;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding: 15px 0 15px 44px;
+                                    position: relative;
+                                    width: 100%;
+                                    transition: ease-in-out 0.2s;
+
+                                    &:hover {
+                                        text-decoration: none;
+
+                                        p {
+                                            color: $blue-dark;
+                                        }
+
+                                        &:before {
+                                            filter: invert(43%) sepia(40%) saturate(1376%) hue-rotate( 189deg) brightness(85%) contrast(113%);
+                                        }
+                                    }
+
+                                    p {
+                                        color: $black;
+                                        font-weight: 400;
+                                        font-size: 13px;
+                                        text-align: left;
+                                        transition: ease-in-out 0.2s;
+                                    }
+
+                                    &:before {
+                                        background-size: contain !important;
+                                        content: "";
+                                        filter: none;
+                                        pointer-events: none;
+                                        position: absolute;
+                                        left: 0;
+                                        top: 11px;
+                                        height: 24px;
+                                        width: 24px;
+                                        transition: ease-in-out 0.2s;
+                                    }
+
+                                    &.mobile-menu-body {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/body.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-suspension {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/suspension.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-exhaust {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/exhaust.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-air {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/air.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-engine {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/engine.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-brake {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/brake.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-exterior {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/car.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-electrical {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/electrical.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-tire {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/tire.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-accessories {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/fluids.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-tools {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/tools.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-belts {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/belt.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-transmission {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/transmission.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-driveline {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/driveline.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-ignition {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/ignition.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-emission {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/exhaust-pipe.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-hvac {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/air-conditioning.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-wiper {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/windshield.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-motors {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/propeller.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-hardware {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/artist.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-electronics {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/gps-navigator.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-pumps {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/toilet.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-anchor {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/anchor.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-trailering {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/trailer.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-covers {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/cabin.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-cabin {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/dishwasher.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-boat-seats {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/car-seat.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-watersports {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/sailing.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-fishing {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-safety {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-fishing {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/fishing-rod.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-safety {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/lifejacket.svg") no-repeat center;
+                                        }
+                                    }
+
+                                    &.mobile-menu-sailing {
+                                        &:before {
+                                            background: url("/Content/Images/icons-header/menu-header/sailing-boat.svg") no-repeat center;
+                                        }
+                                    }
+                                }
+
+                                .mobile-menu-list-link-expand {
+                                    background: url("/Content/images/icons-header/menu-header/arrow.svg") no-repeat center;
+                                    display: block;
+                                    cursor: pointer;
+                                    background-size: 100%;
+                                    height: 18px;
+                                    width: 18px;
+                                }
+                            }
+
+                            .mobile-menu-list-inner {
+                                display: none;
+
+                                > li {
+                                    > a {
+                                        color: $black;
+                                        display: block;
+                                        font-weight: 400;
+                                        font-size: 12px;
+                                        padding: 10px 0 10px 44px;
+                                        position: relative;
+                                        text-align: left;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .mobile-menu-no-login {
+                        display: inline-block;
+                        margin: 15px 0;
+                        width: 100%;
+
+                        a {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            border-radius: 8px;
+                            border: 1px solid $grey-light;
+                            cursor: pointer;
+                            height: 40px;
+                            padding: 0 10px;
+                            margin: 0;
+
+                            p {
+                                font-size: 12px;
+                                font-weight: bold;
+                                text-align: left;
+                                text-transform: uppercase;
+                            }
+
+                            span {
+                                display: block;
+                                background-size: 100%;
+                                pointer-events: none;
+                                height: 18px;
+                                width: 18px;
+                            }
+
+                            &.mobile-menu-no-login-email {
+                                margin: 0 0 5px 0;
+
+                                p {
+                                    color: $black;
+                                }
+
+                                span {
+                                    background: url("/Content/images/icons-header/menu-header/arrow.svg") no-repeat center;
+                                    transform: rotate( -90deg);
+                                }
+                            }
+
+                            &.mobile-menu-no-login-mobile {
+                                p {
+                                    color: $blue-dark;
+                                }
+
+                                span {
+                                    background: url("/Content/images/icons-header/menu-header/phone.svg") no-repeat center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+
+            .header-top {
+
+                .mobile-menu-btn-wrap {
+                    display: flex;
+                }
+
+                .left-side {
+                    width: 100%;
+
+                    .header-logo {
+                        max-width: 155px;
+
+                        a {
+                            img {
+                            }
+                        }
+                    }
+
+                    form {
+                        .header-search {
+                            .header-search-field {
+                                span {
+                                }
+
+                                .search-box-text {
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .right-side {
+                    margin: 0 10px 0 0;
+                    min-width: 120px;
+
+                    .garage-option {
+                        display: none;
+                    }
+
+                    .header-account-list {
+                        display: none;
+
+                        ul {
+                            li {
+                                a {
+                                }
+                            }
+                        }
+                    }
+
+                    .header-cart {
+                        .header-cart-button {
+                            p {
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    body {
+        .header {
+            .mobile-menu {
+                .mobile-menu-inner {
+                    .mobile-menu-content {
+                        .mobile-menu-head {
+                            .mobile-menu-close-btn {
+                            }
+
+                            img {
+                            }
+                        }
+
+                        .mobile-menu-cart-btn {
+
+                            a {
+
+                                p {
+                                }
+
+                                i {
+                                }
+
+                                span {
+                                }
+
+                                &.mobile-menu-cart-btn-full {
+                                    p {
+                                    }
+
+                                    i {
+                                    }
+
+                                    span {
+                                    }
+                                }
+                            }
+                        }
+
+                        .mobile-menu-alredy-login {
+
+                            a {
+
+                                p {
+                                }
+
+                                span {
+                                }
+
+                                &.mobile-menu-alredy-email {
+
+                                    p {
+                                    }
+
+                                    span {
+                                    }
+                                }
+
+                                &.mobile-menu-alredy-mobile {
+                                    p {
+                                    }
+
+                                    span {
+                                    }
+                                }
+                            }
+                        }
+
+                        .mobile-menu-list {
+
+                            > li {
+
+                                > a {
+
+                                    p {
+                                    }
+
+                                    &:before {
+                                    }
+
+                                    > span {
+                                    }
+                                }
+
+                                .mobile-menu-list-inner {
+
+                                    > li {
+                                        > a {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .mobile-menu-no-login {
+                        }
+                    }
+                }
+            }
+
+            .header-inner {
+                .header-top {
+                    padding: 20px 0 10px;
+
+                    .mobile-menu-btn-wrap {
+                    }
+
+                    .left-side {
+
+                        .header-logo {
+
+                            a {
+                                img {
+                                }
+                            }
+                        }
+
+                        form {
+                            .header-search {
+                                max-width: none;
+                                width: auto;
+
+                                .header-search-field {
+                                    border: none;
+                                    padding: 0;
+
+                                    .header-search-icon {
+                                    }
+
+                                    .search-box-text {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .right-side {
+                        min-width: auto;
+
+                        .header-account-list {
+
+                            ul {
+                                li {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+
+                        .header-cart {
+                            .header-cart-button {
+                                background-color: transparent;
+                                border: none;
+                                padding: 4px 14px;
+                                min-width: auto;
+
+                                span {
+                                    height: 18px;
+                                    width: 18px;
+                                }
+
+                                &.not-empty {
+                                    border: none !important;
+                                    padding: 4px 14px;
+                                }
+
+                                p {
+                                    display: none;
+                                }
+                            }
+
+                            .header-cart-drop-down {
+                                width: 320px;
+
+                                .drop-down-content {
+                                    .drop-down-content-right {
+                                        .drop-down-content-product-info {
+                                            .drop-down-content-manufacturer {
+                                                > span {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .drop-down-buttons {
+                                    width: 100%;
+
+                                    .go-to-cart-btn {
+                                        width: 51%;
+
+                                        p {
+                                            font-size: 14px;
+                                            letter-spacing: 0.3px;
+                                        }
+
+                                        span {
+                                            display: none;
+                                        }
+                                    }
+
+                                    .checkout-btn {
+                                        width: 49%;
+
+                                        p {
+                                            font-size: 14px;
+                                            letter-spacing: 0.3px;
+                                        }
+
+                                        span {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .header-mobile-search {
+                    margin: 10px 0 0 0;
+                    width: 100%;
+
+                    &.active {
+                        display: block;
+                    }
+
+                    .header-mobile-search-field {
+                        border: 1px solid $grey;
+                        border-radius: 50px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        padding: 10px 15px;
+                        width: 100%;
+
+                        &:hover {
+                            span {
+                                animation-name: shake-icon;
+                                animation-duration: 0.4s;
+                                animation-iteration-count: 1;
+                            }
+                        }
+
+                        span {
+                            background: url("/Content/images/icons-header/top-header/loop.svg") no-repeat center;
+                            background-size: contain;
+                            pointer-events: none;
+                            height: 24px;
+                            width: 24px;
+
+                            @keyframes shake-icon {
+                                20% {
+                                    transform: rotate(4deg);
+                                }
+
+                                40% {
+                                    transform: rotate(-4deg);
+                                }
+
+                                60% {
+                                    transform: rotate(4deg);
+                                }
+
+                                80% {
+                                    transform: rotate(-4deg);
+                                }
+                            }
+                        }
+
+                        input {
+                            border: none;
+                            color: $black;
+                            font-weight: 300;
+                            font-size: 14px;
+                            outline: none;
+                            text-align: left;
+                            margin: 0;
+                            text-underline-position: under;
+                            width: 100%;
+                        }
+
+                        .header-mobile-search-close {
+                            background: url("/Content/images/icons-header/menu-header/close.svg") no-repeat center;
+                            background-size: contain;
+                            display: block;
+                            cursor: pointer;
+                            padding: 8px;
+                            height: 14px;
+                            width: 14px;
+                        }
+                    }
+                }
+
+                .header-menu {
+                }
+            }
+        }
+    }
+}

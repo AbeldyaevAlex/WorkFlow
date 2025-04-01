@@ -1,0 +1,86 @@
+﻿@model CustomerOrderListModel
+@using System.Web.Optimization;
+@{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/btopic") : Html.InlineStyles("~/styles/btopic"))
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+}
+@using Nop.Web.Models.Customer
+@using Nop.Web.Models.Order;
+@section left
+{
+    @Html.Action("CustomerNavigation", "Customer", new { selectedTabId = CustomerNavigationEnum.Orders })
+}
+<div class="page account-page order-list-page">
+    <div class="page-body">
+        <div class="order-list">
+            @if (Model.Orders.Count > 0)
+            {
+                foreach (var order in Model.Orders)
+                {
+                    <div class="section order-item">
+                        <ul class="info">
+                            <li><span>@T("Account.CustomerOrders.OrderNumber"):</span> <strong>@order.Id</strong></li>
+                            <li><span>@T("Account.CustomerOrders.OrderDate"):</span><strong> @order.CreatedOn.ToString("ddd, d MMM yyyy")</strong></li>
+                            <li><span>@T("Account.CustomerOrders.OrderTotal"):</span> <strong>@order.OrderTotal</strong></li>
+                            <li><span>@T("Account.CustomerOrders.OrderStatus"):</span> <strong>@order.OrderStatus</strong></li>
+                        </ul>
+                        <div class="section order-items">
+                            <table class="cart">
+                                <tbody>
+                                    @foreach (var item in order.Items)
+                                    {
+                                        <tr class="cart-item-row">
+                                            <td class="product-picture">
+                                                <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })" target="_blank">
+                                                    <figure>
+                                                        <img src="@item.Picture.ImageUrl" />
+                                                    </figure>
+                                                    <figcaption id="product-cart-fig-caption" style="font-size: 12px;top: 215px;color: #999; line-height:normal">
+                                                        @if (item.IsImageLoader)
+                                                        {<text>Representative Photo, actual item may vary</text>}
+                                                    </figcaption>
+                                                </a>
+                                            </td>
+                                            <td class="product">
+                                                <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })" class="product-name" target="_blank">@item.ProductName</a>
+                                            </td>
+                                            <td class="unit-price nobr">
+                                                <span class="td-title">@T("Order.Product(s).Price"):</span> <span class="product-unit-price">@item.UnitPrice</span>
+                                            </td>
+                                            <td class="qty nobr">
+                                                <span class="td-title">@T("Order.Product(s).Quantity"):</span> @(item.Quantity)x
+                                            </td>
+                                            <td class="subtotal nobr end">
+                                                <span class="td-title">@T("Order.Product(s).Total"):</span> <span class="product-subtotal">@item.SubTotal</span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="buttons">
+                            <input type="button" value="View Details" style="float: right;" class="button-2 order-details-button" onclick="window.location.href = '@Url.RouteUrl("OrderDetails", new { orderId = order.Id })';" />
+                            @if (order.IsReturnRequestAllowed && order.CrmOrderId.HasValue)
+                            {
+                                <input type="button" value="@(order.HasShipments ? "return items" : "Cancel items")" style="float: right;" class="button-2 return-items-button" onclick="window.location.href = '@Url.RouteUrl("CustomReturnRequest", new { crmOrderId = order.CrmOrderId })';" />
+                                if (order.HasShipments)
+                                {
+                                    <div class="rma-window">Your order has shipped and cannot be canceled, only returned.</div>
+                                }
+                            }
+                            @if (!order.IsReturnRequestAllowed)
+                            {
+                                <div class="rma-window">This order is no longer eligible for returns as it is past our RMA window.</div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                @T("Account.CustomerOrders.NoOrders")
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridView";
+        settings.KeyFieldName = "Id";
+        settings.CallbackRouteValues = new { Controller = "spr_obozn", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "spr_obozn", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "spr_obozn", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "spr_obozn", Action = "GridViewPartialDelete" };
+        settings.CustomActionRouteValues = new { Controller = "spr_obozn", Action = "GridViewCustomActionPartial" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        //////////////////////////////////////////////////////////////////
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsPager.PageSize = 20;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+
+
+        //settings.Settings.VerticalScrollBarMode = ScrollBarMode.Auto;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.ControlStyle.BorderBottom.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = false;
+
+        settings.KeyFieldName = "Id";
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        settings.CommandColumn.VisibleIndex = 0;
+        settings.CommandColumn.Width = Unit.Pixel(52);
+
+
+        settings.ControlStyle.CssClass = "grid-view";
+        settings.Styles.PagerBottomPanel.CssClass = "pager";
+
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.Caption = "#";
+        //    column.SetDataItemTemplateContent(container =>
+        //    {
+        //        Html.DevExpress().HyperLink(hyperlink1 =>
+        //        {
+        //            var visibleIndex1 = container.VisibleIndex;
+        //            var keyValue1 = container.KeyValue;
+
+
+        //            hyperlink1.Name = "h2" + keyValue1.ToString();
+        //            hyperlink1.Properties.Text = "Изменить  ";
+        //            hyperlink1.NavigateUrl = Url.Action("Edit", "Custom_Spr_metrol", new { id = keyValue1 });
+        //        }).Render();
+
+        //        //Html.DevExpress().HyperLink(hyperlink2 =>
+        //        //{
+        //        //    var visibleIndex2 = container.VisibleIndex;
+        //        //    var keyValue2 = container.KeyValue;
+
+
+        //        //    hyperlink2.Name = "h3" + keyValue2.ToString();
+        //        //    hyperlink2.Properties.Text = "Удалить";
+        //        //    hyperlink2.NavigateUrl = Url.Action("Delete", "Custom_Spr_metrol", new { id = keyValue2 });
+        //        //}).Render();
+        //    });
+        //});
+        //settings.Columns.Add("link_naim");
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        settings.SettingsExport.EnableClientSideExportAPI = true;
+        settings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        settings.EditFormLayoutProperties.ColCount = 2;
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("Subject").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("CustomerId");
+        //gridViewSettings.EditFormLayoutProperties.Items.Add(itemSettings =>
+        //{
+        //    itemSettings.ColumnName = "Notes";
+        //    itemSettings.ColumnSpan = 2;
+        //});
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("IsDraft").CaptionSettings.AllowWrapCaption = DefaultBoolean.False;
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("IsArchived").CaptionSettings.AllowWrapCaption = DefaultBoolean.False;
+        //settings.EditFormLayoutProperties.Items.Add("data_pover");
+        //settings.EditFormLayoutProperties.Items.Add("n_pasporta");
+        //settings.EditFormLayoutProperties.Items.Add("n_zavod");
+        //gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        //{
+        //    itemSettings.ColumnSpan = 2;
+        //    itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        //});
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        settings.CommandColumn.VisibleIndex = 0;
+        settings.CommandColumn.Width = Unit.Pixel(52);
+
+        settings.Columns.Add("obozn");
+        settings.Columns.Add("var");
+
+        //settings.ClientSideEvents.Init = "onGridViewInit";
+        //settings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        //settings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        //settings.CellEditorInitialize = (s, e) =>
+        //{
+        //    ((ASPxEdit)e.Editor).ValidationSettings.Display = Display.Dynamic;
+        //};
+    });
+
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

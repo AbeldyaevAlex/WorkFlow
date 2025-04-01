@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Справочник ПКП";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Справочник ПКП</h2>
+@using (Html.BeginForm())
+{
+    @Html.Action("GridViewPartial")
+}
+
+

@@ -1,0 +1,103 @@
+﻿.shipment-details-page .title {
+    padding: 10px 10px 5px 0;
+    font-weight: 700;
+    clear: both;
+    font-size: 12px;
+}
+
+.shipment-details-page .shipment-overview, .shipment-details-page .section.shipment-status-events {
+    text-align: left;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.shipment-details-page .shipment-overview ul {
+    float: left;
+    margin-right: 20px;
+}
+
+.shipment-details-page .shipment-overview li {
+    list-style: none;
+}
+
+.shipment-details-page .shipment-overview .title {
+    margin-bottom: 5px;
+}
+
+.shipment-details-page .tracking-url {
+    color: #B80709;
+    text-decoration: none;
+}
+
+.shipment-details-page .section.shipment-status-events, .shipment-details-page .section.products {
+    margin-top: 20px;
+}
+
+.ship-progress {
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.ship-progress .tooltip {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    border: 0;
+    position: absolute;
+    bottom: -44px;
+    color: #111;
+}
+
+.ship-progress .tooltip.ordered, .tooltip.shipped, .tooltip.delivery {
+    font-weight: 400;
+    color: #666;
+    font-size: 10pt
+}
+
+.ship-progress .tooltip.ordered strong, .tooltip.shipped strong, .tooltip.delivery strong {
+    font-weight: 400;
+    color: #333
+}
+
+.ship-progress .tooltip.ordered {
+    left: 0;
+}
+
+.ship-progress .tooltip.shipped {
+    left: 100px;
+}
+
+.ship-progress .tooltip.delivery {
+    right: 0;
+}
+
+.ship-progress .tooltip.shipped .marker {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    border-top-color: #469a5e;
+}
+
+.ship-progress .progress-container {
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+}
+
+#tracking-progress {
+    border: 1px solid #6b9c7f;
+    background: rgba(77, 170, 112, 1);
+    background: -moz-linear-gradient(top, rgba(77, 170, 112, 1) 0%, rgba(69, 153, 93, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(77, 170, 112, 1)), color-stop(100%, rgba(69, 153, 93, 1)));
+    background: -webkit-linear-gradient(top, rgba(77, 170, 112, 1) 0%, rgba(69, 153, 93, 1) 100%);
+    background: -o-linear-gradient(top, rgba(77, 170, 112, 1) 0%, rgba(69, 153, 93, 1) 100%);
+    background: linear-gradient(to bottom, rgba(77, 170, 112, 1) 0%, rgba(69, 153, 93, 1) 100%);
+    height: 10px;
+    border-radius: 5px;
+}

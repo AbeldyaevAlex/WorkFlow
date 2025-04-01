@@ -1,0 +1,59 @@
+﻿@model List<SelectListItem>
+@*@model Asu.Web.Models.Spr_tem*@
+<!DOCTYPE html>
+
+<head>
+    <title>TEST</title>
+    <link rel="stylesheet" href="~/Content/TableStyle.css" />
+</head>
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+    <div class="col-md-6 col-md-offset-3">
+        <div class="form-group">
+            Class
+            @Html.DropDownList("Class", Model, new { @class = "form-control", id = "Tema", @multiple = "true" })
+        </div>
+        <div class="form-group">
+            SubClass
+            <select id="animal" name="animal" multiple></select>
+        </div>
+    </div>
+    <input type="submit" value="save" />
+    }
+
+
+</div>
+
+<script>
+    var cboTemaClass = document.getElementById("Tema");
+    cboTemaClass.addEventListener("change", Refresh);
+    Refresh();
+
+
+    function Refresh() {
+        fetch("@Url.Content("~/Test/Tema")" + "?tema=" + cboTemaClass.value)
+        .then(function (result) {
+            if (result.ok) {
+                return result.json();
+            }
+        })
+
+
+        .then(function (data) {
+            console.log(data)
+            cbo = document.getElementById("animal");
+            cbo.innerHTML = "";
+            data.forEach(function (element) {
+
+
+                opt = document.createElement("option");
+                opt.appendChild(document.createTextNode(element.Text));
+                opt.value = element.Value;
+
+                cbo.appendChild(opt);
+            })
+        })
+    }
+</script>

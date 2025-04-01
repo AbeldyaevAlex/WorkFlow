@@ -1,0 +1,139 @@
+
+@using Asu.Web.Areas.TypicalTechnologicalOperations.Controllers
+@using Asu.Web.Models
+@using System.Data.Entity
+
+@*@model IEnumerable<TTO_View_Model>*@
+@*@model IQueryable<Spr_tto>*@
+@*@model IEnumerable<IGrouping<long?, Spr_tto>>*@
+@*@model Spr_tto*@
+
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView_TTO";
+        settings.CallbackRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewPartial_TTO" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewPartial_TTOAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewPartial_TTOUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_tto_v2", Action = "GridViewPartial_TTODelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+
+        settings.KeyFieldName = "Id";
+
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "link_kod_tto";
+            column.Caption = "#";
+            column.SetDataItemTemplateContent(container =>
+            {
+                var value = DataBinder.Eval(container.DataItem, container.Column.FieldName);
+                if (value != null)
+                {
+                    var text = value.ToString();
+                    var links = text.Split(',');
+                    for (int i = 0; i < links.Length; i++)
+                    {
+                        Html.DevExpress().HyperLink(hyperlink =>
+                        {
+                            hyperlink.Properties.Text = "Просмотр";
+                            //hyperlink.NavigateUrl = Url.Action("GridViewKodKomp", "Spr_tto_v2", new { link_kod_tto = text });
+                            hyperlink.NavigateUrl = Url.Action("Index", "Spr_tto_v2", new { link_kod_tto = text });
+                        }).Render();
+                    }
+                }
+            });
+        });
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "link_kod_tto";
+            column.Visible = false;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "km";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "dbt";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "dsh";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ves";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "nm_mater";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "marka_mater";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "gost";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "krat_naim_eizm";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "kgr";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "kod_sklad";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ogt";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "pr_km";
+        });
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
+@*@grid.Bind(Model).GetHtml()*@
+@*@grid.BindToLINQ("Asu.Web.Models.ASU_AVIAEntities12", "Spr_tto").GetHtml()*@
+@*@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+{
+    e.KeyExpression = "Id";
+    e.QueryableSource = (Model as DbSet<Spr_tto>);
+    //e.QueryableSource = Spr_tto_v2Controller.GetGroup(Model);
+    //e.DefaultSorting = "Code";
+}).GetHtml()*@
+
+@*@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+    {
+        e.KeyExpression = "Id";
+        e.QueryableSource = Model.GroupBy(i => i.link_kod_TTO); 
+    }).GetHtml()*@

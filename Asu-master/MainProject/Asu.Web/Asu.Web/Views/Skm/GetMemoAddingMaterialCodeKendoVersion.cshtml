@@ -1,0 +1,464 @@
+﻿@model Asu.Web.ViewModel.GostMaterGridViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@{
+    Layout = "~/Views/Shared/_LayoutKendoForForm.cshtml";
+    ViewBag.Title = "Служебные записки на добавление материала";
+}
+
+<h2 align="center">Служебные записки на добавление материала</h2>
+<div class="row table-responsive" style="padding-left: 0%">
+        <div class="col-12">
+            @(Html.Kendo().Grid<Asu.Web.ViewModel.GostMaterGridViewModel>()
+                        .Name("grid")
+                        .Columns(columns =>
+                        {
+
+                            columns.Command(command => {command.Edit(); command.Destroy(); }).Width(210);
+                            columns.Bound(p => p.Id).Title("").Width(600).ClientTemplate(@"<div class='product-photo'
+                                   style='background-image: url(" + @Url.Content("~/Content/PkpImage/material.png") + ");'></div>").Width(50)
+                                   .HeaderHtmlAttributes(new { style = "overflow: visible; white-space: normal; text-align: center; font-weight: bold; font-family: 'Arial'; font-size: 14px; background-color: #f5f5f5" });
+                            columns.Bound(p => p.Gost).Title("ГОСТ").Width(600);
+                            //columns.Bound(p => p.StatusDocument.Status).EditorTemplateName("TypeEditor").Width(600).Title("Статус");
+                            columns.Bound(p => p.StatusDocument).Width(600).Title("Статус");
+                            columns.Bound(p => p.PeriodOpenDate).Format("{0:MM/dd/yyyy}").Width(150);
+                            //columns.Bound(p => p.StatusDocument).Width(150);
+                        })
+                        .ToolBar(tools =>
+                        {
+                            //tools.Custom().Name("newAdd").Text("+ Add Employee ").Url("#").HtmlAttributes(new { id = "newAdd" });
+                            tools.Create();
+                        })
+                                        .Pageable(pageable => pageable.Refresh(true).Input(true).Numeric(true))
+                                        .Sortable(sorting => sorting.Enabled(true))
+                                        .Scrollable()
+                                        .Filterable()
+                                        .Selectable()
+                                        .Groupable()
+                        .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+                        .Resizable(resize => resize.Columns(true))
+                        .HtmlAttributes(new { style = "height:900px;" })
+                        .DataSource(dataSource => dataSource
+
+                            .Ajax().Model(model =>
+                            {
+                                model.Id(p => p.Id);
+                            })
+                        .PageSize(500)
+                        .Read(read => read.Action("MemoAddingMaterialCodeRead", "Skm"))
+                        .Create(create => create.Action("AddMemoAddingMaterialCodeGridViewPartial", "Skm"))
+                        .Update(update => update.Action("AddMemoAddingMaterialCodeGridViewPartial", "Skm"))
+                        .Destroy(destroy => destroy.Action("AddMemoAddingMaterialCodeGridViewPartial", "Skm"))
+
+                        )
+                    )
+        </div>
+    </div>
+    @*<div class="col-md-12">
+        @(Html.Kendo().Window().Name("AddDetails")
+            .Title("Add Employee")
+            .Visible(false)
+            .Modal(true)
+            .Content(@<text>
+                <div style="width:100%;" id="fieldlist">
+
+                    <form id="Addform">
+                        <div id="save-container">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    @Html.Label("Name :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().TextBox()
+                                 .Name("txtName")
+                                 .HtmlAttributes(new { placeholder = "Enter Name", required = "required", validationmessage = "*", maxlength = "50", @class = "col-sm-2 form-control", style = "width: 100%", })
+                                    )
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.Label("Salary :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().NumericTextBox()
+                                 .Name("txtSalary")
+                                 .HtmlAttributes(new { placeholder = "Enter Salary", required = "required", validationmessage = "*", maxlength = "50", @class = "col-sm-2 form-control", style = "width: 100%" })
+                                    )
+                                </div>
+                            </div>
+                            <div class="clarfix" style="height:35px"></div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    @Html.Label("Статус :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().DropDownList()
+                                    .OptionLabel("Выберите Статус")
+                                      .Name("ddlDepartment")
+                                      .Filter(FilterType.Contains)
+                                        .DataTextField("Status")
+                                        .DataValueField("Id").HtmlAttributes(new { required = "required", validationmessage = "*" })
+                                         .DataSource(source =>
+                                                {
+                                                    source.Read(read =>
+                                                    {
+                                                        read.Action("ComboBoxMemoAddingMaterialCodeRead", "Skm");
+                                                    });
+                                                })
+                                        .HtmlAttributes(new { style = "width: 100%" })
+                                    )
+                                </div>
+
+
+                            <div class="row" style="margin-top:20px"></div>
+                            <div class="row" style="text-align:center;margin-top:10px;left:20px;">
+                                @(Html.Kendo().Button()
+                        .Name("btnSave")
+                        .Content("Save")
+                                        .HtmlAttributes(new { type = "button", @class = "k-button k-primary", style = "height:35px;width:70px;" })
+                        .Events(e => e.Click("btnSave_Click"))
+                                )
+                                @(Html.Kendo().Button()
+                        .Name("btnReset")
+                        .Content("Reset")
+                                        .HtmlAttributes(new { type = "button", @class = "k-button k-primary", style = "height:35px;width:70px;" })
+                        .Events(e => e.Click("btnReset_Click"))
+                                )
+                            </div>
+
+                        </div>
+                       </div>
+
+                    </form>
+
+                </div>
+            </text>)
+            .Draggable(true) //Enable dragging of the window
+             .Actions(actions => actions.Pin().Minimize().Maximize().Close()).Resizable() //Enable resizing of the window
+             .Width(980)     //Set width of the window
+             .Height(300)
+
+        )
+
+
+    </div>
+    <div class="col-md-12">
+        @(Html.Kendo().Window().Name("EditDetails")
+            .Title("Edit Employee")
+            .Visible(false)
+            .Modal(true)
+            .Content(@<text>
+                <div style="width:100%;" id="fieldlist">
+
+                    <form id="Editform">
+                        <div id="Update-container">
+                            <div class="col-md-12">
+                                @Html.Hidden("txtId")
+                                <div class="col-md-6">
+                                    @Html.Label("Name :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().TextBox()
+                                 .Name("txtName1")
+                                 .HtmlAttributes(new { placeholder = "Enter Name", required = "required", validationmessage = "*", maxlength = "50", @class = "col-sm-2 form-control", style = "width: 100%", })
+                                    )
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.Label("Salary :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().NumericTextBox()
+                                 .Name("txtSalary1")
+                                 .HtmlAttributes(new { placeholder = "Enter Salary", required = "required", validationmessage = "*", maxlength = "50", @class = "col-sm-2 form-control", style = "width: 100%" })
+                                    )
+                                </div>
+                            </div>
+                            <div class="clarfix" style="height:35px"></div>
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    @Html.Label("Department :", htmlAttributes: new { @class = "control-label" })
+                                </div>
+                                <div class="col-md-6">
+                                    @(Html.Kendo().DropDownList()
+                                    .OptionLabel("select category")
+                                    .Filter(FilterType.Contains)
+                                    .Name("ddlDepartment1")
+                                    .DataTextField("Name")
+                                    .DataValueField("Id").HtmlAttributes(new { required = "required", validationmessage = "*" })
+                                    .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetCategory", "Home");
+                });
+            })
+
+
+              .HtmlAttributes(new { style = "width: 100%" })
+                                    )
+                                </div>
+
+
+                                <div class="row" style="margin-top:20px"></div>
+                                <div class="row" style="text-align:center;margin-top:10px;left:20px;">
+                                    @(Html.Kendo().Button()
+                        .Name("btnUpdate")
+                        .Content("Update")
+                                        .HtmlAttributes(new { type = "button", @class = "k-button k-primary", style = "height:35px;width:70px;" })
+                        .Events(e => e.Click("btnUpdate_Click"))
+                                    )
+                                    @(Html.Kendo().Button()
+                        .Name("btnUpdateReset")
+                        .Content("Reset")
+                                        .HtmlAttributes(new { type = "button", @class = "k-button k-primary", style = "height:35px;width:70px;" })
+                        .Events(e => e.Click("btnUpdateReset_Click"))
+                                    )
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </text>)
+                                                .Draggable(true) //Enable dragging of the window
+                                                 .Actions(actions => actions.Pin().Minimize().Maximize().Close()).Resizable() //Enable resizing of the window
+                                                 .Width(980)     //Set width of the window
+                                                 .Height(250)
+
+        )
+
+
+    </div>*@
+    <script>
+        $("#newAdd").click(function (e) {
+            debugger
+            e.preventDefault();
+            $("#AddDetails").data("kendoWindow").center().open();
+            $("#newAdd").show();
+            $("#btnSave").kendoButton({}).data("kendoButton").enable(true);
+
+        });
+
+        function btnSave_Click() {
+            debugger
+            var validator = $("#save-container").kendoValidator().data("kendoValidator");
+            if (validator.validate()) {
+
+                var employeeModel = {
+                    Name: $('#txtName').val(),
+                    Salary: $('#txtSalary').val(),
+                    DepartmentId: $('#ddlDepartment').val(),
+
+
+                }
+                var model = {
+                    "emp": employeeModel
+                }
+                $.ajax({
+                    type: "POST",
+                    url: '/Home/AddEmployee', data: model,
+                    datatype: "json",
+                    cache: false,
+                    success: function (data) {
+
+                    },
+
+                });
+                btnReset_Click();
+                var wnd = $("#AddDetails").data("kendoWindow");
+                wnd.center().close();
+                alert("Record save is successfully!");
+                var grid = $('#grid').data('kendoGrid');
+                grid.dataSource.read();
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+
+
+        function editDetails(e) {
+            debugger
+            e.preventDefault();
+            var wnd = $("#EditDetails").data("kendoWindow");
+            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            $("#txtId").val(dataItem.Id);
+            $("#txtName1").val(dataItem.Name);
+            $('#txtSalary1').data("kendoNumericTextBox").value(dataItem.Salary);
+
+            $("#ddlDepartment1").data("kendoDropDownList").text(dataItem.Department)
+
+
+            $("#btnUpdate").kendoButton({}).data("kendoButton").enable(true);
+            wnd.center().open();
+        }
+
+        function btnReset_Click() {
+            debugger
+            $("#ddlDepartment").data('kendoDropDownList').value(-1);
+
+            $("#txtName").val("")
+            $('#txtSalary').data("kendoNumericTextBox").value(null);
+
+
+            $("#btnSave").kendoButton({}).data("kendoButton").enable(true);
+            var wnd = $("#AddDetails").data("kendoWindow");
+            wnd.element.find("span.k-tooltip-validation").hide();
+            return;
+        }
+        function btnUpdateReset_Click() {
+            debugger
+
+            var Id = $("#txtId1").val();
+            var dataItem = $("#grid").data("kendoGrid").dataSource.get(Id);
+            $("#ddlDepartment1").val(dataItem.Department).data("kendoDropDownList").value(dataItem.Department)
+            $("#txtName1").val(dataItem.Name)
+            $("#txtSalary1").val(dataItem.Salary)
+
+            $("#btnUpdate").kendoButton({}).data("kendoButton").enable(true);
+            return;
+        }
+
+        function btnUpdate_Click() {
+            debugger
+            var validator = $("#Update-container").kendoValidator().data("kendoValidator");
+            if (validator.validate()) {
+
+                var employeeModel = {
+                    Id: $("#txtId").val(),
+                    Name: $('#txtName1').val(),
+                    Salary: $('#txtSalary1').val(),
+                    DepartmentId: $('#ddlDepartment1').val(),
+
+
+                }
+                var model = {
+                    "emp": employeeModel
+                }
+                $.ajax({
+                    type: "POST",
+                    url: '/Home/UpdateEmployee', data: model,
+                    datatype: "json",
+                    cache: false,
+                    success: function (data) {
+
+                    },
+
+                });
+                btnReset_Click();
+                var wnd = $("#EditDetails").data("kendoWindow");
+                wnd.center().close();
+                alert("Record updated successfully!");
+                var grid = $('#grid').data('kendoGrid');
+                grid.dataSource.read();
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+    </script>
+    <script>
+        function template(data) {
+            return `<div class='customer-photo'
+                        style= 'background-image: url(img/BE200.jpg);' ></div >
+        }
+    </script>
+    <style type="text/css">
+        .first-alternate-spanned-cell {
+            background-color: #f4f4f4;
+        }
+
+        .second-alternate-spanned-cell {
+            background-color: #e0e0e0;
+        }
+
+        .product-photo {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-size: 32px 35px;
+            background-position: center center;
+            vertical-align: middle;
+            line-height: 32px;
+            box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, .2);
+            margin-right: 5px;
+        }
+
+        .product-name {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            padding-left: 3px;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@(
+        Html.Kendo().DropDownList()
+            //.BindTo(ViewBag.nmSkmListTest)
+            .Name("Type")
+            
+            .DataTextField("NameMaterial")
+            .DataValueField("Id")
+        .OptionLabel("Select Type...")
+        .Filter(FilterType.Contains)
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("ComboBoxMemoAddingMaterialNameRead", "Skm");
+        });
+    })
+    )
+@*<script>
+        $(document).ready(function () {
+            kendo.ui.icon($(".icon-search"), { icon: 'search' });
+        });
+
+    </script>*@
+
+<style>
+    .fieldlist {
+        margin: 0 0 -2em;
+        padding: 0;
+    }
+
+        .fieldlist li {
+            list-style: none;
+            padding-bottom: 2em;
+        }
+
+        .fieldlist label {
+            display: block;
+            padding-bottom: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #444;
+        }
+</style>
+<script>function categoriesChange() { var value = this.value(), grid = $("#grid").data("kendoGrid"); if (value) { grid.dataSource.filter({ field: "Id", operator: "eq", value: parseInt(value) }); } else { grid.dataSource.filter({}); } }</script>

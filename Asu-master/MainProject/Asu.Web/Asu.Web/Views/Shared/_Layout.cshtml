@@ -1,0 +1,491 @@
+﻿@using Asu.Web.Model
+@using Asu.Core
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain.Common;
+@using System.Web.Optimization;
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" href="~/Content/Images/favicon.PNG" />
+    <title>
+        @{ var pageTitleParts = new string[] { ViewBag.Title, "ASP.NET MVC Responsive Project Template | DevExpress" }; }
+        @string.Join(" - ", @pageTitleParts.Where(s => !string.IsNullOrEmpty(s)))
+    </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler }
+)
+    @Html.DevExpress().GetScripts(
+            new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+            new Script { ExtensionSuite = ExtensionSuite.Editors },
+            new Script { ExtensionSuite = ExtensionSuite.GridView },
+            new Script { ExtensionSuite = ExtensionSuite.Scheduler }
+    )
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Content.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Layout.css")" />
+    @Styles.Render("~/Content/kendocss")
+    @Scripts.Render("~/bundles/kendojs")
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @RenderSection("Head", false)
+    <script type="text/javascript" src="@Url.Content("~/Content/Script.js")"></script>
+
+
+
+    <link href="~/Content/FooterStyle.css" rel="stylesheet" />
+
+    <script>
+        // sending the __RequestVerificationToken value manually, see details: https://github.com/DevExpress/aspnet-security-bestpractices/tree/master/SecurityBestPractices.Mvc#4-preventing-cross-site-request-forgery-csrf
+        if (window.jQuery) {
+            $.ajaxPrefilter(function (options, originalOptions, xhr) {
+                if (options.dataType && options.dataType !== "html")
+                    return;
+                var tokenValue = $('input:hidden[name="__RequestVerificationToken"]').val();
+                if (tokenValue && options && options.data && options.data.indexOf('RequestVerificationToken') === -1)
+                    options.data += "&__RequestVerificationToken=" + tokenValue;
+            });
+        }
+    </script>
+</head>
+<body>
+    @{
+        var relativeUrl = this.Context.Request.Path;
+        var customerName = EngineContext.Current.Resolve<IWorkContext>().CurrentCustomer.ShippingAddress.FullNameForGrid;
+    }
+    @using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { id = "signOutForm" }))
+    {
+        @Html.AntiForgeryToken();
+    }
+    <div class="content-wrapper">
+        <div class="navbar navbar-inverse navbar-fixed-top nav-blue">
+            <div style="padding:0 0 0 15px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="dropdown">
+                        <button class="dropbtn">Вспомогательные справочники</button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Справочник ОГТ", "MainOgt", "DirectoryOgt", "DirectoryOfMaterialCodifiers", new { @target = "_blank" })
+                            @Html.ActionLink("Справочник групп материала", "Index", "Registration")
+                            @Html.ActionLink("Справочник наименований материала", "Index", "Registration")
+                            @Html.ActionLink("Справочник марок материала", "PlanSelection", "Form")
+                            @Html.ActionLink("Справочник признака кода материала", "About", "Home")
+                            @Html.ActionLink("Справочник ГОСТов", "Contact", "Home")
+                            @Html.ActionLink("Справочник едениц измерения", "Index", "Registration")
+                            @Html.ActionLink("Справочник кодов раскроя", "Index", "Registration")
+                            @Html.ActionLink("Справочник складов", "Index", "Registration")
+                            @Html.ActionLink("Справочник признаков покрытия", "Index", "Registration")
+                            @Html.ActionLink("Справочник сортаментов", "Index", "Registration")
+                            @Html.ActionLink("Справочник балансовых счетов", "Index", "Registration")
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    <div style="float:right;">
+                        <ul class="nav navbar-nav">
+                            @if (@User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    @Html.ActionLink(customerName, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                </li>
+                                <li>
+                                    <a class="nav navbar-nav" id="Logout" href="@Url.RouteUrl("Logout", new {returnUrl = relativeUrl})" rel="nofollow">Выйти</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    @Html.ActionLink("Выполнить вход", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                                </li>
+                                if (WorkContext.IsAdmin)
+                                {
+                                    <li>
+                                        @Html.ActionLink("Регистрация", "Register", "Customer", routeValues: null, htmlAttributes: new { id = "registrLink" })
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    @*@Html.Partial("_LoginPartial")*@
+                </div>
+            </div>
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <footer>
+            <div class="footerUp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>DevExpress</h4>
+                            <p>DevExpress engineers feature-complete Presentation Controls, IDE Productivity Tools, Business Application Frameworks, and Reporting Systems for Visual Studio.</p>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <h4>Latest Posts</h4>
+                            <ul class="list-unstyled latestPosts">
+                                <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
+                                <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
+                                <li><a href="#">HTML5 Form Layout Widget</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-offset-1 col-md-3">
+                            <h4>Contact Us</h4>
+                            <ul class="list-unstyled">
+                                <li>505 N. Brand Blvd</li>
+                                <li>Glendale CA 91203 USA</li>
+                                <li>Phone: + 1 (818) 844 3383</li>
+                                <li>Mail: <a href="#">clientservices@devexpress.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerDown">
+                <div class="container">
+                    <p>@DateTime.Today.Year.ToString() &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        MVCxClientGlobalEvents.AddControlsInitializedEventHandler(onControlsInitialized);
+        ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(onBrowserWindowResized);
+    </script>
+</body>
+</html>
+<style>
+/*    footer{
+        flex-shrink:0;
+        background-color:#333;
+        color:white;
+        text-align:center;
+        padding:10px;
+    }*/
+
+    .dropbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 260px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>
+<style type="text/css">
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        -ms-overflow-style: scrollbar;
+    }
+
+    header {
+        flex: none;
+        border-bottom: 1px solid #c7c7c7;
+        background: #fff;
+        width: 100%;
+        -webkit-transition: all 0.5s ease-out 0s;
+        -moz-transition: all 0.5s ease-out 0s;
+        -o-transition: all 0.5s ease-out 0s;
+        transition: all 0.5s ease-out 0s;
+        top: -100px;
+        z-index: 1000;
+    }
+
+        header.shrink {
+            opacity: 0.9;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+    .title {
+        float: left;
+        padding: 8px 0px;
+    }
+
+        .title a {
+            font-weight: 600;
+            font-size: 1.8em;
+            color: #c7c7c7;
+            text-decoration: none;
+        }
+
+        .title p {
+            color: #b2b2b2;
+            margin: 0;
+        }
+
+    .expandBar {
+        padding: 0px !important;
+        width: 100%;
+    }
+
+    .expandedPanel .title {
+        display: none;
+    }
+
+    .panelContent {
+        padding-top: 15px;
+    }
+
+    .expandedPanel .pull-right {
+        float: none !important;
+    }
+
+    .panelItem {
+        display: inline-block;
+    }
+
+    .expandedPanel .panelItem {
+        display: block;
+    }
+
+    .expandedPanel .panelContent {
+        padding-bottom: 15px;
+    }
+
+    .searchBox {
+        margin-left: 20px;
+    }
+
+        .searchBox img,
+        .searchBox .dx-acc {
+            display: none;
+        }
+
+    .searchBoxButton {
+        font-size: 17px;
+    }
+
+    .navMenu {
+        float: right;
+        margin: 0px 0px 2px 0px;
+    }
+
+    .expandedPanel .navMenu {
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    .expandedPanel .searchBox {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .loginButton {
+        margin: 0px 0px 1px 20px;
+    }
+
+    .expandedPanel .loginButton {
+        width: 100%;
+        margin: 10px 0px 0px 0px;
+        text-align: left;
+    }
+
+        .expandedPanel .loginButton .dropdown-toggle {
+            width: 100%;
+        }
+
+    .loginButton-large,
+    .expandedPanel .loginButton-small {
+        display: none;
+    }
+
+    .expandedPanel .loginButton-large {
+        display: inline-block;
+    }
+
+    .btnBackToTop {
+        background: none;
+        margin: 0;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 70px;
+        height: 70px;
+        z-index: 100;
+        display: inline;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        .btnBackToTop i {
+            font-size: 60px;
+            color: #c7c7c7;
+        }
+
+            .btnBackToTop i:hover {
+                color: #e0e0e0;
+            }
+
+    .footerUp {
+        padding-bottom: 26px;
+        background: #6f6f6f;
+    }
+
+    .footerDown {
+        background: #525252;
+    }
+
+        .footerDown p {
+            margin: 16px 0px;
+        }
+
+    .wrapper {
+        display: -webkit-box;
+        display: flex;
+        min-height: 100%;
+        height: 100vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+
+    .content {
+        -webkit-box-flex: 1;
+        flex: 1 0 auto;
+        margin-bottom: 40px;
+    }
+
+    footer {
+        flex: none;
+        color: white;
+    }
+
+        footer a {
+            color: #cecaca;
+        }
+
+            footer a:hover,
+            footer a:focus {
+                color: #fff;
+            }
+
+        footer h4 {
+            margin-top: 32px;
+        }
+
+    .latestPosts li:not(:last-child) {
+        border-bottom: 1px dotted #fff;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+
+
+
+
+    .dxWeb_isDot,
+    .dxWeb_isDotSelected {
+        background-image: url();
+    }
+
+    .dxisControl .dxis-nbDotItem {
+        width: 40px;
+        height: 0px;
+        background-color: #fff;
+        opacity: 0.45;
+    }
+
+    .dxisControl .dxis-itemTextArea {
+        top: 17px !important;
+        left: 17px !important;
+        bottom: auto !important;
+        width: 285px;
+        padding: 15px 16px 21px !important;
+        color: #fff !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 4px 0px rgba(50, 50, 50, 0.3) !important;
+        background-color: #333333 !important;
+        background-color: rgba(0, 0, 0, 0.75) !important;
+    }
+
+        .dxisControl .dxis-itemTextArea a {
+            color: white;
+        }
+
+            .dxisControl .dxis-itemTextArea a:hover, a:focus {
+                text-decoration: underline;
+            }
+
+        .dxisControl .dxis-itemTextArea p {
+            /*color: #b0b0b0;
+                background-color: rgba(0, 0, 0, 0.5 );*/
+        }
+
+        .dxisControl .dxis-itemTextArea > p {
+            margin-bottom: 0 !important;
+        }
+
+    .dxisControl .dxis-nbDotsBottom .dxis-nbSlidePanel {
+        left: 340px !important;
+    }
+
+    .isDemoH3 {
+        font-size: 28px !important;
+        color: white;
+        padding-bottom: 9px;
+        /*background-color: rgba(0, 0, 0, 0.5 );*/
+    }
+
+    footer {
+        background-color: rgba(50, 50, 50, 0.3);
+    }
+
+    .slider {
+        padding: 0px 0px 0px 0px;
+    }
+</style>
+

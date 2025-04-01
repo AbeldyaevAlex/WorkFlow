@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Asu.Core.Domain.Tasks.UsersTasks>
+
+@{
+    ViewBag.Title = "Администрирование";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap_bundle.css" rel="stylesheet" />
+    <link href="~/Content/Layout_new.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    <meta charset="utf-8" />
+    <title>Администрирование</title>
+</head>
+<body>
+    <div>
+        <h3 class="title" align="center" style="margin:50px">Администрирование</h3>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-xl-5">
+
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    @if (item.IsGroup == true)
+                    {
+
+                        <div class="card badge text-wrap">
+                            <a href="@Url.RouteUrl(item.RouteUrl,
+                                 new { controller = item.ControllerName, action = item.ActionName })"
+                               title="@item.Title" target="_blank">
+                                @Html.Raw("<img class='image-content' src=\"data:image/jpeg;base64,"
+                                 + Convert.ToBase64String(item.Screen) + "\" />")
+                                <h5 class="card-title">@item.NaimTask</h5>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card badge text-wrap">
+                            <a href="@Url.RouteUrl(item.RouteUrl,
+                                 new { controller = item.ControllerName, action = item.ActionName })"
+                               title="@item.Title" target="_blank">
+                                @Html.Raw("<img class='image-content' src=\"data:image/jpeg;base64,"
+                                 + Convert.ToBase64String(item.Screen) + "\" />")
+                                <h5 class="card-title">@item.NaimTask</h5>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

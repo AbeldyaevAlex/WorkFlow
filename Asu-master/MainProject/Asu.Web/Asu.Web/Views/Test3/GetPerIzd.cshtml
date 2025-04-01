@@ -1,0 +1,22 @@
+﻿@model List<Asu.Web.Models.Msi.Spr_Perizd>
+<script src="~/Scripts/multi-dropdownlist.js"></script>
+<style>
+    select {
+        width: 40em
+    }
+</style>
+<option value="">--Выбрать изделие--</option>
+@if (ViewBag.PerIzdOption != null)
+{
+    <div>
+        <select name="select" id="listTem" multiple="multiple" multiselect-search="true" multiselect-select-all="true">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.nm_izd</option>
+            }
+
+        </select>
+
+    </div>
+}
+<script src="~/Scripts/multi-dropdownlist.js"></script>

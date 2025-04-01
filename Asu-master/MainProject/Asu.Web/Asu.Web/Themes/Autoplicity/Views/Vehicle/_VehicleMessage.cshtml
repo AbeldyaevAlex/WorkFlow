@@ -1,0 +1,7 @@
+﻿@model Nop.Web.Models.Vehicles.FilterSearchModel.FilterVehicle
+
+@if (!string.IsNullOrEmpty(Model.FullName) && Model.VehicleId <= 0)
+{
+    @($"Showing {Model.SearchTerm} results for your {Model.FullName}")
+}
+

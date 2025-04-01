@@ -1,0 +1,9 @@
+@model Asu.Web.Model.SchedulerDataSource
+
+@{
+    var scheduler = Html.DevExpress().Scheduler(Asu.Web.Model.SchedulerHelper.Settings);
+    if(ViewBag.GeneralError != null) {
+        scheduler.SetErrorText(ViewBag.GeneralError);
+    }
+}
+@scheduler.Bind(Model.Appointments, Model.Resources).GetHtml()

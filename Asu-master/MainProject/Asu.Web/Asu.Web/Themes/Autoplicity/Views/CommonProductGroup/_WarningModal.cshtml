@@ -1,0 +1,21 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+
+@model Nop.Web.Models.ProductGroups.ProductGroupVariantModel
+
+@{
+    var phone = EngineContext.Current.Resolve<IStoreContext>()?.CurrentStore?.CompanyPhoneNumber;
+    var vehicle = Model.Vehicle;
+}
+
+<div id="warning-modal" style="display: none;">
+    <div class="warning-content">
+        <p class="warning-title">Warning!</p>
+        <p class="warning-body">
+            These @Model.GroupTypeName are not guaranteed to fit your <span class="warning-keyword">@vehicle.GetVehicleName()</span>, but we have many other @Model.GroupTypeName that do fit.
+            Feel free to call our experts <a href="tel:+1@(phone)">@phone</a> with any fitment questions or for custom applications!
+        </p>
+        <a class="warning-modal-btn green_btn">View @Model.GroupTypeName that do fit</a>
+    </div>
+</div>
+

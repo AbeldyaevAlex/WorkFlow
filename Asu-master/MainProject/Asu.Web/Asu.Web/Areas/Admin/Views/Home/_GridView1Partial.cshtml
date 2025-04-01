@@ -1,0 +1,263 @@
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView1";
+        settings.CallbackRouteValues = new { Controller = "Home", Action = "GridView1Partial" };
+
+        //settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Home", Action = "GridView1PartialAddNew" };
+        //      settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "GridView1PartialUpdate" };
+        //      settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Home", Action = "GridView1PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsPager.PageSize = 25;
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.HideDataCells;
+        settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
+        settings.ControlStyle.BorderBottom.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+
+        //settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.ShowSelectCheckbox = true;
+        //settings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        //settings.CommandColumn.VisibleIndex = 0;
+        //settings.CommandColumn.Width = Unit.Pixel(52);
+
+
+        //settings.CommandColumn.ShowSelectCheckbox = true;
+        //settings.CommandColumn.ShowSelectButton = true;
+
+
+        //settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.Width = Unit.Pixel(150);
+
+        settings.CommandColumn.ShowInCustomizationForm = false;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = false;
+
+        //settings.KeyFieldName = "Id";
+
+        //settings.SettingsPager.Visible = true;
+        //settings.Settings.ShowGroupPanel = true;
+        //settings.Settings.ShowFilterRow = true;
+        //settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        GridViewCommandColumnCustomButton custombutton = new GridViewCommandColumnCustomButton() { ID = "deleteButton", Text = "Удалить" };
+        settings.CommandColumn.CustomButtons.Add(custombutton);
+        //custombutton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.IconbuilderActionsDeleteSvg16x16;
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e) {OnCustomButtonClick (s, e); }";
+
+
+
+        //GridViewCommandColumnCustomButton updatebutton = new GridViewCommandColumnCustomButton() { ID = "updateButton", Text = "Редактировать" };
+        //settings.CommandColumn.CustomButtons.Add(updatebutton);
+        //updatebutton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsEdit16x16devav;
+        //settings.ClientSideEvents.CustomButtonClick = "function(s, e) {OnEditButtonClick (s, e); }";
+
+
+
+
+
+
+
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.Caption = "#";
+        //    column.SetDataItemTemplateContent(container =>
+        //    {
+
+        //        //Html.DevExpress().HyperLink(hyperlink1 =>
+        //        //{
+        //        //    var visibleIndex1 = container.VisibleIndex;
+        //        //    var keyValue1 = container.KeyValue;
+
+
+        //        //    hyperlink1.Name = "h2" + keyValue1.ToString();
+        //        //    hyperlink1.Properties.Text = "Изменить  ";
+        //        //    hyperlink1.NavigateUrl = Url.Action("Edit", "Custom_Spr_cex", new { id = keyValue1 });
+        //        //}).Render();
+
+        //        //Html.DevExpress().HyperLink(hyperlink2 =>
+        //        //{
+        //        //    var visibleIndex2 = container.VisibleIndex;
+        //        //    var keyValue2 = container.KeyValue;
+
+
+        //        //    hyperlink2.Name = "h3" + keyValue2.ToString();
+        //        //    hyperlink2.Properties.Text = "Удалить";
+        //        //    //hyperlink2.Properties.ClientSideEvents.Click = "function(s, e) { pcModalMode2.Show(); }";
+        //        //    hyperlink2.NavigateUrl = Url.Action("Delete", "Custom_Spr_cex", new { id = keyValue2 });
+        //        //}).Render();
+        //    });
+        //});
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.Caption = "#";
+        //    column.SetDataItemTemplateContent(container =>
+        //    {
+        //        GridViewCommandColumnCustomButton custombutton = new GridViewCommandColumnCustomButton() { ID = "deleteButton", Text = "Удалить" };
+        //        settings.CommandColumn.CustomButtons.Add(custombutton);
+        //        custombutton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.IconbuilderActionsDeleteSvg16x16;
+        //        settings.ClientSideEvents.CustomButtonClick = "function(s, e) {OnCustomButtonClick (s, e); }";
+        //    });
+        //});
+        //settings.EditFormLayoutProperties.Items.Add("cex");
+        //settings.EditFormLayoutProperties.Items.Add("naim_cex");
+        //settings.EditFormLayoutProperties.Items.Add("link_status");
+        //settings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        //{
+        //    itemSettings.ColumnSpan = 1;
+        //    itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        //});
+
+
+
+
+
+
+        //settings.Columns.Add("cex");
+        //settings.Columns.Add("naim_cex");
+        //settings.Columns.Add("link_status");
+        //settings.Columns.Add(c =>
+        //{
+        //    c.FieldName = "link_status";
+        //    c.Caption = "Статус документа";
+        //    c.Width = Unit.Pixel(400);
+        //    c.EditorProperties().ComboBox(p =>
+        //    {
+        //        ////p.CallbackRouteValues = new { Controller = "Custom_spr_cex", Action = "Status_dok" };
+        //        p.ValueType = typeof(string);
+        //        p.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+        //        p.CallbackPageSize = 20;
+        //        p.TextField = "id";
+        //        p.ValueField = "Id";
+        //        p.DataSource = METROL_DEV19.Models.NorthwindDataProvider.GetStatus();
+        //    });
+        //});
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "link_status";
+        //    columnSettings.Caption = "Статус документа";
+        //    columnSettings.Visible = false;
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "status";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.DataSource = METROL_DEV19.Models.NorthwindDataProvider.GetStatus();
+        //});
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "Status_dok.status";
+        //    columnSettings.Caption = "Статус документа";
+        //    columnSettings.Width = Unit.Pixel(400);
+        //});
+
+
+
+
+        //c.EditorProperties().ComboBox(p =>
+        //{
+        //    p.CallbackRouteValues = new { Controller = "Custom_spr_cex", Action = "Status_dok" };
+        //    p.ValueType = typeof(int);
+        //    p.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+        //    p.CallbackPageSize = 20;
+        //    p.TextField = "status";
+        //    p.ValueField = "status";
+        //    p.ValueType = typeof(int);
+        //    p.DataSource = METROL_DEV19.Models.NorthwindDataProvider.GetStatus();
+        //});
+        // });
+
+
+        //settings.Columns.Add(column =>
+        //{
+        //    column.Caption = "#";
+        //    column.SetDataItemTemplateContent(container =>
+        //    {
+        //        Html.RenderPartial("PopupEditCex", new METROL_DEV19.Models.Spr_cex());
+        //    });
+        //});
+
+
+
+        settings.SettingsExport.EnableClientSideExportAPI = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsEditing.EditFormColumnCount = 2;
+
+
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Right;
+            //toolbar.Items.Add(item =>
+            //{
+            //    item.Text = "Создать";
+            //    item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsAdd16x16;
+            //    item.NavigateUrl = Url.Action("Create", "Custom_Spr_cex");
+            //    //item.NavigateUrl = Url.Action("XtraReport1");
+            //});
+
+            toolbar.Items.Add(item =>
+            {
+                item.Text = "Import into .mdf";
+                item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+                item.NavigateUrl = Url.Action("ImportExcel", "ImportIntoExcel");
+
+                //item.Name = "modaltool";
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Text = "Load Images";
+                item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+                item.NavigateUrl = Url.Action("Create", "ImageLoad");
+
+                //item.Name = "modaltool";
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Text = "Пользователи";
+                item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+                item.NavigateUrl = Url.Action("Create", "ImageLoad");
+            });
+            //toolbar.Items.Add(GridViewToolbarCommand.ShowGroupPanel);
+            //toolbar.Items.Add(GridViewToolbarCommand.ShowFilterRowMenu);
+            //toolbar.Items.Add(GridViewToolbarCommand.ShowSearchPanel);
+            //toolbar.Items.Add(GridViewToolbarCommand.FullCollapse);
+            //toolbar.Items.Add(GridViewToolbarCommand.ShowFilterRow);
+            //toolbar.Items.Add(emptyItem =>
+            //{
+            //    emptyItem.ItemStyle.Width = Unit.Percentage(100);
+            //    emptyItem.SetTemplateContent(c => { });
+            //});
+
+            toolbar.Items.Add(GridViewToolbarCommand.Refresh, true);
+        });
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

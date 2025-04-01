@@ -1,0 +1,94 @@
+﻿@using System.Web.Optimization
+@model Nop.Web.Models.SimpleCheckout.CheckoutAmazonModel
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AddTitleParts("Checkout by Amazon");
+}
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hcheckout-amazon") : Html.InlineStyles("~/styles/hcheckout-amazon"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fcheckout-amazon") : Html.InlineStyles("~/styles/fcheckout-amazon"))
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/checkout-amazon") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/checkout-amazon"))*@
+}
+<div class="checkout-step-wrapper">
+    <div class="checkout-steps">
+        <div class="wrapper_status">
+            <div class="step step-completed">
+                <span></span>
+            </div>
+            <p class="name_of_step">customer<span>info</span></p>
+        </div>
+        <div class="wrapper_status">
+            <div class="step step-current two">
+                <span class="two"></span>
+            </div>
+            <p class="name_of_step">review<span>& payment</span></p>
+        </div>
+        <div class="wrapper_status further">
+            <div class="step step-further">
+                <span class="three"></span>
+            </div>
+            <p class="name_of_step">Order<span>Receipt</span></p>
+        </div>
+    </div>
+</div>
+<div class="order-summary-container">
+    @Html.Partial("_OrderSummary", Model.ShoppingCartModel)
+</div>
+<div class="wrapper_paiment_page" id="shopping-cart-container">
+    <div class="wrapper_main_data" id="payment-details-block">
+        <h2>Amazon Payment details</h2>
+        <div class="widgets">
+            <div id="addressBookWidget" class="amazon-widget address-widget"></div>
+            <div id="walletWidget" class="amazon-widget wallet-widget"></div>
+        </div>
+        <div class="radiobuttons_list amazon">
+        </div>
+        <div class="cart_wrapper">
+            <div class="error-wrapper amazon">
+                <div id="error-container" class="amazon-error-message error-messages" style="display: none;">
+                    <div>
+                        <div id="address-error" class="message-error" style="display: none;">
+                            <p>
+                                <span>Please select a Shipping Address</span>
+                            </p>
+                        </div>
+                        <div id="payment-method-error" class="message-error" style="display: none;">
+                            <p>
+                                <span>Please select a Payment Method</span>
+                            </p>
+                        </div>
+                        <div id="shipping-method-error" class="message-error" style="display: none;"></div>
+                        <div id="amazon-error-container" class="message-error" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="confirm-button-wrapper">
+                @using (Html.BeginRouteForm("SimpleCheckoutAmazonComplete", FormMethod.Post, new { id = "confirm-order-form" }))
+                {
+                    <input type="hidden" id="scriptsUrl" value="@Model.ScriptsUrl" />
+                    <input type="hidden" id="sellerId" value="@Model.SellerId" />
+                    <input type="hidden" id="clientId" value="@Model.ClientId" />
+                    <input type="hidden" id="orderReferenceId" name="orderReferenceId" value="@Model.OrderReferenceId" />
+                    <input type="hidden" id="accessToken" name="access_token" value="@Model.AccessToken" />
+                    <input type="hidden" id="selectedShippingMethod" name="selectedShippingMethod" />
+                    <div class="right_part amazon">
+                        <input type="submit" class="confirm-btn" value="Place your order" autofocus disabled="disabled" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_ShoppingCartItems", Model.ShoppingCartModel)
+    <div class="prop65-warning" display="@(Model.ShowProp65Warning ? "block" : "none")">
+        <img src="@Url.Content("~/Content/Images/misc/warning-logo.png")" />
+        <div class="prop65-text">
+            <span>Warning:</span>
+            <span>This products may contain a chemical know to the state of California to cause cancer and birth defects or other reproductive harm. For more information, go to</span>
+            <a href="https://www.p65warnings.ca.gov/" alt="Proposition 65 Warnings">www.p65warnings.ca.gov</a>
+        </div>
+    </div>
+</div>

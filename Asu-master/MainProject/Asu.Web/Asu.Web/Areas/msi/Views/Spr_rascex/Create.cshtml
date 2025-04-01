@@ -1,0 +1,248 @@
+﻿@model Asu.Web.Models.Spr_rascex
+@{
+    ViewBag.Title = "Добавить расцеховку";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<body>
+
+    <link href="~/Content/Create_Rascex.css" rel="stylesheet" />
+    <h2>Добавить расцеховку</h2>
+    <button class="gg">Сформировать</button>
+
+    <h1>Добавить</h1>
+    <input type="text" class="input_in">
+    @*<h2 align="center" class="title_spr">Добавить расцеховку</h2>*@
+    @using (Html.BeginForm("Create", "Spr_rascex", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form_body" }))
+    {
+        <input type="text" class="test" id="test"/>
+        <div class="wrapper">
+            <div class="form">              
+                <div class="block_ci">
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI11, "Цех изготовитель 11*", htmlAttributes: new { @class = "form_label", @for = "ci11" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI11, ViewBag.Cex as SelectList, " ", new { @class = "form_input_cii", @id = "ci11" })
+                        @Html.ValidationMessageFor(model => model.CI11, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI12, "Цех изготовитель 12", htmlAttributes: new { @class = "form_label", @for = "ci12" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI12, ViewBag.Cex as SelectList, " ", new { @class = "form_input_cii12", @id = "ci12" })
+                        @Html.ValidationMessageFor(model => model.CI12, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI13, "Цех изготовитель 1 3", htmlAttributes: new { @class = "form_label", @for = "ci13" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI13, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci13" })
+                        @Html.ValidationMessageFor(model => model.CI13, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI2, "Цех изготовитель 2", htmlAttributes: new { @class = "form_label", @for = "ci2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI2, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci2" })
+                        @Html.ValidationMessageFor(model => model.CI2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI3, "Цех изготовитель 3", htmlAttributes: new { @class = "form_label", @for = "ci3" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI3, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci3" })
+                        @Html.ValidationMessageFor(model => model.CI3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI4, "Цех изготовитель 4", htmlAttributes: new { @class = "form_label", @for = "ci4" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI4, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci4" })
+                        @Html.ValidationMessageFor(model => model.CI4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI5, "Цех изготовитель 5", htmlAttributes: new { @class = "form_label", @for = "ci5" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI5, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci5" })
+                        @Html.ValidationMessageFor(model => model.CI5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI6, "Цех изготовитель 6", htmlAttributes: new { @class = "form_label", @for = "ci6" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI6, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci6" })
+                        @Html.ValidationMessageFor(model => model.CI6, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI7, "Цех изготовитель 7", htmlAttributes: new { @class = "form_label", @for = "ci7" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI7, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci7" })
+                        @Html.ValidationMessageFor(model => model.CI7, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI8, "Цех изготовитель 8", htmlAttributes: new { @class = "form_label", @for = "ci8" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI8, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci8" })
+                        @Html.ValidationMessageFor(model => model.CI8, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI9, "Цех изготовитель 9", htmlAttributes: new { @class = "form_label", @for = "ci9" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI9, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci9" })
+                        @Html.ValidationMessageFor(model => model.CI9, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-item">
+                    @Html.LabelFor(model => model.CI10, "Цех изготовитель 10", htmlAttributes: new { @class = "form_label", @for = "ci10" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CI10, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "ci10" })
+                        @Html.ValidationMessageFor(model => model.CI10, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+                    @*<hr />*@     
+                <div class="block_cto">
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CTO, "Цех термообработки", htmlAttributes: new { @class = "form_label", @for = "cto" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CTO, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cto" })
+                            @Html.ValidationMessageFor(model => model.CTO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                    @*<hr />*@
+                <div class="block_cpk">
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CPK1, "Цех покрытия 1", htmlAttributes: new { @class = "form_label", @for = "cpk1" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CPK1, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cpk1" })
+                            @Html.ValidationMessageFor(model => model.CPK1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CPK2, "Цех покрытия 2", htmlAttributes: new { @class = "form_label", @for = "cpk2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CPK2, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cpk2" })
+                            @Html.ValidationMessageFor(model => model.CPK2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CPK3, "Цех покрытия 3", htmlAttributes: new { @class = "form_label", @for = "cpk3" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CPK3, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cpk3" })
+                            @Html.ValidationMessageFor(model => model.CPK3, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CPK4, "Цех покрытия 4", htmlAttributes: new { @class = "form_label", @for = "cpk4" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CPK4, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cpk4" })
+                            @Html.ValidationMessageFor(model => model.CPK4, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                    @*<hr />*@
+                <div class="block_cus">
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS1, "Цех услуг 1", htmlAttributes: new { @class = "form_label", @for = "cus1" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS1, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus1" })
+                            @Html.ValidationMessageFor(model => model.CUS1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CUS2, "Цех услуг 2", htmlAttributes: new { @class = "form_label", @for = "cus2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS2, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus2" })
+                            @Html.ValidationMessageFor(model => model.CUS1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS3, "Цех услуг 3", htmlAttributes: new { @class = "form_label", @for = "cus3" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS3, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus3" })
+                            @Html.ValidationMessageFor(model => model.CUS3, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS4, "Цех услуг 4", htmlAttributes: new { @class = "form_label", @for = "cus4" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS4, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus4" })
+                            @Html.ValidationMessageFor(model => model.CUS4, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS5, "Цех услуг 5", htmlAttributes: new { @class = "form_label", @for = "cus5" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS5, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus5" })
+                            @Html.ValidationMessageFor(model => model.CUS5, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS6, "Цех услуг 6", htmlAttributes: new { @class = "form_label", @for = "cus6" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS6, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus6" })
+                            @Html.ValidationMessageFor(model => model.CUS6, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS7, "Цех услуг 7", htmlAttributes: new { @class = "form_label", @for = "cus7" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS7, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus7" })
+                            @Html.ValidationMessageFor(model => model.CUS7, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS8, "Цех услуг 8", htmlAttributes: new { @class = "form_label", @for = "cus8" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS8, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus8" })
+                            @Html.ValidationMessageFor(model => model.CUS8, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS9, "Цех услуг 9", htmlAttributes: new { @class = "form_label", @for = "cus9" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS9, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus9" })
+                            @Html.ValidationMessageFor(model => model.CUS9, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        @Html.LabelFor(model => model.CUS10, "Цех услуг 10", htmlAttributes: new { @class = "form_label", @for = "cus10" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CUS10, ViewBag.Cex as SelectList, " ", new { @class = "form_input", @id = "cus10" })
+                            @Html.ValidationMessageFor(model => model.CUS10, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                    @*<hr />*@
+                    @*<div class="form-item">
+                        @Html.LabelFor(model => model.link_status, "Статус документа", htmlAttributes: new { @class = "form_label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.link_status, ViewBag.Status as SelectList, " ", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.ValidationMessageFor(model => model.link_status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+        <div>
+            <div align="center">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Создать" class="btn btn-default" />
+                </div>
+            </div>
+            <div align="center">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="reset" value="Очистить" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+<script src="~/Content/InputFormCex.js"></script>

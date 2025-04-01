@@ -1,0 +1,55 @@
+﻿.forum-edit-page {
+    background: url(/Themes/Autoplicity/Content/images/forum-footer-bg.gif) repeat-x center bottom;
+}
+
+.forum-edit-page .page-title {
+    background: url(/Themes/Autoplicity/Content/images/forum-header-bg.gif) repeat-x center;
+    border: 1px solid #ccc;
+    color: #FFF;
+    font-weight: 700;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+}
+
+.forum-edit-page .page-title h1 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.forum-edit-page .page-body {
+    padding: 5px;
+}
+
+.forum-edit-page .inputs {
+    padding: 5px 0;
+}
+
+.forum-edit-page .inputs label {
+    color: #666;
+    display: inline-block;
+    font-weight: 700;
+    width: 150px;
+}
+
+.forum-edit-page .inputs .toolbar {
+    display: block;
+    margin-left: 150px;
+}
+
+.forum-edit-page .inputs textarea {
+    margin-left: 150px;
+    width: 700px;
+}
+
+.forum-edit-page .field-validation-error {
+    display: block;
+    margin-left: 150px;
+}
+
+.forum-edit-page .buttons {
+    margin: 5px;
+    text-align: right;
+}

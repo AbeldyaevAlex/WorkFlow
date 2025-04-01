@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad01797331584e96bb53361da5c9ee9f" Name="Diagram1">
+        <EntityTypeShape EntityType="ASU_AVIAModel.Der_btp" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Der_izd" Width="1.5" PointX="8.25" PointY="315.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Dokum_Obosnov" Width="1.5" PointX="5.25" PointY="317.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Gos_ree" Width="1.5" PointX="5.25" PointY="321.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.GOST_mater" Width="1.5" PointX="5.25" PointY="313.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.GR_RAZDIZD" Width="1.5" PointX="11.25" PointY="316.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Grupp" Width="1.5" PointX="11.25" PointY="322.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Image_old" Width="1.5" PointX="11.25" PointY="312.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Image_old_v2" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Konserv" Width="1.5" PointX="8.25" PointY="324.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.M_Poverk" Width="1.5" PointX="8.25" PointY="310.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Mark_mater" Width="1.5" PointX="5.25" PointY="325.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Nazn_prib" Width="1.5" PointX="5.25" PointY="309.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Nm_mater" Width="1.5" PointX="14.25" PointY="317.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Nm_prib" Width="1.5" PointX="14.25" PointY="321.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Nm_vidiz" Width="1.5" PointX="11.25" PointY="326.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Period_pover" Width="1.5" PointX="14.25" PointY="313.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Podgr_prib" Width="1.5" PointX="25.5" PointY="306.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Podgrupp" Width="1.5" PointX="25.5" PointY="329.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Predpr_izg" Width="1.5" PointX="11.25" PointY="308.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Predpr_Postav" Width="1.5" PointX="14.25" PointY="325.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Raz_det" Width="1.5" PointX="14.25" PointY="308.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Rod_poverk" Width="1.5" PointX="5.25" PointY="329.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Role" Width="1.5" PointX="8.25" PointY="328.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Role_Mapping" Width="1.5" PointX="10.5" PointY="254.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Sort_Mater" Width="1.5" PointX="8.25" PointY="305.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_agr" Width="1.5" PointX="17.25" PointY="317.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_balsch" Width="1.5" PointX="17.25" PointY="322.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_cen_mater" Width="1.5" PointX="28.5" PointY="325" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_cena_del" Width="1.5" PointX="5.25" PointY="305.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_cex" Width="1.5" PointX="20.25" PointY="310.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_cex_prizn" Width="1.5" PointX="17.25" PointY="312.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_dse" Width="1.5" PointX="38" PointY="314.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_eizm" Width="1.5" PointX="17.25" PointY="327.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_GR_Mater" Width="1.5" PointX="17.25" PointY="307.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_GR_tematik" Width="1.5" PointX="11.25" PointY="330.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_kdan" Width="1.5" PointX="11.25" PointY="304.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_kgr" Width="1.5" PointX="14.25" PointY="330.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_klass_tochn" Width="1.5" PointX="14.25" PointY="303.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_kompl" Width="1.5" PointX="20.25" PointY="328.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_mash" Width="1.5" PointX="20.25" PointY="302.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_mash_sg" Width="1.5" PointX="17.25" PointY="332.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_mater" Width="1.5" PointX="8.25" PointY="332.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_METODIC" Width="1.5" PointX="17.25" PointY="302.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_metrol" Width="1.5" PointX="35.75" PointY="313.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_nm_task" Width="1.5" PointX="20.25" PointY="333.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_nmdet" Width="1.5" PointX="5.25" PointY="333.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_normali" Width="1.5" PointX="41" PointY="316.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_obozn" Width="1.5" PointX="35.75" PointY="324.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_obozn_mater" Width="1.5" PointX="44" PointY="311.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_obraz" Width="1.5" PointX="44" PointY="316.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.SPR_OGT" Width="1.5" PointX="25.5" PointY="316.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.SPR_OTS" Width="1.5" PointX="5.25" PointY="300.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_per_dok_ob" Width="1.5" PointX="38.75" PointY="309.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_Perizd" Width="1.5" PointX="23.25" PointY="315.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_PKP" Width="1.5" PointX="25.5" PointY="322.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_predel" Width="1.5" PointX="8.25" PointY="301.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_prim_dse" Width="1.5" PointX="30.5" PointY="314.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.SPR_PRKM" Width="1.5" PointX="11.25" PointY="335.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_prpokr" Width="1.5" PointX="11.25" PointY="299.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_pvi" Width="1.5" PointX="14.25" PointY="335.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_rasc_vert" Width="1.5" PointX="47" PointY="316.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_rascex" Width="1.5" PointX="33.5" PointY="312.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_rascex_poln" Width="1.5" PointX="41.75" PointY="300.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_Razd_DSE" Width="1.5" PointX="14.25" PointY="299.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_Razd_Izd" Width="1.5" PointX="23.25" PointY="324.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_razd_izm" Width="1.5" PointX="23.25" PointY="310.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_skm" Width="1.5" PointX="27.75" PointY="314.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.SPR_sortam" Width="1.5" PointX="23.25" PointY="328.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_specif" Width="1.5" PointX="38" PointY="325.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_stan" Width="1.5" PointX="23.25" PointY="305.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_Tehnizg" Width="1.5" PointX="23.25" PointY="332.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_tehnol_izgot_proizv" Width="1.5" PointX="23.25" PointY="300.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_tem" Width="1.5" PointX="8.25" PointY="337.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_tematik" Width="1.5" PointX="5.25" PointY="337.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_tto" Width="1.5" PointX="31" PointY="307.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_uch_cex" Width="1.5" PointX="28.5" PointY="309.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Spr_Zakaz" Width="1.5" PointX="17.25" PointY="297.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Status_dok" Width="1.5" PointX="3" PointY="440.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Tasks" Width="1.5" PointX="31.5" PointY="327.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Tip_pribora" Width="1.5" PointX="25.5" PointY="311.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Trud_ob" Width="1.5" PointX="44" PointY="325.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.User" Width="1.5" PointX="0.75" PointY="179.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Usl_expluat" Width="1.5" PointX="8.25" PointY="297.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Uvedomlenie_mater" Width="1.5" PointX="20.25" PointY="297.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Vid_izmer" Width="1.5" PointX="28.5" PointY="330.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Zayvka_mater" Width="1.5" PointX="23.25" PointY="336.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASU_AVIAModel.Temp_Spr_eizm" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_btp__link_rod__Der_btp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_agr__Spr_agr__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_grrazdizd__Gr_razdizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_izd__Spr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_komplekt__Spr_kompl__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_kts__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_razdizd__Raz_det__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_rod__Der_izd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Der_izd__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Dokum_Obosnov__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Dokum_Obosnov__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cen_mater__link_Obosnov__Dokum_Obosnov__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Gos_ree__link_status__Asu_Avia_Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Gos_ree_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_ree__Gos_ree__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GOST_mater__kink_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GOST_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_gost__GOST_mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZ__link_gol_sb__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZ__link_razdizd__Spr_razd_izd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZ__link_zakaz__Spr_zakaz__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZD__link_izd__Spr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZD__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_GR_RAZDIZD__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_grrazdizd__Gr_razdizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Grupp__link_status__Status_dok" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Podgrupp__link_vidiz__Grupp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Grupp_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Image_Mapping__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Image_Mapping__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Konserv__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Konserv_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_konserv__Konserv__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__M_Poverk__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_M_Poverk_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_mesto_poverk__M_Poverk__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Mark_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Mark_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_marka__Mark_mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Nazn_prib__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Nazn_prib_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_naznach__Nazn_prib__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Nm_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Nm_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_nm_skm__Nm_mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Nm_prib__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Podgr_prib__link_nmprib__Nm_prib__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Nm_prib_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Nm_vidiz__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Vid_izmer__link_nmvidiz__Nm_vidiz__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Nm_vidiz_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Period_po__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Period_pover_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_period_poverk__Period_pover__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Podgr_prib__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Podgr_prib__link_vidiz__Vid_izmer__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Podgr_prib_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Podgrupp__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Podgrupp_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link__podgrupp__Podgrupp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_group__Podgrupp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Predpr_izg__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Predpr_izg_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_predpr__Predpr_izg__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Predpr_Postav__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Predpr_Postav__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cen_mater_Predpr__link_Predpr__Postav__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Raz_det__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Raz_det__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_PKP_link_razd__Raz_det__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_razd_det__Raz_det__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Rod_pover__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Rod_poverk_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_rod_poverk__Rod_poverk__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Role_Mapp__Role___57FD0775" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Role__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Role_Status__link_status__dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Role_Mapp__User___5708E33C" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Sort_Mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Sort_Mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT__link_sort__Sort_Mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_agr__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_agr__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_balsch__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_balsch__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_balsch__Spr_balsch__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cen_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cen_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cen_mater__link_valuta__Spr_eizm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cena__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cena_del__link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Tip_pribora_link_cena_del__Spr_cena_del__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cex__link_cex_real__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cex__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cex__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__CP1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__CP2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__CP3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI10__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI11__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI12__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI13__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI5__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI6__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI7__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI8__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CI9__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CPK1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CPK2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CPK3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CPK4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CTO__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS10__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS5__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS6__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS7__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS8__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__CUS9__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI10__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI11__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI12__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI13__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI5__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI6__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI7__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI8__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CI9__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CP1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CP2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CP3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CPK1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CPK2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CPK3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CPK4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CTO__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS1__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS10__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS2__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS3__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS4__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS5__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS6__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS7__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS8__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__CUS9__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_cizg__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_uch_cex_link_cex_Spr_cex_id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_User__link_cex__Spr_cex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cex_prizn__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_cex_prizn__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rasc_vert__link_cex_prizn__Spr_cex_prizn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_km__Spr_skm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_nm_metodic__Spr_metodic__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_pkp__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_primdse__Spr_prim_dse__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_prkm__Spr_prkm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_rascex__Spr_rascex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_tema__Spr_tem__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_dse__tehn_izgot__Spr_Tehnizg__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_eizm__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_eizm__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_eizm__Spr_eizm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_GR_Mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_GR_Mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT__link_GR_Mater__Spr_GR_Mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_GR_Mater__Spr_GR_Mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_GR_tematik__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_GR_tematik__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kdan__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kdan__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_kdan__Spr_kdan__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kgr__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kgr__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_kgr__Spr_KGR__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Spr_klass_tochn__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_klass_tochn_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Tip_pribora_link_klass_tochn__Spr_klass_tochn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kompl__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_kompl__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_komplekt__Spr_kompl__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash__link_izd__Spr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash__link_zakaz__Spr_zakaz__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash_sg__link_izd__Psr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash_sg__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash_sg__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mash_sg__link_zakaz__Spr_zakaz__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn_mater__link_mater__Spr_mater__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_METODIC__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_METODIC__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_nm_metodic__Spr_metodic__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_nm_metodic__Spr_metodic__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_stan__Spr_stan__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_tip_pribora__Tip_pribora__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol__link_usl__Usl_expluat__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_metrol_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Spr_nm_ta__Id_Ro__52442E1F" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_nm_task__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_nm_task__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Task__link_nm_task__Spr_nm_task__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_nmdet__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_nmdet__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn__link_naim__Spr_nmdet__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_km__Spr_skm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_pkp__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_primdse__Spr_prim_dse__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_prkm__Spr_prkm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_rascex__Spr_rascex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_tema__Spr_tem__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_normali__tehn_izgot__Spr_Tehnizg__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn__link_pkp__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn_mater__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_kts__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_kts__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_obozn__Spr_obozn__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obozn_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_obozn_mater__Spr_obozn_mater_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_km__Spr_skm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_pkp__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_prkm__Spr_prkm" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_rascex__Spr_rascex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_status__Spr_status__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_tema__Spr_tem__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_obraz__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT__link_prkm__SPR_PRKM__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OGT_SPR_OGT" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_ogt__Spr_OGT__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OTS__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_OTS__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_ots__Spr_OTS__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_per_dok_ob__link_prim_dse__Spr_prim_dse__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_per_dok_ob__link_razd__Spr_razd_izm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_per_dok_ob__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_per_dok_ob__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Perizd__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Perizd__link_tema__Spr_tem__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Perizd__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_izd__Spr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_izd__Spr_perizd__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_PKP__link_razd_dse__Spr_Razd_DSE__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_PKP__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_PKP__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_pkp_T_TV__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_pkp__Spr_pkp__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_predel__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_predel_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Tip_pribora_link_predel__Spr_predel__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_rascizd__Spr_rascex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_specif__Spr_specif__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prim_dse__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Srr_prim_dse__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_PRKM__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_PRKM__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_prkm__Spr_prkm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_prkm__Spr_prkm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prpokr__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_prpokr__link_user__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_prpokr__Spr_prpokr__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_pvi__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_pvi__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rasc_vert__link_rascex__Spr_rascex_poln__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rasc_vert__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rasc_vert__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__link_rascex__Spr_rascex__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_rascex_poln__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Razd___link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Razd_DSE__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Spr_Razd_izd__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Razd_izd__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_razd_izm__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_razd_izm__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_skm__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_kod_komp__Spr_skm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_kod_TTO__Spr_skm__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_sortam__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_SPR_sortam__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_specif__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Spr_stan__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_stan_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Tehnizg__status_Id__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Tehnizg__user_Id__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tehnol_izgot_proizv__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tehnol_izgot_proizv__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tem__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tem__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tematik__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tematik__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_tto__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_uch_cex_link_status_Status_dok_id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_uch_cex_link_user_User_id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Zakaz__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Spr_Zakaz__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Usl_expluat__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK__Vid_izmer__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Status_dok__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Task__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Tip_pribora__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Uvedomlenie_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Zayvka_mater__link_status__Status_dok__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Task__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Tip_pribora_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Trud_ob__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Usl_expluat_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Uvedomlenie_mater__link_to_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Uvedomlenie_mater__link_user__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Vid_izmer_link_User__User__Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ASU_AVIAModel.FK_Zayvka_mater__link_user__User__Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

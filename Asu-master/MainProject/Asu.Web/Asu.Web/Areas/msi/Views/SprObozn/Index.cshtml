@@ -1,0 +1,233 @@
+﻿@model IEnumerable<Asu.Web.Models.Spr_Perizd>
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/TableStyle.css")" />
+@*<div>
+    @Html.DevExpress().Button(
+    settings =>
+    {
+        settings.Name = "btShowModal";
+        settings.ControlStyle.CssClass = "btn-add-izd";
+        settings.Text = "Выбрать изделие";
+        settings.Images.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsAdd16x16;
+        settings.ClientSideEvents.Click = "function(s, e) { pcModalMode.Show(); }";
+    }).GetHtml()
+    @*<table class="table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   @Html.DisplayFor(modelItem => item.izdelie).ToString()
+                </td>
+            </tr>
+        }
+
+    </table>*@
+@*</div>**@
+
+
+@section Head {
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/GridView.css")" />*@
+    <script type="text/javascript" src="@Url.Content("~/Content/GridView.js")"></script>
+}
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.ShowFooter = true;
+        settings.ShowHeader = true;
+        settings.ShowPinButton = true;
+        settings.FooterText = "ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+        settings.Name = "pcModalMode";
+        settings.Width = 320;
+        settings.AllowResize = true;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = AnimationType.Slide;
+        settings.HeaderText = "Создать запись";
+        settings.Modal = true;
+        settings.AutoUpdatePosition = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+            using (Html.BeginForm("Index", "Vib_Izd", FormMethod.Post))
+            {
+                @Html.DevExpress().ListBox(a =>
+                {
+                    a.Name = "ListIzdelia";
+                    a.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                    a.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                    a.Properties.EnableClientSideAPI = true;
+                    a.Properties.ValueField = "id";
+                    a.Properties.ValueType = typeof(string);
+                    a.Properties.Columns.Add("Spr_tem.nm_tem_p", "Тематика");
+                    a.Width = System.Web.UI.WebControls.Unit.Pixel(400);
+                }).BindList(Model).GetHtml();
+                @Html.DevExpress().ListBox(a =>
+                {
+                    a.Name = "ListTematic";
+                    a.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                    a.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                    a.Properties.EnableClientSideAPI = true;
+                    a.Properties.ValueField = "id";
+                    a.Properties.ValueType = typeof(string);
+                    a.Properties.Columns.Add("kod_izd", "Изделие");
+                    a.Width = System.Web.UI.WebControls.Unit.Pixel(400);
+                }).BindList(Model).GetHtml();
+                @Html.DevExpress().Button(settings1 =>
+                {
+                    settings1.Text = "Добавить";
+                    settings1.Name = "Create";
+                    settings1.UseSubmitBehavior = true;
+                }).GetHtml();
+            };
+        });
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+    }).GetHtml()
+@section PageToolbar {
+
+
+    @Html.DevExpress().Menu(menuSettings =>
+{
+    menuSettings.Name = "pageToolbar";
+
+    menuSettings.ItemAutoWidth = false;
+    menuSettings.AllowSelectItem = false;
+    menuSettings.ApplyItemStyleToTemplates = true;
+
+    menuSettings.SettingsAdaptivity.Enabled = true;
+    menuSettings.SettingsAdaptivity.EnableAutoHideRootItems = true;
+    menuSettings.SettingsAdaptivity.EnableCollapseRootItemsToIcons = true;
+    menuSettings.SettingsAdaptivity.CollapseRootItemsToIconsAtWindowInnerWidth = 600;
+
+    menuSettings.Width = Unit.Percentage(100);
+    menuSettings.ControlStyle.SeparatorWidth = Unit.Pixel(0);
+    menuSettings.ControlStyle.CssClass = "page-toolbar";
+
+    menuSettings.Styles.Item.CssClass = "item";
+    menuSettings.Styles.Item.VerticalAlign = VerticalAlign.NotSet;
+
+    menuSettings.Images.Item.Width = Unit.Pixel(16);
+    menuSettings.Images.Item.Height = Unit.Pixel(16);
+
+    menuSettings.Items.Add(item =>
+    {
+        item.Enabled = false;
+        item.SetTemplateContent(template => ViewContext.Writer.Write("<h1>Справочник обозначений</h1>"));
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "New";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        item.Image.Width = Unit.Pixel(16);
+        item.Image.Height = Unit.Pixel(16);
+        item.Image.Url = "~/Content/Images/plus.ico";
+    });
+    //menuSettings.Items.Add(item =>
+    //{
+    //    item.Name = "Edit";
+    //    item.Text = "";
+    //    item.Alignment = MenuItemAlignment.Left;
+    //    item.AdaptivePriority = 2;
+    //    item.Image.Url = "~/Content/Images/edit.svg";
+    //});
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Edit";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        //item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditCustomization16x16gray;
+        item.Image.Url = "~/Content/Images/edit.ico";
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Delete";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        item.Image.Url = "~/Content/Images/delete.svg";
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Specification";
+        item.Text = "Корректировать спецификацию";
+        item.Alignment = MenuItemAlignment.Right;
+        item.AdaptivePriority = 2;
+        item.Image.Url = "~/Content/Images/edit.svg";
+    });
+    //menuSettings.Items.Add(item =>
+    //{
+    //    item.Name = "vibIzd";
+    //    item.Text = "Выбор изделия";
+    //    item.Alignment = MenuItemAlignment.Left;
+    //    item.AdaptivePriority = 2;
+    //    item.Image.Url = "~/Content/Images/edit.svg";
+    //    item.DropDownMode = true;
+    //});
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "ToggleFilterPanel";
+        item.Text = "";
+        item.GroupName = "Filter";
+        item.Alignment = MenuItemAlignment.Right;
+        item.AdaptivePriority = 1;
+        item.Image.Url = "~/Content/Images/search.svg";
+        item.Image.UrlChecked = "~/Content/Images/search-selected.svg";
+    });
+    menuSettings.ClientSideEvents.ItemClick = "onPageToolbarItemClick";
+}).GetHtml()
+
+    @Html.DevExpress().Panel(panelSettings =>
+{
+    panelSettings.Name = "filterPanel";
+    panelSettings.Collapsible = true;
+    panelSettings.ControlStyle.CssClass = "filter-panel";
+
+    panelSettings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.Slide;
+    panelSettings.SettingsCollapsing.AnimationType = AnimationType.None;
+    panelSettings.SettingsCollapsing.ExpandButton.Visible = false;
+
+    panelSettings.SetContent(() =>
+    {
+        Html.DevExpress().ButtonEdit(buttonEditSettings =>
+        {
+            buttonEditSettings.Name = "searchButtonEdit";
+            buttonEditSettings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Always;
+            buttonEditSettings.Properties.Caption = "Search";
+            buttonEditSettings.Width = Unit.Percentage(100);
+        }).GetHtml();
+    });
+
+    panelSettings.ClientSideEvents.Expanded = "onFilterPanelExpanded";
+    panelSettings.ClientSideEvents.Collapsed = "adjustPageControls";
+}).GetHtml()
+}
+
+@*@section LeftPanelContent {
+    @Html.Partial("LeftPanelPartial")
+}*@
+
+@section RightPanelContent {
+    <div class="settings-content">
+        <h2>Settings</h2>
+        <p>Place your content here</p>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Action("GridViewPartial", "SprObozn")
+}
+
+
+

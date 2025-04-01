@@ -1,0 +1,29 @@
+﻿@*@if (ViewData["msg"] != null)*@
+    
+
+
+
+@*<h1>Запись сохранена</h1>*@
+
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "pcModalMode2";
+    settings.AllowResize = true;
+    settings.ShowHeader = true;
+    settings.ShowOnPageLoad = false;
+    settings.AllowDragging = true;
+    settings.CloseAction = CloseAction.OuterMouseClick;
+    settings.CloseOnEscape = false;
+    settings.Modal = false;
+
+    settings.SetContent(() =>
+    {
+        ViewContext.Writer.Write("Popup control content");
+    });
+}).GetHtml()
+
+
+<script type="text/javascript">
+        //alert("777");
+        pcModalMode2.Show();
+</script>

@@ -1,0 +1,239 @@
+﻿@using Asu.Web.ViewModel
+@using System.Web.UI.WebControls
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@model Asu.Web.Models.SubjectAndProductsViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutKendoForGrid.cshtml";
+    var subjectAndProduct = Model;
+}
+@using (Html.BeginForm("GetWorkshopPortfolioApi", "PortfolioApi", FormMethod.Get, new { id = "searchForm" }))
+{
+    <div style="margin-top: 10px; margin-bottom: 20px; padding: 0 0 10px 0;">
+        <div class="container">
+            <div class="block">
+                @Html.DropDownListFor(model => model.SubjecId, Model.ThemeList, "- Выбрать тему -", new { @class = "form-control", @id = "SubjecId", @name = "SubjecId" })
+                @Html.ValidationMessageFor(model => model.SubjecId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="block">
+                @Html.DropDownListFor(model => model.ProductId, new SelectList(" "), "- Выбрать изделие -", new { @class = "form-control", @id = "ProductId", @name = "ProductId" })
+            </div>
+            <div class="block">
+                @Html.DropDownListFor(model => model.Series, new SelectList(" "), "- Выбрать серию -", new { @class = "form-control", @id = "Series", @name = "Series" })
+
+            </div>
+            <div class="block">
+                @Html.DropDownListFor(model => model.srez_sostoyanieId, Model.AvaliableConditions, "- Выбрать Состояние -", new { @class = "form-control", @id = "srez_sostoyanieId", @name = "srez_sostoyanieId" })
+                @Html.ValidationMessageFor(model => model.srez_sostoyanieId, "", new { @class = "text-danger" })
+            </div>
+            @if (WorkContext.CurrentCustomer.IsAdmin())
+            {
+                <div class="block">
+                    @Html.DropDownListFor(model => model.WorkShopId, Model.AvaliableWorkShop, "- Выбрать Цех -", new { @class = "form-control", @id = "WorkShopId", @name = "WorkShopId" })
+                    @Html.ValidationMessageFor(model => model.WorkShopId, "", new { @class = "text-danger" })
+                </div>
+            }
+            <input type="submit" value="Search" />
+        </div>
+    </div>
+    @*<input type="text" name="searchTerm" id="searchTerm" />*@
+}
+<hr />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#SubjecId').change(function () {
+            $.get("/msi/WorkshopPortfolio/GetProductList", { SubjecId: $("#SubjecId").val() }, function (data) {
+                $('#ProductId').empty();
+                $.each(data, function (index, row) {
+                    $('#ProductId').append("<option value = '" + row.Id + "'>" + row.NmIzd + "</option>")
+                });
+            });
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ProductId').change(function () {
+            $.get("/msi/WorkshopPortfolio/GetSeriaList", { ProductId: $("#ProductId").val() }, function (data) {
+                $('#Series').empty();
+                $.each(data, function (index, row) {
+                    $('#Series').append("<option value = '" + row.NomMash + "'>" + row.NomMash + "</option>")
+                });
+            });
+        })
+    })
+</script>
+
+
+<h2>Портфель цеха</h2>
+<div id="grid"></div>
+<script>
+    $(document).ready(function () {
+        var ApiUrl = "http://localhost:60871/";
+        dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/api/GetWorkshopPortfolioApi",
+                    type: "GET",
+                    data: function () {
+                        return {
+                            SubjecId: $("#SubjecId").val(),
+                            ProductId: $("#ProductId").val(),
+                            Series: $("#Series").val(),
+                            srez_sostoyanieId: $("#srez_sostoyanieId").val(),
+                            WorkShopId: $("#WorkShopId").val()
+                        };
+                    }
+                },
+                update: {
+                    url: "/api/UpdateWorkshopPortfolioApi",
+                    type: "PUT",
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return {
+                                models: kendo.stringify(options.models)
+                            };
+                        }
+                    }
+                },
+            },
+
+            pageSize: 10,
+            schema: {
+                model: {
+                    id: "DirectiveWorkId",
+                    fields: {
+                        PotrtfolioObozn: { editable: false, nullable: false, type: "string", locked:true },
+                        Pkp: { editable: false, nullable: false, type: "string", locked: true },
+                        Kizd: { editable: false, nullable: false, type: "number", locked: true },
+                        Ss: { editable: false, nullable: false, type: "string" },
+                        Spo: { editable: false, nullable: false, type: "string" },                     
+                        Name: { editable: false, nullable: false, type: "string" },
+                        Mas1sh: { editable: false, nullable: false, type: "number" },
+                        MasIzd: { editable: false, nullable: false, type: "number" },
+                        RascexPoln: { editable: false, nullable: false, type: "string" },
+                        NameIzdel: { editable: false, nullable: false, type: "string" },
+                        NameRazdIzd: { editable: false, nullable: false, type: "string" },
+                        NameGroup: { editable: false, nullable: false, type: "string" },
+                        DirectiveWorkSdelnIzgOnUnit: { editable: true, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkSdelnIzgOnProduct: { editable: false, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkSdelnUslOnUnit: { editable: true, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkSdelnUslOnProduct: { editable: false, nullable: true, type: "number", format: "{0:n7}" },
+
+                        DirectiveWorkPovrIzgOnUnit: { editable: true, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkPovrIzgOnProduct: { editable: false, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkPovrUslOnUnit: { editable: true, nullable: true, type: "number", format: "{0:n7}" },
+                        DirectiveWorkPovrUslOnProduct: { editable: false, nullable: true, type: "number", format: "{0:n7}" },
+                        ExeptionOfWork: { editable: true, nullable: true, type: "string" }
+                    }
+                }
+            }
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            editable: "inline",
+            groupable: true,
+            filterable: true,
+            resizable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 10
+            },
+            //edit: function (e) {
+            //    e.container.find("input:first").hide();
+            //},
+            toolbar: [/*"create"*/],
+            columns: [
+                
+                { field: "PotrtfolioObozn", title: "Обозначение", width: "270px", locked: true },
+                { field: "Pkp", title: "ПКП", width: "80px", locked: true },
+                { field: "Kizd", title: "Кол-во на изделие", width: "175px", locked: true },
+                { field: "Ss", title: "Серия С", width: "125px" },
+                { field: "Spo", title: "Серия По", width: "125px" },                
+                { field: "Name", title: "Наименование", width: "200px" },
+                { field: "Mas1sh", title: "Масса на сборку", width: "100px" },
+                { field: "MasIzd", title: "Масса на изделие", width: "100px" },
+                { field: "RascexPoln", title: "Расцеховка", width: "200px" },
+                /*{ field: "NameIzdel", title: "Изделие", width: "100px" },*/
+                //{ field: "NameRazdIzd", title: "Наименование раздела", width: "100px" },
+                //{ field: "NameGroup", title: "Наименование группы", width: "100px" },
+                { field: "DirectiveWorkSdelnIzgOnUnit", title: "Труд сдельный изг.на ед.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkSdelnIzgOnProduct", title: "Труд сдельный изг.на иделие.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkSdelnUslOnUnit", title: "Труд сдельный усл.на ед.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkSdelnUslOnProduct", title: "Труд сдельный усл.на иделие.", width: "250px", format: "{0:n7}" },
+
+                { field: "DirectiveWorkPovrIzgOnUnit", title: "Труд повременный изг.на ед.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkPovrIzgOnProduct", title: "Труд повременный изг.на иделие.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkPovrUslOnUnit", title: "Труд повременный усл.на ед.", width: "250px", format: "{0:n7}" },
+                { field: "DirectiveWorkPovrUslOnProduct", title: "Труд повременный усл.на иделие.", width: "250px", format: "{0:n7}" },
+                { field: "ExeptionOfWork", title: "Исключение", width: "150px", editor: exeptionOfWorkDropDownEditor },
+                { command: ["edit"], title: "&nbsp;", width: "250px" },
+            ],
+        });
+        function exeptionOfWorkDropDownEditor(container, options) {
+            $('<input data-text-field="FullName" data-value-field="FullName" data-bind="value:' + options.field + '"/>')
+                .appendTo(container)
+                .kendoDropDownList({
+                    autoBind: false,
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "/api/GetException",
+                                datatypt: "json"
+                            }
+                        }
+                    }
+                });
+        }
+        $("#searchForm").submit(function (e) {
+            e.preventDefault();
+            $("#grid").data("kendoGrid").dataSource.read();
+        });
+    });
+
+</script>
+
+<style>
+    .k-window {
+        width: 300px !important;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .block {
+        flex: 1 1 calc(33.333% - 20px);
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+
+        .block input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

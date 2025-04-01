@@ -1,0 +1,81 @@
+﻿.email-a-friend-page .page-body {
+    padding: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.email-a-friend-page .page-title {
+    margin-bottom: 20px;
+}
+
+.email-a-friend-page .title {
+    margin-bottom: 20px;
+}
+
+.email-a-friend-page .product {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.email-a-friend-page .result {
+    font-weight: bold;
+}
+
+.email-a-friend-page .form-fields {
+    zoom: 1
+}
+
+.email-a-friend-page .form-fields:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.email-a-friend-page .inputs-left {
+    float: left;
+}
+
+.email-a-friend-page .inputs-right {
+    float: right;
+    width: 50%
+}
+
+.email-a-friend-page .inputs {
+    margin-bottom: 12px;
+}
+
+.email-a-friend-page .inputs label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.email-a-friend-page .inputs input {
+    padding: 0px 10px
+}
+
+.email-a-friend-page .captcha-box {
+    margin-bottom: 12px;
+}
+
+.email-a-friend-page .friend-email, .email-a-friend-page .your-email {
+    width: 250px;
+    padding: 1px;
+}
+
+.email-a-friend-page .personal-message {
+    width: 350px;
+    height: 150px;
+}
+
+.email-a-friend-page .buttons {
+    text-align: left;
+}
+
+.email-a-friend-page .field-validation-error {
+    display: block;
+}

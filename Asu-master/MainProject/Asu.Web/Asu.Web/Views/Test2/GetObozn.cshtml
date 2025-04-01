@@ -1,0 +1,47 @@
+﻿@using Asu.Web.Areas.TypicalTechnologicalOperations.Controllers
+@using Asu.Web.Models
+@using System.Data.Entity
+<script type="text/javascript">
+    function OnEndCallback(s, e) {
+        if (s.cpMessage) {
+            alert(s.cpMessage);
+            lblDevExpress.SetText("DevExpress Label: Updated Via DevExpress Client-Side API: " + s.cpMessage);
+            $("#lblStandard").text("Standard Label: Updated Via jQuery: " + s.cpMessage);
+            delete s.cpMessage;
+        }
+    }
+    function OnBeginCallback(s, e) {
+        if (e.command === "CUSTOMCALLBACK") {
+            e.customArgs["key"] = rowKeyValueToCopy;
+        }
+    }
+    function OnCustomButtonClick(s, e) {
+        rowKeyValueToCopy = s.GetRowKey(e.visibleIndex);
+        s.PerformCallback();
+    }
+</script>
+
+@Html.Action("GetOboznGridViewPartial")
+
+
+@Html.DevExpress().Label(lbl =>
+{
+    lbl.Name = "lblDevExpress";
+    lbl.Properties.EnableClientSideAPI = true;
+}).GetHtml()
+
+<br />
+
+<label id="lblStandard"></label>
+@*@model IQueryable<Spr_obozn>
+    @Html.DevExpress().PageControl(settings =>
+    {
+        settings.Name = "TabPanel";
+        settings.Width = Unit.Percentage(100);
+        settings.TabPages.Add("Типовые Технологические Операции").SetContent(() =>
+        {
+            Html.RenderPartial("_GetOboznGridViewPartial", Model);
+        });
+        settings.EnableClientSideAPI = true;
+        settings.ClientSideEvents.ActiveTabChanged = "OnActiveTabChanged";
+    }).GetHtml()*@

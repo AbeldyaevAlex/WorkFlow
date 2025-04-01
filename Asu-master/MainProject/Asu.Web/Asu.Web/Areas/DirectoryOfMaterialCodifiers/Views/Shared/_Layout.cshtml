@@ -1,0 +1,212 @@
+﻿@using Asu.Web.Model
+@using Asu.Core
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain.Common;
+@using System.Web.Optimization;
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8" />
+    <title>
+        @{ var pageTitleParts = new string[] { ViewBag.Title, "ASP.NET MVC Responsive Project Template | DevExpress" }; }
+        @string.Join(" - ", @pageTitleParts.Where(s => !string.IsNullOrEmpty(s)))
+    </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler }
+)
+    @Html.DevExpress().GetScripts(
+            new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+            new Script { ExtensionSuite = ExtensionSuite.Editors },
+            new Script { ExtensionSuite = ExtensionSuite.GridView },
+            new Script { ExtensionSuite = ExtensionSuite.Scheduler }
+    )
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Content.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Layout.css")" />
+    @Styles.Render("~/Content/kendocss")
+    @Scripts.Render("~/bundles/kendojs")
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @RenderSection("Head", false)
+    <script type="text/javascript" src="@Url.Content("~/Content/Script.js")"></script>
+
+
+
+    <link href="~/Content/FooterStyle.css" rel="stylesheet" />
+
+    <script>
+        // sending the __RequestVerificationToken value manually, see details: https://github.com/DevExpress/aspnet-security-bestpractices/tree/master/SecurityBestPractices.Mvc#4-preventing-cross-site-request-forgery-csrf
+        if (window.jQuery) {
+            $.ajaxPrefilter(function (options, originalOptions, xhr) {
+                if (options.dataType && options.dataType !== "html")
+                    return;
+                var tokenValue = $('input:hidden[name="__RequestVerificationToken"]').val();
+                if (tokenValue && options && options.data && options.data.indexOf('RequestVerificationToken') === -1)
+                    options.data += "&__RequestVerificationToken=" + tokenValue;
+            });
+        }
+    </script>
+</head>
+<body>
+    @{
+        var relativeUrl = this.Context.Request.Path;
+        var customerName = EngineContext.Current.Resolve<IWorkContext>().CurrentCustomer.ShippingAddress.FullNameForGrid;
+    }
+    @using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { id = "signOutForm" }))
+    {
+        @Html.AntiForgeryToken();
+    }
+    <div class="content-wrapper">
+        <div class="navbar navbar-inverse navbar-fixed-top nav-blue">
+            <div style="padding:0 0 0 15px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="dropdown">
+                        <button class="dropbtn">Вспомогательные справочники</button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Справочник ОГТ", "MainOgt", "DirectoryOgt", "DirectoryOfMaterialCodifiers", new { @target = "_blank" })
+                            @Html.ActionLink("Справочник групп материала", "Index", "Registration")
+                            @Html.ActionLink("Справочник наименований материала", "Index", "Registration")
+                            @Html.ActionLink("Справочник марок материала", "PlanSelection", "Form")
+                            @Html.ActionLink("Справочник признака кода материала", "About", "Home")
+                            @Html.ActionLink("Справочник ГОСТов", "Contact", "Home")
+                            @Html.ActionLink("Справочник едениц измерения", "Index", "Registration")
+                            @Html.ActionLink("Справочник кодов раскроя", "Index", "Registration")
+                            @Html.ActionLink("Справочник складов", "Index", "Registration")
+                            @Html.ActionLink("Справочник признаков покрытия", "Index", "Registration")
+                            @Html.ActionLink("Справочник сортаментов", "Index", "Registration")
+                            @Html.ActionLink("Справочник балансовых счетов", "Index", "Registration")
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    <div style="float:right;">
+                        <ul class="nav navbar-nav">
+                            @if (@User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    @Html.ActionLink(customerName, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                </li>
+                                <li>
+                                    <a class="nav navbar-nav" id="Logout" href="@Url.RouteUrl("Logout", new {returnUrl = relativeUrl})" rel="nofollow">Выйти</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    @Html.ActionLink("Выполнить вход", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                                </li>
+                                if (WorkContext.IsAdmin)
+                                {
+                                    <li>
+                                        @Html.ActionLink("Регистрация", "Register", "Customer", routeValues: null, htmlAttributes: new { id = "registrLink" })
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    @*@Html.Partial("_LoginPartial")*@
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="pageContent">
+            @RenderBody()
+        </div>
+        <footer>
+            <div class="footerUp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>DevExpress</h4>
+                            <p>DevExpress engineers feature-complete Presentation Controls, IDE Productivity Tools, Business Application Frameworks, and Reporting Systems for Visual Studio.</p>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <h4>Latest Posts</h4>
+                            <ul class="list-unstyled latestPosts">
+                                <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
+                                <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
+                                <li><a href="#">HTML5 Form Layout Widget</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-offset-1 col-md-3">
+                            <h4>Contact Us</h4>
+                            <ul class="list-unstyled">
+                                <li>505 N. Brand Blvd</li>
+                                <li>Glendale CA 91203 USA</li>
+                                <li>Phone: + 1 (818) 844 3383</li>
+                                <li>Mail: <a href="#">clientservices@devexpress.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerDown">
+                <div class="container">
+                    <p>@DateTime.Today.Year.ToString() &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        MVCxClientGlobalEvents.AddControlsInitializedEventHandler(onControlsInitialized);
+        ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(onBrowserWindowResized);
+    </script>
+</body>
+</html>
+<style>
+    .dropbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 260px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>
+

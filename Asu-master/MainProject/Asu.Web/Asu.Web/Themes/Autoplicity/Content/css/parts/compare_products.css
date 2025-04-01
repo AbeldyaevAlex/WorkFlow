@@ -1,0 +1,40 @@
+﻿.compare-products-page .page-title {
+    margin-top: 10px
+}
+
+.compare-products-page img {
+    max-width: 100%;
+    width: auto
+}
+
+.compare-products-page .page-body {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    color: #666;
+    background-color: inherit;
+}
+
+.compare-products-table {
+    margin-top: 10px;
+    width: 100%;
+    border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+.compare-products-table tr.product-name {
+    background-color: #fafafa;
+    font-weight: normal;
+}
+
+.compare-products-table td {
+    border: 1px solid #ccc;
+    vertical-align: top;
+    padding: 10px 5px;
+}
+
+.compare-products-table .clear-list {
+    float: right
+}

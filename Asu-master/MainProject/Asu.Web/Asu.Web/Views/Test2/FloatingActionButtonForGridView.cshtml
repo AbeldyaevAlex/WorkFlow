@@ -1,0 +1,183 @@
+﻿@{ Layout = null; }
+@*@model IEnumerable*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Floating Action Button - External FAB for GridView</title>
+    <style>
+        body, form {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .grid {
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main {
+            flex: 1 1 auto;
+        }
+
+        /*footer {
+            background-color: #4d4d4d;
+        }*/
+        .site-footer {
+            background-color: #808080;
+        }
+    </style>
+
+    <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function OnInit(s, e) {
+            s.SetFocusedRowIndex(-1);
+        }
+        function OnRowClick(s, e) {
+            if (s.IsNewRowEditing() || s.IsEditing())
+                e.cancel = true;
+            else
+                fab.SetActionContext("FocusedRowContext", true);
+        }
+        function OnActionItemClick(s, e) {
+            if (e.actionName === "NewRow") {
+                GridView.AddNewRow();
+                GridView.SetVerticalScrollPosition(0);
+            } else if (e.actionName === "EditRow") {
+                GridView.StartEditRow(GridView.GetFocusedRowIndex());
+                GridView.SetFocusedRowIndex(-1);
+            } else if (e.actionName === "DeleteRow") {
+                GridView.DeleteRow(GridView.GetFocusedRowIndex());
+                GridView.SetFocusedRowIndex(-1);
+            } else if (e.actionName === "Save") {
+                GridView.UpdateEdit();
+            } else if (e.actionName === "Cancel") {
+                GridView.CancelEdit();
+            }
+        }
+        function OnEndCallback(s, e) {
+            var isEditing = s.IsNewRowEditing() || s.IsEditing();
+            if (isEditing) {
+                fab.SetActionContext("CancelContext", true);
+                ASPxClientEdit.AttachEditorModificationListener(onEditorsChanged, function (control) {
+                    var parent = control.GetParentControl();
+                    if (parent && parent instanceof ASPxClientFormLayout)
+                        return parent.GetParentControl() === GridView;
+                    else
+                        return false;
+                });
+            }
+            else
+                fab.SetActionContext("NewRowContext");
+        }
+        function onEditorsChanged(s, e) {
+            fab.SetActionContext("EditingRowContext", true);
+        }
+        function OnActionCollapsing(s, e) {
+            if (e.contextName === "EditingRowContext")
+                s.ExpandActionGroupItems();
+            var isRowActionContext = e.contextName === "EditingRowContext" || e.contextName === "FocusedRowContext";
+            var isCollapsedByButton = e.collapseReason === ASPxClientFloatingActionButtonCollapseReason.CollapseButton;
+            if (isRowActionContext && isCollapsedByButton) {
+                setTimeout(function () {
+                    GridView.CancelEdit();
+                    GridView.SetFocusedRowIndex(-1);
+                    fab.SetActionContext("NewRowContext");
+                }, 100);
+            }
+        }
+
+        function UpdateGridHeight() {
+            GridView.SetHeight(0);
+            var containerHeight = ASPxClientUtils.GetDocumentClientHeight();
+            if (document.body.scrollHeight > containerHeight)
+                containerHeight = document.body.scrollHeight;
+            GridView.SetHeight(containerHeight);
+        }
+
+        window.addEventListener('resize', function (evt) {
+            ScrollIfNeeded();
+        });
+        function ScrollIfNeeded() {
+            if (ASPxClientUtils && !ASPxClientUtils.androidPlatform)
+                return;
+            var activeElement = document.activeElement;
+            if (!activeElement)
+                return;
+            var tagName = activeElement.tagName;
+            if (tagName != "INPUT" && tagName != "TEXTAREA")
+                return;
+            if (activeElement.scrollIntoViewIfNeeded)
+                window.setTimeout(function () { activeElement.scrollIntoViewIfNeeded(); }, 0);
+        }
+    </script>
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionType = ExtensionType.GridView }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionType = ExtensionType.GridView }
+    )
+</head>
+<body id="gridContainer">
+    <div class="wrapper">
+
+        @using (Html.BeginForm())
+        {
+            @Html.Action("FloatingActionButtonForGridViewPagePartial", "Test2")
+        }
+
+
+        <footer class="site-footer">
+
+            @Html.DevExpress().FloatingActionButton(
+     settings =>
+     {
+         settings.Name = "fab";
+         settings.ContainerElementID = "gridContainer";
+         settings.InitialActionContext = "NewRowContext";
+         settings.HorizontalMargin = 35;
+         settings.HorizontalPosition = FloatingActionButtonHorizontalPosition.Right;
+
+         settings.ClientSideEvents.ActionItemClick = "OnActionItemClick";
+         settings.ClientSideEvents.ActionCollapsing = "OnActionCollapsing";
+
+         settings.Items.Add(new FABAction("NewRowContext", "NewRow", "Add new row"));
+
+         settings.Items.Add(new FABAction("CancelContext", "Cancel", "", "~/Content/FloatingActionButton/Images/Cancel.svg"));
+
+         FABActionGroup focusedRowContext = new FABActionGroup() { ContextName = "FocusedRowContext" };
+         focusedRowContext.ExpandImage.Url = "~/Content/FloatingActionButton/Images/EditRowContext.svg";
+         settings.Items.Add(focusedRowContext);
+         focusedRowContext.Items.Add(new FABActionItem("DeleteRow", "~/Content/Images/delete.svg", "Delete"));
+         focusedRowContext.Items.Add(new FABActionItem("EditRow", "~/Content/Images/edit.svg", "Edit"));
+
+         FABActionGroup editingRowContext = new FABActionGroup() { ContextName = "EditingRowContext" };
+         settings.Items.Add(editingRowContext);
+         editingRowContext.Items.Add(new FABActionItem("Save", "~/Content/FloatingActionButton/Images/Save.svg", "Save"));
+     }).GetHtml()
+
+        </footer>
+
+    </div>
+
+
+    <script type="text/javascript">
+        ASPxClientControl.GetControlCollection().ControlsInitialized.AddHandler(function (s, e) {
+            UpdateGridHeight();
+        });
+        ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(function (s, e) {
+            UpdateGridHeight();
+        });
+    </script>
+</body>
+</html>

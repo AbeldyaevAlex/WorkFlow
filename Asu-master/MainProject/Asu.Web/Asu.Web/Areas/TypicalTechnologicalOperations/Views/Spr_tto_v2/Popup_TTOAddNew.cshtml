@@ -1,0 +1,26 @@
+﻿@using Asu.Web.Models
+
+@model Spr_tto
+@{
+    ViewBag.Title = "Добавить новое ТТО";
+}
+
+<h2>Добавить новое ТТО</h2>
+<div>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.link_kod_TTO, "Код ТТО", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("link_kod_TTO", (IEnumerable<SelectListItem>)ViewBag.full_km_tto, " ", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.link_kod_TTO, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.link_kod_komp, "Код компоненты", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("link_kod_komp", (IEnumerable<SelectListItem>)ViewBag.full_kod_komp, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.link_kod_TTO, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+</div>
+

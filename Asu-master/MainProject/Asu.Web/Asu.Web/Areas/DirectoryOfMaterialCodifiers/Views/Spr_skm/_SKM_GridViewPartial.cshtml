@@ -1,0 +1,88 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Spr_skm", Action = "SKM_GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_skm", Action = "SKM_GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_skm", Action = "SKM_GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_skm", Action = "SKM_GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("Id");
+        settings.Columns.Add("km");
+        settings.Columns.Add("dbt");
+        settings.Columns.Add("dsh");
+        settings.Columns.Add("ves");
+        //settings.Columns.Add("nraz_ogt");
+        //settings.Columns.Add("link_nm_skm");
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_nm_skm";
+            var x = columnSettings.Caption = "Наименование материала";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(300);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "nm_mater1";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetNmMater();
+        });
+        settings.Columns.Add("link_marka");
+        settings.Columns.Add("link_gost");
+        settings.Columns.Add("link_eizm");
+        settings.Columns.Add("link_kgr");
+        settings.Columns.Add("link_ots");
+        settings.Columns.Add("link_ogt");
+        settings.Columns.Add("link_balsch");
+        settings.Columns.Add("link_prkm");
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "link_status";
+        //    var x = columnSettings.Caption = "Статус документа";
+        //    columnSettings.Visible = true;
+        //    columnSettings.Width = Unit.Pixel(200);
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "status";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        //});
+        settings.Columns.Add("link_user");
+        settings.Columns.Add("operation");
+        settings.Columns.Add("operation_date");
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+        settings.Columns.Add("link_GR_Mater");
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
+@*@grid.BindToEF(string.Empty, string.Empty, (s, e) => {
+        e.KeyExpression = "Id";
+        e.QueryableSource = Model;
+    }).GetHtml()*@

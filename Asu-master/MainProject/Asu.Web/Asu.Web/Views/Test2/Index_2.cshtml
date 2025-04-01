@@ -1,0 +1,17 @@
+﻿
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl";
+    settings.CallbackRouteValues = new { Controller = "Test2", Action = "Index_2"};
+
+    settings.TabPages.Add("Tab 0").SetContent(() =>
+    {
+        Html.RenderAction("GridView21Partial", "Spr_cex");
+        ViewContext.Writer.Write("Page content 0");
+    });
+    settings.TabPages.Add("Tab 1").SetContent(() =>
+    {
+        ViewContext.Writer.Write("Page content 1");
+    });
+}).GetHtml()
+

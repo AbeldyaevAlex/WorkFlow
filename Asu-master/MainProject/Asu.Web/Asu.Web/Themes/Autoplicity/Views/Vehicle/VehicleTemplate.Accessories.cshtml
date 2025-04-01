@@ -1,0 +1,140 @@
+﻿@using System.Web.Optimization
+@using Asu.Core.Domain.Seo
+@using Asu.Core.Infrastructure
+
+@model Asu.Web.Models.Vehicles.VehicleAccessoriesModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    var metaTitle = !String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name;
+    Html.AddTitleParts(metaTitle);
+    Html.AddMetaDescriptionParts(String.IsNullOrEmpty(Model.MetaDescription) ? metaTitle : Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("VehicleSeo", new { SeName = Model.VehicleSeoModel.GetVehicleSeName() }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(categoryUrl);
+    }
+}
+
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hproduct-search") : Html.InlineStyles("~/styles/hproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/bproduct-search") : Html.InlineStyles("~/styles/bproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproduct-search") : Html.InlineStyles("~/styles/fproduct-search"))
+
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/product-search") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/product-search"))
+}
+
+<style>
+    .sub-category-grid {
+    }
+
+    .item-box {
+    }
+
+    .title {
+        /* float: left; */
+        background: none repeat scroll 0 0 #eee;
+        /* width: 250px; */
+        font-size: 12px;
+        font-weight: 700;
+        /* margin: 5px; */
+        /* padding: 5px; */
+        border-radius: 3px 3px 3px 3px;
+        cursor: pointer;
+        position: unset !important;
+        text-align: left !important;
+    }
+
+    .sub-category-item {
+        text-align: left !important;
+        margin: 10px;
+        width: 184px;
+        height: inherit !important;
+        position: relative;
+        display: block;
+    }
+
+
+    .sub-category-grid a {
+        color: #666;
+        display: inline-block;
+        float: none;
+        font-size: 1.0em;
+        font-weight: normal;
+        margin: auto;
+        vertical-align: middle;
+        text-align: left !important;
+        padding: 5px;
+        min-height: unset !important;
+    }
+
+    .sub-category-grid .sub-category-item .title a, .manufacturer-grid .manufacturer-item .title a {
+        text-align: left !important;
+        font-weight: normal;
+        font-size: 16px !important;
+        display: block;
+        overflow: hidden;
+        padding: 7px;
+        color: #666;
+        /* min-height: 40px; */
+        width: 100%;
+        line-height: 18px;
+    }
+</style>
+
+<div class="page category-page">
+    <div class="page-title">
+        <h1 style='margin: 0 8px 0 0; color: #4d83ac; font: 600 2.2em/1.2 "Roboto","Arial","Helvetica",sans-serif;'>@Model.Name</h1>
+    </div>
+    <div class="page-body">
+        @*description*@
+        @if (!String.IsNullOrWhiteSpace(Model.Description))
+        {
+            <div class="category-description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+        @*categories*@
+        @if (Model.Categories.Count > 0)
+        {
+            <div class="sub-category-grid">
+                @foreach (var item in Model.Categories)
+                {
+                    <div class="item-box">
+                        <div class="sub-category-item">
+                            <h2 class="title">
+                                <a href="@Url.RouteUrl("VehicleSeo", new { SeName = item.SeName })" title="@item.Name">
+                                    @item.Name
+                                </a>
+                            </h2>
+                            @foreach (var category in item.ChildCategories)
+                            {
+                                <a href="@Url.RouteUrl("VehicleSeo", new { SeName = category.SeName })" title="@category.Name">
+                                    @category.Name
+                                </a>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="no-subcategories-by-vehicle">There are no categories with products for selected vehicle.</div>
+        }
+        <div id="VehicleModel">
+            <h2>Featured Vehicles</h2>
+            <div id="tab-1" class="vehiclemakeaccessories-tab">
+                @Html.Partial("Accessories", Model.Vehicles)
+            </div>
+
+        </div>
+
+    </div>
+</div>

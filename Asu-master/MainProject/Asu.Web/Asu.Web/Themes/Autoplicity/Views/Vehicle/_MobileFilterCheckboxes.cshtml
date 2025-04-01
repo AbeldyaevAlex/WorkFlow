@@ -1,0 +1,310 @@
+﻿@model Asu.Web.Models.Vehicles.FilterSearchModel
+
+@using Asu.Core.Domain.Vehicles
+@using Asu.Services.Seo
+
+@if (Model.Products.Any())
+{
+    <div id="sortByBlock" class="sort-by search-filter-block" style="display: none;">
+        <div class="filterName minus">Sort by</div>
+        <ul id="sort-by" class="filterUl collapsed">
+            <li>
+                <div>
+                    <input type="radio" name="sorter" value="0" @(Model.PFC.Sort == ProductSortingEnum.Position ? "checked" : string.Empty) />Most Popular
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="sorter" value="10" @(Model.PFC.Sort == ProductSortingEnum.PriceAsc ? "checked" : string.Empty) />Lowest Price
+            </li>
+            <li>
+                <input type="radio" name="sorter" value="11" @(Model.PFC.Sort == ProductSortingEnum.PriceDesc ? "checked" : string.Empty) />Highest Price
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.OriginalSubCategories.Any() && Model.SelectedCategoryIdsArray.Count == 1 && Model.SelectedCategoryIdsArray.First() == Model.CId)
+{
+    <div id="sub-categories-block" class="sub-categories search-filter-block">
+        <div class="filterName minus">Section</div>
+        <ul id="sub-category-list" class="filterUl">
+            @foreach (var subCategory in Model.OriginalSubCategories)
+            {
+                <li>
+                    <span style="cursor:pointer;" class="sub-category-filter-link">@subCategory.Name</span>
+                    <a style="display:none;" href="@Url.RouteUrl("Category", new { SeName = SeoExtensions.GetSeName(subCategory.Id, "Category", 0) })">
+                        @subCategory.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@if (Model.FilterCategories.Any())
+{
+    <div class="filters--accordeon" @(Model.FilterCategories.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterCategoriesBlock" class="filters--accordeon-item">
+                @* TODO: add class 'active-item'*@
+                <div class="filters--accordeon-title filterName">
+                    <h6>Category</h6>
+                    @if (Model.SelectedCategoryIdsArray.Count > 0 && Model.SelectedCategoryIdsArray.First() != Model.CId)
+                    {
+                        <span>@Model.SelectedCategoryIdsArray.Count</span>
+                    }
+                </div>
+                <ul id="filterCategory" class="filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.FilterCategories)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.FilterManufacturers.Count > 0)
+{
+    <div class="filters--accordeon" @(Model.FilterManufacturers.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterManufacturerBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Manufacturer</h6>
+                    @if (Model.SelectedManufacturerIdsArray.Count > 0)
+                    {
+                        <span>@Model.SelectedManufacturerIdsArray.Count</span>
+                    }
+                </div>
+                @if (Model.SelectedManufacturerIdsArray.Count > 10)
+                {
+                    <div class="brand-search-infilter-block">
+                        <input id="brand-search-infilter" type="text" name="brand-search-infilter" value="" placeholder="Search..." />
+                    </div>
+                }
+                <ul id="filterManufacturer" class="filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.FilterManufacturers)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@*@if (Model.PriceRanges.Count > 0)
+    {
+        <div id="filterPricesBlock" style="display:none">
+            <label class="filterName">Prices</label>
+            @Html.CheckBoxList(model => model.PriceRanges, new { id = "filterPriceRange", @class = "filterUl collapsed" }, new { }, "disabled")
+        </div>
+    }*@
+@*@(Model.PriceRanges.Count == 1 ? "style=display:none" : string.Empty)*@
+
+@if (Model.TireRimSizeAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.TireRimSizeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireRimSizeBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Rim Size</h6>
+                    @if (Model.SelectedTireRimSizeAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedTireRimSizeAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireRimSize" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.TireRimSizeAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.PerformanceAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.PerformanceAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTirePerformanceBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Performance</h6>
+                    @if (Model.SelectedPerformanceAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedPerformanceAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTirePerformance" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.PerformanceAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.TireLoadAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.TireLoadAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireLoadBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Tire Load</h6>
+                    @if (Model.SelectedTireLoadAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedTireLoadAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireLoad" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.TireLoadAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.TireSpeedAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.TireSpeedAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireSpeedBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Tire Speed</h6>
+                    @if (Model.SelectedTireSpeedAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedTireSpeedAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireSpeed" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.TireSpeedAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.TreadTypeAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.TreadTypeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireTreadTypeBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Tread Type</h6>
+                    @if (Model.SelectedTreadTypeAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedTreadTypeAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireTreadType" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.TreadTypeAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.SidewallAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.SidewallAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireSidewallBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Sidewall</h6>
+                    @if (Model.SelectedSidewallAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedSidewallAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireSidewall" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.SidewallAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.LoadRangeAttributes.Any())
+{
+    <div class="filters--accordeon"  @(Model.LoadRangeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireLoadRangeBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>Load Range</h6>
+                    @if (Model.SelectedLoadRangeAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedLoadRangeAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterLoadRange" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.LoadRangeAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.UtqgAttributes.Any())
+{
+    <div class="filters--accordeon" @(Model.UtqgAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <ul class="filters--accordeon-items">
+            <li id="filterTireUtqgBlock" class="filters--accordeon-item search-filter-block">
+                <div class="filters--accordeon-title filterName">
+                    <h6>UTQG</h6>
+                    @if (Model.SelectedUtqgAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedUtqgAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterUtqg" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.UtqgAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.ServiceDescriptionAttributes.Any())
+{
+    <div class="filters--accordeon">
+        <ul class="filters--accordeon-items">
+            <li id="filterTireServiceDescriptionBlock" class="filters--accordeon-item search-filter-block" @(Model.ServiceDescriptionAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+                <div class="filters--accordeon-title filterName">
+                    <h6>Service Description</h6>
+                    @if (Model.SelectedServiceDescriptionAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedServiceDescriptionAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterServiceDescription" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.ServiceDescriptionAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.TireSizeAttributes.Any() && Model.V != null && Model.V.VehicleId > 0)
+{
+    <div class="filters--accordeon">
+        <ul class="filters--accordeon-items">
+            <li id="filterTireSizeBlock" class="filters--accordeon-item search-filter-block" @(Model.TireSizeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+                <div class="filters--accordeon-title filterName">
+                    <h6>Tire Size</h6>
+                    @if (Model.SelectedTireSizeAttributes.Count > 0)
+                    {
+                        <span>@Model.SelectedTireSizeAttributes.Count</span>
+                    }
+                </div>
+                <ul id="filterTireSize" class="search-filter-block filterUl filters--accordeon-options">
+                    @Html.Partial("_MobileCheckBoxListItems", Model.TireSizeAttributes)
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@*@if ((Model.MinPrice != null && Model.MaxPrice != null) || Model.PriceRanges.Count > 0)
+    {*@
+<div id="filterPricesBlock" class="search-filter-block">
+    <div class="filterName minus">Filter by Price</div>
+    <div id="filterPriceInput" class="filter-content-wrapper">
+        <input id="minPrice" type="text" value="@Model.MinPrice" placeholder="from, $" />
+        <input id="maxPrice" type="text" value="@Model.MaxPrice" placeholder="to, $" />
+        <button type="button" class="search-filter-btn" id="sortByPriceRange">Apply</button>
+    </div>
+</div>
+@*}*@

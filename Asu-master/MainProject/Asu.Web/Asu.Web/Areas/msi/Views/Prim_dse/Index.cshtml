@@ -1,0 +1,10 @@
+﻿@model IList<Asu.Web.Models.Spr_prim_dse>
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h2 align ="center">Применяемость:  @ViewData["obozn"] </h2>
+
+
+
+    @Html.Action("GridView1Partial")

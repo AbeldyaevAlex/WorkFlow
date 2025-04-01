@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetNomenclatureFromTreeProduct</title>
+</head>
+<body>
+    <h2>Номенклатура на изделие @ViewData["ProductSeries"]</h2>
+    <div style="padding: 20px 20px 20px 20px;">
+        <h2>Номенклатура на изделие @ViewData["ProductSeries"]</h2>
+        @Html.Action("GetNomenclatureFromTreeProductPartialView", "Nomenclature", "msi")
+    </div>
+</body>
+</html>

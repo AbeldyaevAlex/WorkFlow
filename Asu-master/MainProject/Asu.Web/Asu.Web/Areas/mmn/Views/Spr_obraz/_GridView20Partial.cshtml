@@ -1,0 +1,64 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView20";
+        settings.CallbackRouteValues = new { Controller = "Spr_obraz", Action = "GridView20Partial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_obraz", Action = "GridView20PartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_obraz", Action = "GridView20PartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_obraz", Action = "GridView20PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("link_pkp");
+        settings.Columns.Add("link_obozn");
+        settings.Columns.Add("link_cex");
+        settings.Columns.Add("link_km");
+        settings.Columns.Add("link_nm_metodic");
+        settings.Columns.Add("link_prkm");
+        settings.Columns.Add("bz");
+        settings.Columns.Add("lz");
+        settings.Columns.Add("nr");
+        settings.Columns.Add("vpost");
+        settings.Columns.Add("kobr");
+        settings.Columns.Add("kisp");
+        settings.Columns.Add("vpost_sh");
+        settings.Columns.Add("krat");
+        settings.Columns.Add("kol_p");
+        settings.Columns.Add("date_doc");
+        settings.Columns.Add("n_doc");
+        settings.Columns.Add("link_tema");
+        settings.Columns.Add("link_rascex");
+        settings.Columns.Add("link_status");
+        settings.Columns.Add("link_user");
+        settings.Columns.Add("operation");
+        settings.Columns.Add("operation_date");
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

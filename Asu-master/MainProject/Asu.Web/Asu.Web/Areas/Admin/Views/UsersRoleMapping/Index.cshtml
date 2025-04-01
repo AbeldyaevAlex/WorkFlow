@@ -1,0 +1,54 @@
+﻿@model Asu.Web.Models.AspNetUserRolesViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/multi-dropdownlist.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        select {
+            width: 40em
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "UsersRoleMapping", FormMethod.Post, htmlAttributes: new { @name = "select" }))
+    {
+        @*<div>
+            @Html.DropDownListFor(model => model.UserInfo, ViewBag.link_user as SelectList)
+        </div>*@
+        @*<div>
+            @Html.DropDownListFor(model => model.RoleInfo, ViewBag.link_role as SelectList, htmlAttributes: new { @name = "select", @multiple = "multiple" })
+        </div>*@
+
+    <div>
+        <div>
+            <select name="user_Id">
+                @foreach (var item in Model.UserInfo)
+                {
+                    <option value="@item.Id">@item.FullName</option>
+                }
+            </select>
+        </div>
+        <div>
+            <select name="arrayRoleId" multiple="multiple" multiselect-search="true" multiselect-select-all="true">
+                @foreach (var item in Model.RoleInfo)
+                {
+                    <option value="@item.Name">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+        <button align="center" type="submit">Ok</button>
+    }
+</body>
+</html>

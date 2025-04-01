@@ -1,0 +1,87 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutKendoForGrid.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        var ApiUrl = "http://localhost:60871/";
+        dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/api/GetWorkshopPortfolio",
+                    dataType: "json"
+                },
+                update: {
+                    url: "/api/UpdateWorkshopPortfolio",
+                    type: "PUT",
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return {
+                                models: kendo.stringify(options.models)
+                            };
+                        }
+                    }
+                },
+            },
+
+            pageSize: 20,
+            schema: {
+                model: {
+                    id: "DirectiveWorkId",
+                    fields: {
+                        PotrtfolioObozn: { editable: true, nullable: false, type:"string" },
+                        Pkp: { editable: true, nullable: false, type: "string" },
+                        DirectiveWorkSdelnIzgOnUnit: { editable: true, nullable: true },
+                    }
+                }
+            }
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            editable: "inline",
+            groupable: true,
+            filterable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 10
+            },
+            //edit: function (e) {
+            //    e.container.find("input:first").hide();
+            //},
+            toolbar: ["create"],
+            columns: [
+                { field: "PotrtfolioObozn", title: "PotrtfolioObozn", width: "120px" },
+                { field: "Pkp", title: "Pkp", width: "120px" },
+                { field: "DirectiveWorkSdelnIzgOnUnit", title: "DirectiveWorkSdelnIzgOnUnit", width: "120px" },
+                { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+            pageable: true,
+            height: 550,
+        }).data("kendoGrid");
+    });
+</script>
+
+
+<style>
+    .k-window {
+        width: 300px !important;
+    }
+</style>
+@using (Html.BeginForm("Index", "DirectiveWorks", FormMethod.Post, new { id = "EmpDetails" }))
+{
+    <div id="grid"></div>
+}
+
+
+
+
+
+
+
+
+
+

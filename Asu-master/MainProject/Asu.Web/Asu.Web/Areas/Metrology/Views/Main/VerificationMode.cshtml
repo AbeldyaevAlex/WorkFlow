@@ -1,0 +1,48 @@
+﻿@model Asu.Core.Domain.Msi.Spr_cex
+@using Asu.Core
+@using Asu.Core.Infrastructure
+@{
+    Layout = "~/Areas/Metrology/Views/Shared/_LayoutMetrologyPage.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Выбор</title>
+</head>
+<body>
+    <div class="row">
+        @{ Html.BeginForm("VerificationMode", "Main", FormMethod.Post);
+            <fieldset>
+                <h2 align="center">Введите режим работы</h2>
+                <div class="form-group">
+                    <div>
+                        @Html.DropDownListFor(model => model.Id, ViewBag.Cex as SelectList, "<-Введите участок->", new { @class = "form-control", @style = "max-width:100%; width:350px" })
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div>
+                        @Html.RadioButton("Parameter", "Поверка", true, new { @name = "Parameter" }) <span style="font-size:150%">Поверка</span>
+                    </div>
+                    @*<div>
+                            @Html.RadioButton("Parameter", "Поверка", false, new { @name = "Parameter" }) <span>Проверка</span>
+                        </div>*@
+                    <div>
+                        @Html.RadioButton("Parameter", "Калибровка", false, new { @name = "Parameter" }) <span style="font-size:150% ">Калибровка</span>
+                    </div>
+                </div>
+                <hr />
+            </fieldset>
+        }
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="signup"></label>
+        <div class="col-md-4">
+            <input type="submit" value="Ok" class="btn btn-success" />
+        </div>
+    </div>
+</body>
+</html>

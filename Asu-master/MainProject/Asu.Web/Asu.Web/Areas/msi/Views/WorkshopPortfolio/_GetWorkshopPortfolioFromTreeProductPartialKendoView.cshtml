@@ -1,0 +1,70 @@
+﻿@model WorkshopPortfolioViewModel
+@using Asu.Web.Models;
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Web.ViewModel;
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+}
+<div class="row table-responsive" style="padding-left: 0%">
+    <div class="col-12">
+        @(Html.Kendo().Grid<WorkshopPortfolioViewModel>()
+                .Name("grid")
+                .Columns(columns =>
+                {
+                    columns.Command(command => { command.Edit(); }).Width(250);
+                    columns.Bound(p => p.Workshop).Title("Цех").Filterable(true).Width(200).HeaderHtmlAttributes(new { @class = "grid-column" }).HtmlAttributes(new { @class = "grid-column-cell" });
+                    columns.Bound(p => p.PotrtfolioObozn).Title("Обозначение").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).HtmlAttributes(new { @class = "grid-column-cell" });
+                    columns.Bound(p => p.Pkp).Title("ПКП").Filterable(true).Width(80).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Ss).Title("Серия С").Filterable(true).Width(125).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Spo).Title("Серия По").Filterable(true).Width(125).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Kizd).Title("Кол-во на изделие").Filterable(true).Width(175).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Name).Title("Наименование").Filterable(true).Width(200).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Mas1sh).Title("Масса на сборку").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.MasIzd).Title("Масса на изделие").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.Kp1).Title("Kp1").Filterable(true).Width(24).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.Kp2).Title("Kp2").Filterable(true).Width(24).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.Kp3).Title("Kp3").Filterable(true).Width(24).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.RascexPoln).Title("Расцеховка").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" });
+                    columns.Bound(p => p.NameIzdel).Title("Изделие").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.NameRazdIzd).Title("Наименование раздела").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.NameGroup).Title("Наименование группы").Filterable(true).Width(100).HeaderHtmlAttributes(new { @class = "grid-column" }).Visible(false);
+                    columns.Bound(p => p.DirectiveWorkSdelnIzgOnUnit).Title("Труд сдельный изг.на ед.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}").HtmlAttributes(new { @class = "grid-column-cell" });
+                    columns.Bound(p => p.DirectiveWorkSdelnIzgOnProduct).Title("Труд сдельный изг.на иделие.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkSdelnUslOnUnit).Title("Труд сдельный усл.на ед.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkSdelnUslOnProduct).Title("Труд сдельный усл.на иделие.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkPovrIzgOnUnit).Title("Труд повременный изг.на ед.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkPovrIzgOnProduct).Title("Труд повременный изг.на иделие.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkPovrUslOnUnit).Title("Труд повременный усл.на ед.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.DirectiveWorkPovrUslOnProduct).Title("Труд повременный усл.на иделие.").Filterable(true).Width(250).HeaderHtmlAttributes(new { @class = "grid-column" }).Format("{0:n7}");
+                    columns.Bound(p => p.ExeptionOfWork).Title("Исключение").Filterable(true).Width(150).HeaderHtmlAttributes(new { @class = "grid-column" });
+                })
+                .Pageable().Sortable().Scrollable().Filterable().Selectable().Groupable()
+                .Editable(editable => editable.Mode(GridEditMode.InLine)).Resizable(resize => resize.Columns(true)).HtmlAttributes(new { style = "height:600px;" })
+                .DataSource(dataSource => dataSource
+                    .Ajax().Model(model =>
+                    {
+                        model.Id(p => p.PotrtfolioObozn);
+                    })
+                    .PageSize(15)
+                    .Read(read => read.Action("GetWorkshopPortfolioFromTreeProductPartialView", "WorkshopPortfolio", "msi"))
+                    .Update(Create => Create.Action("UpdateDirectiveWork", "WorkshopPortfolio", "msi"))
+                )
+            )
+    </div>
+</div>
+
+<style>
+    .grid-column {
+        overflow: visible;
+        text-align: center;
+        background-color: #f5f5f5;
+        text-align: center;
+        justify-content: center;       
+    }
+    .grid-column-cell {
+        white-space:nowrap;
+    }
+</style>
+
+

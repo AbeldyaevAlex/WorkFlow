@@ -1,0 +1,36 @@
+﻿@model WorkShopMemorandumBase
+@using Asu.Web.Models;
+@using Asu.Web.Models.Customer;
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+}
+
+@(
+                        Html.Kendo().Menu()
+                              .Name("menu")
+                              .HoverDelay(200)
+                              .Animation(animation =>
+                              {
+                                  animation.Open(open =>
+                                  {
+                                      open.Expand(ExpandDirection.Vertical);
+                                      open.Fade(FadeDirection.In);
+                                  });
+                              })
+                              .Orientation(MenuOrientation.Horizontal)
+                              .Items(item =>
+                              {
+                                  item.Add().Text("Overview");
+                                  item.Add().Text("Demos");
+                                  item.Add().Text("RoadMap")
+                                  .HtmlAttributes(new { @id = "RoadMap" })
+                                  .Items(children =>
+                                  {
+                                      children.Add().Text("New");
+                                      children.Add().Text("RoadMap");
+                                      children.Add().Text("History");
+                                  });
+                              })
+                      )

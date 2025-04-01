@@ -1,0 +1,247 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@model List<Asu.Web.Models.Spr_Perizd>
+@{
+    ViewBag.Title = "Состав изделия";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@Html.DevExpress().Button(settings_btn =>
+{
+    //settings_btn.Images.Image.Url = "~/Content/Images/add.svg";
+    settings_btn.Images.Image.IconID = IconID.ActionsAdd16x16gray;
+    settings_btn.Text = "Добавить расцеховку";
+    settings_btn.Name = "Btn";
+    settings_btn.ClientSideEvents.Click = string.Format("function(s, e) {{ window.open('{0}'); }}", @Url.Action("Index", "Spr_rascex", "msi_default"));
+}).GetHtml()*@
+
+<link rel="stylesheet" href="~/Content/LeftMenu.css" />
+@*<div class="wrapper">
+    <div class="burger-menu">
+        <a href="#" class="burger-menu-button"><span class="burger-menu-lines"></span></a>
+        <h3>Перечень изделий:</h3>
+        @foreach (var item in Model)
+        {
+            <ol>
+                @Html.DisplayFor(model => item.nm_izd)
+            </ol>
+        }
+    </div>
+    <div class="burger-menu-overlay">
+    </div>
+</div>
+<script src="~/Scripts/LeftMenu.js"></script>
+<script src="~/Scripts/TestScript.js"></script>*@
+
+
+
+
+<h1 align="center">Номенклатура ДСЕ</h1>
+@*@{var userName = ViewBag.Ips;}
+    @Html.Action("GridViewPartial", new { ID = userName })*@
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<script type="text/javascript" src="@Url.Content("~/Content/GridView.js")"></script>
+@Html.DevExpress().Menu(menuSettings =>
+{
+    menuSettings.Name = "pageToolbar";
+    menuSettings.SettingsAdaptivity.EnableCollapseToSideMenu = true;
+    menuSettings.Styles.Style.CssClass = "expandedPanel";
+    menuSettings.ItemAutoWidth = false;
+    menuSettings.AllowSelectItem = false;
+    menuSettings.ApplyItemStyleToTemplates = true;
+
+    menuSettings.SettingsAdaptivity.Enabled = true;
+    menuSettings.SettingsAdaptivity.EnableAutoHideRootItems = true;
+    menuSettings.SettingsAdaptivity.EnableCollapseRootItemsToIcons = true;
+    menuSettings.SettingsAdaptivity.CollapseRootItemsToIconsAtWindowInnerWidth = 600;
+
+    menuSettings.Width = Unit.Percentage(100);
+    menuSettings.ControlStyle.SeparatorWidth = Unit.Pixel(0);
+    //menuSettings.ControlStyle.CssClass = "page-toolbar";
+
+    menuSettings.Styles.Item.CssClass = "item";
+    menuSettings.Styles.Item.VerticalAlign = VerticalAlign.NotSet;
+
+    menuSettings.Images.Item.Width = Unit.Pixel(16);
+    menuSettings.Images.Item.Height = Unit.Pixel(16);
+
+    //menuSettings.Target = 
+
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "New";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        item.Image.Width = Unit.Pixel(16);
+        item.Image.Height = Unit.Pixel(16);
+        item.Image.Url = "~/Content/Images/plus.ico";
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Edit";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        //item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditCustomization16x16gray;
+        item.Image.Url = "~/Content/Images/edit.ico";
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Delete";
+        item.Text = "";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        item.Image.Url = "~/Content/Images/delete.svg";
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Specification";
+        item.Text = "Спецификация";
+        item.Alignment = MenuItemAlignment.Left;
+        item.AdaptivePriority = 2;
+        //item.Image.Url = "~/Content/Images/edit.svg";
+        item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsSelectall16x16;
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Collapse";
+        item.Text = "Свернуть";
+        item.Alignment = MenuItemAlignment.Right;
+        item.AdaptivePriority = 2;
+        //item.Image.Url = "~/Content/Images/edit.svg";
+        item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.SpreadsheetCollapsefieldpivottableSvgWhite16x16;
+    });
+    menuSettings.Items.Add(item =>
+    {
+        item.Name = "Expand";
+        item.Text = "Развернуть";
+        item.Alignment = MenuItemAlignment.Right;
+        item.AdaptivePriority = 2;
+        //item.Image.Url = "~/Content/Images/edit.svg";
+        item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsExpandcollapse16x16devav;
+    });
+    //menuSettings.Items.Add(new MVCxMenuItem() { Text = "Добавить расцеховку", Target = "_blank", NavigateUrl = Url.Action("Index", "Spr_rascex", "msi_default") });
+
+    //menuSettings.Items.Add(item =>
+    //{
+    //    item.Name = "Rascex";
+    //    item.Text = "Добавить расцеховку";
+    //    item.Alignment = MenuItemAlignment.Left;
+    //    item.AdaptivePriority = 2;
+    //    item.Target = "_blank";
+    //    item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsRight16x16;
+    //    item.NavigateUrl = Url.Action("Index", "Spr_rascex", "msi_default");
+    //});
+    menuSettings.Items.Add(item =>
+    {
+        item.Text = "Справочники";
+        item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+        item.Items.Add(subItem =>
+        {
+            subItem.Text = "Расцеховок";
+            subItem.Target = "_blank";
+            subItem.NavigateUrl = Url.Action("Index", "Spr_rascex", "msi_default");
+            subItem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.XafStateTaskCompletedSvgGray16x16;
+        });
+        item.Items.Add(subItem =>
+        {
+            subItem.Text = "Цехов";
+            subItem.Target = "_blank";
+            subItem.NavigateUrl = "~/Spr_cex/Index";
+            subItem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.XafStateTaskCompletedSvgGray16x16;
+        });
+    });
+
+
+
+
+
+
+
+    //menuSettings.Items.Add(item =>
+    //{
+    //    item.Name = "ToggleFilterPanel";
+    //    item.Text = "";
+    //    item.GroupName = "Filter";
+    //    item.Alignment = MenuItemAlignment.Right;
+    //    item.AdaptivePriority = 1;
+    //    item.Image.Url = "~/Content/Images/search.svg";
+    //    item.Image.UrlChecked = "~/Content/Images/search-selected.svg";
+    //});
+    menuSettings.ClientSideEvents.ItemClick = "onPageToolbarItemClick";
+    //ViewContext.Writer.Write(string.Format("<div class = 'options-item'>"));
+
+    //ViewContext.Writer.Write(string.Format("</br>"));
+    //ViewContext.Writer.Write(string.Format("</br>"));
+    //Html.DevExpress().Button(s =>
+    //{
+    //    s.Name = "ButtonExpand";
+    //    s.Text = "Развернуть все вкладки";
+    //    s.Width = Unit.Pixel(180);
+    //    s.UseSubmitBehavior = false;
+    //    s.ClientSideEvents.Click = "function() {gridView.ExpandAll() }";
+    //}).GetHtml();
+    //ViewContext.Writer.Write(string.Format("</br>"));
+    //ViewContext.Writer.Write(string.Format("</br>"));
+}).GetHtml()
+@*@Html.DevExpress().Panel(panel =>
+{
+    panel.Name = "Panel";
+    panel.Width = Unit.Percentage(100);
+    panel.SetContent(() =>
+    {
+        Html.DevExpress().Button(s =>
+        {
+            s.Name = "ButtonExpand";
+            s.Text = "Развернуть все вкладки";
+            s.Width = Unit.Pixel(180);
+            s.UseSubmitBehavior = false;
+            s.ClientSideEvents.Click = "function() {gridView.ExpandAll() }";
+        }).GetHtml();
+    });
+    Html.DevExpress().Button(s =>
+    {
+        s.Name = "ButtonCollapse";
+        s.Text = "Свернуть все вкладки";
+        s.Width = Unit.Pixel(180);
+        s.UseSubmitBehavior = false;
+        s.ClientSideEvents.Click = "function() {gridView.CollapseAll() }";
+    }).GetHtml();
+}).GetHtml()*@
+
+@*@{var userName = ViewBag.Ips;}*@
+@Html.Action("GridViewPartial"@*, new { ID = userName }*@)
+
+@section RightPanelContent {
+    Информация о рабочем месте.
+    <div style="border: 2px solid;">
+        @Environment.UserName
+        <br />
+        @Environment.MachineName
+        <br />
+        @Environment.OSVersion
+        <br />
+        @Environment.UserDomainName
+        <br />
+        @System.Net.Dns.GetHostName();
+        <br />
+        Ip:  @Request.UserHostAddress;
+    </div>
+}
+@section LeftPanelContent {
+        <div >
+            <h3>Перечень изделий:</h3>
+            @foreach (var item in Model)
+            {
+                <ol>
+                    @Html.DisplayFor(model => item.nm_izd)
+                </ol>
+            }
+        </div>
+    }
+
+@*@section PageToolbar{
+
+    }*@

@@ -1,0 +1,72 @@
+﻿.contact-page {
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    padding: 30px
+}
+
+.contact-page .page-body {
+    margin-bottom: 15px;
+}
+
+.contact-page .result {
+    font-weight: bold;
+}
+
+.contact-page .form-fields {
+    zoom: 1;
+}
+
+.contact-page .form-fields:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.contact-page .inputs-left {
+    float: left;
+    width: 50%
+}
+
+.contact-page .inputs-right {
+    float: right;
+    width: 50%
+}
+
+.contact-page .inputs {
+    margin-bottom: 12px;
+}
+
+.contact-page .inputs label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-page .captcha-box {
+    margin-bottom: 12px;
+}
+
+.contact-page .fullname {
+    width: 250px;
+    padding: 1px;
+    padding: 0 10px;
+}
+
+.contact-page .email {
+    width: 250px;
+    padding: 1px;
+    padding: 0 10px;
+}
+
+.contact-page .enquiry {
+    width: 90%;
+    height: 150px;
+    padding: 10px;
+}
+
+.contact-page .buttons {
+    text-align: left;
+}

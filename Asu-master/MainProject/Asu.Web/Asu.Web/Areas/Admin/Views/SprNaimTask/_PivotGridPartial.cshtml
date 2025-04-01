@@ -1,0 +1,20 @@
+@Html.DevExpress().PivotGrid(settings => {
+    settings.Name = "PivotGrid";
+    settings.CallbackRouteValues = new { Controller = "SprNaimTask", Action = "PivotGridPartial" };
+
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Id";
+        field.Caption = "Id";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Task";
+        field.Caption = "Task";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Naim_task";
+        field.Caption = "Naim_task";
+    });
+	}).Bind(Model).GetHtml()

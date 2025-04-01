@@ -1,0 +1,798 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@*@model Asu.Core.Domain.DirectoryOfMaterialCodifiers.MemoAddingMaterialCode*@
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@using Asu.Core.Domain.Customers
+@{
+    Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+    ViewBag.Title = "Служебные записки на добавление материала";
+}
+<link rel="stylesheet" href="~/Content/LeftMenu.css" />
+<div class="wrapper">
+    <div class="burger-menu">
+        <h2 align="center">Наименование материала</h2>
+        @*<a href="#" class="burger-menu-button"><span class="burger-menu-lines"></span></a>*@
+        @Html.Partial("_NmSkmGridViewPartial");
+    </div>
+</div>
+<script src="~/Scripts/TestScript.js"></script>
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+
+@{
+    object __model = null; // на случай передачи дефолтной модели
+}
+<div class="back-to-tiles">
+    <div class="search">
+        <div class="place-left">
+            @*<a class="back-button page-back place-left push-content" href="@(__model ?? Url.Action("Index", "Home", new { Area = String.Empty }))"></a>*@
+            <a class="place-left push-content" href="@(__model ?? Url.Action("Index", "Home", new { Area = String.Empty }))"><h2 class="place-left">@ViewBag.Title</h2></a>
+        </div>
+    </div>
+</div>
+
+
+
+@*@Html.HiddenFor(x => x.MarkaMater)*@
+
+@*<div class="row table-responsive" style="padding-left: 0%">
+    <div class="col-12">*@
+@(Html.Kendo().Grid<Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel>()
+
+                    .Name("grid")
+                    .Columns(columns =>
+                    {
+                        columns.Command(command =>
+                        {
+                            if (WorkContext.CurrentCustomer.IsAdmin())
+                            {
+                                command.Edit().Text("Корректировка");
+                                command.Destroy().Text("Удалить").HtmlAttributes(new { title = "Удалить" });
+                                //command.Custom("MemoAtWork").Text("Принять").Click("showDetails");
+                                //command.Custom("СфтсудAtWork").Text("Отказаться").Click("showDetails");
+                                //command.Custom("ReturnAtWork").Text("Вернуть").Click("showDetails");
+                            }
+                        }).Width(250).HeaderHtmlAttributes(new { /*@class = "header-grid"*/ }).Locked(false);
+
+
+                        columns.Bound(p => p.Id)
+                                .Title("")
+                                .ClientTemplate(@"<div class='product-photo'
+                                                style='background-image: url(" + @Url.Content("~/Content/PkpImage/material.png") + ");'></div>")
+                               .Width(50)
+                               .HeaderHtmlAttributes(new { /*@class = "header-grid"*/ })
+                               .Filterable(false)
+                               .Locked(false);
+
+                        columns.Bound(p => p.NoMemorandumLine).Width(90).Title("№ С/З")
+                               .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center"/* @class = "header-grid" */})
+                               .Locked(false)
+                               .Lockable(false);
+                        //columns.Bound(p => p.InTheUsersWorkId).Width(90).Title("В работе у пользователя")
+                        //        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center"/* @class = "header-grid" */})
+                        //        .Locked(false)
+                        //        .Lockable(false);
+                        columns.Bound(p => p.Status)
+                                .Width(150)
+                                .Title("Статус")
+                                .EditorTemplateName("TypeEditor")
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+                        columns.Group(g => g.Title("Группа ОГТ")
+           .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+           .Columns(location =>
+           {
+               location.Bound(p => p.OGT).Width(120).Title("Раздел ОГТ")
+               .Locked(false)
+               .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+               .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+               location.Bound(c => c.NaimOgt).Title("Наименование ОГТ")
+                                  .Width(200)
+                                  .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                  .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+               location.Group(group => group.Title("Группа Материалов").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                                  .Columns(sublocation =>
+                                  {
+                                      sublocation.Bound(c => c.NomerGrMater)
+                                                        .Width(100)
+                                                        .Title("№ Группы")
+                                                        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                                        .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+                                      sublocation.Bound(c => c.GrMater).Width(200).Title("Наименование Группы")
+                                                        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                                        .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+                                  })
+                      );
+               location.Group(group => group.Title("Группа признак КМ").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                                  .Columns(sublocation =>
+                                  {
+                                      sublocation.Bound(c => c.PrkmOgt)
+                                                             .Width(100)
+                                                             .Title("Признак КМ")
+                                                             .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                                             .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+                                      sublocation.Bound(c => c.NmPrkmOgt).Width(200).Title("Наименование Признака КМ")
+                                                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                                            .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" });
+                                  })
+          );
+               location.Bound(p => p.Sortament).Width(120).Title("Сортамент КМ")
+                                   .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" });
+               location.Bound(p => p.KsimKm).Width(120).Title("Кол-во символов")
+                                   .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" });
+           })
+);
+                        columns.Bound(p => p.NameMaterial)
+                                .Width(370)
+                                .Title("Наименование материала")
+                                .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial" })
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" /*@class = "header-grid"*/ })
+                                .Locked(false);
+                        columns.Bound(p => p.MarkaMater)
+                                .Width(150)
+                                .Title("Марка материала")
+                                .Locked(false)
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" /*@class = "header-grid"*/ });
+                        columns.Bound(p => p.Gost)
+                                .Width(200)
+                                .Title("ГОСТ")
+                                .Locked(false)
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                                .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial"});
+
+
+                        columns.Bound(p => p.Km).Width(130).Title("Код материала")
+                                .HtmlAttributes(new { style = "white-space: nowrap;", @class = "Km", @id = "Km" })
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;"/* @class = "header-grid" */})
+                                .Locked(false)
+                                .Lockable(false);
+                        columns.Bound(p => p.Prkm)
+                                .Width(100)
+                                .Title("Признак кода")
+                                .Locked(false)
+                                .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+
+
+                        columns.Group(g => g.Title("Типоразмеры")
+                               .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                               .Columns(location =>
+                               {
+                                   location.Bound(p => p.Dbt)
+                                            .Width(110)
+                                            .Title("Диаметр, Высота")
+                                            .Locked(false)
+                                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+                                   location.Bound(p => p.Dsh)
+                                            .Width(100)
+                                            .Title("Длина, Ширина")
+                                            .Locked(false)
+                                            .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+                               })
+                               );
+
+
+
+
+                        columns.Bound(p => p.KratNaimEizm)
+                                    .Width(115)
+                                    .Title("Ед. измерения")
+                                    .Locked(false)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center;white-space: wrap;" /*@class = "header-grid"*/ });
+                        columns.Bound(p => p.Ves)
+                                    .Format("{0:n7}")
+                                    .Width(100)
+                                    .Title("Вес")
+                                    .Locked(false)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" /*@class = "header-grid"*/ });
+
+                        columns.Bound(p => p.Kgr)
+                                    .Width(200)
+                                    .Title("Код групповвода")
+                                    .Locked(false)
+                                    .Hidden(true)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                                    .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+                        columns.Bound(p => p.Ots)
+                                    .Width(100)
+                                    .Title("ОТС")
+                                    .Hidden(true)
+                                    .Locked(false)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                                    .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+
+                        columns.Bound(p => p.BalSch)
+                                    .Width(100)
+                                    .Title("№ Счета")
+                                    .Locked(false)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center; white-space: wrap;" })
+                                    .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+                        //columns.Bound(p => p.GrMater)
+                        //        .Width(200)
+                        //        .Title("Группа материалов")
+                        //        .Locked(false)
+                        //        .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" })
+                        //        .HtmlAttributes(new { style = "white-space: nowrap;"/*, @class = "NameMaterial"*/ });
+                        columns.Bound(p => p.Comment).Width(300).Title("Комментарий").HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+                        columns.Bound(p => p.FullCustomerName)
+                                    .Width(130)
+                                    .Title("Составитель")
+                                    .HtmlAttributes(new { style = "white-space: nowrap;", @class = "NameMaterial", @id = "autocomplete" })
+                                    .HeaderHtmlAttributes(new { /*@class = "header-grid"*/ });
+
+                        columns.Bound(p => p.PeriodOpenDate)
+                                    .Format("{0:dd.MM.yyyy}")
+                                    .Width(120)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+                        columns.Bound(p => p.PeriodCloseDate)
+                                    .Format("{0:dd.MM.yyyy}")
+                                    .Width(120)
+                                    .HeaderHtmlAttributes(new { style = "text-align: center; justify-content: center" });
+                    })
+                //.CellAction(cell =>
+                //{
+                //    if (cell.Column.Member == "MarkaMater")
+                //    {
+                //        if (cell.DataItem.MarkaMater == "МЛТ-2-1,5М")
+                //        {
+                //            //Set the background of this cell only
+                //            cell.HtmlAttributes["style"] = "background:red;";
+                //        }
+                //    }
+                //})
+                .ToolBar(tools =>
+                {
+                    tools.Create().HtmlAttributes(new {@id = "Submit", @name = "Submit" });
+                    //tools.Save();
+                })
+
+                 .Pageable(pageable => pageable.Refresh(true).Input(true).Numeric(true))
+                 .Sortable(sorting => sorting.Enabled(true))
+                 .Navigatable(navigation => navigation.Enabled(true))
+                 ////.ClientAltRowTemplate("altRowTemplate")
+                 .Scrollable()
+                 .Filterable()
+                 .Selectable()
+                 .Groupable()
+
+                 //.RowAction(row => row.DataItem.)
+                 //.Events(events => events.Change("onChange"))
+
+                 .ColumnMenu()
+                 .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+                 .Resizable(resize => resize.Columns(true))
+                 .HtmlAttributes(new { style = "height:750px;" })
+                 .DataSource(dataSource => dataSource
+                 .Ajax().Model(model =>
+                 {
+                     model.Id(p => p.Id);
+                     model.Field(p => p.Id).Editable(false);
+                     model.Field(p => p.PeriodOpenDate).Editable(false);
+                     model.Field(p => p.PeriodCloseDate).Editable(false);
+                     model.Field(p => p.FullCustomerName).Editable(false);
+                     model.Field(p => p.Status).Editable(false);
+                     model.Field(p => p.NoMemorandumLine).Editable(false);
+                 })
+                 .PageSize(500)
+                //.Read(read => read.Action("ReadMemorandumMaterialCode", "Skm"))
+
+                .Read(read =>
+                {
+                    if (WorkContext.CurrentCustomer.IsAdmin())
+                    {
+                        read.Action("ReadMemorandumMaterialCode", "Skm");
+                    }
+                    else
+                    {
+                        read.Action("ReadMemorandumMaterialCode", "Skm");
+                    }
+                })
+
+
+
+                .Create(create => create.Action("AddMemorandumMaterialCode", "Skm"))
+                .Update(update => update.Action("AddMemorandumMaterialCode", "Skm"))
+                .Destroy(destroy => destroy.Action("AddMemoAddingMaterialCodeGridViewPartial", "Skm"))
+
+                )
+            )
+@*</div>
+    </div*@
+
+<style type="text/css">
+    .first-alternate-spanned-cell {
+        background-color: #f4f4f4;
+    }
+
+    .second-alternate-spanned-cell {
+        background-color: #e0e0e0;
+    }
+
+    .product-photo {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-size: 32px 35px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 32px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, .2);
+        margin-right: 5px;
+    }
+
+    .product-name {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 32px;
+        padding-left: 3px;
+    }
+    /*    .k-link {
+        overflow: visible;
+        white-space: normal;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Arial';
+        font-size: 14px;
+        background-color: #f5f5f5;
+    }*/
+</style>
+
+<script id="headerTemplate" type="text/x-kendo-template">
+    <strong>Header</strong>
+</script>
+
+@*@(Html.Kendo().Button()
+        .Name("Subm")
+        .HtmlAttributes( new {type = "button", @class="TestButton"} )
+        .Events(b =>b.Click("onNmMaterButtonClickSubm"))
+        .Content("Ок")
+    )*@
+@(Html.Kendo().Tooltip()
+            .For("#grid")
+            .Position(TooltipPosition.Left)
+            .Filter(".NameMaterial")
+            //.Animation(e => e.Open(o => o.Zoom(ZoomDirection.In).Duration(150)))
+            .Width(250)
+            .ContentHandler("contentHandler")
+        )
+@*<script>
+        function contentHandler(e) {
+            var i = e.target.text();
+            if (e.target.is(".NameMaterial") && !i.includes('function()')) {
+                return e.target.text();
+            }
+            else {
+                return document.getElementById("InputOgt").placeholder;
+            }
+        }
+    </script>*@
+@*<script>
+        function ComboValChanged(e) {
+            var selectedRow = this.select();
+            var dataItem = this.dataItem(selectedRow);
+            console.log(dataItem)
+    </script>*@
+
+
+@*</br>*@
+<script>
+    function onChangeNaimOgt() {
+        "use strict";
+        let Ogt = '';
+        let u = '';
+        let NaimOgt = '';
+        let stylesOgt = 'border: 0.5px solid green; width:100%;';
+        let stylesNaimOgt = 'border: 0.5px solid green; width:100%;';
+        Ogt = document.querySelector('NaimOgt');
+        var selectedRow = this.select();
+        var dataItem = this.dataItem(selectedRow);
+        $.ajax({
+            type: "Post",
+            url: "/Skm/GetNaimOgt?naimogt=" + dataItem.NaimOgt,
+            data: "html",
+            success: function (response) {
+
+                /*debugger;*/
+                /*document.querySelector("[id$='NaimOgt']").value = '';*/
+                //NaimOgt = document.querySelector("[id$='NaimOgt']").value;
+                //NaimOgt = response[0].NaimOgt;
+                /*document.querySelector("[id$='NaimOgt']").append(u);*/
+                document.querySelector("[id$='InputOgt']").value = response[0].OGT;
+                document.querySelector("[id$='InputGrMater']").value = response[0].NmGrMater;
+                document.querySelector("[id$='InputNomerGrMater']").value = response[0].NomerGrMater;
+                document.querySelector("[id$='InputNmPrkmOgt']").value = response[0].NmPrkmOgt;
+                document.querySelector("[id$='InputPrkmOgt']").value = response[0].PrkmOgt;
+                document.querySelector("[id$='InputSortament']").value = response[0].Sortament;
+                document.querySelector("[id$='InputKsimKm']").value = response[0].KsimKm;
+
+
+
+
+                //document.querySelector("[id$='InputOgt']").focus();
+                //document.querySelector("[id$='InputGrMater']").focus();
+                //document.querySelector("[id$='InputKm']").focus();
+                //document.querySelector("[id$='InputPrkmOgt']").focus();
+                //document.querySelector("[id$='InputNmPrkmOgt']").focus();
+                //document.querySelector("[id$='InputSortament']").focus();
+                //document.querySelector("[id$='InputKsimKm']").focus();
+                //document.querySelector("[id$='InputNomerGrMater']").focus();
+
+
+
+                document.querySelector("[id$='InputOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputOgt k-state-default']").style = stylesOgt;
+
+
+
+
+                document.querySelector("[id$='InputGrMater']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputGrMater k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputNomerGrMater']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputNomerGrMater k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputPrkmOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputPrkmOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputNmPrkmOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputNmPrkmOgt k-state-default']").style = stylesOgt;
+
+
+
+                document.querySelector("[id$='InputSortament']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputSortament k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputKsimKm']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputKsimKm k-state-default']").style = stylesOgt;
+
+
+                document.querySelector("[id$='InputKm']").focus();
+                document.querySelector("[id$='NaimOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header NaimOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputOgt']").focus();
+                document.querySelector("[id$='InputGrMater']").focus();
+                document.querySelector("[id$='InputKm']").focus();
+                document.querySelector("[id$='InputPrkmOgt']").focus();
+                document.querySelector("[id$='InputNmPrkmOgt']").focus();
+                document.querySelector("[id$='InputSortament']").focus();
+                document.querySelector("[id$='InputKsimKm']").focus();
+                document.querySelector("[id$='InputNomerGrMater']").focus();
+                document.querySelector("[id$='InputKm']").focus();
+
+                //debugger
+                //$('#NaimOgt').empty();
+                //$('#NaimOgt').append(response[0].NaimOgt);
+
+                //alert(response[0].NaimOgt);
+                //var i = response.NaimOgt;
+            }
+        })
+    }
+</script>
+<script>
+    function onChange() {
+
+        "use strict";
+        let Ogt = '';
+        let u = '';
+        let NaimOgt = '';
+        let stylesOgt = 'border: 0.5px solid green; width:100%;';
+        let stylesNaimOgt = 'border: 0.5px solid green; width:100%;';
+        Ogt = document.querySelector('InputOgt');
+        var selectedRow = this.select();
+        var dataItem = this.dataItem(selectedRow);
+        $.ajax({
+            type: "Post",
+            url: "/Skm/GetOgt?ogt=" + dataItem.OGT,
+            data: "html",
+            success: function (response) {
+
+                /*debugger;*/
+                /*document.querySelector("[id$='NaimOgt']").value = '';*/
+                //NaimOgt = document.querySelector("[id$='NaimOgt']").value;
+                //NaimOgt = response[0].NaimOgt;
+                /*document.querySelector("[id$='NaimOgt']").append(u);*/
+                document.querySelector("[id$='NaimOgt']").value = response[0].NaimOgt;
+                document.querySelector("[id$='InputGrMater']").value = response[0].NmGrMater;
+                document.querySelector("[id$='InputNomerGrMater']").value = response[0].NomerGrMater;
+                document.querySelector("[id$='InputNmPrkmOgt']").value = response[0].NmPrkmOgt;
+                document.querySelector("[id$='InputPrkmOgt']").value = response[0].PrkmOgt;
+                document.querySelector("[id$='InputSortament']").value = response[0].Sortament;
+                document.querySelector("[id$='InputKsimKm']").value = response[0].KsimKm;
+
+
+
+                //document.querySelector("[id$='NaimOgt']").focus();
+                //document.querySelector("[id$='InputGrMater']").focus();
+                //document.querySelector("[id$='InputKm']").focus();
+                //document.querySelector("[id$='InputNmPrkmOgt']").focus();
+                //document.querySelector("[id$='InputPrkmOgt']").focus();
+                //document.querySelector("[id$='InputSortament']").focus();
+                //document.querySelector("[id$='InputKsimKm']").focus();
+                //document.querySelector("[id$='InputNomerGrMater']").focus();
+
+
+                //document.querySelector("[id$='InputOgt']").style = stylesOgt;
+                //document.querySelector("[class$='k-widget k-autocomplete k-header InputOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='NaimOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header NaimOgt k-state-default']").style = stylesNaimOgt;
+
+                document.querySelector("[id$='InputGrMater']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputGrMater k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputNomerGrMater']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputNomerGrMater k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputNmPrkmOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputNmPrkmOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputPrkmOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputPrkmOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputSortament']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputSortament k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputKsimKm']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputKsimKm k-state-default']").style = stylesOgt;
+
+
+                //document.querySelector("[id$='InputNomerGrMater']").focus();
+                document.querySelector("[id$='InputKm']").focus();
+
+
+                document.querySelector("[id$='InputOgt']").style = stylesOgt;
+                document.querySelector("[class$='k-widget k-autocomplete k-header InputOgt k-state-default']").style = stylesOgt;
+
+                document.querySelector("[id$='InputOgt']").focus();
+                document.querySelector("[id$='NaimOgt']").focus();
+                document.querySelector("[id$='InputGrMater']").focus();
+                document.querySelector("[id$='InputKm']").focus();
+                document.querySelector("[id$='InputPrkmOgt']").focus();
+                document.querySelector("[id$='InputNmPrkmOgt']").focus();
+                document.querySelector("[id$='InputSortament']").focus();
+                document.querySelector("[id$='InputKsimKm']").focus();
+                document.querySelector("[id$='InputNomerGrMater']").focus();
+                document.querySelector("[id$='InputKm']").focus();
+
+                //debugger
+                //$('#NaimOgt').empty();
+                //$('#NaimOgt').append(response[0].NaimOgt);
+
+                //alert(response[0].NaimOgt);
+                //var i = response.NaimOgt;
+            }
+        })
+    }
+</script>
+@*<script>
+        function onOpenStatus() {
+            $.ajax({
+                type: "GET",
+                url: "/Skm/AdaptiveMode_GetProducts",
+                data: "html",
+                success: function (response) {
+
+                    debugger;
+
+                }
+            })
+        }
+    </script>*@
+<script>
+    function onAdditionalData() {
+        return {
+            name: $("#Status").val(),
+            Km: $("#InputKm").val(),
+            Dbt: $("#Dbt").val(),
+            Dsh: $("#Dsh").val()
+        };
+    }
+</script>
+
+@*<script>
+        function onAdditionalDataKm() {
+            return {
+                name: $("#Km").val()
+            };
+    </script>*@
+<script>
+    function onChangeGost() {
+        var selectedRow = this.select();
+        var dataItem = this.dataItem(selectedRow);
+        $.ajax({
+            type: "Post",
+            url: "/Skm/GostAfterChange?gost=" + dataItem.Gost,
+            data: "html",
+            success: function (response) {
+
+            }
+        })
+        let NameMaterial = ''
+        let Gost = ''
+        NameMaterial = document.querySelector("[id$='InputNameMaterial']").value;
+        Gost = document.querySelector("[id$='InputGost']").value;
+        if (NameMaterial == '') {
+            alert('Введите <ОГТ> или <Наименование ОГТ>  затем введите <Наименование материала>!')
+            document.querySelector("[id$='InputGost']").value = ' ';
+            document.querySelector("[id$='InputNameMaterial']").focus();
+        }
+        /*NameMaterial.focus();*/
+
+    }
+</script>
+<script>
+    function onChangeNameMaterial() {
+        let stylesMarka = 'border: 0.2px solid green; width:100%;';
+        let stylesGost = 'border: 0.2px solid green; width:100%;';
+        var selectedRow = this.select();
+        var dataItem = this.dataItem(selectedRow);
+        $.ajax({
+            type: "Post",
+            url: "/Skm/NaimSkmAfterChange?naimskm=" + dataItem.nm_mater1,
+            data: "html",
+            success: function (response) {
+
+            }
+        })
+        if (!document.querySelector("[id$='InputNameMaterial']").value == '') {
+            document.querySelector("[id$='InputMarkaMater']").removeAttribute('disabled');
+            document.querySelector("[id$='InputGost']").removeAttribute('disabled');
+
+            document.querySelector("[id$='InputMarkaMater']").style = stylesMarka;
+            document.querySelector("[id$='InputGost']").style = stylesGost;
+            //document.querySelector("[id$='InputMarkaMater']").enabled = true;
+            //document.querySelector("[id$='InputMarkaMater']").setAttribute("aria-disabled", true);
+        }
+    }
+</script>
+<script>
+    function onChangeMarkaMaterial() {
+        var selectedRow = this.select();
+        var dataItem = this.dataItem(selectedRow);
+        $.ajax({
+            type: "Post",
+            url: "/Skm/MarkaSkmAfterChange?markaskm=" + dataItem.MarkaMater,
+            data: "html",
+            success: function (response) {
+
+            }
+        })
+    }
+</script>
+<script type="text/javascript">
+    function onNmMaterButtonClick() {
+        $('.burger-menu').toggleClass('menu-active');
+    }
+</script>
+<script type="text/javascript">
+    function onNmMaterButtonClickSubm() {
+        /* debugger;*/
+        var y = $("#InputMarkaMater").val();
+        $("#MarkaMater").val(y);
+    }
+    function onAtWorkButtonClick() {
+        /*debugger;*/
+        var grid = $("#grid").data("kendoGrid");
+        var selectedItem = grid.dataItem(grid.select());
+        id = selectedItem.Id;
+        var win = $("#window").data("kendoWindow");
+        win.center().close();
+        $.ajax({
+            type: "Post",
+            url: "/Skm/ToTakeOnTheJob?szId=" + id,
+            data: "html",
+
+            success: function (response) {
+
+            }
+        })
+    }
+    //function ClearNmMater() {
+    //    document.querySelector("[id$='InputNameMaterial']").value = '';
+    //}
+    //function ClearOgt() {
+    //    document.querySelector("[id$='InputOgt']").value = '';
+    //    document.querySelector("[id$='NaimOgt']").value = '';
+    //}
+
+</script>
+@*<script>
+        $("#autocomplete").kendoAutoComplete({
+            clearButton: false
+        });
+    </script>*@
+<script type="text/javascript">
+    function showDetails(e) {
+
+        /*debugger;*/
+        var grid = $("#grid").data("kendoGrid");
+        var selectedItem = grid.dataItem(grid.select());
+        fullname = selectedItem.FullCustomerName;
+
+        data = kendoHelpers.grid.getSelectedDataItem(grid)
+
+        e.preventDefault();
+        /*debugger;*/
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        $.ajax({
+            type: "Post",
+            url: "/Skm/ToTakeOnTheJob?szId=" + dataItem.Id,
+            data: "html",
+            success: function (response) {
+
+            }
+        })
+        alert("Принят в работу " + dataItem.FullCustomerName);
+    }
+</script>
+<script type="text/javascript">
+    /*debugger;*/
+    $("#grid").on("dblclick", "tr.k-state-selected", function () {
+        /*debugger;*/
+        var grid = $("#grid").data("kendoGrid");
+        var selectedItem = grid.dataItem(grid.select());
+        id = selectedItem.Id;
+
+        $.ajax({
+            type: "Get",
+            url: "/Skm/GetSettingsToTakeOnTheJob?szId=" + id,
+            /*url: "/test2/Export",*/
+            data: "html",
+            success: function (response) {
+
+            }
+        })
+        //var tabstrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+        var win = window.open("GetTabStrip?szId=" + id, '_blank');
+        win.focus();
+
+        //var win = $("#window").data("kendoWindow");
+        //win.center().open("/test2/Export",'_blank');
+    })
+</script>
+
+
+
+@(Html.Kendo().Window()
+    .Name("window")
+    .Title("Режим работы")
+    .Content(@<text>
+@if (WorkContext.CurrentCustomer.IsAdmin())
+{
+
+
+      <div>
+         <h2>Марка: #=MarkaMater#</h2>
+         @*<span>Находится в работе у @ViewData["AtWork"]</span>*@
+      </div>
+
+
+        <div id="first-column" style="position:relative;float:left">
+            @(Html.Kendo().Button()
+                .Name("GetAtWork")
+                .HtmlAttributes( new {type = "button", @class= "GetAtWork" } )
+                .Events(b =>b.Click("onAtWorkButtonClick"))
+                .Content("Принять в работу")
+            )
+        </div>
+}
+        <div id="second-column" style="position:relative;float:left">
+            @(Html.Kendo().Button()
+                .Name("ToCancelAtWork")
+                .HtmlAttributes( new {type = "button", @class= "ToCancelAtWork" } )
+                //.Events(b =>b.Click("onAtWorkButtonClick"))
+                .Content("Отказаться от задачи")
+            )
+        </div>
+
+    </text>)
+    .Draggable()
+    .Resizable()
+    .Width(600)
+    .Visible(false)
+    //.Position(settings => settings.Top(50).Left(300))
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+)

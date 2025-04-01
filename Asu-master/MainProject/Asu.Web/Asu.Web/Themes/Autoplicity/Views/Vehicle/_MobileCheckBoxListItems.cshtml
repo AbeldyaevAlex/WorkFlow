@@ -1,0 +1,18 @@
+﻿@model IList<CheckBoxListItem>
+
+@if (Model != null && Model.Any())
+{
+    var lastTopItem = Model.LastOrDefault(i => i.IsTop);
+    foreach (var item in Model)
+    {
+        var id = Html.Id($"{item.Name.ToLower()}");
+        <div class="filters--accordeon-option">
+            <label for="@id" class="@(item.IsSelected ? "checked" : string.Empty)" onclick="checkBox.click(event, this)">
+                <input id="@id" type="checkbox" class="checkbox" value="@item.Value" @(item.IsDisabled ? " disabled=\"disabled\"" : string.Empty) @(item.IsSelected ? " checked=\"checked\"" : string.Empty) style="visibility: hidden" />
+                <p>@item.Name</p>
+                <span class="filters--input-mask"></span>
+            </label>
+            <a style="display:none" href="@Url.RouteUrl(item.RouteName, new { item.SeName })">@item.Name</a>
+        </div>
+    }
+}

@@ -1,0 +1,30 @@
+﻿@using Nop.Web.Framework.Themes
+@using Nop.Core.Infrastructure
+
+@{
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+}
+
+<div class="home-slider">
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/homepagedefender1.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/1.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/2.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/3.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/4.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/5.webp" alt="Homepage @currentThemeName image" />
+    </div>
+    <div class="home-slider-item">
+        <img src="/Themes/@currentThemeName/Content/images/home/6.webp" alt="Homepage @currentThemeName image" />
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Html;
+@using Kendo.Mvc.UI.Fluent;
+@using Kendo.Mvc.Extensions;
+@(
+    Html.Kendo().DropDownList()
+        .Name("Status")
+        .DataTextField("Status")
+        .DataValueField("Id")
+        .OptionLabel("Select Type...")
+        .Enable(false)
+        //.Filter(FilterType.Contains)
+        .AutoBind(true)
+
+    //.Events(p => p.Open("onOpenStatus"))
+    .DataSource(source =>
+    {
+
+        source.Read(read =>
+        {
+
+            read.Action("AdaptiveMode_GetProducts", "Skm");
+
+        });
+        source.ServerFiltering(true);
+    })
+    .Filter(FilterType.Contains)
+
+    )
+
+
+@*<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoCompleteFor(m => m.Status)
+            .Name("Status")
+            .DataTextField("Status")
+            .HtmlAttributes(new { style = "width:100%", @name = "Status", @id = "Status", @class = "Status" })
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("AdaptiveMode_GetProducts", "Skm").Data("onAdditionalData");
+                }).ServerFiltering(true);
+            })
+            )
+    </div>
+</div>
+
+
+
+<style>
+    .note {
+        font: normal 18px "Metric";
+        border-radius: 2px;
+        margin: 20px auto 40px auto;
+        padding: 20px;
+        border-left: 4px solid;
+        border-left-color: #5392e4;
+        background: rgba(83,146,228,0.1);
+        text-align: center;
+    }
+</style>*@

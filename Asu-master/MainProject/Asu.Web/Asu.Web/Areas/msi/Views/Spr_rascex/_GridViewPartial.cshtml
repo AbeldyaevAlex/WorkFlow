@@ -1,0 +1,632 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        var errMsg = ViewContext.ViewData["msg"];
+        if (ViewData["msg"] != null)
+        {
+            settings.SetFooterRowTemplateContent(c =>
+            {
+                ViewContext.Writer.Write("<h2 >");
+                ViewContext.Writer.Write(errMsg);
+                ViewContext.Writer.Write("</h2>");
+            });
+        }
+        settings.BeforeGetCallbackResult += (sender, e) =>
+        {
+            var gridview = sender as MVCxGridView;
+            if (gridview != null)
+            {
+                gridview.Settings.ShowFooter = errMsg != null;
+                gridview.Styles.Footer.ForeColor = System.Drawing.Color.Black;
+                gridview.Styles.Footer.BackColor = System.Drawing.Color.LightPink;
+            }
+        };
+
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Spr_rascex", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_rascex", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_rascex", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_rascex", Action = "GridViewPartialDelete" };
+
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsBehavior.AutoExpandAllGroups = true;
+
+
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Width = Unit.Pixel(200);
+        settings.CommandColumn.ShowSelectButton = true;
+        settings.CommandColumn.ShowNewButtonInHeader = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.CommandColumn.AllowDragDrop = DefaultBoolean.True;
+        settings.SettingsPager.Position = PagerPosition.TopAndBottom;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.SettingsPager.PageSize = 50;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.Visible = true;
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsEditing.EditFormColumnCount = 2;
+
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1500;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxHeight = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Off;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.PopupAnimationType = AnimationType.Fade;
+        settings.SettingsPopup.EditForm.ResizingMode = ResizingMode.Live;
+        settings.SettingsPopup.CustomizationWindow.HorizontalAlign = PopupHorizontalAlign.Center;
+        settings.SettingsPopup.EditForm.ShowHeader = true;
+        settings.SettingsPopup.EditForm.Modal = true;
+        settings.SettingsPopup.EditForm.Height = 400;
+        settings.SettingsPopup.EditForm.Width = 1500;
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowHeaderFilterListBoxSearchUI = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowStatusBar = GridViewStatusBarMode.Visible;
+        settings.Settings.ShowHeaderFilterListBoxSearchUI = true;
+
+        settings.SettingsBehavior.EncodeErrorHtml = false;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+        settings.SettingsBehavior.AllowDragDrop = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.CommandColumn.AllowDragDrop = DefaultBoolean.True;
+
+
+
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+
+        settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+        settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "#";
+            column.SetDataItemTemplateContent(container =>
+            {
+                //Html.DevExpress().HyperLink(hyperlink1 =>
+                //{
+                //    var visibleIndex1 = container.VisibleIndex;
+                //    var keyValue1 = container.KeyValue;
+                //    hyperlink1.Name = "h2" + keyValue1.ToString();
+                //    hyperlink1.Properties.Text = "Создать  ";
+                //    hyperlink1.NavigateUrl = Url.Action("Edit", "Custom_Spr_cex", new { id = keyValue1 });
+                //}).Render();
+
+                //Html.DevExpress().HyperLink(hyperlink2 =>
+                //{
+                //    var visibleIndex2 = container.VisibleIndex;
+                //    var keyValue2 = container.KeyValue;
+                //    hyperlink2.Name = "h3" + keyValue2.ToString();
+                //    hyperlink2.Properties.Text = "Изменить";
+                //    //hyperlink2.Properties.ClientSideEvents.Click = "function(s, e) { pcModalMode2.Show(); }";
+                //    hyperlink2.NavigateUrl = Url.Action("Delete", "Custom_Spr_cex", new { id = keyValue2 });
+                //}).Render();
+
+                //Html.DevExpress().HyperLink(hyperlink3 =>
+                //{
+                //    var visibleIndex3 = container.VisibleIndex;
+                //    var keyValue3 = container.KeyValue;
+
+
+                //    hyperlink3.Name = "h3" + keyValue3.ToString();
+                //    hyperlink3.Properties.Text = "Удалить";
+                //    //hyperlink2.Properties.ClientSideEvents.Click = "function(s, e) { pcModalMode2.Show(); }";
+                //    hyperlink3.NavigateUrl = Url.Action("Delete", "Custom_Spr_cex", new { id = keyValue3 });
+                //}).Render();
+            });
+        });
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "rascex_small";
+            var x = columnSettings.Caption = "Расцеховка";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(300);
+            columnSettings.ReadOnly = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI11";
+            var x = columnSettings.Caption = "Цех изг.11";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI12";
+            var x = columnSettings.Caption = "Цех изг.12";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI13";
+            var x = columnSettings.Caption = "Цех изг.13";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI2";
+            var x = columnSettings.Caption = "Цех изг.2";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI3";
+            var x = columnSettings.Caption = "Цех изг.3";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI4";
+            var x = columnSettings.Caption = "Цех изг.4";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI5";
+            var x = columnSettings.Caption = "Цех изг.5";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI6";
+            var x = columnSettings.Caption = "Цех изг.6";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI7";
+            var x = columnSettings.Caption = "Цех изг.7";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI8";
+            var x = columnSettings.Caption = "Цех изг.8";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI9";
+            var x = columnSettings.Caption = "Цех изг.9";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CI10";
+            var x = columnSettings.Caption = "Цех изг.10";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CTO";
+            var x = columnSettings.Caption = "Цех терм.";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CPK1";
+            var x = columnSettings.Caption = "Цех покр.1";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CPK2";
+            var x = columnSettings.Caption = "Цех покр.2";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CPK3";
+            var x = columnSettings.Caption = "Цех покр.3";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CPK4";
+            var x = columnSettings.Caption = "Цех покр.4";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS1";
+            var x = columnSettings.Caption = "Цех усл.1";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS2";
+            var x = columnSettings.Caption = "Цех усл.2";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS3";
+            var x = columnSettings.Caption = "Цех усл.3";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS4";
+            var x = columnSettings.Caption = "Цех усл.4";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS5";
+            var x = columnSettings.Caption = "Цех усл.5";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS6";
+            var x = columnSettings.Caption = "Цех усл.6";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS7";
+            var x = columnSettings.Caption = "Цех усл.7";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS8";
+            var x = columnSettings.Caption = "Цех усл.8";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS9";
+            var x = columnSettings.Caption = "Цех усл.9";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "CUS10";
+            var x = columnSettings.Caption = "Цех усл.10";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.GroupIndex = 0;
+            columnSettings.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "status";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        settings.Columns.Add("link_user");
+        //settings.Columns.Add("operation");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "operation";
+            //c.GroupIndex = 0;
+            //c.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+        });
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+        settings.Columns.Add("operation_date");
+        settings.EditFormLayoutProperties.ColumnCount = 5;
+        settings.EditFormLayoutProperties.Items.AddGroupItem(Group =>
+        {
+            Group.ColumnCount = 1;
+            Group.Width = Unit.Pixel(340);
+            Group.Caption = "Цеха изготовители(Основные или сложная расцеховка)";
+            Group.GroupBoxDecoration = GroupBoxDecoration.Box;
+            Group.Items.Add(i => {
+                i.ColumnName = "CI11";
+                i.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+            });
+            Group.Items.Add("CI12");
+            Group.Items.Add("CI13");
+        });
+        settings.EditFormLayoutProperties.Items.AddGroupItem(Group =>
+        {
+            Group.ColumnCount = 1;
+            Group.Caption = "Цеха изготовители";
+            Group.GroupBoxDecoration = GroupBoxDecoration.Box;
+            Group.Width = Unit.Pixel(340);
+            Group.Items.Add("CI2");
+            Group.Items.Add("CI3");
+            Group.Items.Add("CI4");
+            Group.Items.Add("CI5");
+            Group.Items.Add("CI6");
+            Group.Items.Add("CI7");
+            Group.Items.Add("CI8");
+            Group.Items.Add("CI9");
+            Group.Items.Add("CI10");
+        });
+        settings.EditFormLayoutProperties.Items.AddGroupItem(Group =>
+        {
+            Group.ColumnCount = 1;
+            Group.Caption = "Цех термообработки";
+            Group.Width = Unit.Pixel(340);
+            Group.GroupBoxDecoration = GroupBoxDecoration.Box;
+            Group.Items.Add("CTO");
+        });
+        settings.EditFormLayoutProperties.Items.AddGroupItem(Group =>
+        {
+            Group.ColumnCount = 1;
+            Group.Caption = "Цеха покрытия";
+            Group.GroupBoxDecoration = GroupBoxDecoration.Box;
+            Group.Width = Unit.Pixel(340);
+            Group.Items.Add("CPK1");
+            Group.Items.Add("CPK2");
+            Group.Items.Add("CPK3");
+            Group.Items.Add("CPK4");
+        });
+        settings.EditFormLayoutProperties.Items.AddGroupItem(Group =>
+        {
+            Group.ColumnCount = 1;
+            Group.Caption = "Цеха услуг";
+            Group.GroupBoxDecoration = GroupBoxDecoration.Box;
+            Group.Items.Add("CUS1");
+            Group.Width = Unit.Pixel(340);
+            Group.Items.Add("CUS2");
+            Group.Items.Add("CUS3");
+            Group.Items.Add("CUS4");
+            Group.Items.Add("CUS5");
+            Group.Items.Add("CUS6");
+            Group.Items.Add("CUS7");
+            Group.Items.Add("CUS8");
+            Group.Items.Add("CUS9");
+            Group.Items.Add("CUS10");
+        });
+        
+
+        settings.EditFormLayoutProperties.Items.AddCommandItem(comitem =>
+        {
+            comitem.Width = Unit.Percentage(100);
+            comitem.HorizontalAlign = FormLayoutHorizontalAlign.Left;
+            comitem.VerticalAlign = FormLayoutVerticalAlign.Bottom;
+        });
+        settings.EditFormLayoutProperties.Items.Add(Group =>
+        {
+            Group.Caption = "Сформировать";
+            Group.SetTemplateContent(template => ViewContext.Writer.Write("<button class='uu''>Сформировать</button>"));
+        });
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            ((ASPxEdit)e.Editor).ValidationSettings.Display = Display.Dynamic;
+        };
+        //settings.ClientSideEvents.Init = "OnEndCallBack";
+
+
+    });
+
+
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()
+
+<script src="~/Content/DevEXpressInput.js"></script>
+

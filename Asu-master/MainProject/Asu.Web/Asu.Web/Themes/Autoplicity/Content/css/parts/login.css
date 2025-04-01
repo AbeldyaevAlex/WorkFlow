@@ -1,0 +1,223 @@
+﻿.login-page .page-title {
+    margin-bottom: 10px;
+}
+
+.login-page .page-body {
+    color: #999;
+}
+
+.login-page .title {
+    margin: 0px 0 14px;
+    zoom: 1;
+}
+
+.login-page .title strong {
+    font-size: 10pt;
+    color: #666;
+    font-weight: normal
+}
+
+.login-page .customer-blocks:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.login-page .new-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    min-height: 320px;
+    padding: 30px;
+    width: 32%;
+    position: relative
+}
+
+.login-page .new-wrapper.register-block .buttons {
+    bottom: 30px;
+    position: absolute;
+    right: 30px;
+}
+
+.login-page .returning-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    min-height: 320px;
+    padding: 30px;
+    width: 32%;
+    position: relative
+}
+
+.login-page .new-wrapper .text {
+    line-height: 20px;
+}
+
+.login-page .new-wrapper .buttons {
+    float: right;
+    margin: 30px 0px 5px 0px;
+}
+
+.login-page .checkout-as-guest-or-register-block ul {
+    padding-left: 30px;
+}
+
+.login-page .returning-wrapper .inputs {
+    margin: 0 0 20px 0;
+}
+
+.login-page .returning-wrapper .inputs.reversed {
+    margin: 0;
+}
+
+.login-page .returning-wrapper .message-error {
+    padding: 0;
+    margin-bottom: 5px
+}
+
+.login-page .returning-wrapper .buttons, .checkorderform input[type="submit"] {
+    float: right !important;
+    margin: 0px;
+}
+
+.login-page .returning-wrapper label, .checkorderform .checkorderdiv .checkjrderlabel1 {
+    line-height: 18px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 80px;
+}
+
+.login-page .returning-wrapper label.checkbox {
+    width: 18px;
+}
+
+.product-details-page .overview #CompetitorsPrices strong {
+    font-weight: bold !important
+}
+
+.login-page .email, .login-page .username, .login-page .password, .checkorderform input[type="text"] {
+    width: 170px;
+    float: right
+}
+
+.login-page .returning-customer .reversed label {
+    width: auto;
+    font-weight: 400;
+}
+
+.login-page .forgot-password {
+    bottom: 129px;
+    display: inline-block;
+    float: left !important;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 10px !important;
+    position: absolute;
+    right: 30px;
+    text-decoration: underline;
+}
+
+.rememberme {
+    display: inline-block;
+    width: 100%
+}
+
+.login-page .returning-wrapper .rememberme label {
+    float: left;
+}
+
+.login-page .returning-wrapper .buttons {
+    bottom: 30px;
+    margin-right: 0;
+    position: absolute;
+    right: 30px;
+}
+
+.login-page .field-validation-error {
+    display: block;
+}
+
+.login-page .topic-html-content {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 15px;
+    min-height: 100px;
+    padding: 30px;
+    width: 50%;
+}
+
+.login-page .returning-customer-amazon {
+    float: right;
+    width: 47%;
+    min-height: 100px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.login-page .returning-customer-amazon strong {
+    margin-bottom: 10px;
+    display: block
+}
+
+.login-page .returning-customer-amazon #LoginWithAmazonButton {
+    float: right;
+    display: block;
+    margin-top: 20px
+}
+
+.external-auth-errors {
+    text-align: center;
+    border: solid 1px #ccc;
+    vertical-align: top;
+    width: 100%;
+    color: Red;
+    margin-bottom: 20px;
+}
+
+.external-auth-errors ul {
+    padding: 0px;
+}
+
+.external-auth-errors ul li {
+    list-style: none;
+}
+
+.external-auth-association {
+    text-align: center;
+    border: solid 1px #ccc;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sbv .title {
+    color: #ccc;
+    padding-left: 10px;
+}
+
+.external-auth-association .remove {
+    color: #B80709;
+}
+
+.login-page .new-wrapper.checkout-as-guest-or-register-block .topic-html-content {
+    border: none;
+    border-radius: 0px;
+    float: left;
+    margin-bottom: 0px;
+    min-height: 0px;
+    padding: 0px;
+    width: auto;
+}

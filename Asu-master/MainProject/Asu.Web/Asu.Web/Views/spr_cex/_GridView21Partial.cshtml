@@ -1,0 +1,228 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@*@model IList<Asu.Web.Models.Spr_cex>*@
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+
+
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView21";
+        settings.CallbackRouteValues = new { Controller = "Spr_Cex", Action = "GridView21Partial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_Cex", Action = "GridView21PartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_Cex", Action = "GridView21PartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_Cex", Action = "GridView21PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = false;
+
+        settings.CommandColumn.Visible = true;
+
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsEditing.EditFormColumnCount = 2;
+
+        settings.SettingsBehavior.AutoExpandAllGroups = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+        settings.SettingsBehavior.AllowDragDrop = true;
+        settings.SettingsBehavior.MergeGroupsMode = GridViewMergeGroupsMode.Disabled;
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsPager.PageSize = 25;
+        settings.SettingsPager.EnableAdaptivity = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.Visible = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Width = Unit.Pixel(270);
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Secondary;
+
+        settings.SettingsCustomizationDialog.Enabled = true;
+
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.Settings.EnableFilterControlPopupMenuScrolling = true;
+        settings.Settings.ShowFilterRowMenuLikeItem = true;
+        settings.Settings.ShowStatusBar = GridViewStatusBarMode.Auto;
+        settings.Settings.ShowFilterRow = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxHeight = Unit.Percentage(100);
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.Height = 200;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+        settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+        settings.SettingsBehavior.AllowEllipsisInText = true;
+
+        settings.Columns.Add(column =>
+        {
+            //column.GroupIndex = 0;
+            //column.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            column.FieldName = "cex";
+            var name = column.Caption = "Цех";
+            column.Width = Unit.Pixel(60);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "naim_cex";
+            var name = column.Caption = "Наименование Цеха";
+            column.Width = Unit.Pixel(350);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "status";
+            comboBoxProperties.ValueType = typeof(string);
+            //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        settings.FormatConditions.AddHighlight("link_status", "[link_status] = 46", GridConditionHighlightFormat.LightRedFill);
+        settings.FormatConditions.AddHighlight("link_status", "[link_status] = 48", GridConditionHighlightFormat.GreenText);
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "nm_cex_krat";
+            var name = column.Caption = "Краткое Наименование";
+            column.Width = Unit.Pixel(175);
+        });
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "link_user";
+        //    var x = columnSettings.Caption = "Пользователь";
+        //    columnSettings.Visible = true;
+        //    columnSettings.Width = Unit.Pixel(200);
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "Full_Name";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetUser();
+        //});
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "period_open_date";
+            var name = column.Caption = "Дата открытия";
+            column.Width = Unit.Pixel(150);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "period_close_date";
+            var name = column.Caption = "Дата закрытия";
+            column.Width = Unit.Pixel(150);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+        //settings.Columns.Add("link_cex_real");
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "operation";
+            var name = column.Caption = "Операция";
+            column.Width = Unit.Pixel(130);
+            //column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "operation_date";
+            var name = column.Caption = "Дата операции";
+            column.Width = Unit.Pixel(130);
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            column.ReadOnly = true;
+        });
+
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Left;
+            toolbar.EnableAdaptivity = true;
+
+            toolbar.Items.Add(item =>
+            {
+                item.Items.Add(GridViewToolbarCommand.ExportToXlsx);
+            });
+
+
+            toolbar.Items.Add(item =>
+            {
+                item.Command = GridViewToolbarCommand.ShowCustomizationDialog;
+                item.Text = "Панель Группировки";
+                item.Image.IconID = IconID.ActionsGroup16x16;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Command = GridViewToolbarCommand.ShowFilterEditor;
+                item.Text = "Фильтр";
+                item.Image.IconID = IconID.ActionsFilter16x16devav;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Command = GridViewToolbarCommand.ShowSearchPanel;
+                item.Text = "Поиск";
+                item.Image.IconID = IconID.ActionsSearch16x16devav;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.NavigateUrl = Url.Action("ShowDeletetedRow", "Spr_cex");
+                item.Text = "Показать удаленные";
+                item.Image.IconID = IconID.HybriddemoiconsBottompanelHybriddemoCancelSvg16x16;
+            });
+            //toolbar.Items.Add(item =>
+            //{
+            //    item.Command = GridViewToolbarCommand.FullExpand;
+            //    item.Text = "Развернуть";
+            //    item.Image.IconID = IconID.ActionsExpandcollapse16x16devav;
+            //});
+            //toolbar.Items.Add(item =>
+            //{
+            //    item.Command = GridViewToolbarCommand.FullCollapse;
+            //    item.Text = "Свернуть";
+            //    item.Image.IconID = IconID.SpreadsheetCollapsefieldpivottableSvgWhite16x16;
+            //});
+            settings.SettingsExport.EnableClientSideExportAPI = true;
+            settings.SettingsExport.ExcelExportMode = DevExpress.Export.ExportType.DataAware;
+        });
+    });
+
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

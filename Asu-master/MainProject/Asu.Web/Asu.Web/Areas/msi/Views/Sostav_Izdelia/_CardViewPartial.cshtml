@@ -1,0 +1,54 @@
+﻿@{
+    var cardView = Html.DevExpress().CardView(settings =>
+    {
+        settings.Name = "CardView";
+        settings.CallbackRouteValues = new { Controller = "Sostav_Izdelia", Action = "CardViewPartial" };
+
+        settings.SettingsEditing.AddNewCardRouteValues = new { Controller = "Sostav_Izdelia", Action = "CardViewPartialAddNew" };
+        settings.SettingsEditing.UpdateCardRouteValues = new { Controller = "Sostav_Izdelia", Action = "CardViewPartialUpdate" };
+        settings.SettingsEditing.DeleteCardRouteValues = new { Controller = "Sostav_Izdelia", Action = "CardViewPartialDelete" };
+        settings.SettingsEditing.Mode = CardViewEditingMode.EditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowHeaderPanel = true;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.SettingsBehavior.AllowSelectByCardClick = true;
+
+        settings.Columns.Add("obozn");
+        settings.Columns.Add("var");
+        settings.Columns.Add("link_pkp");
+        settings.Columns.Add("link_naim");
+        settings.Columns.Add("link_status");
+        settings.Columns.Add("link_user");
+        settings.Columns.Add("operation");
+        settings.Columns.Add("operation_date");
+        settings.Columns.Add("period_open_date");
+        settings.Columns.Add("period_close_date");
+
+        settings.CardLayoutProperties.Items.AddCommandItem(i =>
+        {
+            i.ShowNewButton = true;
+            i.ShowEditButton = true;
+            i.ShowDeleteButton = true;
+        });
+        settings.CardLayoutProperties.Items.AddEditModeCommandItem();
+        settings.CardLayoutProperties.Items.Add("obozn");
+        settings.CardLayoutProperties.Items.Add("var");
+        settings.CardLayoutProperties.Items.Add("link_pkp");
+        settings.CardLayoutProperties.Items.Add("link_naim");
+        settings.CardLayoutProperties.Items.Add("link_status");
+        settings.CardLayoutProperties.Items.Add("link_user");
+        settings.CardLayoutProperties.Items.Add("operation");
+        settings.CardLayoutProperties.Items.Add("operation_date");
+        settings.CardLayoutProperties.Items.Add("period_open_date");
+        settings.CardLayoutProperties.Items.Add("period_close_date");
+    });
+    if (ViewData["EditError"] != null)
+    {
+        cardView.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@cardView.Bind(Model).GetHtml()

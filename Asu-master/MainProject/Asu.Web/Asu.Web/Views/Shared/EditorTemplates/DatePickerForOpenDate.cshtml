@@ -1,0 +1,21 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="form-group">
+    @*@Html.LabelFor(model => model.PeriodOpenDate, "Начало периода", new { @class = "col-md-4 control-label" })*@
+    <div class="col-md-4">
+
+        @*@Html.TextBoxFor(model => model.DOB, new { @class = "form-control datepicker", placeholder = "Enter DOB date" })
+            @Html.ValidationMessageFor(model => model.DOB)*@
+
+        @(
+                        Html.Kendo().DatePickerFor(model => model.PeriodOpenDate)
+                          .Name("PeriodOpenDate")
+                          .Start(CalendarView.Year)
+                          .Depth(CalendarView.Month)
+                                                        .HtmlAttributes(new
+                                                        {
+                                                            placeholder = "Начало периода",
+                                                        })
+                    )
+        @Html.ValidationMessageFor(model => model.PeriodOpenDate)
+    </div>
+</div>

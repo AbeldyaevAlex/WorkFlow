@@ -1,0 +1,18 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Web.Areas.msi.Controllers.Vibor;
+
+@Html.DevExpress().ListBox(settings => {
+    settings.Name = "lbModels";
+    settings.CallbackRouteValues = new {Controller = "Editors", Action = "ListBoxPartial"};
+    settings.Width = 285;
+    settings.Height = 210;
+    settings.Properties.Caption = "Accept Models";
+    settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+    settings.Properties.EnableClientSideAPI = true;
+    settings.Properties.EnableSelectAll = ListBoxDemoHelper.EnableSelectAll;
+    settings.Properties.ValueField = "ID";
+    settings.Properties.ValueType = typeof(string);
+    settings.Properties.Columns.Add("Name", "Model").Width = Unit.Percentage(100);
+    settings.Properties.Columns.Add("Price").Width = 50;
+}).BindList(Model).GetHtml()

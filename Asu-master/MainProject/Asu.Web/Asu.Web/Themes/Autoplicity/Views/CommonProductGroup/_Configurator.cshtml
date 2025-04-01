@@ -1,0 +1,26 @@
+﻿@*@model Nop.Web.Models.Catalog.ProductDetailsModel.AddToCartModel
+@{
+    var categoryLink = this.ViewData["CategoryLink"] as string;
+    var isVehicleSelected = (bool)this.ViewData["VehicleSelected"];
+}*@
+
+@*@if (!isVehicleSelected)
+{
+    <button id="select-vehicle-btn" type="button" class="select-vehicle-btn blue_btn" value="Select Vehicle"><span>Select Vehicle</span></button>
+}*@
+
+<div class="select-vehicle-wnd-wrapper">
+    <div id="group-configurator-dialog" style="display: none;">
+        <div class="title">Product group options</div>
+        <div id="product-fits-filter" class="filter-block">
+            <div class="vehicle-filter-block">
+                @Html.Partial("_VehicleFilter")
+            </div>
+        </div>
+        <div id="product-fits-info" class="pf-window fits-info" style="display: none;"></div>
+        <div id="product-fits-buttons" class="buttons-block" style="display: none;">
+            <span class="to-cart-btn add-to-cart-button btn_add_to_cart">Add to cart</span>
+            <span class="close-btn grey_btn">Close</span>
+        </div>
+    </div>
+</div>

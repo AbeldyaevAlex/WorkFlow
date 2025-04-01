@@ -1,0 +1,42 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoCompleteFor(m => m.Dbt)
+            .Name("Dbt")
+            .DataTextField("Dbt")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "Введите диаметр, высота", @name = "Dbt"/*, required = "required", validationmessage = "Обязательное поле"*/ })
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialDbtRead", "Skm").Data("onAdditionalData");
+                }).ServerFiltering(true);
+            })
+            )
+    </div>
+</div>
+
+@*<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoCompleteFor(m => m.Dbt)
+            .Name("Dbt")
+            .DataTextField("Dbt")
+            .HtmlAttributes(new { style = "width:100%",@name = "Dbt", @id = "InputDbt", @class = "InputDbt", placeholder = "Введите диаметр, высота"})
+            .Filter(FilterType.Contains)
+            .Suggest(true)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialDbtRead", "Skm").Data("onAdditionalDataDbt");
+                }).ServerFiltering(true);
+            })
+            )
+    </div>
+</div>*@
+
+
+
+

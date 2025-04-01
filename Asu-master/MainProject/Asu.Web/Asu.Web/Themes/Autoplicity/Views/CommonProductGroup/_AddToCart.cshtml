@@ -1,0 +1,50 @@
+﻿@model Nop.Web.Models.ProductGroups.ProductModel
+
+@{
+    const int MinStockQuantity = 0;
+    const int MaxStockQuantity = 9999;
+    var isProductSelected = Model.Id > 0;
+    var addToCartText = Model.UpdatedShoppingCartItemId > 0 ? "Update Cart" : "Add To Cart";
+
+    const int maxLimit = 10;
+    const int minLimit = 5;
+    var stockQuantity = (Model.StockQuantity > maxLimit ? maxLimit : Model.StockQuantity).ToString("#,###");
+}
+
+@if (isProductSelected)
+{
+    if (Model.UpdatedShoppingCartItemId > 0)
+    {
+        using (Html.BeginForm("/", "", FormMethod.Post, new { id = "product-group-form" }))
+        {
+            @Html.HiddenFor(x => x.UpdatedShoppingCartItemId)
+        }
+    }
+}
+    <div class="add-to-cart-block-1">
+        <div class="view-product-specifications" @(!isProductSelected ? "style=display:none" : string.Empty)>
+            View product specifications
+        </div>
+        <div class="add-to-cart-block">
+            <div class="qty-stock">
+                @Html.TextBoxFor(model => model.SelectedQuantity,
+                new
+                {
+                    @class = "qty-input",
+                    data_min = isProductSelected ? MinStockQuantity + 1 : MinStockQuantity,
+                    data_max = Model.IsShippingFromManufacturer ? MaxStockQuantity : Model.StockQuantity,
+                    @style = $"width: 38px;height: 49px;min-height: 49px;"
+                })
+            </div>
+            <button type="button" id="btn-add-to-cart" class="btn_add_to_cart green_btn configurator-button" value="@addToCartText" data-productid="@Model.Id">
+                <span class="add-to-cart-button">@addToCartText</span>
+            </button>
+        </div>
+        <div class="payment-alternative-separator"></div>
+        <div class="payment-buttons">
+            <a class="pay-btn paypal-button gtm-paypal-btn" data-productid="@Model.Id">
+                <img src="/Themes/Autoplicity/Content/images/svg/paypal-btn.svg" class="gtm-paypal-btn" />
+            </a>
+            <div id="applePayButton" class="apple-pay-button apple-pay-button-black"></div>
+        </div>
+    </div>

@@ -1,0 +1,777 @@
+﻿.shopping-cart-page .page-body, .wishlist-page .page-body {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    color: #666;
+}
+
+.shopping-cart-page .page-body .order-summary-content .product-picture img {
+    max-height: 133px;
+    max-width: 133px
+}
+
+.wishlist-page .share-info {
+    margin: 20px 0;
+}
+
+.wishlist-page .share-info .share-label {
+    font-weight: normal;
+    font-size: 10pt;
+    color: #999;
+}
+
+.wishlist-page .share-info a.share-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 10pt;
+}
+
+.wishlist-page input[type="text"], .wishlist-page input[type="password"] {
+    color: #333;
+}
+
+.wishlist-content .common-buttons {
+    display: block;
+    overflow: hidden;
+}
+
+.wishlist-content .common-buttons input {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.order-summary-content, .wishlist-content {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    color: #999;
+    display: block;
+}
+
+.order-summary-content .message-error, .wishlist-content .message-error {
+    margin: 5px 0;
+}
+
+.order-summary-content .totals, .checkout-by-amazon-page .totals {
+    float: right;
+    padding: 23px 0px 0;
+    width: 340px;
+    border-left: solid 1px #ccc
+}
+
+.order-summary-content .cart-collaterals {
+    float: right;
+    max-width: 330px;
+    min-height: 40px
+}
+
+.order-summary-content .deals {
+    display: inline;
+    float: left;
+    margin: 0 10px 0 0;
+    width: 330px;
+}
+
+.order-summary-content .shipping {
+    float: left;
+    margin: 0 0 20px 0;
+    width: 330px;
+}
+
+.order-summary-content .coupon-box, .order-summary-content .giftcard-box {
+    padding: 20px;
+    font-size: 10pt;
+    color: #999;
+    margin: 0 0px 20px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    overflow: hidden;
+}
+
+.order-summary-content .coupon-box .title, .order-summary-content .giftcard-box .title {
+    color: #333;
+}
+
+.order-summary-content .coupon-box .message, .order-summary-content .giftcard-box .message, .order-summary-content .message-failure, .order-summary-content .coupon-box .message-success, .addon-buttons .error {
+    font-size: 8pt;
+    color: red;
+    width: 100%;
+    display: inline-block;
+}
+
+.order-summary-content .coupon-box .message-success {
+    color: rgba(67, 154, 93, 1)
+}
+
+.order-summary-content .coupon-box .current-code {
+    padding: 10px 0px 0px 0px;
+    display: inline-block;
+}
+
+.order-summary-content .coupon-box .discount-coupon-code, .order-summary-content .giftcard-box .gift-card-coupon-code {
+    width: 95%;
+    margin: 10px 0;
+}
+
+.order-summary-content .coupon-box .hint, .order-summary-content .giftcard-box .hint {
+    padding-top: 5px;
+}
+
+.order-summary-content .giftcard-box {
+    position: relative;
+    z-index: 1;
+}
+
+.order-summary-content .apply-discount-coupon-code-button, .order-summary-content .apply-gift-card-coupon-code-button {
+    margin: 5px 0;
+    float: right
+}
+
+.order-summary-content .cart, .wishlist-content .cart, .checkout-by-amazon-page .cart {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+    display: inline-block
+}
+
+.wishlist-content .cart {
+    margin-bottom: 20px;
+    border-bottom: solid 1px #ccc;
+}
+
+.order-summary-content .cart td, .wishlist-content .cart td {
+    padding: 10px;
+}
+
+.order-summary-content .cart td.unit-price, .wishlist-content .cart td.unit-price, .order-summary-content .cart td.qty, .wishlist-content .cart td.qty, .order-summary-content .cart td.subtotal, .wishlist-content .cart td.subtotal, .checkout-by-amazon-page .cart td.unit-price, .checkout-by-amazon-page .cart td.qty, .checkout-by-amazon-page .cart td.subtotal {
+    border-left: 1px solid #ccc;
+}
+
+.order-summary-content .cart .cart-header-row, .wishlist-content .cart .cart-header-row, .checkout-by-amazon-page .cart .cart-header-row {
+    font-weight: normal !important;
+}
+
+.order-summary-content .cart .cart-header-row th, .wishlist-content .cart .cart-header-row th, .checkout-by-amazon-page .cart .cart-header-row th {
+    background: none repeat scroll 0 0 #fff;
+    color: #999;
+    height: 30px;
+    padding: 5px 8px;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-weight: normal;
+    text-align: center
+}
+
+.order-summary-content .cart .cart-header-row, .wishlist-content .cart .cart-header-row, .checkout-by-amazon-page .cart .cart-header-row {
+    border-bottom: solid 1px #ccc;
+}
+
+.order-summary-content .cart .cart-header-row th.picture, .wishlist-content .cart .cart-header-row th.picture, .checkout-by-amazon-page .cart .cart-header-row th.picture {
+    border: none;
+}
+
+.order-summary-content .cart .cart-header-row th.end, .wishlist-content .cart .cart-header-row th.end, .checkout-by-amazon-page .cart .cart-header-row th.end {
+    text-align: center;
+    padding-right: 5px;
+}
+
+.order-summary-content .cart .cart-item-row td, .wishlist-content .cart .cart-item-row td, .checkout-by-amazon-page .cart .cart-item-row td {
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.order-summary-content .cart tr.cart-item-row:nth-child(2n), .wishlist-content .cart tr.cart-item-row:nth-child(2n), .checkout-by-amazon-page .cart tr.cart-item-row:nth-child(2n) {
+    background-color: #fafafa
+}
+
+.order-summary-content .cart .cart-item-row tr.cart-item-row:nth-child(2n+1), .wishlist-content .cart tr.cart-item-row:nth-child(2n+1), .checkout-by-amazon-page .cart tr.cart-item-row:nth-child(2n+1) {
+    background-color: #ffffff
+}
+
+.order-summary-content .cart .cart-item-row td.product, .wishlist-content .cart .cart-item-row td.product, .checkout-by-amazon-page .cart .cart-item-row td.product {
+    text-align: left;
+    padding: 0 10px;
+}
+
+.order-summary-content .cart .cart-item-row td.product img, .wishlist-content .cart .cart-item-row td.product img, .checkout-by-amazon-page .cart .cart-item-row td.product img {
+    max-width: 60px;
+    vertical-align: middle;
+}
+
+.order-summary-content .cart .cart-item-row td.product a.product-name, .wishlist-content .cart .cart-item-row td.product a.product-name, .checkout-by-amazon-page .cart .cart-item-row td.product a.product-name, .section.products .a-left.name a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.order-summary-content .cart .cart-item-row td.end, .wishlist-content .cart .cart-item-row td.end, .checkout-by-amazon-page .cart .cart-item-row td.end {
+    text-align: center;
+    font-weight: normal;
+    color: #333;
+    padding-right: 5px;
+}
+
+.order-summary-content .cart .cart-item-row .qty-input, .wishlist-content .cart .cart-item-row .qty-input, .checkout-by-amazon-page .cart .cart-item-row .qty-input {
+    border: solid 1px #ccc;
+    font-size: 10pt;
+    text-align: right;
+    width: 60px;
+}
+
+.order-summary-content .cart .cart-item-row td .td-title, .wishlist-content .cart .cart-item-row td .td-title, .checkout-by-amazon-page .cart .cart-item-row td .td-title {
+    display: none;
+}
+
+.order-summary-content .cart .cart-item-row td.product .td-title, .wishlist-content .cart .cart-item-row td.product .td-title, .checkout-by-amazon-page .cart .cart-item-row td.product .td-title {
+    display: inline-block;
+}
+
+.order-summary-content .cart .cart-item-row .edit-item a {
+    color: #B80709;
+}
+
+.order-summary-content .cart-footer {
+    width: 100%;
+    zoom: 1;
+}
+
+.wishlist-productheader {
+    text-align: left !important
+}
+
+.order-summary-content .cart-footer:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.order-summary-content .total-info, .checkout-by-amazon-page .total-info {
+    margin: 0;
+    font-size: 10pt;
+}
+
+.order-summary-content .total-info .selected-shipping-method, .checkout-by-amazon-page .total-info .selected-shipping-method {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+.order-summary-content .total-info .order-total, .checkout-by-amazon-page .total-info .order-total {
+    color: #353434;
+}
+
+.order-summary-content .total-info .order-total strong, .checkout-by-amazon-page .total-info .order-total strong {
+    font-size: 12pt;
+    color: #666
+}
+
+.order-summary-content .cart .cart-item-row td.end .product-subtotal {
+    color: #d82025
+}
+
+.cart-total-left {
+    text-align: left;
+    vertical-align: middle;
+    font-weight: normal;
+    color: #999;
+    padding-left: 20px;
+    height: 24px;
+}
+
+.cart-total-left-below {
+    width: 100%;
+    text-align: right;
+    vertical-align: top;
+    height: 30px;
+}
+
+.cart-total-right {
+    text-align: right;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+.order-summary-content .remove-gift-card-button, .order-summary-content .remove-discount-button {
+    padding: 0px !important;
+    background: url(/Themes/Autoplicity/Content/images/delete.png) no-repeat;
+    border: 0;
+    width: 16px !important;
+    height: 15px !important;
+    min-height: 15px !important;
+    min-width: 16px !important;
+}
+
+.order-summary-content .remove-gift-card-button:hover, .order-summary-content .remove-discount-button:hover {
+    cursor: pointer;
+    padding-right: 0px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/delete.png) no-repeat;
+    border: 0;
+    width: 16px !important;
+    height: 15px !important;
+}
+
+.order-summary-content .selected-checkout-attributes {
+    margin: 0;
+    padding: 10px 5px 10px 0;
+    width: 100%;
+    text-align: right;
+    vertical-align: middle;
+    color: #353434;
+}
+
+.order-summary-content .checkout-attributes {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: none repeat scroll 0 0 #F7F5E8;
+    border: 1px dotted #ccc;
+    clear: both;
+}
+
+.order-summary-content .checkout-attributes .text-prompt {
+    font-weight: bold;
+}
+
+.order-summary-content .checkout-attributes ul.option-list {
+    padding: 0px;
+    margin: 0px;
+}
+
+.order-summary-content .checkout-attributes ul.option-list li {
+    list-style: none;
+}
+
+.order-summary-content .checkout-attributes .textbox {
+    width: 300px;
+}
+
+.order-summary-content .checkout-attributes textarea {
+    width: 300px;
+    height: 150px;
+}
+
+#addressBookWidgetDiv {
+    float: left;
+    display: block;
+    margin-right: 30px;
+    margin-bottom: 30px
+}
+
+#walletWidgetDiv {
+    float: left;
+    display: block;
+    margin-bottom: 30px
+}
+
+#amazon-panels {
+    width: 100%
+}
+
+/* color squares attribute type */
+.order-summary-content .checkout-attributes ul.color-squares li {
+    display: inline;
+}
+
+.order-summary-content .checkout-attributes ul.color-squares .color-container {
+    position: relative;
+    display: inline-block;
+    border: solid 1px #999;
+    padding: 1px;
+    margin-bottom: 5px;
+}
+
+.order-summary-content .checkout-attributes ul.color-squares .selected-value .color-container {
+    border-color: #075899;
+    border-width: 2px;
+    padding: 0;
+}
+
+.order-summary-content .checkout-attributes ul.color-squares .color {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+.order-summary-content .checkout-attributes ul.color-squares label {
+    cursor: pointer;
+    position: relative;
+}
+
+.order-summary-content .checkout-attributes ul.color-squares input {
+    height: 0;
+    overflow: hidden;
+    z-index: -10000;
+    position: absolute;
+    float: none;
+}
+
+.order-summary-content .min-amount-warning {
+    margin: 0;
+    padding: 10px 0 10px 10px;
+}
+
+.order-summary-content .terms-of-service {
+    margin: 0;
+    padding: 10px 0 10px 10px;
+}
+
+.order-summary-content .terms-of-service .read {
+    text-decoration: underline;
+}
+
+.order-summary-content .terms-of-service .read:hover {
+    cursor: pointer;
+}
+
+.checkout-data .terms-of-service {
+    margin: 0;
+    padding: 10px 0 10px 10px;
+}
+
+.checkout-data .terms-of-service .read {
+    text-decoration: underline;
+}
+
+.checkout-data .terms-of-service .read:hover {
+    cursor: pointer;
+}
+
+.order-summary-content .common-buttons {
+    margin: 0;
+    padding: 10px;
+    width: 670px;
+}
+
+.order-summary-content .buttons {
+    width: 620px;
+    float: left
+}
+
+.common-buttons input {
+    margin-right: 10px;
+    float: left
+}
+
+.order-summary-content .product-box-amazon-button {
+    float: right;
+    padding: 3px 7px;
+    cursor: pointer;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -410px;
+    width: 160px;
+    height: 31px;
+    border: none !important;
+    text-shadow: none;
+    color: transparent;
+}
+
+.order-summary-content .product-box-amazon-button:hover {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -482px;
+    width: 160px;
+    height: 31px;
+    color: transparent;
+    border: 0 none !important;
+}
+
+.order-summary-content .product-box-amazon-button:active {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -446px;
+    width: 160px;
+    height: 31px;
+    color: transparent;
+    border: 0 none !important;
+}
+
+.order-summary-content .link-block {
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+}
+
+.cart-total {
+    width: 100%
+}
+
+.order-summary-content .checkout-buttons, .amazon-panels div.checkout-buttons {
+    float: right;
+    margin: 0;
+    padding: 10px 0 0px 0px;
+    width: 100%
+}
+
+.order-summary-content .checkout-buttons .checkout-button, .amazon-panels div.checkout-buttons button.checkout-button {
+    font: bold 11pt/30px Arial, Helvetica, sans-serif;
+    color: #fff;
+    display: inline-block;
+    padding: 0px 25px;
+    border-radius: 5px;
+    height: 51px;
+    width: 100%;
+    background: rgba(80, 178, 119, 1);
+    background: -moz-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(80, 178, 119, 1)), color-stop(100%, rgba(67, 154, 93, 1)));
+    background: -webkit-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: -o-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: linear-gradient(to bottom, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    cursor: pointer;
+}
+
+.order-summary-content .checkout-buttons .checkout-button:hover, .amazon-panels div.checkout-buttons button.checkout-button:hover, input.cart-remove-item-active:hover {
+    background: rgba(87, 189, 129, 1);
+    background: -moz-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(87, 189, 129, 1)), color-stop(100%, rgba(75, 167, 101, 1)));
+    background: -webkit-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: -o-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: linear-gradient(to bottom, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+}
+
+.order-summary-content .checkout-buttons .checkout-button:active, .amazon-panels div.checkout-buttons button.checkout-button:active, input.cart-remove-item-active:active {
+    background: rgba(78, 171, 115, 1);
+    background: -moz-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(78, 171, 115, 1)), color-stop(100%, rgba(65, 151, 89, 1)));
+    background: -webkit-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: -o-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: linear-gradient(to bottom, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+}
+
+input.cart-remove-item-active {
+    color: #fff;
+    border-radius: 5px;
+    background: rgba(80, 178, 119, 1);
+    background: -moz-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(80, 178, 119, 1)), color-stop(100%, rgba(67, 154, 93, 1)));
+    background: -webkit-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: -o-linear-gradient(top, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+    background: linear-gradient(to bottom, rgba(80, 178, 119, 1) 0%, rgba(67, 154, 93, 1) 100%);
+}
+
+input.cart-remove-item-active:hover {
+    background: rgba(87, 189, 129, 1);
+    background: -moz-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(87, 189, 129, 1)), color-stop(100%, rgba(75, 167, 101, 1)));
+    background: -webkit-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: -o-linear-gradient(top, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+    background: linear-gradient(to bottom, rgba(87, 189, 129, 1) 0%, rgba(75, 167, 101, 1) 100%);
+}
+
+input.cart-remove-item-active:active {
+    color: #fff;
+    background: rgba(78, 171, 115, 1);
+    background: -moz-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(78, 171, 115, 1)), color-stop(100%, rgba(65, 151, 89, 1)));
+    background: -webkit-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: -o-linear-gradient(top, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+    background: linear-gradient(to bottom, rgba(78, 171, 115, 1) 0%, rgba(65, 151, 89, 1) 100%);
+}
+
+.order-summary-content #AmazonPayButton {
+    float: left;
+    position: relative;
+    min-height: 30px;
+    width: 148px;
+    display: inline-block;
+    margin-top: 5px
+}
+
+.order-summary-content #payPalExpressCheckoutImage {
+    float: right !important;
+    margin: 5px 0 0 10px;
+    position: relative;
+    text-align: right;
+    width: 150px;
+}
+
+.order-summary-content #payPalInContextCheckout {
+    float: right !important;
+    margin: 3px 0 0 10px;
+    position: relative;
+    text-align: right;
+    width: 170px;
+}
+
+.order-summary-content #payPalCreditImage {
+    float: none !important;
+    margin: 10px 0 0 85px;
+    position: relative;
+    text-align: center;
+    width: 150px;
+}
+
+#AmazonPayButton #OffAmazonPaymentsWidgets0 {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.order-summary-content .cross-sells {
+    clear: both;
+}
+
+.order-summary-content .checkout_ratings {
+    background: no-repeat -140px -727px url(/Themes/Autoplicity/Content/images/sprite.png);
+    width: 352px;
+    height: 74px;
+    display: block;
+    overflow: hidden;
+}
+
+.order-summary-content .checkout_ratings:hover {
+    background-position: -140px -806px;
+}
+
+.checkout_ratings_block {
+    display: block;
+    overflow: hidden;
+    width: 100%
+}
+
+.estimate-shipping {
+    padding: 20px;
+    font-size: 10pt;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.estimate-shipping .title {
+    color: #333
+}
+
+.estimate-shipping .hint {
+    padding: 10px 0;
+}
+
+.estimate-shipping .country-input, .estimate-shipping .state-input {
+    width: 190px;
+}
+
+.estimate-shipping .zip-input {
+    width: 190px;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 0px
+}
+
+.estimate-shipping .shipping-options {
+    text-align: left;
+    height: auto;
+}
+
+.estimate-shipping .shipping-options .inputs {
+    margin-bottom: 10px;
+    display: block;
+    overflow: hidden;
+}
+
+.estimate-shipping .shipping-options label {
+    display: inline-block;
+    width: 85px;
+}
+
+.estimate-shipping .shipping-options .estimate-shipping-button {
+    margin-left: 90px;
+    float: right
+}
+
+.estimate-shipping .shipping-results li.shipping-option-item {
+    list-style: none;
+    text-align: left;
+    vertical-align: text-top;
+    padding: 5px 0 0 5px;
+    display: inline-block;
+    width: 100%
+}
+
+.estimate-shipping .shipping-results li.shipping-option-item .method-name, .estimate-shipping .shipping-results li.shipping-option-item .shippintext {
+    display: block;
+    width: 100%
+}
+
+.estimate-shipping .shipping-results li.shipping-option-item .method-name label.radio {
+    float: left;
+}
+
+.estimate-shipping .shipping-results li.shipping-option-item .method-name span {
+    float: left;
+    display: inline-block;
+    margin-left: 10px
+}
+
+.estimate-shipping .shipping-results .shipping-option-item .option-name {
+    display: block;
+    font-weight: 700;
+}
+
+.estimate-shipping .shipping-results .shipping-option-item .option-description {
+    display: block;
+    padding: 5px 0 5px 16px;
+}
+
+.estimate-shipping .shipping-options label.ziplabel {
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+.discountcouponcode.show, .coupon-box.show, .giftcardbox.show, .giftcard-box.show, .estimateshipping.show, .shipping.show {
+    display: block !important;
+}
+
+.discountcouponcode.hide, .coupon-box.hide, .coupon-box, .giftcardbox.hide, .giftcard-box.hide, .giftcard-box, .estimateshipping.hide, .shipping.hide, .shipping {
+    display: none !important;
+}
+
+.discountcouponcode, .giftcardbox, .estimateshipping {
+    margin: 10px 0;
+    display: block;
+    overflow: hidden;
+    float: right;
+    padding: 0 10px
+}
+
+.estimateshipping {
+    border: solid 1px transparent;
+    text-decoration: underline
+}
+
+.showcart_separator {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: -497px -489px;
+    width: 338px;
+    height: 18px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+    float: none;
+    margin: 0 auto
+}
+
+.showcart_separator span {
+    display: none
+}
+
+.homepagelagebanner .k-dropdown-wrap.k-state-default {
+    border: 2px solid #517ea0 !important;
+    background-color: #fdfdfd !important
+}
+
+.k-dropdown .k-input, .k-dropdown .k-state-focused .k-input, .k-menu .k-popup {
+    color: #333 !important
+}
+
+.homepagelagebanner .k-dropdown-wrap, .side-2 .k-dropdown-wrap {
+    border-width: 2px !important;
+}
+
+.side-2 .k-dropdown-wrap.k-state-default {
+    border: 2px solid #999 !important
+}

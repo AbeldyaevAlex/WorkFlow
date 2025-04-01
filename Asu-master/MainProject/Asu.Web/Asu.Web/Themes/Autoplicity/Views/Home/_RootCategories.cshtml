@@ -1,0 +1,25 @@
+﻿@using Nop.Web.Models.Home
+
+@{
+    var rootCategories = new List<HomePageGridEntity>
+    {
+                new HomePageGridEntity { Id = 2, Url = "/2-body", Title = "Body" },
+                new HomePageGridEntity { Id = 16, Url = "/16-suspension", Title = "Suspension" },
+                new HomePageGridEntity { Id = 11, Url = "11-exhaust", Title = "Exhaust" },
+                new HomePageGridEntity { Id = 12, Url = "/12-air-and-fuel-delivery", Title = "Air & Fuel Delivery" },
+                new HomePageGridEntity { Id = 10, Url = "/10-engine", Title = "Engine" },
+                new HomePageGridEntity { Id = 3, Url = "/3-brake", Title = "Brake" },
+                new HomePageGridEntity { Id = 7, Url = "/7-electrical-lighting-and-body", Title = "Electrical & Lighting" },
+                new HomePageGridEntity { Id = 17, Url = "/17-tire-and-wheel", Title = "Tire & Wheel" },
+                new HomePageGridEntity { Id = 1, Url = "/1-accessories-and-fluids", Title = "Accessories & Fluids" },
+                new HomePageGridEntity { Id = 18, Url = "/18-tools-and-equipment", Title = "Tools & Equipment" },
+                new HomePageGridEntity { Id = 4, Url = "/4-belts-and-cooling", Title = "Belts & Cooling" },
+                new HomePageGridEntity { Id = 20, Url = "/20-transmission", Title = "Transmission" },
+                new HomePageGridEntity { Id = 5, Url = "/5-driveline-and-axles", Title = "Driveline & Axles" },
+                new HomePageGridEntity { Id = 14, Url = "/14-ignition", Title = "Ignition" },
+                new HomePageGridEntity { Id = 9, Url = "/9-emission-control", Title = "Emission Control" },
+                new HomePageGridEntity { Id = 13, Url = "/13-hvac", Title = "HVAC" },
+                new HomePageGridEntity { Id = 22, Url = "/22-wiper-and-washer", Title = "Wiper & Washer" },
+            };
+}
+@Html.Partial("_RootCategoriesGrid", rootCategories)

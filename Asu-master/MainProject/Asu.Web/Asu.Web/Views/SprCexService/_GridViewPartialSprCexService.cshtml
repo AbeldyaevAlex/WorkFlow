@@ -1,0 +1,49 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridViewSprCexService";
+        settings.CallbackRouteValues = new { Controller = "SprCexService", Action = "GridViewPartialSprCexService" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "SprCexService", Action = "GridViewPartialAddNewSprCexService" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "SprCexService", Action = "GridViewPartialUpdateSprCexService" };
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_agr", Action = "GridView25PartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.KeyFieldName = "Id";
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("Pkp");
+        settings.Columns.Add("NmPkp");
+        //settings.Columns.Add("shifr_agr");
+        //settings.Columns.Add("link_status");
+        //settings.Columns.Add("link_user");
+        //settings.Columns.Add("operation");
+        //settings.Columns.Add("operation_date");
+        //settings.Columns.Add("period_open_date");
+        //settings.Columns.Add("period_close_date");
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

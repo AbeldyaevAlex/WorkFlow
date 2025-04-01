@@ -1,0 +1,330 @@
+﻿@using Asu.Web.Areas.TypicalTechnologicalOperations.Controllers
+@using Asu.Web.Models
+@using System.Data.Entity
+@using System.Web.UI.WebControls
+
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "WorkshopPortfolioGridView";
+    settings.CallbackRouteValues = new { Controller = "WorkshopPortfolio", Action = "GetWorkshopPortfolioFromTreeProductPartialView" };
+
+    settings.KeyFieldName = "PotrtfolioObozn";
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Percentage(100);
+    settings.SettingsBehavior.AllowEllipsisInText = true;
+    settings.SettingsBehavior.AllowDragDrop = true;
+
+    settings.SettingsPager.PageSize = 10;
+    settings.SettingsPager.EnableAdaptivity = true;
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.Visible = true;
+
+    settings.Settings.ShowGroupPanel = true;
+    settings.Settings.ShowFilterRow = true;
+    settings.SettingsFilterControl.ShowAllDataSourceColumns = true;
+
+    settings.Settings.ShowFilterRowMenu = true;
+
+    settings.SettingsSearchPanel.Visible = true;
+    settings.SettingsFilterControl.ShowAllDataSourceColumns = true;
+
+    settings.SettingsCustomizationDialog.Enabled = true;
+
+    settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+    settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+    settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+    settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+    settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+    settings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+    settings.SettingsResizing.Visualization = ResizingMode.Postponed;
+
+    settings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+    settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+    settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Workshop";
+        var x = columnSettings.Caption = "Цех";
+        columnSettings.Visible = true;
+        columnSettings.ReadOnly = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.False;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(120);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "PotrtfolioObozn";
+        var x = columnSettings.Caption = "Обозначение";
+        columnSettings.Visible = true;
+        columnSettings.ReadOnly = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.False;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(380);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Pkp";
+        var x = columnSettings.Caption = "ПКП";
+        columnSettings.Visible = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(85);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Ss";
+        var x = columnSettings.Caption = "Серия С";
+        columnSettings.Visible = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(70);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Spo";
+        var x = columnSettings.Caption = "Серия По";
+        columnSettings.Visible = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(70);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Kizd";
+        var x = columnSettings.Caption = "Кол-во на изделие";
+        columnSettings.Visible = true;
+        columnSettings.ReadOnly = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.True;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(100);
+    });
+    settings.Columns.Add(columnSettings =>
+    {
+        columnSettings.FieldName = "Name";
+        var x = columnSettings.Caption = "Наименование";
+        columnSettings.Visible = true;
+        columnSettings.ReadOnly = true;
+        columnSettings.CellStyle.Wrap = DefaultBoolean.False;
+        columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+        columnSettings.HeaderStyle.Wrap = DefaultBoolean.True;
+        columnSettings.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        columnSettings.Width = Unit.Pixel(280);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Mas1sh";
+        column.Caption = "Масса на сборку";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(150);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "MasIzd";
+        column.Caption = "Масса на изделие";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(150);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Kp1";
+        column.Caption = "Kp1";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(50);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Kp2";
+        column.Caption = "Kp2";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(50);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Kp3";
+        column.Caption = "Kp3";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(50);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "RascexPoln";
+        column.Caption = "Расцеховка";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(250);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "NameIzdel";
+        column.Caption = "Изделие";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(150);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "NameRazdIzd";
+        column.Caption = "Наименование раздела";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(180);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "NameGroup";
+        column.Caption = "Наименование группы";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(180);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "DirectiveWorkSdelnIzgOnUnit";
+        column.Caption = "Труд сдельный изг.на ед.";
+        column.Visible = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(127);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "DirectiveWorkSdelnIzgOnProduct";
+        column.Caption = "Труд сдельный изг.на иделие.";
+        column.Visible = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(127);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "ExeptionOfWork";
+        column.Caption = "Исключения из труда";
+        column.Visible = true;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(280);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Komplekt";
+        column.Caption = "Комплект";
+        column.Visible = false;
+        column.ReadOnly = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(70);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Status";
+        column.Caption = "Статус";
+        column.Visible = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(110);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Condition";
+        column.Caption = "Состояние";
+        column.Visible = true;
+        column.CellStyle.Wrap = DefaultBoolean.False;
+        column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        column.Width = Unit.Pixel(100);
+    });
+
+    settings.Toolbars.Add(toolbar =>
+    {
+        toolbar.Enabled = true;
+        toolbar.Position = GridToolbarPosition.Top;
+        toolbar.ItemAlign = GridToolbarItemAlign.Left;
+        toolbar.Items.Add(item =>
+        {
+            item.Command = GridViewToolbarCommand.ShowCustomizationDialog;
+            item.Text = "Панель Группировки";
+            item.Image.IconID = IconID.ActionsGroup16x16;
+        });
+    });
+
+}).Bind(Model).GetHtml();
+
+
+
+
+
+
+
+
+
+
+
+
+

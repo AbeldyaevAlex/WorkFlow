@@ -1,0 +1,172 @@
+﻿.forums-main-page .forums-main-header {
+    border-bottom: solid 1px #ccc;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+    .forums-main-page .forums-main-header .current-time {
+        padding-top: 20px;
+        font-size: .9em;
+        color: #666;
+        float: left;
+    }
+
+.forum-search-box {
+    font-size: .9em;
+    float: right;
+    text-align: right;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.forums-table-section {
+    background: url(/Themes/Autoplicity/Content/images/forum-footer-bg.gif) repeat-x center bottom;
+    margin-bottom: 30px;
+}
+
+.forums-table-section-title {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+    .forums-table-section-title a {
+        font-weight: 700;
+    }
+
+    .forums-table-section-title .link-rss {
+        background: url(/Themes/Autoplicity/Content/images/ico-rss.gif) no-repeat;
+        display: inline;
+        float: right;
+        width: 14px;
+        height: 14px;
+        margin: 0 0 0 10px;
+        text-indent: -9999px;
+    }
+
+    .forums-table-section-title .view-all {
+        float: right;
+        font-weight: 400 !important;
+        text-align: right;
+    }
+
+.forums-table-section table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.forums-table-section td {
+    padding: 3px 0;
+}
+
+.forums-table-section th {
+    background: url(/Themes/Autoplicity/Content/images/forum-header-bg.gif) repeat-x center;
+    border-right: 1px solid #ccc;
+    color: #fff;
+    font-weight: 700;
+    height: 20px;
+    vertical-align: middle;
+}
+
+    .forums-table-section th.forum-name {
+        padding-left: 3px;
+        text-align: left;
+        width: 55%;
+    }
+
+    .forums-table-section th.topics {
+        width: 10%;
+    }
+
+    .forums-table-section th.posts {
+        width: 10%;
+    }
+
+    .forums-table-section th.last-post {
+        width: 25%;
+    }
+
+.forums-table-section td.image div {
+    background: url(/Themes/Autoplicity/Content/images/ico-forum.gif) no-repeat 40% 40%;
+    height: 36px;
+    width: 36px;
+}
+
+    .forums-table-section td.image div.post {
+        background: url(/Themes/Autoplicity/Content/images/ico-forum-post.gif) no-repeat 40% 40%;
+        height: 36px;
+        width: 36px;
+    }
+
+    .forums-table-section td.image div.post-annoucement, .forums-table-section td div.post-sticky {
+        background: url(/Themes/Autoplicity/Content/images/ico-forum-post-high.gif) no-repeat 40% 40%;
+        height: 36px;
+        width: 36px;
+    }
+
+.forums-table-section td {
+    border-bottom: 1px solid #ccc;
+    padding-left: 3px;
+    vertical-align: middle;
+}
+
+    .forums-table-section td.forum-name {
+        text-align: left;
+        width: 55%;
+    }
+
+        .forums-table-section td.forum-name .forum-title a {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 700;
+            line-height: 18px;
+            margin-bottom: 3px;
+        }
+
+        .forums-table-section td.forum-name .forum-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+    .forums-table-section td.last-post {
+        color: #666;
+        font-size: 0.8em;
+    }
+
+.forums-table-section th.topic-name {
+    padding-left: 3px;
+    text-align: left;
+    width: 55%;
+}
+
+.forums-table-section th.replies {
+    width: 10%;
+}
+
+.forums-table-section th.views {
+    width: 10%;
+}
+
+.forums-table-section td.topic-name {
+    text-align: left;
+    width: 55%;
+}
+
+    .forums-table-section td.topic-name .topic-type {
+        font-size: 0.9em;
+        line-height: 18px;
+    }
+
+    .forums-table-section td.topic-name .topic-title {
+        font-size: 1.1em;
+        font-weight: 700;
+        line-height: 18px;
+    }
+
+    .forums-table-section td.topic-name .topic-starter, .forums-table-section td.topic-name .topic-pager {
+        color: #666;
+        font-size: 0.9em;
+        margin: 1px 0;
+    }

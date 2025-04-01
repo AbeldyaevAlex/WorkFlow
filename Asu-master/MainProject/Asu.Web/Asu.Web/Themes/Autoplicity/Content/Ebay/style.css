@@ -1,0 +1,589 @@
+﻿table {
+    margin: auto;
+    max-width: 1200px !important;
+    overflow: hidden;
+    width: 100% !important;
+}
+
+table#TopPromoArea td.v4topleft {
+    display: inline-block;
+    float: left;
+    width: 47%;
+}
+
+table#TopPromoArea td table.gallery {
+    width: 100% !important;
+}
+
+table.gallery td:first-child {
+    float: left
+}
+
+table.gallery td:last-child {
+    float: right
+}
+
+#billboard .img-cell {
+    height: auto !important;
+}
+
+.Slider img {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.secrh {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom: 1px solid #ccc;
+    border-image: none;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+    border-top: 1px solid #ccc;
+    color: #999999;
+    height: 32px;
+    width: 220px;
+    border-right: 0px none transparent;
+    padding-left: 10px;
+}
+
+.main_topmenu {
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 99%;
+}
+
+.main_topmenu ul {
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.main_topmenu li {
+    display: inline-block;
+    float: left;
+    list-style: none;
+    color: #666;
+    text-decoration: none;
+    line-height: 55px;
+    margin-left: 20px;
+}
+
+.main_topmenu li a {
+    color: #666;
+    text-decoration: none;
+}
+
+table {
+    max-width: 1200px !important;
+    margin: auto;
+}
+
+.logoblock {
+    display: inline-block;
+    float: left;
+    min-width: 320px;
+    width: 50%;
+}
+
+.logoblock img {
+    max-width: 100%;
+}
+
+.searchblock {
+    float: right;
+    margin-top: 20px;
+    text-align: right !important;
+    width: auto;
+    display: inline-block;
+}
+
+.searchblock form {
+    float: right;
+}
+
+.searchblock table {
+    width: 320px
+}
+
+.grid td.left {
+    border: none !important
+}
+
+div.itemseparator {
+    border-color: transparent;
+    display: none;
+    margin-top: 10px
+}
+
+table.gallery td.picture {
+    padding: 0px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    margin: 0 auto 10px;
+}
+
+table.gallery {
+    margin: 10px;
+    width: 90%;
+}
+
+table.gallery {
+    padding: 0
+}
+
+.r3_t {
+    display: none;
+}
+
+.r3_hm, .r3_c, .r3_s {
+    border: none;
+}
+
+.cmpBr {
+    background-color: #fff;
+    margin-bottom: 20px
+}
+
+table.v4acp tr.v4acp_head td.v4title font {
+    color: #666;
+    font-size: 12pt !important;
+    font-weight: normal;
+    padding: 5px 5px 5px 10px;
+}
+
+table.v4acp tr.v4acp_head td.v4title {
+    background-color: #fff
+}
+
+table.v4acp td.v4baccent {
+    display: none;
+}
+
+tr.v4footr td.v4footd {
+    background-color: #fff;
+    border: none !important
+}
+
+table.v4midBox {
+    border: none !important
+}
+
+table#TopPromoArea tr.v4toppromos {
+    border-bottom: 1px solid #ccc !important;
+    display: block;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #666 !important
+}
+
+table.gallery div.ttl a {
+    color: #333;
+    display: inline;
+    float: none;
+    font-size: 12pt;
+    margin: 0 auto;
+    padding: 0 0px;
+    width: 90%;
+}
+
+table.gallery div.ttl {
+    padding: 0 0px;
+}
+
+table.gallery table.fixed {
+    margin: 0 0px;
+    width: 100%;
+}
+
+table.gallery table.fixed .bin.g-b {
+    font-size: 12pt;
+    color: #333;
+    font-weight: bold
+}
+
+div.fpcc {
+    clear: both;
+    margin: 0;
+    padding: 0 0 3px 10px;
+    text-align: right;
+}
+
+.fpcc .countClass {
+    color: #333;
+}
+
+.ctrlbr {
+    border-bottom: none;
+}
+
+.rs_box {
+    border-top: 0px none transparent;
+    clear: both;
+}
+
+.r3_bl {
+    display: none
+}
+
+table.pgbc {
+    background-color: transparent;
+    border: none;
+}
+
+table.v4acp tr.v4acp_head td.v4accent, table.v4acp tr.v4acp_head td.v4hspacer {
+    display: none
+}
+
+table.v4acp tr.v4acp_head td.v4title {
+    color: #666;
+    font-weight: bold;
+    padding: 5px 5px 0 0px;
+}
+
+.Slider {
+    border-bottom: 1px solid #ccc
+}
+
+.v4ilist.v4ilistlr .gallery .details {
+    display: inline-block;
+    margin-left: 10px;
+    width: 220px
+}
+
+table.gallery table.fixed div.time2 span {
+    color: #5782a3
+}
+
+table.gallery table.fixed div.time2 span.label {
+    color: #666
+}
+
+.lcat .lev2 {
+    padding: 0 0 0 0px;
+}
+
+.lcat .lev2 li {
+    color: #666;
+    list-style-type: none;
+    margin: 4px 0;
+}
+
+.stBadge {
+    float: none;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 760px;
+}
+
+span.pdmt .cur {
+    color: #666;
+    cursor: pointer;
+    margin-left: 0.4em;
+}
+
+span.fshp {
+    background-image: url("http://www.vikkisoft.com/ebay/freeshipping.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #666;
+    display: inline-block;
+    font-family: Verdana;
+    font-size: 10pt;
+    font-weight: normal;
+    height: 22px;
+    line-height: 22px;
+    margin-left: 10px;
+    text-align: right;
+    white-space: normal;
+    width: 85px;
+}
+
+table.gallery div.clearFullDiv {
+    margin-bottom: 5px
+}
+
+.dynpg .prev {
+    background-image: url("http://www.vikkisoft.com/ebay/prev.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    width: 110px;
+    float: left
+}
+
+.dynpg .prev a img {
+    display: none;
+    width: 36px;
+    height: 36px;
+}
+
+.dynpg .prev a {
+    display: inline-block;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    min-width: 36px;
+}
+
+.dynpg .next {
+    background-image: url("http://www.vikkisoft.com/ebay/next.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    width: 75px;
+}
+
+.dynpg .next a img {
+    display: none;
+    width: 36px;
+    height: 36px;
+}
+
+.dynpg .next a img {
+    display: none;
+    width: 36px;
+    height: 36px;
+}
+
+.dynpg .next a {
+    display: inline-block;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    min-width: 36px;
+    overflow: visible;
+    text-align: left;
+}
+
+.dynpg span.pipe {
+    display: none;
+}
+
+.dynpg td.pages a.disabled, .dynpg td.pages a.disabled:visited {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #000;
+    display: inline-block;
+    font-weight: normal;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    width: 36px;
+}
+
+.dynpg td.pages a.disabled, .dynpg td.pages a.enabled {
+    color: #999;
+    display: inline-block;
+    font-weight: normal;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    width: 36px;
+}
+
+table.v4clp li.v4f, table.v4clp li {
+    list-style: none
+}
+
+table.v4clp li {
+    background-image: url("http://www.vikkisoft.com/ebay/arrow.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-block;
+    padding-right: 15px;
+    width: 90%
+}
+
+table.v4clp td ul {
+    margin-left: 0px
+}
+
+table.v4midBox tr.v4acp_mid td.v4mid {
+    padding-left: 0
+}
+
+.pagewidth {
+    width: 100%;
+    min-width: 1px
+}
+
+table.gallery td.picture div.image {
+    padding: 0;
+    width: 100% !important;
+    margin: 0 auto;
+}
+
+.r3_cm.bp.tp {
+    padding: 0px !important
+}
+
+.rs-pview {
+    padding: 0px;
+}
+
+table.gallery {
+    width: 220px !important;
+    margin: 0 auto 20px auto;
+
+}
+
+table.gallery .mi {
+    min-height: 1px
+}
+
+table.gallery tbody {
+    margin: 0 auto;
+}
+
+table.gallery tr {
+    display: inline-block;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+table.gallery td.details {
+    text-align: left;
+}
+
+table.gallery td.picture {
+    margin: 0 auto;
+    padding: 0;
+    width: 220px !important;
+    display: inline-block;
+    float: left
+}
+
+table.gallery div.clearFullDiv {
+    clear: both;
+    width: 150px;
+}
+
+.dynpg .pages {
+    float: left
+}
+
+td.basics {
+    width: 150px;
+}
+
+@media screen and (max-width: 1020px) and (min-width: 769px) {
+    .dynpg .l, .dynpg .r, .dynpg .m {
+        padding-left: 10px;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .dynpg .l {
+        margin-bottom: 10px
+    }
+
+    table.gallery td.picture div.image {
+        padding: 0;
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    table.gallery td.picture {
+        margin: 0 auto;
+        padding: 0;
+        width: 160px !important;
+        display: inline-block
+    }
+
+    table.gallery tr {
+        width: auto
+    }
+
+    table.gallery td.details {
+        text-align: left;
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    table {
+        max-width: 768px !important;
+        margin: auto;
+    }
+
+    table.gallery td.picture div.image {
+        padding: 0;
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    table.gallery td.picture {
+        margin: 0 auto;
+        padding: 0;
+        width: 160px !important;
+        display: inline-block
+    }
+
+    .dynpg .l, .dynpg .r, .dynpg .m {
+        padding-left: 10px;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .grid td.gallery {
+        width: 100% !important;
+        display: inline-block !important;
+    }
+
+    table.gallery tr {
+        width: auto
+    }
+
+    table.gallery td.details {
+        text-align: left;
+        width: 180px;
+    }
+
+    .dynpg .l {
+        margin-bottom: 10px
+    }
+
+    table.gallery {
+        margin: 10px auto;
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table {
+        max-width: 480px !important;
+        margin: auto;
+    }
+
+    .stBadge {
+        min-width: 60px;
+    }
+
+    .stBadge img {
+        width: auto;
+    }
+}

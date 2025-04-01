@@ -1,0 +1,1882 @@
+﻿@import 'additionally/colors.scss';
+@import 'additionally/fonts.scss';
+
+/* Shipping & Returns Page */
+.topic-page {
+    padding: 0 10px;
+
+    .topic-page-title {
+        display: block;
+        margin: 0 0 20px 0;
+        width: 100%;
+
+        h1 {
+            color: $black;
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: .3px;
+            text-align: left;
+        }
+    }
+}
+
+/* Register Page */
+.register-block {
+    border: 1px solid #5782a3;
+    border-radius: 0;
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    min-height: 320px;
+    padding: 0;
+    width: 32%;
+    position: relative;
+
+    .title {
+        background-color: #5782a3;
+        padding: 10px 20px;
+        margin: 0px 0 14px;
+        letter-spacing: 0.2px;
+        zoom: 1;
+
+        strong {
+            font-size: 13pt;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    .text {
+        color: $black;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        padding: 10px 20px 0;
+    }
+
+    .buttons {
+        bottom: 30px;
+        float: right;
+        margin: 30px 10% 0 0px;
+        position: absolute;
+        right: 0;
+        width: 80%;
+        margin-right: 10%;
+
+        input {
+            display: block;
+            cursor: pointer;
+            margin: 10px auto 0;
+            padding: 8px 7px 10px 7px;
+            position: absolute;
+            bottom: 0;
+            font-size: 17px;
+            line-height: 1.3;
+            height: 40px;
+            width: 80%;
+            right: 10%;
+            max-width: 465px;
+        }
+    }
+}
+
+.returning-wrapper {
+    border: 1px solid #5782a3;
+    border-radius: 0;
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    min-height: 320px;
+    padding: 0;
+    width: 32%;
+    position: relative;
+
+    .title {
+        background-color: #5782a3;
+        padding: 10px 20px;
+        margin: 0px 0 14px;
+        letter-spacing: 0.2px;
+        zoom: 1;
+
+        strong {
+            font-size: 13pt;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    .form-fields {
+        padding: 10px 20px 0;
+
+        #loginForm {
+            letter-spacing: 0.2px;
+            color: #555;
+
+            .message-error {
+                color: #cc5257;
+                font-size: 8pt;
+                padding: 0;
+                margin-bottom: 5px;
+            }
+
+            .inputs {
+                display: inline-block;
+                margin: 0 0 20px 0;
+                width: 100%;
+
+                label {
+                    color: $black;
+                    letter-spacing: 0.2px;
+                    line-height: 18px;
+                    display: inline-block;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    width: 80px;
+
+                    .email {
+                        width: 170px;
+                        float: right;
+                    }
+                }
+
+                input {
+                    appearance: none;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-shadow: none;
+                    cursor: text;
+                    outline: none;
+                    padding: 10px;
+                    margin: 0;
+                    width: 170px;
+                    float: right;
+                }
+
+                .rememberme {
+                    display: inline-block;
+                    width: 100%;
+
+                    > label {
+                        line-height: 1.2;
+                    }
+
+                    .checkbox {
+                        display: inline-block;
+                        float: left;
+                        cursor: pointer;
+                        position: relative;
+                        color: #555;
+                        letter-spacing: 0.2px;
+                        line-height: 1.2;
+                        margin-right: 10px;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        width: 18px;
+                        z-index: 0;
+
+                        &.checked {
+                            &:before {
+                                background: url("/Content/Images/icons-general/check-box-checked.svg") no-repeat left center !important;
+                                background-size: contain !important;
+                            }
+                        }
+                    }
+                }
+
+                .forgot-password {
+                    bottom: 120px;
+                    display: inline-block;
+                    float: left !important;
+                    font-weight: 700;
+                    line-height: 24px;
+                    margin-top: 10px !important;
+                    position: absolute;
+                    right: 30px;
+                    text-decoration: underline;
+
+                    a {
+                        color: $black;
+                    }
+                }
+
+                .buttons {
+                    bottom: 30px;
+                    float: right;
+                    margin: 0px;
+                    position: absolute;
+                    right: 0;
+                    width: 80%;
+                    margin-right: 10%;
+
+                    input {
+                        display: block;
+                        cursor: pointer;
+                        margin: 10px auto 0;
+                        padding: 8px 7px 10px 7px;
+                        position: absolute;
+                        bottom: 0;
+                        font-size: 17px;
+                        line-height: 1.3;
+                        height: 40px;
+                        width: 80%;
+                        right: 10%;
+                        max-width: 465px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.checkorderform {
+    border: 1px solid #5782a3;
+    border-radius: 0;
+    float: left;
+    margin-bottom: 15px;
+    min-height: 320px;
+    padding: 0;
+    width: 32%;
+    position: relative;
+
+    .title {
+        background-color: #5782a3;
+        padding: 10px 20px;
+        margin: 0px 0 14px;
+        letter-spacing: 0.2px;
+        zoom: 1;
+
+        strong {
+            font-size: 13pt;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    #checkOrderForm {
+        padding: 10px 20px 0;
+
+        .checkorderdiv {
+            display: inline-block;
+            padding: 10px 0;
+            overflow: hidden;
+            width: 100%;
+
+            .checkjrderlabel1 {
+                color: $black;
+                float: left;
+                letter-spacing: 0.2px;
+                line-height: 18px;
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: middle;
+                white-space: nowrap;
+                width: 80px;
+            }
+
+            input {
+                appearance: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-shadow: none;
+                cursor: text;
+                outline: none;
+                padding: 10px;
+                margin: 0;
+                width: 170px;
+                float: right;
+            }
+
+            span {
+                letter-spacing: 0.2px;
+                color: #555;
+            }
+        }
+
+        > input {
+            display: block;
+            cursor: pointer;
+            margin: 10px auto 30px;
+            padding: 8px 7px 10px 7px;
+            position: absolute;
+            bottom: 0;
+            font-size: 17px;
+            line-height: 1.3;
+            height: 40px;
+            width: 80%;
+            right: 10%;
+            max-width: 465px;
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+    .register-block {
+        float: left;
+        margin: 0;
+        width: 48%;
+    }
+    .returning-wrapper {
+        float: right;
+        margin: 0;
+        width: 48%;
+    }
+    .checkorderform {
+        margin: 20px 0 0 0;
+        width: 100%;
+
+        #checkOrderForm {
+            > input {
+                right: 0;
+                position: relative;
+                margin: 30px auto;
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px){
+    .register-block,
+    .returning-wrapper,
+    .checkorderform {
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+}
+
+/* Contact Us */
+.contact-page {
+    display: block;
+    border-radius: 5px;
+    border: none;
+    padding: 30px 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1260px;
+
+    .page-title {
+        display: block;
+        margin: 0 0 20px 0;
+        width: 100%;
+
+        h1 {
+            color: $black;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: .3px;
+            text-align: left;
+        }
+    }
+
+    .topic-html-content {
+        display: block;
+        padding: 0 0 20px 0;
+        width: 100%;
+
+        .topic-html-content-body {
+            h1 {
+                display: none;
+            }
+        }
+    }
+
+    .page-body {
+        display: block;
+        margin: 10px 0 0 0;
+        width: 100%;
+
+        > form {
+            .form-fields {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin: 0 0 30px 0;
+
+                .inputs-left,
+                .inputs-right {
+                    width: 50%;
+
+                    label {
+                        font-weight: bold;
+                        font-size: 14px;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 5px;
+                    }
+
+                    .input-box {
+                        .fullname, .email {
+                            width: 100%;
+                            max-width: 300px;
+                            padding: 21px 10px;
+                        }
+
+                        .enquiry {
+                            height: 150px;
+                            padding: 10px;
+                            width: 100%;
+                        }
+                    }
+
+                    .inputs {
+                        margin-bottom: 20px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .field-validation-valid {
+                        }
+                    }
+                }
+
+                .inputs-right {
+                }
+            }
+
+            .buttons {
+                .contact-us-button {
+                    background: $green;
+                    border: 2px solid $green;
+                    border-radius: 8px;
+                    color: $white;
+                    font-size: 16px;
+                    font-weight: 400;
+                    letter-spacing: 0.3px;
+                    padding: 12px 30px;
+                    text-align: center;
+                    transition: ease-in-out 0.2s;
+
+                    &:hover {
+                        background: $white;
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    body {
+        .contact-page {
+            .page-title {
+                h1 {
+                }
+            }
+
+            .topic-html-content {
+                .topic-html-content-body {
+                    h1 {
+                    }
+                }
+            }
+
+            .page-body {
+                > form {
+                    .form-fields {
+                        flex-direction: column;
+
+                        .inputs-left {
+                            display: flex;
+                            align-items: flex-start;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            .inputs {
+                                width: 48%;
+                            }
+                        }
+
+                        .inputs-left,
+                        .inputs-right {
+                            width: 100%;
+
+                            label {
+                                display: block;
+                            }
+
+                            .input-box {
+                                .fullname, .email {
+                                    max-width: initial;
+                                }
+
+                                .enquiry {
+                                }
+                            }
+
+                            .inputs {
+
+                                &:last-child {
+                                }
+
+                                .field-validation-valid {
+                                }
+                            }
+                        }
+
+                        .inputs-right {
+                        }
+                    }
+
+                    .buttons {
+                        .contact-us-button {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Register Page */
+.password-recovery-page {
+    padding: 0 10px;
+
+    .page-title {
+        display: block;
+        margin: 0 0 20px 0;
+        width: 100%;
+
+        h1 {
+            color: $black;
+            font-weight: bold;
+            font-size: 30px;
+            letter-spacing: .3px;
+            text-align: left;
+        }
+    }
+
+    .page-body {
+        border: 1px solid $black;
+        display: block;
+        padding: 30px;
+        border-radius: 5px;
+        width: 60%;
+
+        form {
+            .tooltip {
+                color: $black;
+                display: inline-block;
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                margin: 0 0 20px 0;
+            }
+
+            .fieldset {
+                .form-fields {
+                    .inputs {
+                        > label {
+                            display: block;
+                            margin: 0 0 5px 0;
+                            text-align: left;
+                            width: 100%;
+                        }
+
+                        .email {
+                            height: 34px;
+                            color: #333;
+                            width: 250px;
+                        }
+                    }
+                }
+            }
+
+            .buttons {
+                input {
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 0.3px;
+                    padding: 12px 30px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .password-recovery-page {
+        .page-title {
+            h1 {
+            }
+        }
+
+        .page-body {
+            width: 100%;
+
+            form {
+                .tooltip {
+                }
+
+                .fieldset {
+                    .form-fields {
+                        .inputs {
+                            > label {
+                            }
+
+                            .email {
+                            }
+                        }
+                    }
+                }
+
+                .buttons {
+                    input {
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Registration Result Page */
+.registration-result-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+
+    .registration-result {
+        display: block;
+        border-radius: 5px;
+        border: 1px solid $grey-light;
+        min-height: 200px;
+        padding: 30px;
+        width: 49%;
+
+        .page-title {
+            display: block;
+            margin: 0 0 20px 0;
+            width: 100%;
+
+            h1 {
+                color: $black;
+                font-weight: bold;
+                font-size: 24px;
+                letter-spacing: .3px;
+                margin: 0;
+                text-align: left;
+            }
+        }
+
+        .page-body {
+            .result {
+                color: $grey;
+                display: block;
+                font-size: 14px;
+                letter-spacing: 0.3px;
+                margin: 0 0 30px 0;
+                text-align: left;
+            }
+
+            .buttons {
+                display: block;
+                text-align: left;
+
+                .register-continue-button {
+                    padding: 9px 40px;
+                    letter-spacing: 0.3px;
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .footer-top-columns-right {
+        display: block;
+        border-radius: 5px;
+        border: 1px solid $grey-light;
+        min-height: 200px;
+        padding: 30px;
+        width: 49%;
+
+        .footer-top-follow-us {
+            .footer-top-follow-us-left {
+                h5 {
+                    color: $black;
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: 0.3px;
+                    margin: 0 0 20px 0;
+                    text-align: left;
+                }
+
+                .footer-top-follow-us-email {
+                    display: flex;
+                    align-items: self-start;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    input {
+                    }
+
+                    button {
+                        background-color: $green;
+                        border: 2px solid $green;
+                        border-radius: 8px;
+                        font-size: 15px;
+                        font-weight: 600;
+                        padding: 10px 8px;
+                        letter-spacing: 0.3px;
+                        margin: 20px 0 0 0;
+                        padding: 9px 40px;
+                        text-align: center;
+                        transition: ease-in-out 0.2s;
+
+                        &:hover {
+                            background-color: transparent;
+                            color: $white;
+                            text-decoration: none;
+
+                            p {
+                                color: $green;
+                            }
+                        }
+
+                        p {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            .newsletter-result-block {
+            }
+
+            .footer-top-follow-us-right {
+                .footer-top-follow-us-accounts {
+                    a {
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .registration-result-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .registration-result {
+            margin: 0 0 20px 0;
+            width: 70%;
+
+            .page-title {
+                h1 {
+                    text-align: center;
+                }
+            }
+
+            .page-body {
+                .result {
+                    text-align: center;
+                }
+
+                .buttons {
+                    text-align: center;
+
+                    .register-continue-button {
+                    }
+                }
+            }
+        }
+
+        .footer-top-columns-right {
+            width: 70%;
+
+            .footer-top-follow-us {
+                .footer-top-follow-us-left {
+                    h5 {
+                        text-align: center;
+                    }
+
+                    .footer-top-follow-us-email {
+                        align-items: center;
+
+                        input {
+                        }
+
+                        button {
+                            p {
+                            }
+                        }
+                    }
+                }
+
+                .newsletter-result-block {
+                }
+
+                .footer-top-follow-us-right {
+                    .footer-top-follow-us-accounts {
+                        a {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Registration Page */
+.registration-page {
+    border: 1px solid $grey-dark;
+    display: block;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    margin: 30px auto;
+    padding: 20px 20px;
+
+    .page-title {
+        display: block;
+        margin: 0 0 20px 0;
+        width: 100%;
+
+        h1 {
+            color: $black;
+            font-weight: bold;
+            font-size: 28px;
+            letter-spacing: .3px;
+            text-align: left;
+        }
+    }
+
+    .page-body {
+        .fieldset {
+            margin: 0 0 20px 0;
+            width: 100%;
+
+            .title {
+                width: 100%;
+
+                strong {
+                    color: $black;
+                    font-weight: normal;
+                }
+            }
+
+            .form-fields {
+                .inputs {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    position: relative;
+                    min-height: 16px;
+
+                    label.checkbox {
+                        cursor: pointer;
+                        display: block;
+                        height: 17px;
+                        padding: 0 0 0 26px;
+                        position: relative;
+                        margin: 0 0 0 10px;
+                        text-align: left;
+
+                        &:before {
+                            background: url("/Content/Images/icons-general/check-box-unchecked.svg") no-repeat left center;
+                            background-size: contain;
+                            position: absolute;
+                            content: "";
+                            left: 0;
+                            top: -1px;
+                            height: 17px;
+                            width: 17px;
+                        }
+
+                        &.checked {
+                            &:before {
+                                background: url("/Content/Images/icons-general/check-box-checked.svg") no-repeat left center;
+                                background-size: contain;
+                            }
+                        }
+                    }
+
+                    input {
+                        border: 1px solid $grey-dark;
+                        border-radius: 0;
+                        color: $grey-darkness;
+                        height: auto;
+                        padding: 20px 20px;
+                        width: 100%;
+                        transition: ease-in-out 0.2s;
+                    }
+
+                    .required {
+                        background-color: $red;
+                        color: $red;
+                        height: 57px;
+                        display: inline-block;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            input {
+                background: $green;
+                border: 2px solid $green;
+                border-radius: 0;
+                color: $white;
+                cursor: pointer;
+                font-weight: bold;
+                margin: 0;
+                padding: 20px 20px;
+                text-transform: uppercase;
+                width: 100%;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    background: $white;
+                    color: $green;
+                }
+            }
+        }
+    }
+}
+.Boatplicity {
+    .registration-page {
+        .page-body {
+            .buttons {
+                input {
+                    background: #7689a9;
+                    border: 2px solid #7689a9;
+
+                    &:hover {
+                        background: $white;
+                        color: #7689a9;
+                    }
+                }
+            }
+        }
+    }
+}
+.THMotorsports {
+    .registration-page {
+        .page-body {
+            .buttons {
+                input {
+                    background: $red-thmotorsports-dark;
+                    border: 2px solid $red-thmotorsports-dark;
+
+                    &:hover {
+                        background: $white;
+                        color: $red-thmotorsports-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+.Cycleplicity {
+    .registration-page {
+        .page-body {
+            .buttons {
+                input {
+                    background: $red-cycleplicity-dark;
+                    border: 2px solid $red-cycleplicity-dark;
+
+                    &:hover {
+                        background: $white;
+                        color: $red-cycleplicity-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+.DirtEverywhere {
+    .registration-page {
+        .page-body {
+            .buttons {
+                input {
+                    background: $yellow-dark-dirtEverywhere;
+                    border: 2px solid $yellow-dark-dirtEverywhere;
+
+                    &:hover {
+                        background: $white;
+                        color: $yellow-dark-dirtEverywhere;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Account Page */
+.master-wrapper-customer-account {
+    margin: 10px 0 50px 0;
+
+    .block-account-navigation {
+        display: block;
+        padding: 10px 0 0 0;
+        min-height: 1px;
+        width: 100%;
+
+        .title {
+            color: #111;
+            font-weight: 700;
+            font-size: 2em;
+            line-height: 1.1;
+            padding: 15px 0 15px 1%;
+            order: 1;
+            text-transform: uppercase;
+        }
+
+        .listbox {
+            border: none;
+            border-radius: 0;
+            float: none;
+            margin: 0 0 30px 0;
+            width: 100%;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+
+                li {
+                    border: none;
+                    padding: 8px 15px 8px 0;
+
+                    a {
+                        border-bottom: 3px solid #fff;
+                        color: #555;
+                        font-size: 13pt;
+                        font-weight: bold;
+                        padding: 0 0 3px 0;
+                        transition: ease-in-out 0.2s;
+
+                        &.active {
+                            border-bottom: 3px solid #4dab71;
+                            color: #111;
+                        }
+
+                        &:hover {
+                            color: #4dab71;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-info-page {
+        .page-body {
+            border: 1px solid #999;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            display: block;
+        }
+    }
+
+    .address-list-page {
+        .page-body {
+            display: flex;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+
+
+            .add-address-button {
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                padding: 15px;
+                cursor: pointer;
+                margin: 0 1% 1% 1%;
+                float: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 30%;
+                border: 2px dashed #ccc;
+                background: transparent;
+                transition: ease-in-out 0.2s;
+
+                &:hover {
+                    border: 2px dashed $green;
+
+                    > p {
+                        color: $green;
+                    }
+
+                    img {
+                        filter: invert(74%) sepia(35%) saturate(519%) hue-rotate(82deg) brightness(91%) contrast(97%);
+                    }
+                }
+
+                img {
+                    position: relative;
+                    max-width: 30px;
+                    max-height: 30px;
+                    transition: ease-in-out 0.2s;
+                }
+
+                > p {
+                    color: $black;
+                    font-size: 24px;
+                    margin: 15px 0 0 0;
+                    transition: ease-in-out 0.2s;
+                }
+            }
+
+            .address-list {
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                border: 2px solid #ccc;
+                margin: 0 1% 1% 1%;
+                padding: 20px;
+                width: 30%;
+
+                .section {
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    zoom: 1;
+                    min-height: 340px;
+                    width: 220px;
+                    line-height: 24px;
+                    list-style: outside none none;
+                    margin-bottom: 30px;
+                    margin-right: 30px;
+                    float: left;
+
+                    &:after {
+                        content: ".";
+                        display: block;
+                        clear: both;
+                        height: 0;
+                        font-size: 0;
+                        line-height: 0;
+                        visibility: hidden;
+                    }
+                }
+
+                .address-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    float: none;
+                    border: none;
+                    margin-bottom: 0;
+                    min-height: auto;
+                    padding: 0;
+                    height: auto;
+                    width: 100%;
+
+                    .buttons {
+                        order: 3;
+
+                        .edit-address-button {
+                            background: transparent;
+                            border: none;
+                            border-radius: 0;
+                            border-right: 2px solid rgba(95, 138, 168, 1);
+                            color: rgba(95, 138, 168, 1);
+                            font-size: 15px;
+                            font-weight: bold;
+                            padding: 1px 10px 1px 5px;
+                            position: relative;
+                            margin: 0;
+                            transition: ease-in-out 0.2s;
+
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+
+                        .delete-address-button {
+                            background: transparent;
+                            border: none;
+                            border-radius: 0;
+                            color: rgba(95, 138, 168, 1);
+                            font-size: 15px;
+                            font-weight: bold;
+                            padding: 1px 5px;
+                            margin: 0;
+                            transition: ease-in-out 0.2s;
+
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        align-content: flex-start;
+                        justify-content: flex-start;
+                        margin: 0 0 20px 0;
+                        order: 2;
+                        float: left;
+                        width: 100%;
+
+                        li {
+                            font-size: 15px;
+                            text-align: left;
+
+                            label {
+                                display: inline-block;
+                                font-weight: bold;
+                                font-size: 15px;
+                                margin: 0 3px 0 0;
+                            }
+                        }
+                    }
+
+                    .title {
+                        padding: 0;
+                        margin: 0 0 20px 0;
+
+                        h3 {
+                            color: #555;
+                            font-size: 16pt;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .account-page {
+        padding: 0 10px;
+
+        .page-title {
+            display: none;
+        }
+
+        .page-body {
+            .message-error {
+                color: #cc5257;
+                font-size: 8pt;
+                margin-bottom: 10px;
+            }
+
+            .fieldset {
+                display: inline-block;
+                margin-bottom: 15px;
+                width: 100%;
+
+                .title {
+                    font-size: 14px;
+                    margin: 0px 0 14px;
+                }
+
+                .form-fields {
+                    .inputs {
+                        display: block;
+                        margin-bottom: 10px;
+                        min-height: 16px;
+                        overflow: hidden;
+                        width: 100%;
+
+                        input {
+                            padding: 13px 10px;
+                        }
+
+                        &.firstname {
+                            float: left;
+                            width: 49%;
+
+                            input {
+                                width: 90%;
+                            }
+
+                            .required {
+                            }
+
+                            .field-validation-valid {
+                            }
+                        }
+
+                        &.lastname {
+                            float: right;
+                            width: 49%;
+
+                            input {
+                                width: 90%;
+                            }
+
+                            .required {
+                            }
+
+                            .field-validation-valid {
+                            }
+                        }
+
+                        #Email {
+                            width: 95%;
+                        }
+
+                        #Company {
+                            width: 95%;
+                        }
+
+                        label.checkbox {
+                            cursor: pointer;
+                            display: block;
+                            padding: 0 0 0 26px;
+                            position: relative;
+                            text-align: left;
+
+                            &:before {
+                                background: url("/Content/Images/icons-general/check-box-unchecked.svg") no-repeat left center;
+                                background-size: contain;
+                                position: absolute;
+                                content: "";
+                                left: 0;
+                                top: -1px;
+                                height: 17px;
+                                width: 17px;
+                            }
+
+                            &.checked {
+                                &:before {
+                                    background: url("/Content/Images/icons-general/check-box-checked.svg") no-repeat left center;
+                                    background-size: contain;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .buttons {
+                display: block;
+                text-align: right;
+                width: 100%;
+
+                input {
+                    background: $green;
+                    border: 2px solid $green;
+                    border-radius: 8px;
+                    color: $white;
+                    font-size: 16px;
+                    font-weight: 400;
+                    letter-spacing: 0.3px;
+                    padding: 12px 30px;
+                    text-align: center;
+                    transition: ease-in-out 0.2s;
+
+                    &:hover {
+                        background: $white;
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+
+    .address-edit-page {
+        .page-body {
+            border: 1px solid #999;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            overflow: hidden;
+
+            .edit-address {
+                display: inline-block;
+                margin-bottom: 10px;
+
+                .inputs {
+                    margin: 0 0 10px 0;
+
+                    &.full-width {
+                        input {
+                            width: 95%;
+                        }
+                    }
+
+                    &.medium-width {
+                        float: left;
+                        width: 49%;
+
+                        input {
+                            width: 93%;
+                        }
+                    }
+
+                    &.dropdown {
+                        width: 95%;
+                        box-shadow: none;
+                        display: block;
+                        float: left;
+
+                        select {
+                            border-radius: 4px;
+                            -webkit-box-shadow: none;
+                            -moz-box-shadow: none;
+                            box-shadow: none;
+                            cursor: text;
+                            outline: none;
+                            min-height: 37px;
+                            max-height: 37px;
+                            padding: 10px;
+                            margin: 0;
+                            width: 100%;
+                            cursor: pointer;
+                        }
+
+                        .please-wait {
+                            background: url('/Themes/Autoplicity/Content/images/ajax_loader_small.gif') no-repeat;
+                            padding-left: 20px;
+                        }
+                    }
+                }
+
+                label {
+                    display: inline-block;
+                    width: 100px;
+                }
+            }
+        }
+    }
+
+    .change-password-page {
+        .page-body {
+            float: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            width: 420px;
+            min-height: 220px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            font-size: 10pt;
+            color: #999;
+            line-height: 24px;
+            list-style: none;
+
+            .fieldset {
+                .form-fields {
+                    .inputs {
+                        label {
+                            color: $black;
+                            line-height: 3.3;
+                            width: 150px;
+                        }
+                    }
+                }
+            }
+
+            .buttons {
+                margin-bottom: 5px;
+                margin-top: 5px;
+                text-align: left;
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .master-wrapper-customer-account {
+        .block-account-navigation {
+            margin-bottom: 0;
+            border-bottom: none;
+            margin-top: 10px;
+
+            .title {
+            }
+
+            .listbox {
+                ul {
+                    flex-direction: column;
+                    align-content: flex-start;
+                    justify-content: flex-start;
+                    text-align: left;
+
+                    li {
+                        display: inline-block;
+                        margin: 0 10px;
+                        background: none;
+                        float: left;
+                        line-height: 36px;
+
+                        a {}
+                    }
+                }
+            }
+        }
+
+        .address-list-page {
+            .page-body {
+                width: 100%;
+
+                .add-address-button {
+                    width: 48%;
+
+                    img {
+                    }
+
+                    > p {
+                    }
+                }
+
+                .address-list {
+                    width: 48%;
+
+                    .section {
+                    }
+
+                    .address-item {
+                        .buttons {
+                            .edit-address-button {
+                            }
+
+                            .delete-address-button {
+                            }
+                        }
+
+                        .info {
+                            li {
+                                label {
+                                }
+                            }
+                        }
+
+                        .title {
+                            h3 {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-page {
+            .page-body {
+                .message-error {
+                }
+
+                .fieldset {
+                    .title {
+                    }
+
+                    .form-fields {
+                        .inputs {
+                            input {
+                            }
+
+                            &.firstname {
+                                input {
+                                }
+
+                                .required {
+                                }
+
+                                .field-validation-valid {
+                                }
+                            }
+
+                            &.lastname {
+                                input {
+                                }
+
+                                .required {
+                                }
+
+                                .field-validation-valid {
+                                }
+                            }
+
+                            #Email {
+                            }
+
+                            #Company {
+                            }
+
+                            label.checkbox {
+                                &.checked {}
+                            }
+                        }
+                    }
+                }
+
+                .buttons {
+                    input {
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .master-wrapper-customer-account {
+        margin: 0 auto 20px auto;
+
+        .block-account-navigation {
+            .title {
+            }
+
+            .listbox {
+                ul {
+                    li {
+                        a {
+                            &.active {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .address-list-page {
+            .page-body {
+                .add-address-button {
+                    margin: 0 auto 20px auto;
+                    width: 100%;
+
+                    img {
+                    }
+
+                    > p {
+                    }
+                }
+
+                .address-list {
+                    margin: 0 auto 20px auto;
+                    width: 100%;
+
+                    .section {
+                    }
+
+                    .address-item {
+                        .buttons {
+                            .edit-address-button {
+                            }
+
+                            .delete-address-button {
+                            }
+                        }
+
+                        .info {
+                            li {
+                                label {
+                                }
+                            }
+                        }
+
+                        .title {
+                            h3 {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-page {
+            .page-body {
+                .message-error {
+                }
+
+                .fieldset {
+                    .title {
+                    }
+
+                    .form-fields {
+                        .inputs {
+                            input {
+                            }
+
+                            &.firstname {
+                                input {
+                                }
+
+                                .required {
+                                }
+
+                                .field-validation-valid {
+                                }
+                            }
+
+                            &.lastname {
+                                input {
+                                }
+
+                                .required {
+                                }
+
+                                .field-validation-valid {
+                                }
+                            }
+
+                            #Email {
+                            }
+
+                            #Company {
+                            }
+
+                            label.checkbox {
+                                &.checked {}
+                            }
+                        }
+                    }
+                }
+
+                .buttons {
+                    input {
+                    }
+                }
+            }
+        }
+
+        .address-edit-page {
+            .page-body {
+                .edit-address {
+                    .inputs {
+                        &.full-width {
+                            input {
+                            }
+                        }
+
+                        &.medium-width {
+                            float: none;
+                            width: 100%;
+
+                            input {
+                                width: 95%;
+                            }
+                        }
+
+                        &.dropdown {
+                            select {
+                            }
+
+                            .please-wait {
+                            }
+                        }
+                    }
+
+                    label {
+                    }
+                }
+            }
+        }
+
+        .change-password-page {
+            .page-body {
+                float: none;
+                margin-right: 0;
+                margin-bottom: 0;
+                width: 100%;
+
+                .fieldset {
+                    .form-fields {
+                        .inputs {
+                            label {
+                                float: none;
+                                width: 100%;
+                            }
+
+                            input {
+                                width: 95%;
+                            }
+                        }
+                    }
+                }
+
+                .buttons {}
+            }
+        }
+    }
+}
+
+/* Account Edit Page */
+.block-account-navigation {
+    display: block;
+    padding: 10px 0 0 0;
+    min-height: 1px;
+    width: 100%;
+
+    .title {
+        color: #111;
+        font-weight: 700;
+        font-size: 2em;
+        line-height: 1.1;
+        padding: 15px 0 15px 1%;
+        order: 1;
+        text-transform: uppercase;
+    }
+
+    .listbox {
+        border: none;
+        border-radius: 0;
+        float: none;
+        margin: 0 0 30px 0;
+        width: 100%;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+
+            li {
+                border: none;
+                padding: 8px 15px 8px 0;
+
+                a {
+                    border-bottom: 3px solid #fff;
+                    color: #555;
+                    font-size: 13pt;
+                    font-weight: bold;
+                    padding: 0 0 3px 0;
+                    transition: ease-in-out 0.2s;
+
+                    &.active {
+                        border-bottom: 3px solid #4dab71;
+                        color: #111;
+                    }
+
+                    &:hover {
+                        color: #4dab71;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Change Password Page */
+.change-password-page {
+    .page-title {
+    }
+
+    .page-body {
+        .message-error {
+        }
+
+        .fieldset {
+            .form-fields {
+                .inputs {
+                    .input {
+                        border: 1px solid $grey-light;
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            input {
+            }
+        }
+    }
+}

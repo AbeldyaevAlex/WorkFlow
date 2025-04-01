@@ -1,0 +1,356 @@
+﻿.k-grid-toolbar {
+    min-height: 30px;
+    padding-top: 6px;
+}    
+
+.k-tabstrip-wrapper:focus, .k-tabstrip:focus {
+        outline-color: transparent;
+        box-shadow: 0px 0px;
+    }
+
+    div.k-content.k-state-active.edit-tab {
+        padding: 10px 14px;
+
+    }
+    .pull-right {
+        float:right;
+    }
+
+    .k-combobox.in-form,
+    .k-textbox.in-form,
+    .k-datepicker.in-form {
+        width: 100%;
+        text-indent: 2px;
+    }
+    .text-centered {
+        text-align: center;
+    }
+
+    div.k-content.k-state-active.edit-tab .grid > .row {
+          padding-bottom: 3px;
+    }
+
+    div.k-content .card .grid > .row {
+          padding-bottom: 3px;
+    }
+
+    .k-list {
+        padding-left: 0px !important;
+    }
+
+    .grid-container {
+          padding-top: 15px;
+    }
+
+.attachment-tab .attachment-area {
+        width:100% !important
+    }
+
+.readonly-field {
+  pointer-events: none;
+}
+
+.k-grid-header .k-header {
+    background-color: #EDEDED;
+    border-color: #c5c5c5;
+    font-size: 15px;
+}
+
+.k-grid-header th.k-header a.k-link {
+    color: #696969;
+}
+
+.k-grid div.k-grid-content {
+    background-color: rgb(245, 245, 245) !important;
+    cursor: default;
+}
+.k-grid div.k-grid-content tr:not(.k-state-selected):hover {
+    background-color: #efefef;
+}
+
+.kendo-record-card .card-button-area .k-button {
+    position: absolute; 
+    bottom: 10px; 
+    width: 100px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.kendo-record-card .card-button-area .k-button.card-cancel-button {
+    right: 10px;
+    background: linear-gradient(to bottom,#868686,#696969);
+}
+.kendo-record-card .card-button-area .k-button.card-cancel-button:hover {
+    background: linear-gradient(to bottom,#777,#444);
+}
+.kendo-record-card .card-button-area .k-button.card-save-button {
+    right: 120px;
+    background: linear-gradient(to bottom,#5290B4,#3C759D);
+}
+.kendo-record-card .card-button-area .k-button.card-save-button:hover {
+    right: 120px;
+    background: linear-gradient(to bottom,#3E779E,#2A597A);
+}
+
+.kendo-record-card .k-input:focus {
+    background-color: #fff;
+    background-image: none;
+    background-position: 50% 50%;
+    border-color: #67afe9;
+    -webkit-box-shadow: 0 0 7px 0 #67afe9;
+    box-shadow: 0 0 7px 0 #67afe9;
+}
+
+.k-input, .k-textbox {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+
+/* Reference picker */
+.refpicker-container {
+    background-color: #fff !important;
+    width: 100%;
+}
+.refpicker-container:not([disabled]) {
+    padding-right: 54px;
+}
+.refpicker-container .refpicker-button.k-icon.k-i-cancel {
+    visibility: hidden;
+    margin-right: 20px;
+}
+.refpicker-container .k-icon,
+.refpicker-search .input-search-clear .k-icon {
+    margin-left: -8px;
+}
+.k-grid .k-button.refpicker-button-cancel,
+.k-grid .k-button.refpicker-button-select,
+.refpicker-button-cancel, 
+.refpicker-button-select,
+.refpicker-search .input-search-clear {
+    border: 0;
+    padding: 0 !important;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    position: absolute;
+    bottom: 2px;
+}
+.k-grid .refpicker-container[disabled] .k-button.refpicker-button-cancel,
+.k-grid .refpicker-container[disabled] .k-button.refpicker-button-select,
+.refpicker-container[disabled] .refpicker-button-cancel, 
+.refpicker-container[disabled] .refpicker-button-select {
+    display: none;
+}
+.refpicker-button-cancel {
+    visibility: hidden;
+    right: 25px;
+}
+.refpicker-button-select {
+    right: 1px;
+}
+.refpicker-container:hover .refpicker-button.k-icon.k-i-cancel,
+.refpicker-container:hover .refpicker-button-cancel,
+.refpicker-container .refpicker-input.k-state-focused ~ .refpicker-button-cancel {
+    visibility: visible;
+}
+.refpicker-container:hover .refpicker-button-cancel:disabled  {
+    visibility: hidden;
+}
+.refpicker-button.k-i-cancel {
+    opacity: 0.8;
+}
+.refpicker-input {
+    width: 100%;
+}
+.refpicker-search {
+    background: #fff !important;
+    width: 100%;
+    margin-bottom: 7px;
+    padding-right: 30px;
+}
+
+.refpicker-search .input-search-clear {
+    right: 5px;
+    visibility: hidden;
+}
+
+.refpicker-search:hover .input-search-clear {
+    visibility: visible;
+}
+
+/* End of reference picker styles */
+
+button.k-button-icon {
+    background-color: transparent;
+}
+
+button.k-button.metro-icon {
+    background-color: transparent;
+}
+
+.disable-highlighting {
+    border: none;
+    -webkit-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.disable-highlighting:focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.metro .k-numeric-wrap.k-state-focused,
+.metro .k-textbox:focus, 
+.metro .k-picker-wrap.k-state-focused,
+.metro .k-dropdown-wrap.k-state-focused,
+.metro .refpicker-container.k-textbox.highlighting,
+.k-multiselect.k-state-focused,
+.metro input.k-input:focus { 
+    /*border-color: #919191;*/
+    outline: 0;
+    background-color: #fff;
+    background-image: none;
+    background-position: 50% 50%;
+    border-color: #67afe9;
+}
+
+/* Разделитель групп кнопок */
+.k-grid-toolbar .k-separator {
+    margin: 0 .2em;
+    line-height: 1.72em;
+    vertical-align: middle;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    width: 1px;
+    display: inline-flex;
+}
+
+/* Скрытие всплывающих подсказок с ошибками для ячеек таблиц */
+.k-invalid-msg {
+    display: none !important;
+}
+
+/* Рамка вокруг элемента ввода, не прошедшего контроль */
+span.k-datepicker.k-invalid > .k-picker-wrap,
+.k-multiselect.k-invalid,
+input.k-invalid[required]:not(.refpicker-input):not([data-role=datepicker]),
+/*input.ng-invalid-required:not(.refpicker-input):not([data-role=datepicker]),*/
+textarea.ng-invalid-required,
+.refpicker-container.k-invalid-refpicker,
+span.k-numerictextbox.k-invalid > span,
+span.k-dropdown.ng-invalid > span.k-dropdown-wrap {
+    border: 1px solid red !important;
+}
+
+/* Рамка вокруг ячейки таблицы, не прошедшей контроль ввода*/
+.k-grid-content td.k-invalid-cell {
+    border: 2px dotted red !important;
+    border-radius: 4px !important;
+}
+
+.k-state-hover > span.k-select{
+    /*background-color: #555;*/
+    cursor: pointer;
+}
+
+
+.k-textbox span.k-i-close:hover {
+  background-position: -48px -16px;
+}
+.k-textbox span.k-i-hbars:hover {
+    background-position: -80px -32px;
+}
+.k-textbox:hover .k-i-hbars{
+    background-position: -64px -32px;
+}
+.k-textbox:hover .k-i-close{
+    background-position: -32px -16px;
+}
+
+.k-treeview .k-in.k-state-hover {
+    color: white;
+}
+
+.show-tooltip {
+    display: inline-block !important;
+}
+
+.smart-hint-content {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    min-width: 200px;
+    background: aliceblue;
+    border-radius: 5px;
+    border: 1px solid #D6DFE6;
+    box-shadow: 1px 1px 5px 0px #ccc;
+    padding: 10px;
+    left: 26px;
+    display: none;
+    text-align: left;
+}
+
+.smart-hint p, .smart-hint ul li {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+a.show-hint {
+    background: #EAF2FB;
+    display: block;
+    width: 1.1em;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #CCD7E4;
+    cursor: pointer;
+    color: #666;
+    font-size: 1em;
+    line-height: 1em;
+}
+
+.ui-control {
+    position: relative;
+}
+
+.ui-control label{
+        display: inline-block;
+}
+.smart-hint {
+    position: absolute;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.k-loading-mask {
+    z-index: 100000;
+}
+
+/*.k-list-container {
+    width: auto !important;
+}*/
+    .k-list-container .k-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+/*гриды мультиреференспикера на весь экран*/
+.k-window-maximized .k-grid  {
+    height: 100% !important;
+}
+
+.k-window-maximized .k-grid-content {
+    height: 100% !important;
+    max-height: 740px !important;
+}
+
+/*толстый грид исполнителей - расположение полей сверху*/
+#DfPerformKendoList td {
+    vertical-align: top;
+}

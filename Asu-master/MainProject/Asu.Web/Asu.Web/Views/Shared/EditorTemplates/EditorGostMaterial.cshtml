@@ -1,0 +1,38 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("Gost")
+            .DataTextField("Gost")
+            .HtmlAttributes(new { style = "width:100%", placeholder = "Введите ГОСТ", @id = "InputGost", @class = "InputGost", disabled = true })
+            //.HtmlAttributes(new { style = "width:100%" })
+            .Filter(FilterType.Contains)
+            .Events(p => p.Change("onChangeGost"))
+            
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialGostRead", "Skm");
+                }).ServerFiltering(true);
+            })
+
+            )
+    </div>
+</div>
+@*@(
+    Html.Kendo().DropDownList()
+        .Name("Gost")
+        .DataTextField("Gost")
+        .DataValueField("Id")
+        .Filter(FilterType.Contains)
+
+        //.OptionLabel("Select Type...")
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingMaterialGostRead", "Skm");
+            });
+        })
+    )*@

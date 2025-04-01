@@ -1,0 +1,38 @@
+﻿@model Nop.Web.Models.Catalog.ProductGroupOverviewModel
+@{
+    var url = Url.RouteUrl("ProductGroupSeo", new { EntitySlug = Model.SeName, ParentEntitySlug = Model.BrandSlug });
+}
+
+<div class="item-header">
+    <a href="@url" class="lst-a" itemprop="url"><img alt="@Model.Name" class="lazy" data-original="@Model.DigitalDataModel.ThumbUrl"></a>
+</div>
+<div class="item-main">
+    <a href="@url" class="lst-a" itemprop="url">
+        <span class="item-name" itemprop="name">@Model.Name</span>
+    </a>
+    <div class="item-meta">
+        <div class="product-rating-box" title="@string.Format("{0} rating(s)", Model.RatingModel.RatingCount)">
+            <div class="rating">
+                <div class="rateit" data-rateit-readonly="true" data-rateit-ispreset="true" data-rateit-value="@Model.RatingModel.RatingScore">(@Model.RatingModel.RatingCount<span> reviews</span>)</div>
+            </div>
+        </div>
+    </div>
+    <div class="item-extra-wrap">
+        <div class="line">
+            <div class="price-box">
+                <div>
+                    @if (Model.PriceModel.MaxPrice.HasValue)
+                    {
+                        <span itemprop="offers" itemscope="" itemtype="https://schema.org/AggregateOffer"><span itemprop="lowPrice">$@Model.PriceModel.MinPrice</span> - <span itemprop="highPrice">$@Model.PriceModel.MaxPrice.Value</span></span>
+                    }
+                    else
+                    {
+                        <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">from <span itemprop="price">$@Model.PriceModel.MinPrice</span></span>
+                    }
+                </div>
+            </div>
+        </div>
+        <a href="@url" class="lst-a" itemprop="url"><span class="item-btn">View Details</span><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+    </div>
+</div>
+<div class="clear"></div>

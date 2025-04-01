@@ -1,0 +1,37 @@
+﻿@(Html.Kendo().Window()
+        .Name("window")
+        .Title("Режим работы")
+        .Content(@<text>
+
+
+          <div>
+             <span>Находится в работе у @ViewData["AtWork"]</span>
+          </div>
+
+
+            <div id="first-column" style="position:relative;float:left">
+                @(Html.Kendo().Button()
+                    .Name("GetAtWork")
+                    .HtmlAttributes( new {type = "button", @class= "GetAtWork" } )
+                    .Events(b =>b.Click("onAtWorkButtonClick"))
+                    .Content("Принять в работу")
+                )
+            </div>
+
+            <div id="second-column" style="position:relative;float:left">
+                @(Html.Kendo().Button()
+                    .Name("ToCancelAtWork")
+                    .HtmlAttributes( new {type = "button", @class= "ToCancelAtWork" } )
+                    //.Events(b =>b.Click("onAtWorkButtonClick"))
+                    .Content("Отказаться от задачи")
+                )
+            </div>
+
+        </text>)
+        .Draggable()
+        .Resizable()
+        .Width(600)
+        .Visible(true)
+        //.Position(settings => settings.Top(50).Left(300))
+        .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+    )

@@ -1,0 +1,166 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Spr_nm_task", Action = "SprNmTaskGridViewPartial" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Spr_nm_task", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Spr_nm_task", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Spr_nm_task", Action = "GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "#";
+            column.SetDataItemTemplateContent(container =>
+            {
+                Html.DevExpress().HyperLink(hyperlink1 =>
+                {
+                    var visibleIndex1 = container.VisibleIndex;
+                    var keyValue1 = container.KeyValue;
+                    hyperlink1.Name = "h2" + keyValue1.ToString();
+                    hyperlink1.Properties.Text = "Создать ";
+                    hyperlink1.NavigateUrl = Url.Action("Create", "Spr_nm_task", "msi_default");
+                }).Render();
+
+                Html.DevExpress().HyperLink(hyperlink2 =>
+                {
+                    var visibleIndex2 = container.VisibleIndex;
+                    var keyValue2 = container.KeyValue;
+
+
+                    hyperlink2.Name = "h3" + keyValue2.ToString();
+                    hyperlink2.Properties.Text = " Изменить";
+                    //hyperlink2.Properties.ClientSideEvents.Click = "function(s, e) { pcModalMode2.Show(); }";
+                    hyperlink2.NavigateUrl = Url.Action("Edit", "Spr_nm_task", new { id = keyValue2 });
+                }).Render();
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Screen";
+            c.Caption = "Изображение";
+            c.EditorProperties().BinaryImage(p =>
+            {
+                //p.ImageSizeMode = ImageSizeMode.FitProportional;
+                //p.EnableServerResize = true;
+                p.ImageHeight = 50;
+                p.ImageWidth = 50;
+                //p.CallbackRouteValues = new { Action = "CardView1PartialUpdate", Controller = "User_AdministrationController" };
+                p.EditingSettings.Enabled = true;
+                //p.EditingSettings.UploadSettings.UploadValidationSettings.MaxFileSize = 4194304;
+            });
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "ShortNaimTask";
+            var x = columnSettings.Caption = "Наименование задачи (краткое)";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "NaimTask";
+            var x = columnSettings.Caption = "Наименование задачи";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "DocumentStatusId.Status";
+            var x = columnSettings.Caption = "Статус документа";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(100);
+            //columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            //var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            //comboBoxProperties.ValueField = "Id";
+            //comboBoxProperties.TextField = "status";
+            //comboBoxProperties.ValueType = typeof(string);
+            //comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        });
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "IdRoditel";
+        //    var x = columnSettings.Caption = "Родительская задача";
+        //    columnSettings.Visible = true;
+        //    columnSettings.Width = Unit.Pixel(150);
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetTask();
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "Naim_task";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //});
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Screen";
+            columnSettings.Visible = false;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "NaimScreen";
+            columnSettings.Caption = "Наименование img.";
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "AlternativeText";
+            columnSettings.Caption = "Текст при наведении";
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add("ControllerName");
+        settings.Columns.Add("ActionName");
+        settings.Columns.Add("RouteUrl");
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "IsGroup";
+            var x = columnSettings.Caption = "Группа задач";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.ColumnType = MVCxGridViewColumnType.CheckBox;
+            var checkBoxproperties = columnSettings.PropertiesEdit as CheckBoxListProperties;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Title";
+            columnSettings.Caption = "Имя для пользователя";
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.Visible = true;
+        });
+
+        settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = false;
+        settings.SettingsDetail.ShowDetailRow = true;
+        settings.SetDetailRowTemplateContent(c =>
+        {
+            Html.RenderAction("GetSubTask", "Spr_nm_task", new { subTask = DataBinder.Eval(c.DataItem, "Id") });
+        });
+    });
+
+
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

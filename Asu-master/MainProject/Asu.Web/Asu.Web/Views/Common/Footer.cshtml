@@ -1,0 +1,99 @@
+﻿@model FooterModel
+@using Asu.Core
+@using Asu.Core.Domain.Tax
+@using Asu.Core.Infrastructure
+@using Asu.Web.Models.Common;
+@using Asu.Framework.Themes;
+@{
+    var url = Request.RawUrl;
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+    var store = EngineContext.Current.Resolve<IStoreContext>().CurrentStore;
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/images/logo.webp";
+}
+
+<footer>
+    <div class="footer-top">
+        <div class="footer-inner">
+            <div class="footer-top-columns">
+                <div class="footer-top-columns-left">
+                    <div class="footer-top-information">
+                        <a class="footer-top-information-logo" href="@Url.RouteUrl("HomePage")">
+                            <img src="@Url.Content(logoPath)" alt="@currentThemeName Logo" />
+                        </a>
+                        <h5>Have a question?</h5>
+                        <a class="footer-top-information-phone" href="tel:+1(@store.CompanyPhoneNumber)">@store.CompanyPhoneNumber</a>
+                    </div>
+                    <div class="footer-top-shipping-returns">
+                        <ul>
+                            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
+                            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("PrivacyNotice")</a></li>
+                            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("conditionsofuse") })">@T("ConditionsOfUse")</a></li>
+                            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
+                            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-top-coupons">
+                        <ul>
+                            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("weeklyspecials") })">@T("WeeklySpecials")</a></li>
+                            <li><a href="@Url.RouteUrl("ClubLoyaltyProgram")">Autoplicity Member's Club</a></li>
+                            <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("WholesaleProgram") })">@T("WholesaleProgram")</a></li>
+                            <li><a href="@Url.RouteUrl("ReturnRequestAuth")">Return items</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-top-my-account">
+                        <ul>
+                            <li><a href="@Url.RouteUrl("CustomerInfo")" rel="nofollow">@T("Account.MyAccount")</a></li>
+                            @if (!Model.HideOrders)
+                            {
+                                <li><a href="@Url.RouteUrl("CustomerOrders")" rel="nofollow">@T("Account.CustomerOrders")</a></li>
+                            }
+                            @if (!Model.HideAddresses)
+                            {
+                                <li><a href="@Url.RouteUrl("CustomerAddresses")" rel="nofollow">@T("Account.CustomerAddresses")</a></li>
+                            }
+                            @if (Model.ShoppingCartEnabled)
+                            {
+                                <li><a href="@Url.RouteUrl("ShoppingCart")" rel="nofollow">@T("ShoppingCart")</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                @Html.Action("NewsletterBox", "Newsletter")
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-inner">
+            <div class="footer-bottom-copyright">
+                <p>@T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)</p>
+            </div>
+            <div class="footer-bottom-pay-icons">
+                <ul>
+                    <li class="paypal"></li>
+                    <li class="visa"></li>
+                    <li class="discover"></li>
+                    <li class="american-express"></li>
+                    <li class="pay"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @if (Model.DisplayTaxShippingInfoFooter)
+    {
+        var inclTax = EngineContext.Current.Resolve<IWorkContext>().TaxDisplayType == TaxDisplayType.IncludingTax;
+        <div class="footer-tax-shipping">
+            @T(inclTax ? "Footer.TaxShipping.InclTax" : "Footer.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
+        </div>
+    }
+    <div class="footer-store-theme">
+        @Html.Action("StoreThemeSelector", "Common")
+    </div>
+    @if (controller != null && controller.ToString() != "Product" && !HttpContext.Current.Request.IsSecureConnection)
+    {
+        <div class="shopper-approved">
+            @*@Html.Action("ShopperApprovedGoogleFeed", "Customization")*@
+        </div>
+    }
+    @Html.Widget("footer")
+</footer>

@@ -1,0 +1,132 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+
+@model Asu.Web.Models.DirectoryOfMaterialCodifiers.Spr_skm
+@{
+    ViewBag.Title = "Справочник кодификаторов материала";
+    Layout = "~/Areas/DirectoryOfMaterialCodifiers/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/GridView.css")" />
+<script type="text/javascript" src="@Url.Content("~/Content/GridView.js")"></script>
+
+
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/site/jquery/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/Content/sweetalert2/sweetalert2.js"></script>
+<script src="~/Content/sweetalert2/sweetalert2.all.min.js"></script>
+<link href="~/Content/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+<link href="~/Content/sweetalert2/sweetalert2.css" rel="stylesheet" />
+<script type="text/javascript">
+    function OnToolbarItemClick(s, e) {
+        switch (e.item.name) {
+            case "nextPage":
+                s.NextPage();
+                break;
+            case "previousPage":
+                s.PrevPage();
+                break;
+            case "filterDate":
+                pcModalMode.Show();
+                break;
+        }
+    }
+</script>
+<script type="text/javascript">
+    var command;
+    var isNewRow;
+    function onBeginCallback(s, e) {
+        command = e.command;
+        isNewRow = s.IsNewRowEditing();
+        //var filter = {};
+
+        //for (var i = 0; i < s.GetColumnsCount(); i++) {
+        //    var editor = s.GetAutoFilterEditor(i);
+        //    var column = s.GetColumn(i);
+
+        //    if (editor != null && column != null && editor.GetValue() != null) {
+        //        filter[column.fieldName] = editor.GetValue()
+        //    }
+        //}
+        //e.customArgs['filter'] = JSON.stringify(filter);
+    }
+    function onEndCallback(s, e) {
+        if (command == "UPDATEEDIT" && isNewRow) {
+            /*alert("Result: " + s.cpResult);*/
+            if (s.cpResult == "Запись добавлена") {
+                Swal.fire("Запись добавлена", "", "success");
+            }
+            if (s.cpResult == "Данная запись уже существует") {
+                Swal.fire("Данная запись уже существует", "", "info");
+            }
+        }
+        else {
+            if (s.cpResult == "Корректировка записи прошла успешно") {
+                Swal.fire("Корректировка записи прошла успешно", "", "success");
+            }
+            if (s.cpResult == "Запись успешно удалена") {
+                Swal.fire("Запись успешно удалена", "", "error");
+            }
+        }
+        //var filter = {};
+
+        //for (var i = 0; i < s.GetColumnsCount(); i++) {
+        //    var editor = s.GetAutoFilterEditor(i);
+        //    var column = s.GetColumn(i);
+
+        //    if (editor != null && column != null && editor.GetValue() != null) {
+        //        filter[column.fieldName] = editor.GetValue()
+        //    }
+        //}
+        //e.customArgs['filter'] = JSON.stringify(filter);
+    }
+</script>
+<h2 align="center">Справочник кодификаторов материала</h2>
+
+@Html.Action("SKM_GridViewPartial", new { id = Session["skm_parametr"] })
+
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.ShowFooter = true;
+        settings.ShowHeader = true;
+        settings.ShowPinButton = true;
+        settings.FooterText = "ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+        settings.Name = "pcModalMode";
+        settings.Width = 320;
+        settings.AllowResize = true;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = AnimationType.Slide;
+        settings.HeaderText = "Создать фильтр";
+        settings.Modal = true;
+        settings.AutoUpdatePosition = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+            using (Html.BeginForm("Index", "Spr_skm", FormMethod.Post))
+            {
+                Html.DevExpress().LabelFor(model => model.period_open_date, param => { param.Width = 100; }).GetHtml();
+
+                Html.DevExpress().DateEditFor(model => model.period_open_date, param => { param.Width = 100; }).GetHtml();
+                ViewContext.Writer.Write("<hr/>");
+                Html.DevExpress().Button(button =>
+                {
+                    button.Text = "Ok";
+                    button.Name = "Ok";
+                    button.UseSubmitBehavior = true;
+                }).GetHtml();
+            };
+        });
+        settings.ClientSideEvents.BeginCallback = "OnBeginCallback";
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+    }).GetHtml()
+

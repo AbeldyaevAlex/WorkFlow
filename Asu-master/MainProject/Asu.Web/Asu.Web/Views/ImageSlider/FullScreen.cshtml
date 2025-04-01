@@ -1,0 +1,512 @@
+﻿@using DevExpress.Web
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <link rel="icon" href="~/Content/Images/favicon.PNG" />
+    <link href="~/Content/FooterStyle.css" rel="stylesheet" />
+
+
+
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+        
+    )
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet">
+    <link rel="stylesheet" href="//openlayers.org/en/v3.18.2/css/ol.css" type="text/css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.GridView }
+    )
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/site.js")" type="text/javascript"></script>
+
+
+
+    @Html.DevExpress().GetStyleSheets(
+    new StyleSheet { ExtensionType = ExtensionType.ImageSlider })
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            -ms-overflow-style: scrollbar;
+        }
+
+        header {
+            flex: none;
+            border-bottom: 1px solid #c7c7c7;
+            background: #fff;
+            width: 100%;
+            -webkit-transition: all 0.5s ease-out 0s;
+            -moz-transition: all 0.5s ease-out 0s;
+            -o-transition: all 0.5s ease-out 0s;
+            transition: all 0.5s ease-out 0s;
+            top: -100px;
+            z-index: 1000;
+        }
+
+            header.shrink {
+                opacity: 0.9;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+        .title {
+            float: left;
+            padding: 8px 0px;
+        }
+
+            .title a {
+                font-weight: 600;
+                font-size: 1.8em;
+                color: #c7c7c7;
+                text-decoration: none;
+            }
+
+            .title p {
+                color: #b2b2b2;
+                margin: 0;
+            }
+
+        .expandBar {
+            padding: 0px !important;
+            width: 100%;
+        }
+
+        .expandedPanel .title {
+            display: none;
+        }
+
+        .panelContent {
+            padding-top: 15px;
+        }
+
+        .expandedPanel .pull-right {
+            float: none !important;
+        }
+
+        .panelItem {
+            display: inline-block;
+        }
+
+        .expandedPanel .panelItem {
+            display: block;
+        }
+
+        .expandedPanel .panelContent {
+            padding-bottom: 15px;
+        }
+
+        .searchBox {
+            margin-left: 20px;
+        }
+
+            .searchBox img,
+            .searchBox .dx-acc {
+                display: none;
+            }
+
+        .searchBoxButton {
+            font-size: 17px;
+        }
+
+        .navMenu {
+            float: right;
+            margin: 0px 0px 2px 0px;
+        }
+
+        .expandedPanel .navMenu {
+            width: 100%;
+            margin: 10px 0px;
+        }
+
+        .expandedPanel .searchBox {
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        .loginButton {
+            margin: 0px 0px 1px 20px;
+        }
+
+        .expandedPanel .loginButton {
+            width: 100%;
+            margin: 10px 0px 0px 0px;
+            text-align: left;
+        }
+
+            .expandedPanel .loginButton .dropdown-toggle {
+                width: 100%;
+            }
+
+        .loginButton-large,
+        .expandedPanel .loginButton-small {
+            display: none;
+        }
+
+        .expandedPanel .loginButton-large {
+            display: inline-block;
+        }
+
+        .btnBackToTop {
+            background: none;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            z-index: 100;
+            display: inline;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .btnBackToTop i {
+                font-size: 60px;
+                color: #c7c7c7;
+            }
+
+                .btnBackToTop i:hover {
+                    color: #e0e0e0;
+                }
+
+        .footerUp {
+            padding-bottom: 26px;
+            background: #6f6f6f;
+        }
+
+        .footerDown {
+            background: #525252;
+        }
+
+            .footerDown p {
+                margin: 16px 0px;
+            }
+
+        .wrapper {
+            display: -webkit-box;
+            display: flex;
+            min-height: 100%;
+            height: 100vh;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+        }
+
+        .content {
+            -webkit-box-flex: 1;
+            flex: 1 0 auto;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            flex: none;
+            color: white;
+        }
+
+            footer a {
+                color: #cecaca;
+            }
+
+                footer a:hover,
+                footer a:focus {
+                    color: #fff;
+                }
+
+            footer h4 {
+                margin-top: 32px;
+            }
+
+        .latestPosts li:not(:last-child) {
+            border-bottom: 1px dotted #fff;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+
+
+
+
+        .dxWeb_isDot,
+        .dxWeb_isDotSelected {
+            background-image: url();
+        }
+
+        .dxisControl .dxis-nbDotItem {
+            width: 40px;
+            height: 0px;
+            background-color: #fff;
+            opacity: 0.45;
+        }
+
+        .dxisControl .dxis-itemTextArea {
+            top: 17px !important;
+            left: 17px !important;
+            bottom: auto !important;
+            width: 285px;
+            padding: 15px 16px 21px !important;
+            color: #fff !important;
+            border-radius: 5px !important;
+            box-shadow: 0px 4px 0px rgba(50, 50, 50, 0.3) !important;
+            background-color: #333333 !important;
+            background-color: rgba(0, 0, 0, 0.75) !important;
+        }
+
+        .dxisControl .dxis-itemTextArea a {
+                color: white;
+            }
+
+        .dxisControl .dxis-itemTextArea a:hover, a:focus {
+                    text-decoration: underline;
+                }
+
+        .dxisControl .dxis-itemTextArea p {
+                /*color: #b0b0b0;
+                background-color: rgba(0, 0, 0, 0.5 );*/
+            }
+
+        .dxisControl .dxis-itemTextArea > p {
+                margin-bottom: 0 !important;
+            }
+
+        .dxisControl .dxis-nbDotsBottom .dxis-nbSlidePanel {
+            left: 340px !important;
+        }
+
+        .isDemoH3 {
+            font-size: 28px !important;
+            color: white;
+            padding-bottom: 9px;
+            /*background-color: rgba(0, 0, 0, 0.5 );*/
+        }
+
+        footer {        
+            background-color: rgba(50, 50, 50, 0.3);
+        }       
+        .slider {
+            padding: 0px 0px 0px 0px;
+        }
+    </style>
+    @Html.DevExpress().GetScripts(
+    new Script { ExtensionType = ExtensionType.ImageSlider })
+    <script type="text/javascript">
+        function OnInit(s, e) {
+            $(window).resize(function () {
+                Slider.AdjustControl();
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                @Html.DevExpress().Panel(p =>
+           {
+               p.Name = "TopPanel";
+               p.Width = Unit.Percentage(100);
+               p.Collapsible = true;
+               p.SettingsAdaptivity.CollapseAtWindowInnerWidth = 680;
+               p.SettingsCollapsing.ExpandButton.GlyphType = PanelExpandButtonGlyphType.Strips;
+               p.Styles.ExpandBar.CssClass = "expandBar";
+               p.Styles.ExpandedPanel.CssClass = "expandedPanel";
+
+               p.SetExpandBarTemplateContent(c =>
+               {
+                   ViewContext.Writer.Write("<div class='title'><a href='" + Url.Action("Home", "Pages") + "'>АСУ АВИА</a></div>");
+               });
+               p.SetContent(() => { Html.RenderPartial("HeaderPanelContentPartial"); });
+           }).GetHtml()
+            </div>
+        </header>
+        <!--<div class="header">
+        <div class="logo">
+            <img src=" ~/Content/Images/favicon.PNG" />
+        </div>
+        <div class="navigation">
+            <div class="text">
+                <a href="~/Home/Index" class="btn">Вход</a>
+            </div>
+            <div class="text">
+                <a href="~/Home/Index" class="btn">Контакты</a>
+            </div>
+            <div class="text">
+                <a href="~/Home/Index" class="btn">О программе</a>
+            </div>-->
+        @*<div class="text">
+            <a href="~/Home/Index" class="btn">FAQ</a>
+        </div>*@
+        <!--</div>
+    </div>-->
+        <div>
+            <main class="main">
+                <div class="slider">
+                    @Html.DevExpress().ImageSlider(settings =>
+               {
+                   settings.Name = "Slider";
+                   settings.Width = Unit.Percentage(100);
+                   settings.Height = Unit.Pixel(800);
+                   //settings.EnableTheming = false;
+                   settings.SettingsImageArea.ItemTextVisibility = ElementVisibilityMode.Always;
+                   settings.SettingsImageArea.EnableLoopNavigation = true;
+                   settings.SettingsImageArea.ImageSizeMode = ImageSizeMode.FillAndCrop;
+                   settings.SettingsImageArea.NavigationButtonVisibility = ElementVisibilityMode.Always;
+                   settings.SettingsImageArea.AnimationType = AnimationType.Auto;
+                   settings.SettingsImageArea.NavigationDirection = NavigationDirection.Horizontal;
+                   settings.ShowImageArea = true;
+                   settings.ShowNavigationBar = true;
+                   settings.SettingsNavigationBar.Mode = NavigationBarMode.Dots;
+                   settings.SettingsNavigationBar.Position = NavigationBarPosition.Bottom;
+                   settings.SettingsNavigationBar.ItemSpacing = 0;
+                   settings.SettingsSlideShow.PlayPauseButtonVisibility = ElementVisibilityMode.None;
+                   settings.SettingsSlideShow.AutoPlay = true;
+                   settings.ClientSideEvents.Init = "OnInit";
+                   //settings.Items.Add(item =>
+                   //{
+                   //    item.ImageUrl = Url.Content("~/Content/Slide_Images/1569095628_2872911fdb694aeeb9c1887726ca2206.jpg");
+                   //    //item.NavigateUrl = "1";
+                   //    item.SetTextTemplateContent(
+                   //        "<h3 class = 'isDemoH3'>БЕ-200ЧС</h3>" +
+                   //        "<p>Самолет амфибия. Справочная информация</p>"
+                   //        );
+                   //});
+                   settings.Items.Add(item =>
+                   {
+                       item.ImageUrl = Url.Content("~/Content/Slide_Images/be-200.jpeg");
+                       item.NavigateUrl = "2";
+                       item.SetTextTemplateContent(
+                           "<h3 class = 'isDemoH3'>БЕ-200ЧС</h3>" +
+                           "<p>Самолет амфибия. Справочная информация</p>"
+                           );
+                   });
+                   settings.Items.Add(item =>
+                   {
+                       item.ImageUrl = Url.Content("~/Content/Slide_Images/4802faf7dc7c18d63c962b6ea0629575.jpg");
+                       item.NavigateUrl = "3";
+                       item.SetTextTemplateContent(
+                           "<h3 class = 'isDemoH3'>ТУ-95</h3>" +
+                           "<p>Справочная информация</p>"
+                           );
+                   });
+                   settings.Items.Add(item =>
+                   {
+                       item.ImageUrl = Url.Content("~/Content/Slide_Images/1772016877_0_73_1400_861_1920x0_80_0_0_34f156e20599e549b8eb9c802ec0a4cf.jpg");
+                       item.NavigateUrl = "4";
+                       item.SetTextTemplateContent(
+                           "<h3 class = 'isDemoH3'>А-50</h3>" +
+                           "<p>Справочная информация</p>"
+                           );
+                   });
+                   settings.Items.Add(item =>
+                   {
+                       item.ImageUrl = Url.Content("~/Content/Slide_Images/28388390149_1972718c41_h.jpg");
+                       item.NavigateUrl = "5";
+                       item.SetTextTemplateContent(
+                           "<h3 class = 'isDemoH3'>ИЛ</h3>" +
+                           "<p>Справочная информация</p>"
+                           );
+                   });
+                   settings.Items.Add(item =>
+                   {
+                       item.ImageUrl = Url.Content("~/Content/Slide_Images/tu-95-tu95-tu-95-tu-95ms-tu-95ms-tu-95-ms-medved-medved-be-2.jpg");
+                       item.NavigateUrl = "5";
+                       item.SetTextTemplateContent(
+                           "<h3 class = 'isDemoH3'>ТУ-95</h3>" +
+                           "<p>Справочная информация</p>"
+                           );
+                   });
+               }).GetHtml()
+                    @*.BindToFolder("~/Content/Slide_Images").GetHtml()*@
+
+                </div>
+               <div class="container-fluid">
+                    <section class="row features">
+                        <div class="col-md-4 media">
+                            <div class="media-left">
+                                <div class="media-object">
+                                    @*<i class="glyphicon glyphicon-wrench featureIcon text-primary"></i>*@
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Cross-browser compatibility</h4>
+                                <p>DevExpress ASP.NET AJAX Controls and MVC Extensions are cross-browser compatible and are carefully tested against the following browsers to ensure utmost compatibility: Microsoft Internet Explorer, Microsoft Edge, Mozilla FireFox, Google Chrome, Safari, and Opera</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 media">
+                            <div class="media-left">
+                                <div class="media-object">
+                                    @*<i class="glyphicon glyphicon-cog featureIcon text-primary"></i>*@
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">AJAX Enabled</h4>
+                                <p>Each and every control provides an ability to update the control using callbacks, eliminating the need to re-load the entire page. This callback functionality allows you to optimize how data is transferred to the client</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 media">
+                            <div class="media-left">
+                                <div class="media-object">
+                                    @*<i class="glyphicon glyphicon-phone featureIcon text-primary"></i>*@
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Touch and Mobile Device Enabled</h4>
+                                <p>The ASP.NET Subscription helps you leverage your current investments and address customer needs via a comprehensive range of WebForms Controls and MVC Extensions that support touch on iOS Safari, Android and Internet Explorer 10+.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+        <footer>
+            <div class="footerUp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>DevExpress</h4>
+                            <p>DevExpress engineers feature-complete Presentation Controls, IDE Productivity Tools, Business Application Frameworks, and Reporting Systems for Visual Studio.</p>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <h4>Latest Posts</h4>
+                            <ul class="list-unstyled latestPosts">
+                                <li><a href="#">Upcoming webinar: Give AdHoc Query Powers to Your ASP.NET Grid Users</a></li>
+                                <li><a href="#">HTML5 Chart and Data Visualization Widgets - Enhancements</a></li>
+                                <li><a href="#">HTML5 Form Layout Widget</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-offset-1 col-md-3">
+                            <h4>Contact Us</h4>
+                            <ul class="list-unstyled">
+                                <li>505 N. Brand Blvd</li>
+                                <li>Glendale CA 91203 USA</li>
+                                <li>Phone: + 1 (818) 844 3383</li>
+                                <li>Mail: <a href="#">clientservices@devexpress.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footerDown">
+                <div class="container">
+                    <p>@DateTime.Today.Year.ToString() &copy; All Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

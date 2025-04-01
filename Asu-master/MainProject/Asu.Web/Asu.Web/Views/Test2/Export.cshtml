@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Export", "Test2", FormMethod.Post))
+{
+    <button type="submit" name="export">Export to Excel</button>
+}

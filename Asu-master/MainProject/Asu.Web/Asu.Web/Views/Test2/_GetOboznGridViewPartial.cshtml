@@ -1,0 +1,90 @@
+@using Asu.Web.Controllers;
+@{
+    bool needCreatCopy = ViewData["key"] != null;
+}
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Test2", Action = "GetOboznGridViewPartial" };
+        settings.CustomActionRouteValues = new { Controller = "Test2", Action = "CustomGridViewEditingPartial" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Test2", Action = "GetOboznGridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Test2", Action = "GetOboznGridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Test2", Action = "GetOboznGridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.CommandColumn.CustomButtons.Add(new GridViewCommandColumnCustomButton() { ID = "btnCopy", Text = "Copy" });
+
+        settings.ClientSideEvents.BeginCallback = "OnBeginCallback";
+        settings.ClientSideEvents.CustomButtonClick = "OnCustomButtonClick";
+
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        settings.Columns.Add("obozn");
+        settings.Columns.Add("var");
+
+
+        settings.InitNewRow = (sender, e) =>
+        {
+            if (needCreatCopy)
+            {
+                object keyValue = ViewData["key"];
+
+                MVCxGridView gridView = (MVCxGridView)sender;
+                var rowValues = Test2Controller.GetRowValuesByKeyValue((int)keyValue);
+
+                foreach (var item in rowValues)
+                {
+                    e.NewValues["obozn"] = item.obozn;
+                    e.NewValues["var"] = item.var;
+                }
+            }
+        };
+
+        settings.BeforeGetCallbackResult = (sender, e) =>
+        {
+            if (needCreatCopy)
+            {
+                MVCxGridView gridView = (MVCxGridView)sender;
+                gridView.AddNewRow();
+            }
+        };
+
+        settings.CustomJSProperties = (s, e) =>
+        {
+            if (ViewData[Test2Controller.EditResultKey] != null)
+            {
+                e.Properties["cpMessage"] = ViewData[Test2Controller.EditResultKey].ToString();
+            }
+        };
+
+        settings.ClientSideEvents.EndCallback = "OnEndCallback";
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@*@grid.Bind(Model).GetHtml()*@
+
+@grid.BindToEF(string.Empty, string.Empty, (s, e) =>
+{
+        e.KeyExpression = "Id";
+        e.QueryableSource = Model;
+    }).GetHtml()

@@ -1,0 +1,58 @@
+﻿@using Asu.Plugin.Payments.ApplePay.Models
+
+@model PaymentInfoModel
+
+@{
+    Layout = string.Empty;
+    var debugInSafari = true;
+    var paymentRequest = Model.PaymentRequest;
+}
+
+<meta property="product:payment_method" content="ApplePay" />
+<meta name="apple-pay-merchant-id" content="@Model.MerchantId" />
+
+@*<script>
+        var paymentRequest = @Html.Raw(JsonConvert.SerializeObject(Model.PaymentRequest))
+    </script>*@
+
+<script>
+    var totalForDelivery = {
+        label: "@Model.StoreDisplayName",
+        amount: "@paymentRequest.Total.Amount"
+    }
+
+    var lineItemsForDelivery = [
+        @for (int i = 0; i < paymentRequest.Amounts.Count; i++)
+        {
+            var line = paymentRequest.Amounts[i];
+            @Html.Raw($"{{ label: \"{$"{line.Label}"}\", amount: \"{line.Amount}\", type: \"final\" }}{(i == paymentRequest.Amounts.Count - 1 ? string.Empty : ",")}{Environment.NewLine}");
+        }
+    ]
+
+    var shippingMethods = [
+        @for (int i = 0; i < paymentRequest.ShippingMethods.Count; i++)
+        {
+            var line = paymentRequest.ShippingMethods[i];
+            @Html.Raw($"{{ label: \"{line.Name}\", amount: \"{line.Amount}\", identifier: \"{line.Id}\", detail: \"{line.Description}\" }}{(i == paymentRequest.ShippingMethods.Count - 1 ? string.Empty : ",")}{Environment.NewLine}");
+        }
+    ];
+
+    var applePaymentRequest = {
+        countryCode: "@paymentRequest.CountryCode",
+        currencyCode: "@paymentRequest.CurrencyCode",
+        merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
+        supportedNetworks: ["amex", "masterCard", "visa", "discover"],
+        lineItems: lineItemsForDelivery,
+        total: totalForDelivery,
+        requiredBillingContactFields: ["email", "name", "phone", "postalAddress"],
+        requiredShippingContactFields: ["email", "name", "phone", "postalAddress"],
+        shippingType: "@paymentRequest.ShippingType",
+        shippingMethods: shippingMethods,
+        supportedCountries: ["@paymentRequest.CountryCode"]
+    };
+</script>
+
+@if (!debugInSafari)
+{
+    @Html.Partial("_Polyfill", Model.MerchantId)
+}

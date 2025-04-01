@@ -1,0 +1,155 @@
+﻿@model Asu.Web.Models.Spr_Perizd
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Spr_Perizd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.izdelie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.izdelie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kod_izd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kod_izd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nm_izd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nm_izd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ser_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ser_s)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ser_po)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ser_po)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kgk1_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kgk1_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kgk1_n)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kgk1_n)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kgk1_m)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kgk1_m)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tek_ser_s)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tek_ser_s)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tek_ser_po)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tek_ser_po)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_open_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_open_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.period_close_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.period_close_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operation_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operation_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status_dok.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status_dok.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spr_tem.nm_tem_p)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spr_tem.nm_tem_p)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.First_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

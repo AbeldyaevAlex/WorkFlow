@@ -1,0 +1,61 @@
+﻿.search-page .search-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: block;
+    float: right;
+    text-align: right;
+    width: 40%;
+}
+
+.search-page .search-input .buttons {
+    text-align: right;
+}
+
+.search-page .search-results {
+    padding-top: 10px;
+    display: inline-block;
+    width: 100%
+}
+
+.search-page .search-results .result {
+    font-weight: 700;
+    color: #666;
+}
+
+.search-page .basic-search label {
+    line-height: 25px;
+}
+
+.search-page .search-text {
+    width: 560px;
+}
+
+.search-page .adv-search {
+    margin-top: 10px;
+}
+
+.search-page .inputs {
+    overflow: hidden;
+    padding: 4px;
+}
+
+.search-page .inputs label {
+    display: inline-block;
+    width: 110px;
+}
+
+.search-page .inputs.reversed label {
+    width: auto;
+}
+
+.search-page .price-from, .search-page .price-to {
+    width: 100px;
+}
+
+.search-page .warning {
+    text-decoration: underline;
+}
+
+search-page-back {
+    display: none
+}

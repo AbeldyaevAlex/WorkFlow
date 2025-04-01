@@ -1,0 +1,59 @@
+﻿@model BrandsAllModel
+@using Nop.Web.Models.Customization;
+<div class="allbrandsblock">
+    <h2 class="allbrandstitle">All Brands</h2>
+
+    @{
+
+        int currentSymbol = 0;
+        bool numericFinished = false;
+        var manufacturersCount = Model.Manufacturers.Count;
+        int countInColumn = 0;
+        var maxCountInColumn = (int)Math.Ceiling((decimal)(manufacturersCount / 4));
+        for (int i = 0; i < 4; i++)
+        {
+            <div class="float_left width_25">
+                <ul class="sbb-brand-list">
+                    @{
+            if (i == 0)
+            {
+                <li class="sbb-letter">0-9</li>
+            }
+            for (int j = i * maxCountInColumn; j < Model.Manufacturers.Count; j++)
+            {
+                var manufacturer = Model.Manufacturers[j];
+                if (!("0123456789".Contains(manufacturer.Name[0].ToString())))
+                {
+                    if (manufacturer.Name[0].ToString().ToLower() != Model.Alfabet[currentSymbol].ToLower())
+                    {
+                        currentSymbol++;
+                        if (currentSymbol >= Model.Alfabet.Count)
+                        {
+                            break;
+                        }
+                        <li class="sbb-letter">@Model.Alfabet[currentSymbol]</li>
+                    }
+                    else
+                    {
+                        if (!numericFinished) // For 'A' brand name
+                        {
+                            <li class="sbb-letter">@Model.Alfabet[currentSymbol]</li>
+                            numericFinished = true;
+                        }
+                    }
+                }
+                <li>
+                    <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })" title="@manufacturer.Name">@manufacturer.Name</a>
+                </li>
+                if (++countInColumn >= maxCountInColumn)
+                {
+                    countInColumn = 0;
+                    break;
+                }
+            }
+                    }
+                </ul>
+            </div>
+        }
+    }
+</div>

@@ -1,0 +1,132 @@
+﻿@using Asu.Web.Models.ShoppingCart
+@using Asu.Core
+@using Asu.Core.Infrastructure
+
+@model ShoppingCartModel
+
+@if (Model.Items.Any())
+{
+    <div class="shopping-cart-data-wrapper">
+        @*<ul class="shopping-cart-titles">
+            <li>
+                <p>Item</p>
+            </li>
+            <li>
+                <p>Quantity</p>
+            </li>
+            <li>
+                <p>Price</p>
+            </li>
+        </ul>*@
+        @foreach (var item in Model.Items.OrderBy(i => i.Id))
+        {
+            <div class="shopping-cart-item-content" @(item.IsInsurance ? "style=display:none;" : string.Empty)>
+                <div class="product_name">
+                    <div class="picture">
+                        <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })">
+                            <figure>
+                                <img class="" src="@item.Picture.ImageUrl" alt="@item.Picture.AlternateText" title="@item.Picture.Title" />
+                            </figure>
+                            @*<figcaption id="product-cart-fig-caption">
+                                @if (item.IsImageLoader)
+                                {
+                                    <text>Representative photo, actual item may vary</text>
+                                }
+                            </figcaption>*@
+                        </a>
+
+                        <div class="shopping-cart-item-part-number">
+                            <p>
+                                <span>Part #:</span>
+                                <span>@item.ManufacturerPartNumber</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h5>
+                            <a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })" class="product-name">@item.ProductName</a>
+                        </h5>
+                        <div class="shopping-cart-item-part-number mobile_style">
+                            <p>
+                                <span>Part #:</span>
+                                <span>@item.ManufacturerPartNumber</span>
+                            </p>
+                        </div>
+                        <div class="manufacturer-cart">
+                            @if (Model.ShowSku)
+                            {
+                                <img alt="@item.ManufacturerModel.Logo.AlternateText" src="@item.ManufacturerModel.Logo.ImageUrl" title="@item.ManufacturerModel.Logo.Title" />
+                                if (item.ManufacturerModel != null)
+                                {
+                                    <p>
+                                        <a href="@Url.RouteUrl("Manufacturer", new { SeName = item.ManufacturerModel.SeName })">@item.ManufacturerModel.Name</a>
+                                    </p>
+                                }
+                            }
+                        </div>
+                        @if (Model.ShowSku)
+                        {
+                            if (!item.IsShippingFromManufacturer && item.StockQuantity > 0)
+                            {
+                                <div class="stock available">
+                                    <div class="greenboll"></div>
+                                    In Stock
+                                </div>
+                            }
+                            else if (item.IsShippingFromManufacturer)
+                            {
+                                <div class="stock available">
+                                    <div class="greenboll"></div>
+                                    Ships from manufacturer
+                                </div>
+                            }
+                        }
+                        @if (item.IsFreeShipping)
+                        {
+                            <div class="shipping-method-cart">
+                                <img src="~/Content/Images/icons-product/free.svg" />
+                                <p>Free shipping</p>
+                            </div>
+                        }
+                    </div>
+                    <div class="quantity-price">
+                        <div class="quantity">
+                            <span class="title-qty">qty:</span>
+                            <span>@item.Quantity</span>
+                        </div>
+                        <div class="price">
+                            <h3>Price</h3>
+                            @if (item.Quantity > 1)
+                            {
+                                <span class="product-total-price">
+                                    @item.SubTotal
+                                    @if (!string.IsNullOrEmpty(item.OldPrice))
+                                    {
+                                        <span class="old-price">@item.OldPrice</span>
+                                    }
+                                </span>
+                                <span class="product-unit-price">@item.UnitPrice / <span>each</span></span>
+                            }
+                            else
+                            {
+                                <span class="product-unit-price">
+                                    @item.UnitPrice
+                                    @if (!string.IsNullOrEmpty(item.OldPrice))
+                                    {
+                                        <span class="old-price">@item.OldPrice</span>
+                                    }
+                                </span>
+                            }
+
+                            @if (Model.IsAdmin && !Model.IsEditable && item.IsAdminPriceDifferent)
+                            {
+                                <span style="color: #d82025;">@item.AdminUnitPrice</span><br />
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

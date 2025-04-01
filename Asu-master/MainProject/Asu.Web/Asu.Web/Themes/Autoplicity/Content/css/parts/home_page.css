@@ -1,0 +1,661 @@
+﻿.home-page-product-grid {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.home-page-product-grid .title {
+    padding: 10px 10px 10px 0;
+    margin: 0 0 0 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+.home-page-category-grid {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    zoom: 1;
+}
+
+.home-page-category-grid:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.home-page-category-grid a {
+    color: #666;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.home-page-category-grid .item-box {
+    float: left;
+    text-align: center;
+    vertical-align: text-top;
+}
+
+.home-page-category-grid .category-item {
+    height: 220px;
+    margin: 10px;
+    text-align: center;
+    width: 184px;
+}
+
+.home-page-category-grid .category-item .picture img {
+    height: auto;
+    max-height: 180px;
+    max-width: 184px;
+    width: auto;
+}
+
+.home-page-category-grid .category-item .title a {
+    color: #666;
+    display: block;
+    font-size: 12pt !important;
+    font-weight: normal;
+    min-height: 40px;
+    overflow: hidden;
+    padding: 5px;
+    text-align: center;
+}
+
+.home-page-category-grid .category-item .title {
+    text-align: center;
+    font-weight: 700;
+    font-size: .9em;
+    display: block;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.home-page-category-grid .category-item .picture {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.bestsellers {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.bestsellers .title {
+    padding: 10px 10px 10px 0;
+    margin: 0 0 0 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+.mobile-homepagetopbanner {
+    display: none
+}
+
+.homepageicon {
+    float: right;
+    display: block;
+    width: 120px;
+}
+
+.homepageicon span {
+    display: block;
+    float: right;
+    width: 80px;
+    color: #ccc
+}
+
+.homepagearrowbanner {
+    padding-top: 20px;
+    display: block;
+}
+
+.homepagearrowbanner .homepageheadericon {
+    display: block
+}
+
+.homepagearrowbanner .homepageheadericon .homepageicon {
+    display: block;
+    float: right;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -1001px;
+    width: 262px;
+    height: 77px;
+    background-repeat: no-repeat;
+    padding-top: 7px;
+    margin-bottom: 10px;
+}
+
+.homepagearrowbanner .homepageheadericon .homepageicon .homearrowicon1 {
+    float: right;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -1083px;
+    width: 64px;
+    height: 64px;
+    margin-right: 30px;
+}
+
+.homepagearrowbanner .homepageheadericon .homepageicon .homearrowicon2 {
+    float: right;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -1152px;
+    width: 64px;
+    height: 64px;
+    margin-right: 30px;
+}
+
+.homepagearrowbanner .homepageheadericon .homepageicon .homearrowicon3 {
+    float: right;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -1221px;
+    width: 64px;
+    height: 64px;
+    margin-right: 30px;
+}
+
+.homepagearrowbanner .homepageheadericon .homepageicon span {
+    display: block;
+    float: right;
+    width: 130px;
+    color: #fff;
+    font-size: 12pt;
+    padding-top: 10px;
+}
+
+.homepageheadericon {
+    display: none;
+    overflow: hidden;
+    margin-bottom: 10px
+}
+
+.homepagearrowbanner .homepageheadericon {
+    display: block;
+    position: relative;
+    float: right;
+    width: 262px;
+}
+
+.homepagelagebanner .vehicles-filter {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.homepagelagebanner .vehicles-filter #vehiclesFilterList {
+    margin-top: 0px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: auto;
+    float: left;
+    padding: 0px;
+    background-image: none;
+    border-radius: 0px;
+}
+
+.homepagelagebanner .vehicles-filter.selected #vehiclesFilterList {
+    margin-top: 0px;
+    background-color: transparent;
+    border: none;
+    width: 77%;
+    height: auto;
+    float: left;
+    padding: 19px 0px 10px 0px;
+    background-image: none;
+    border-radius: 0px;
+}
+
+.homepagelagebanner .vehicles-filter, .homepagelagebanner .vehicles-filter.selected {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    background-image: url('/Themes/Autoplicity/Content/images/homepagebg.png');
+    background-repeat: repeat;
+    border-radius: 0px 0px 5px 5px;
+    overflow: hidden;
+}
+
+.side-2 .homepagelagebanner .vehicles-filter, .side-2 .homepagelagebanner .vehicles-filter.selected {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    background-image: none;
+    background-repeat: repeat;
+    overflow: hidden;
+}
+
+.homepagelagebanner .vehicles-filter #vehiclesFilterList li .k-dropdown {
+    margin: 35px;
+    width: 90% !important;
+    max-width: 190px !important;
+    margin-top: 32px
+}
+
+.side-2 .homepagelagebanner .vehicles-filter #vehiclesFilterList li .k-dropdown, .side-2 .homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li .k-dropdown {
+    margin: 0 0 10px;
+    width: 12.5em !important;
+}
+
+.homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li .k-dropdown {
+    width: 80%;
+    float: right;
+    margin: auto;
+}
+
+.homepagelagebanner .vehicles-filter.selected input#vClear[type="button"] {
+    float: left;
+    margin: 20px 0 0 20px;
+    height: 36px;
+    background: rgba(98, 135, 153, 1);
+    background: -moz-linear-gradient(top, rgba(98, 135, 153, 1) 0%, rgba(75, 116, 146, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(98, 135, 153, 1)), color-stop(100%, rgba(75, 116, 146, 1)));
+    background: -webkit-linear-gradient(top, rgba(98, 135, 153, 1) 0%, rgba(75, 116, 146, 1) 100%);
+    background: -o-linear-gradient(top, rgba(98, 135, 153, 1) 0%, rgba(75, 116, 146, 1) 100%);
+    background: linear-gradient(to bottom, rgba(98, 135, 153, 1) 0%, rgba(75, 116, 146, 1) 100%);
+    border: 1px solid #4b7492;
+    color: #fff;
+    cursor: pointer
+}
+
+.homepagelagebanner .vehicles-filter.selected input#vClear[type="button"]:hover {
+    background: rgba(75, 116, 146, 1);
+    background: -moz-linear-gradient(top, rgba(75, 116, 146, 1) 0%, rgba(98, 135, 153, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(75, 116, 146, 1)), color-stop(100%, rgba(98, 135, 153, 1)));
+    background: -webkit-linear-gradient(top, rgba(75, 116, 146, 1) 0%, rgba(98, 135, 153, 1) 100%);
+    background: -o-linear-gradient(top, rgba(75, 116, 146, 1) 0%, rgba(98, 135, 153, 1) 100%);
+    background: linear-gradient(to bottom, rgba(75, 116, 146, 1) 0%, rgba(98, 135, 153, 1) 100%);
+}
+
+.side-2 .homepagelagebanner .vehicles-filter.selected input#vClear[type="button"] {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #666;
+    height: 36px;
+    margin: 10px 0 0;
+    padding: 0;
+    width: 12.5em !important;
+}
+
+.side-2 .homepagelagebanner .vehicles-filter.selected input#vClear[type="button"]:hover {
+    background: none repeat scroll 0 0 #eee;
+    border: 1px solid #ccc;
+    color: #666 !important;
+}
+
+.homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li, .homepagelagebanner .vehicles-filter #vehiclesFilterList li {
+    width: 25%;
+    float: left;
+}
+
+.side-2 .homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li, .side-2 .homepagelagebanner .vehicles-filter #vehiclesFilterList li {
+    width: 100%;
+    float: left;
+}
+
+.homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li:last-child {
+    margin-top: 10px;
+    width: 99%;
+    float: left;
+    text-align: right;
+    padding-right: 15px;
+    color: #fff;
+}
+
+.side-2 .homepagelagebanner .vehicles-filter.selected #vehiclesFilterList li:last-child {
+    text-align: left;
+    color: #666;
+}
+
+.homepagelagebanner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+    background-image: url('/Themes/Autoplicity/Content/images/homepagebanner1.jpg');
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+.side-2 .homepagelagebanner {
+    background: none;
+    height: auto;
+}
+
+.homepagelagebanner #vehiclesFilter {
+    bottom: 0;
+    position: absolute;
+    vertical-align: bottom;
+    z-index: 2
+}
+
+.side-2 .homepagelagebanner #vehiclesFilter {
+    bottom: 0;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.no-vehicle-to-product {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: -497px -761px;
+    width: 200px;
+    height: 54px;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.vehicle-to-product {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: -497px -702px;
+    width: 200px;
+    height: 54px;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.no-vehicle-selected {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: 0 -914px;
+    width: 200px;
+    height: 54px;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
+
+.is-universal {
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-position: -716px -702px;
+    width: 200px;
+    height: 54px;
+    margin-top: 20px;
+}
+
+.mob-footer-menu-wrapper .homepagegarantebannerfooter {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    float: none;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.homepagegarantebanner {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    display: block;
+    overflow: hidden;
+}
+
+.homepagegarantebanner1, .homepagegarantebanner1.home {
+    background-position: 0 -1419px;
+    width: 120px;
+    height: 58px;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0px 5px;
+    margin-left: 32px;
+}
+
+.homepagegarantebanner2, .homepagegarantebanner2.home {
+    width: 234px !important;
+    height: 60px;
+    overflow: hidden;
+    display: inherit;
+    float: left;
+}
+
+.homepagegarantebanner2, .homepagegarantebanner2.home img {
+    margin-top: -1px;
+}
+
+.homepagegarantebanner3, .homepagegarantebanner3.home {
+    background-position: 0 -1542px;
+    width: 120px;
+    height: 58px;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0px 5px;
+    margin-left: 32px;
+}
+
+.homepagegarantebanner4, .homepagegarantebanner4.home {
+    background-position: 0 -1665px;
+    width: 120px;
+    height: 58px;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0px 7px;
+    margin-left: 32px;
+}
+
+.homepagegarantebanner5, .homepagegarantebanner5.home {
+    background-position: 0 -1794px;
+    width: 120px;
+    height: 58px;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0px 7px;
+    margin-left: 32px;
+}
+
+.homepagegarantebanner6, .homepagegarantebanner6.home {
+    background-position: 0 -1920px;
+    width: 196px;
+    height: 58px;
+    background-image: url('/Themes/Autoplicity/Content/images/sprite.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0px 7px;
+    margin-left: 32px;
+}
+
+.homepagebannertitle {
+    bottom: 105px;
+    position: absolute;
+    left: 0px;
+    font-size: 20pt;
+    color: #fff;
+    padding: 5px 35px;
+    background-color: transparent;
+    background-image: url("/Themes/Autoplicity/Content/images/homepagebg.png");
+    background-repeat: repeat;
+}
+
+.side-2 .homepagebannertitle {
+    font-size: 10pt;
+    bottom: auto;
+    left: 0px;
+    color: #666;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-image: none
+}
+
+.homepagebrandsblock {
+    margin-top: 30px;
+    border-bottom: solid 1px #ccc;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 25px
+}
+
+.homepagebrandsblock .title, .homepagecategoryblock .title {
+    color: #999;
+    font-size: 11pt
+}
+
+.homepagebrandsblock .allbrands {
+    color: #999;
+    font-size: 10pt;
+    float: right;
+    text-decoration: underline
+}
+
+.homepagebrandsblock .brands-sprite {
+    width: auto !important
+}
+
+.checkout-data #ul-shipping-payment #checkout-shipping-methods-box.shipping-method {
+    padding-right: 0
+}
+
+.homepagebrandsblock .brands-sprite > li {
+    display: block;
+    float: left;
+    list-style: outside none none;
+    margin-right: 25px;
+    width: 100px;
+}
+
+.homepagebrandsblock .brands-sprite > li > a {
+    background-image: url('/Themes/Autoplicity/Content/images/topbrandssprite.png');
+    float: left;
+    margin: 5px 14px;
+    display: block;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .rancho {
+    background-position: 0 0;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .borla {
+    background-position: 0 -96px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .wilwood {
+    background-position: 0 -528px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .deezee {
+    background-position: 0 -290px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .ebc {
+    background-position: 0 -48px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .corsa {
+    background-position: 0 -432px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .eibach {
+    background-position: 0 -576px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .flowmaster {
+    background-position: 0 -144px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .bilstein {
+    background-position: 0 -336px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .injen {
+    background-position: 0 -480px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .dorman {
+    background-position: 0 -192px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .kn {
+    background-position: 0 -240px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .procomp {
+    background-position: 0 -384px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .magnaflow {
+    background-position: 0 -624px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .piaa {
+    background-position: 0 -672px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .readylift {
+    background-position: 0 -720px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .sm {
+    background-position: 0 -768px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagebrandsblock .volant {
+    background-position: 0 -816px;
+    width: 100px;
+    height: 43px;
+}
+
+.homepagecategoryblock {
+    margin-top: 30px;
+}
+
+.k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {
+    height: 95% !important;
+}

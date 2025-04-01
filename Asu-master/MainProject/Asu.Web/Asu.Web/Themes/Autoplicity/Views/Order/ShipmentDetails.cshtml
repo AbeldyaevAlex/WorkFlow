@@ -1,0 +1,193 @@
+﻿@model ShipmentDetailsModel
+@using Nop.Web.Models.Order;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts(T("PageTitle.ShipmentDetails").Text);
+}
+
+
+<div class="page shipment-details-page">
+<div class="page-title">
+    @Html.RouteLink("< Back to order page", "OrderInfo", new { crmOrderId = Model.CrmOrderId }, new { @class = "back-link" })
+</div>
+    <div class="page-body">
+        <div class="shipment-overview">
+            <ul class="shipping-details">
+                <li class="title">
+                    <strong>@T("Order.Shipments.Order#")@Model.OrderId</strong>
+                </li>
+                @*<li class="shipping-method">
+                    @T("Order.Shipments.ShippingMethod"): @Model.Order.ShippingMethod
+                </li>*@
+                @if (!string.IsNullOrEmpty(Model.Carrier))
+                {
+                    <li class="carrier">
+                        Shipping service:
+                        @Model.Carrier
+                    </li>
+                }
+                @if (Model.ShippedDate.HasValue)
+                {
+                    <li class="shipped-date">
+                        @T("Order.Shipments.ShippedDate"):
+                        @Model.ShippedDate.Value.ToString("ddd, d MMM yyyy")
+                    </li>
+                }
+                @if (Model.DeliveryDate.HasValue)
+                {
+                    <li class="delivery-date">
+                        @T("Order.Shipments.DeliveryDate"):
+                        @Model.DeliveryDate.Value.ToString("ddd, d MMM yyyy")
+                    </li>
+                }
+                else if (Model.EstimateDeliveryDate.HasValue)
+                {
+                    <li class="delivery-date">
+                        Estimated delivery: 
+                        @Model.EstimateDeliveryDate.Value.ToString("ddd, d MMM yyyy")
+                    </li>
+                }
+                @if (!string.IsNullOrEmpty(Model.TrackingNumber))
+                {
+                    <li class="tracking-number">@T("Order.Shipments.TrackingNumber"):
+                        @if (!string.IsNullOrEmpty(Model.TrackingNumberUrl))
+                        {
+                            <a href="@Model.TrackingNumberUrl" target="_blank" class="tracking-url">@Model.TrackingNumber</a>
+                        }
+                        else
+                        {
+                            @Model.TrackingNumber
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+        @if (Model.Items.Count > 0)
+        {
+            <div class="section products">
+                <div class="title">
+                    <strong>@T("Order.Shipments.Product(s)")</strong>
+                </div>
+                <table class="data-table">
+                    <colgroup>
+                        @if (Model.ShowSku)
+                        {
+                            <col width="1" />
+                        }
+                        <col />
+                        <col />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            @if (Model.ShowSku)
+                            {
+                                <th class="a-center sku">
+                                    @T("Order.Shipments.Product(s).SKU")
+                                </th>
+                            }
+                            <th class="a-center name">
+                                @T("Order.Shipments.Product(s).Name")
+                            </th>
+                            <th class="a-center quantity">
+                                @T("Order.Shipments.Product(s).Quantity")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                @if (Model.ShowSku)
+                                {
+                                    <td class="a-left sku">
+                                        @item.Sku
+                                    </td>
+                                }
+                                <td class="a-left name">
+                                    <em><a href="@Url.RouteUrl("Product", new { SeName = item.ProductSeName })">@item.ProductName</a></em>
+                                    @if (!string.IsNullOrEmpty(item.AttributeInfo))
+                                    {
+                                        <div class="attributes">
+                                            @Html.Raw(item.AttributeInfo)
+                                        </div>
+                                    }
+                                </td>
+                                <td class="a-center quantity">
+                                    @item.QuantityShipped
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @if (Model.ShipmentStatusEvents.Count > 0)
+        {
+            <div class="section shipment-status-events">
+                <div class="title">
+                    <strong>
+                        @if (Model.DeliveryDate.HasValue)
+                        {
+                            <span style="font-size: 16px; color: #008a00">Delivered @(Model.DeliveryDate.Value.Hour == 0 && Model.DeliveryDate.Value.Minute == 0 ? Model.DeliveryDate.Value.ToString("ddd, d MMM yyyy") : Model.DeliveryDate.Value.ToString("ddd, d MMM yyyy HH:mm tt"))</span>
+                        }
+                        else if (Model.EstimateDeliveryDate.HasValue)
+                        {
+                            <span style="font-size: 16px; color: #517ea0">Estimated delivery @(Model.EstimateDeliveryDate.Value.Hour == 0 && Model.EstimateDeliveryDate.Value.Minute == 0 ? Model.EstimateDeliveryDate.Value.ToString("ddd, d MMM yyyy") : Model.EstimateDeliveryDate.Value.ToString("ddd, d MMM yyyy HH:mm tt"))</span>
+                        }
+                        else
+                        {
+                            @T("Order.ShipmentStatusEvents")
+                        }
+                    </strong>
+                </div>
+                @Html.Partial("_TrackingProgressBar", new TrackingProgressDetailsModel {OrderDate = Model.OrderDate, ShippedDate = Model.ShippedDate, EstimateDeliveryDate = Model.EstimateDeliveryDate, DeliveryDate = Model.DeliveryDate})
+                <table class="data-table">
+                    <colgroup>
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="a-center event">
+                                Date
+                            </th>
+                            <th class="a-center location">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ShipmentStatusEvents)
+                        {
+                            <tr>
+                                <td class="a-left date">
+                                    @if (item.Date.HasValue)
+                                    {
+                                        @item.Date.Value.ToString("ddd, d MMM yyyy HH:mm tt")
+                                    }
+                                </td>
+                                <td class="a-left event">
+                                    <ul style="list-style-type: none;">
+                                        <li>@item.EventName</li>
+                                        <li><span style="color: #999">@item.Location</span></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else if(!string.IsNullOrEmpty(Model.TrackingNumberUrl))
+        {
+            <p style="font-size: 16px;color: #517ea0;">Unable to get tracking package details. Please reload the page or track you package on the carrier website <a href="@Model.TrackingNumberUrl" target="_blank" class="tracking-url">@Model.TrackingNumber</a></p>
+        }
+        else
+        {
+            <p style="font-size: 16px;color: #517ea0;">Unable to get tracking package details(@Model.TrackingNumber) for @Model.Carrier.</p>
+        }
+    </div>
+</div>

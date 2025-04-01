@@ -1,0 +1,33 @@
+﻿@using Asu.Core.Domain.DirectoryOfMaterialCodifiers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @Html.DevExpress().ComboBox(ComboBox =>
+   {
+
+       ComboBox.Name = string.Format("Status");
+       ComboBox.Width = 180;
+       ComboBox.SelectedIndex = 0;
+       ComboBox.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+       ComboBox.Properties.DropDownStyle = DropDownStyle.DropDown;
+       ComboBox.Properties.TextField = "DocumentStatus.Status";
+       ComboBox.Properties.ValueField = "Id";
+       ComboBox.Properties.Native = false;
+       ComboBox.ControlStyle.CssClass = "select2me form-control";
+   }).BindToEF(string.Empty, string.Empty, (s, e) =>
+   {
+       e.KeyExpression = "Id";
+       e.QueryableSource = Model;
+   }).GetHtml()
+    </div>
+</body>
+</html>

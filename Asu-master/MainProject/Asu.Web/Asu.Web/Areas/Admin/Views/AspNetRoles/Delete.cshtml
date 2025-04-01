@@ -1,0 +1,35 @@
+﻿@model Asu.Web.Models.AspNetRolesViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+<h2>Удаление роли</h2>
+
+<h3>Вы действительно хотите удалить текущую запись?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteConfirmed", "AspNetRoles","admin_default", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад на главную", "Index")
+        </div>
+    }
+</div>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>

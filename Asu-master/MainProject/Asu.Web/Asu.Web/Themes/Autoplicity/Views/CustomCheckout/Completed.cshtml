@@ -1,0 +1,48 @@
+﻿@model CheckoutCompletedModel
+@using System.Web.Optimization
+@using Nop.Web.Models.Checkout;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AddTitleParts(string.Format("Order #{0} - Checkout Completed", Model.OrderId));
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/bcheckout-completed") : Html.InlineStyles("~/styles/bcheckout-completed"))
+}
+
+@* Checkout page Success *@
+<div class="checkout-page-success">
+    <div class="checkout-page-success-header">
+        <div class="checkout-page-success-header-message">
+            <div class="checkout-page-success-header-message-icon">
+                <span></span>
+            </div>
+            <h1>@T("Checkout.ThankYou")</h1>
+        </div>
+    </div>
+    <div class="checkout-page-success-content">
+        @Html.Widget("checkout_completed_top")
+        <div class="checkout-page-success-content-top">
+            <p class="checkout-page-success-content-top-order">@T("Checkout.OrderNumber"):<span>@Model.OrderId</span></p>
+            <p class="checkout-page-success-content-top-message">@T("Checkout.YourOrderHasBeenSuccessfullyProcessed")</p>
+            <a class="checkout-page-success-content-top-details-link" href="@Url.RouteUrl("OrderDetails", new { orderID = Model.OrderId })">@T("Checkout.PlacedOrderDetails")</a>
+            <button onclick="setLocation('@Url.RouteUrl("HomePage")')">
+                <p>@T("Checkout.ThankYou.Continue")</p>
+            </button>
+        </div>
+        @if (!Model.IsClubMember)
+        {
+            <div class="checkout-page-success-content-bottom">
+                @*<div class="checkout-page-success-content-bottom-icon">
+                    <span></span>
+                </div>
+                <div class="checkout-page-success-content-bottom-subscribe">
+                    <input type="text" name="name" placeholder="Test text" value="" />
+                    <button>
+                        <p>Subscribe</p>
+                    </button>
+                </div>*@
+                <a class="checkout-page-success-content-bottom-discont-link" href="/members-club">Do you want 20 % off your next order? Enroll in the Autoplicity club for more savings on your next order</a>
+            </div>
+        }
+        @Html.Widget("checkout_completed_bottom")
+    </div>
+</div>
+@* End Checkout page Success *@

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 300">
+ <g>
+  <g>
+   <ellipse fill="#ffbf00" stroke="null" stroke-width="null" stroke-opacity="null" cx="225" cy="125" rx="100" ry="100"/>
+   <g stroke="null">
+    <path d="m189.768052,183.173274c-3.295046,0 -5.966547,-2.6715 -5.966547,-5.966547l0,-104.413725c0,-3.295046 2.6715,-5.966266 5.966547,-5.966266l96.955541,53.698079c0,0 4.47491,4.47491 0,8.9501c-4.47491,4.47463 -96.955541,53.698359 -96.955541,53.698359z" fill="#FFFFFF" stroke="null"/>
+   </g>
+  </g>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="48" y="280" x="150.820313" stroke-width="0" stroke="#000" fill="#555555">VIDEO</text>
+ </g>
+</svg>

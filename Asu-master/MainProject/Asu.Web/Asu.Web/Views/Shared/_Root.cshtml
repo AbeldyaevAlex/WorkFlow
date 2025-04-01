@@ -1,0 +1,94 @@
+﻿@using Asu.Core
+@using Asu.Core.Domain.GoogleTagManager
+@using Asu.Core.Infrastructure
+@using Asu.Framework.Themes
+@using Asu.Core.Domain.Customers
+
+@{
+    Layout = "~/Views/Shared/_Root.Head.cshtml";
+    var workContext = EngineContext.Current.Resolve<IWorkContext>();
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var relativeUrl = this.Context.Request.Path;
+    var newDesign = pageType == PageType.ProductGroup || pageType == PageType.Home || pageType == PageType.ReturnRequest || pageType == PageType.Product || pageType == PageType.ShoppingCart || pageType == PageType.CheckoutAddress || pageType == PageType.CheckoutPayment || pageType == PageType.Cba || pageType == PageType.Search || pageType == PageType.Category || pageType == PageType.Manufacturer || pageType == PageType.Vehicle || pageType == PageType.Tires;
+}
+
+@Html.Widget("body_start_html_tag_after")
+@Html.Partial("_Notifications")
+@Html.Action("AdminHeaderLinks", "Common")
+
+<script>
+    window.headerBanners = [
+		"/Themes/@currentThemeName/Content/images/header_cybermonday_banner_1024x64.jpg?v=1"];
+</script>
+
+
+<header class="header">
+    @Html.Action("MobileMenuLinks", "Common")
+
+    <div class="header-inner">
+        @* Header Top *@
+        @Html.Partial("Header")
+        <div class="header-mobile-search">
+            <div class="header-mobile-search-field">
+                <span></span>
+                <input type="text" name="search" placeholder="Search store..." />
+                <a href="" class="header-mobile-search-close"></a>
+            </div>
+        </div>
+
+        @* Header Menu *@
+        <div class="header-menu">
+            @*@Html.Action("TopMenu", "Vehicle")*@
+        </div>
+    </div>
+</header>
+
+<div class="master-wrapper-page @pageType.ToString().ToLower()">
+    @Html.Action("JavaScriptDisabledWarning", "Common")
+    <div class="master-wrapper-content">
+        @if (workContext.CurrentCustomer != null && !workContext.CurrentCustomer.IsSystemAccount)  //if not bot
+        {
+            if (newDesign)
+            {
+                Html.RenderPartial("_DiscountPopup");
+            }
+            else
+            {
+                //Html.RenderPartial("_RootDiscountPopup");
+            }
+        }
+        @*<div class="headerbanner" id="headerbanner" href="/blackfriday-cybermonday"></div>*@
+
+        @Html.Widget("content_before")
+        <div class="master-wrapper-main@(pageType == PageType.CustomerAccount ? " master-wrapper-customer-account" : string.Empty)">
+            @RenderBody()
+        </div>
+        @Html.Widget("content_after")
+    </div>
+</div>
+@Html.Action("Footer", "Common")
+@Html.Action("EuCookieLaw", "Common")
+@Html.Widget("body_end_html_tag_before")
+@if (IsSectionDefined("customization"))
+{
+    @section customization
+    {
+        @RenderSection("customization")
+    }
+}
+@if (IsSectionDefined("header"))
+{
+    @section header
+    {
+        @RenderSection("header")
+    }
+}
+@if (IsSectionDefined("footer"))
+{
+    @section footer
+    {
+        @RenderSection("footer")
+    }
+}

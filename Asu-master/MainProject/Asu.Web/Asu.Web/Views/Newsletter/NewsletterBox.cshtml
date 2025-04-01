@@ -1,0 +1,30 @@
+﻿@model NewsletterBoxModel
+@using Asu.Web.Models.Newsletter;
+@using Asu.Core.Domain
+@using Asu.Core.Infrastructure;
+
+@{
+    var storeSettings = EngineContext.Current.Resolve<StoreInformationSettings>();
+}
+
+
+<div class="footer-top-columns-right">
+    <div class="footer-top-follow-us">
+        <div class="footer-top-follow-us-left">
+            <h5>Want to receive promotions and offers?</h5>
+            <div class="footer-top-follow-us-email">
+                @Html.TextBoxFor(x => x.NewsletterEmail, new { id = "newsletter-email", @class = "textBox", placeholder = "Enter your e-mail...", autocomplete = "off" })
+                @Html.ValidationMessageFor(x => x.NewsletterEmail)
+                <button id="newsletter-subscribe-button"><p>Send</p></button>
+                <span id="subscribe-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
+            </div>
+        </div>
+        <div id="newsletter-result-block" class="newsletter-result-block"></div>
+        <div class="footer-top-follow-us-right">
+            <div class="footer-top-follow-us-accounts">
+                <a class="footer-top-follow-us-twitter" href="@storeSettings.TwitterLink"></a>
+                <a class="footer-top-follow-us-facebook" href="@storeSettings.FacebookLink"></a>
+            </div>
+        </div>
+    </div>
+</div>

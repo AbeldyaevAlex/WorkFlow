@@ -1,0 +1,142 @@
+﻿@{
+    var treeList = Html.DevExpress().TreeList(settings =>
+    {
+        settings.Name = "TreeList";
+        settings.CallbackRouteValues = new { Controller = "Test3", Action = "TreeListPartial" };
+
+        settings.SettingsEditing.AddNewNodeRouteValues = new { Controller = "Test3", Action = "TreeListPartialAddNew" };
+        settings.SettingsEditing.UpdateNodeRouteValues = new { Controller = "Test3", Action = "TreeListPartialUpdate" };
+        settings.SettingsEditing.DeleteNodeRouteValues = new { Controller = "Test3", Action = "TreeListPartialDelete" };
+        settings.SettingsEditing.NodeDragDropRouteValues = new { Controller = "Test3", Action = "TreeListPartialMove" };
+
+        settings.SettingsBehavior.AllowFocusedNode = true;
+        settings.SettingsBehavior.AutoExpandAllNodes = true;
+        settings.SettingsBehavior.ExpandCollapseAction = TreeListExpandCollapseAction.NodeDblClick;
+        settings.Settings.GridLines = System.Web.UI.WebControls.GridLines.Both;
+
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.NewButton.Visible = true;
+        settings.CommandColumn.DeleteButton.Visible = true;
+        settings.CommandColumn.EditButton.Visible = true;
+
+        settings.KeyFieldName = "Id";
+        settings.ParentFieldName = "Id_Roditel";
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Task";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Naim_task";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "link_status";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "link_user";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "operation";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "operation_date";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "period_open_date";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "period_close_date";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Id_Roditel";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "screen";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "naim_screen";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "AlternativeText";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Controller_Name";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Action_Name";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "IsGroup";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "RouteUrl";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "Title";
+    }
+);
+        settings.Columns.Add(
+    column =>
+    {
+        column.FieldName = "link_pvi";
+    }
+);
+
+        settings.SettingsPager.Visible = true;
+        settings.SettingsSelection.Enabled = true;
+    });
+    if (ViewData["EditError"] != null)
+    {
+        treeList.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@treeList.Bind(Model).GetHtml()

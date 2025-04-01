@@ -1,0 +1,18 @@
+﻿@model Asu.Web.Models.Spr_specif
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl" + ViewData["key"];
+    settings.Width = Unit.Percentage(100);
+    settings.TabPosition = TabPosition.Top;
+    settings.Styles.Content.Border.BorderWidth = Unit.Pixel(4);
+    settings.CallbackRouteValues = new { Controller = "Sostav_Izdelia", Action = "SpecificationPrimOboznPartial", key = ViewData["key"] };
+
+    settings.TabPages.Add("Применяемость к Спецификации").SetContent(() =>
+    {
+        Html.RenderAction("SpecificationPrimDseGridView", new { key = Model.link_svyz_prim });
+    });
+}).GetHtml()
+

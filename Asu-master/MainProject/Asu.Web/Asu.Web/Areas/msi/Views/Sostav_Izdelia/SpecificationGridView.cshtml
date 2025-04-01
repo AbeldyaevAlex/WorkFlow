@@ -1,0 +1,27 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+<script type="text/javascript">
+    function OnEndCallback(s, e) {
+        if (s.cpMessage) {
+            alert(s.cpMessage);
+            lblDevExpress.SetText("Последнее действие: " + s.cpMessage);
+            delete s.cpMessage;
+        }
+    }
+</script>
+<h1 align="center">Спецификация  <span style="color:darkviolet" ; border-radius:10px;">@ViewData["KTS_NAIM"]</span> </h1>
+<br />
+<link href="~/Content/GridView.css" rel="stylesheet" />
+<div class="sostav-grid">
+    @Html.Action("SpecifGridViewPartial", "Sostav_Izdelia")
+</div>
+
+@Html.DevExpress().Label(lbl =>
+{
+    lbl.Name = "lblDevExpress";
+    lbl.Properties.EnableClientSideAPI = true;
+}).GetHtml()
+
+<br />
+
+<label id="lblStandard"></label>

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Справочник ПВИ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Справочник ПВИ</h2>
+@Html.Action("GridView22Partial")
+@using (Ajax.BeginForm("CustomSearch", "Spr_pvi", new AjaxOptions { UpdateTargetId = "resultsearch" }))
+{
+    <div style="padding:40px; margin:30px; border:3px #000000 solid;">
+        <input type="text" name="pvi" />
+        <input type="submit" value="Контекстный Поиск" />       
+    </div>
+}
+<div id="resultsearch" style="border:3px #000000 solid; margin:30px; padding:40px;">    
+    <h2>Результат поиска:</h2>
+</div>
+

@@ -1,0 +1,6 @@
+﻿@model List<RenderWidgetModel>
+@using Asu.Web.Models.Cms;
+@foreach (var widget in Model)
+{
+    @Html.Action(widget.ActionName, widget.ControllerName, widget.RouteValues)
+}

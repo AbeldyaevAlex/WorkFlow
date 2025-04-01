@@ -1,0 +1,68 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+
+
+@Html.DevExpress().VerticalGrid(settings =>
+{
+    settings.Name = "VerticalGrid";
+    settings.CallbackRouteValues = new { Controller = "Vert_Rascex", Action = "VerticalGridPartial" };
+
+    settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "Vert_Rascex", Action = "VerticalGridPartialUpdate" };
+
+
+    settings.CommandRow.Visible = true;
+    settings.CommandRow.ShowNewButton = true;
+    settings.CommandRow.ShowDeleteButton = true;
+    settings.CommandRow.ShowEditButton = true;
+    settings.CommandRow.ShowSelectCheckbox = true;
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Percentage(100);
+
+    settings.Settings.VerticalScrollableHeight = 700;
+    settings.Settings.HeaderAreaWidth = 400;
+    settings.Settings.RecordWidth = 300;
+    settings.SettingsEditing.Mode = VerticalGridEditingMode.Batch;
+    settings.SettingsPager.Visible = true;
+    settings.Settings.ShowHeaderFilterButton = true;
+    settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+    settings.Settings.VerticalScrollBarMode = ScrollBarMode.Auto;
+    settings.SettingsPager.PageSize = 5;
+    settings.KeyFieldName = "Id";
+    settings.Rows.Add(r =>
+    {
+        r.FieldName = "link_rascpr";
+        r.Caption = "Расцеховка";
+        r.RowType = MVCxVerticalGridRowType.ComboBox;
+        var comboBoxProperties = r.PropertiesEdit as ComboBoxProperties;
+        comboBoxProperties.ValueField = "Id";
+        comboBoxProperties.TextField = "rascex_small";
+        comboBoxProperties.ValueType = typeof(string);
+        comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetRascex();
+    });
+    settings.Rows.Add(r =>
+    {
+        r.FieldName = "npp";
+        r.Caption = "Порядковый номер";
+        r.EditorProperties().SpinEdit(p =>
+        {
+            p.NumberType = SpinEditNumberType.Integer;
+            p.DisplayFormatString = "#";
+        });
+    });
+    settings.Rows.Add("link_cex");
+    settings.Rows.Add("link_cex_prizn");
+    settings.Rows.Add("pr_cex_osn");
+    settings.Rows.Add("link_status");
+    settings.Rows.Add("link_user");
+    settings.Rows.Add("operation");
+    settings.Rows.Add("operation_date");
+    settings.Rows.Add("period_open_date");
+    settings.Rows.Add("period_close_date");
+
+    settings.CellEditorInitialize = (s, e) =>
+    {
+        ASPxEdit editor = (ASPxEdit)e.Editor;
+        editor.ValidationSettings.Display = Display.Static;
+    };
+
+}).Bind(Model).GetHtml()

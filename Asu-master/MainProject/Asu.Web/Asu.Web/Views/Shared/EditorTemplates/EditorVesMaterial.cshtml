@@ -1,0 +1,8 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@(
+   Html.Kendo().NumericTextBoxFor(model => model.Ves)
+       .Name("Ves")
+       .Format("{0:n7}")
+       .Decimals(7)
+       .HtmlAttributes(new { placeholder = "Вес материала"/*, @class = "form-control" */})
+  )

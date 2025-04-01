@@ -1,0 +1,22 @@
+﻿@using Nop.Web.Models.Home
+
+@{
+    var manufacturers = new List<HomePageGridEntity>
+    {
+        new HomePageGridEntity { Url = "/829-weathertech", Title = "Weathertech" },
+        new HomePageGridEntity { Url = "/982-arb", Title = "ARB" },
+        new HomePageGridEntity { Url = "/753-walker-exhaust", Title = "Walker Exhaust" },
+        new HomePageGridEntity { Url = "/632-smittybilt", Title = "Smittybilt" },
+        new HomePageGridEntity { Url = "/547-pro-comp", Title = "Pro Comp" },
+        new HomePageGridEntity { Url = "/1206-rubicon-express", Title = "Rubicon Express" },
+        new HomePageGridEntity { Url = "/3085-airbedz", Title = "Airbedz" },
+        new HomePageGridEntity { Url = "/10701-addictive-desert-designs", Title = "ADD" },
+        new HomePageGridEntity { Url = "/281-go-rhino", Title = "Go Rhino" },
+        new HomePageGridEntity { Url = "/13743-dv8-offroad", Title = "DV8" },
+        new HomePageGridEntity { Url = "/143-corsa", Title = "Corsa" },
+        new HomePageGridEntity { Url = "/3203-mgp-caliper-covers", Title = "MGP Caliper Covers" },
+        new HomePageGridEntity { Url = "/48-arp", Title = "ARP" },
+        new HomePageGridEntity { Url = "/584-reese", Title = "Reese" }
+    };
+}
+@Html.Partial("_ManufacturersGrid", manufacturers)

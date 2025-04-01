@@ -1,0 +1,22 @@
+﻿@*@using Nop.Web.Framework.UI
+@{
+    var isDebuggingEnabled = HttpContext.Current.IsDebuggingEnabled;
+    //add browser specific CSS files
+    var browser = this.Request.Browser;
+    if (browser.Browser == "IE" && browser.MajorVersion == 6)
+    {
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/ie6.css");
+    }
+    else if (browser.Browser == "IE" && browser.MajorVersion == 7)
+    {
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/ie7.css");
+    }
+    if (isDebuggingEnabled)
+    {
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/responsive.css");
+    }
+    if (isDebuggingEnabled)
+    {
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/styles.css");
+    }
+}*@

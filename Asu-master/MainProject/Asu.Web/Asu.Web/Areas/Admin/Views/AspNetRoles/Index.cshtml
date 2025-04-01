@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Asu.Web.Models.AspNetRolesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2 align="center">Роли пользователя</h2>
+
+<p>
+    @Html.ActionLink("Создать Роль", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Корректировка записи", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Описание", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Удаление роли", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>

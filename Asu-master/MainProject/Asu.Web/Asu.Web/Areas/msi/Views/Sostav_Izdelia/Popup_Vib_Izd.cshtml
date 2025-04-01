@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Asu.Web.Models.Spr_Perizd>
+@Html.DevExpress().ListBox(a =>
+                {
+                    a.Name = "ListIzdelia";
+                    a.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                    a.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                    a.Properties.EnableClientSideAPI = true;
+                    a.Properties.ValueField = "id";
+                    a.Properties.ValueType = typeof(string);
+                    a.Properties.Columns.Add("izdelie", "Изделие");
+                    a.Width = System.Web.UI.WebControls.Unit.Pixel(400);
+                    a.Height = System.Web.UI.WebControls.Unit.Pixel(400);
+                }).BindList(Model).GetHtml()
+@*@Html.DevExpress().Button(settings1 =>
+                {
+                    settings1.Text = "Создать";
+                    settings1.Name = "Create";
+                    settings1.UseSubmitBehavior = true;
+                }).GetHtml()*@
+@Html.DevExpress().ListBox(a =>
+                {
+                    a.Name = "ListIzdelia777";
+                    a.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+                    a.Properties.SelectionMode = ListEditSelectionMode.CheckColumn;
+                    a.Properties.EnableClientSideAPI = true;
+                    a.Properties.ValueField = "id";
+                    a.Properties.ValueType = typeof(string);
+                    a.Properties.Columns.Add("kod_izd", "Изделие");
+                    a.Width = System.Web.UI.WebControls.Unit.Pixel(400);
+                    a.Height = System.Web.UI.WebControls.Unit.Pixel(400);
+                }).BindList(Model).GetHtml()
+@Html.DevExpress().Button(settings1 =>
+                {
+                    settings1.Text = "Создать";
+                    settings1.Name = "Create";
+                    settings1.UseSubmitBehavior = true;
+                }).GetHtml()

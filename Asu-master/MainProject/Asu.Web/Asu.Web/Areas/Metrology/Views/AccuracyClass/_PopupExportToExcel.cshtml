@@ -1,0 +1,60 @@
+﻿@using Asu.Core.Domain.Metrology
+@model Spr_klass_tochn
+@{
+    ViewBag.Title = "Экспорт в Excel в формате XLSX";
+}
+
+<h2>Экспорт в Excel в формате XLSX</h2>
+
+<div>
+    <h4>Введите критерии выбора информации</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.klass_tochn, new { @placeholder = "Класс точности прибора", @class = "form-control" })
+                </div>
+            </div>
+
+            <div>
+                @Html.CheckBox("isExcludeKlassTochn", false) <span> Исключить </span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.DocumentStatusId, ViewBag.DocumentStatus as SelectList, "  ", new { @class = "form-control" })
+                </div>
+            </div>
+            <div>
+                @Html.CheckBox("isExcludeKlassTochn", false) <span> Исключить </span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+
+        @Html.RadioButton("isFindKlassTochn", "Частичное совпадение", true) <span> Частичное совпадение </span>
+        @Html.RadioButton("isFindKlassTochn", "Полное совпадение", false) <span> Полное совпадение </span>
+        @Html.CheckBox("isUserData", false) <span> Включить в печать данные об изменении в справочнике </span>
+        <br />
+        <br />
+        <div>
+
+            @Html.DevExpress().Button(settings =>
+            {
+                settings.Text = "Печать";
+                settings.Name = "Print";
+                settings.UseSubmitBehavior = true;
+            }).GetHtml()
+
+
+        </div>
+    }
+</div>
+
+
+

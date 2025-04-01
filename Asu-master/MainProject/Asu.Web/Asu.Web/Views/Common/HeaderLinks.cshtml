@@ -1,0 +1,77 @@
+﻿@model HeaderLinksModel
+@using Asu.Core
+@using Asu.Web.Models.Common;
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain
+@using Asu.Core.Domain.GoogleTagManager
+@{
+    var storeInformationSettings = EngineContext.Current.Resolve<StoreInformationSettings>();
+    var supportResponsive = storeInformationSettings.ResponsiveDesignSupported;
+
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    //var newDesign = pageType == PageType.ProductGroup || pageType == PageType.Home || pageType == PageType.ReturnRequest || pageType == PageType.Product || pageType == PageType.ShoppingCart || pageType == PageType.CheckoutAddress || pageType == PageType.CheckoutPayment || pageType == PageType.Cba || pageType == PageType.Search || pageType == PageType.Category || pageType == PageType.Manufacturer;
+    var store = EngineContext.Current.Resolve<IStoreContext>().CurrentStore;
+    var relativeUrl = this.Context.Request.Path;
+    //string rightHeader;
+
+    //if (pageType == PageType.CheckoutCompleted || pageType == PageType.CheckoutPayment || pageType == PageType.CheckoutPayment || pageType == PageType.PayPalExpress || pageType == PageType.CheckoutAddress)
+    //{
+    //    rightHeader = "mob-rightheader-2";
+    //}
+    //else
+    //{
+    //    rightHeader = "mob-rightheader";
+    //}
+}
+<div class="right-side">
+    @Html.Widget("header_links_after")
+
+    @if (storeInformationSettings.VehicleSupported @*&& storeInformationSettings.VehicleGarageEnabled*@)
+    {
+        @Html.Action("HeaderGarageOption", "Common")
+    }
+
+    <div class="header-account-list">
+        <ul>
+            <li>
+                @if (Model.IsAuthenticated)
+                {
+                    <a class="account-mail" href="@Url.RouteUrl("CustomerInfo")" rel="nofollow">@Model.CustomerEmailUsername</a>
+                    <a class="account-orders" href="@Url.RouteUrl("CustomerOrders")" rel="nofollow">Orders</a>
+                    <a class="account-logout" id="Logout" href="@Url.RouteUrl("Logout", new {returnUrl = relativeUrl})" rel="nofollow">@T("Account.Logout")</a>
+
+                }
+                else
+                {
+                    <a href="@Url.RouteUrl("CheckOrder")" rel="nofollow">Check Order</a>
+                    <a class="account-register" href="@Url.RouteUrl("Register")" rel="nofollow">@T("Account.Register")</a>
+                    <a class="account-login" href="@Url.RouteUrl("Login", new {returnUrl = relativeUrl})" rel="nofollow">@T("Account.Login")</a>
+                }
+            </li>
+        </ul>
+    </div>
+    <div class="header-cart">
+        @Html.Widget("header_links_before")
+        @if (Model.ShoppingCartEnabled)
+        {
+            <a id="topcartlink" class="header-cart-button @(Model.ShoppingCartItems != 0 ? " not-empty" : string.Empty)" href="@Url.RouteUrl("ShoppingCart")">
+                <p>Your Cart</p>
+                <span></span>
+                @if (Model.ShoppingCartItems > 0)
+                {
+                    <i>@Model.ShoppingCartItems</i>
+                }
+                else
+                {
+                    <i></i>
+                }
+            </a>
+            if (Model.ShoppingCartItems > 0)
+            {
+                @Html.Action("FlyoutShoppingCart", "ShoppingCart")
+            }
+        }
+    </div>
+</div>
+

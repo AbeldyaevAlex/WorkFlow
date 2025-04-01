@@ -1,0 +1,16 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="form-group">
+    <div class="col-md-4">
+        @(
+                        Html.Kendo().DatePickerFor(model => model.PeriodCloseDate)
+                          .Name("PeriodCloseDate")
+                          .Start(CalendarView.Year)
+                          .Depth(CalendarView.Month)
+                                                        .HtmlAttributes(new
+                                                        {
+                                                            placeholder = "Конец периода",
+                                                        })
+                    )
+        @Html.ValidationMessageFor(model => model.PeriodCloseDate)
+    </div>
+</div>

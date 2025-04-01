@@ -1,0 +1,413 @@
+﻿.account-page .result {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: red;
+}
+
+.account-page .page-title {
+    margin-bottom: 10px;
+}
+
+.account-page .page-body {
+    margin: 0;
+    padding: 0;
+    color: #666;
+}
+
+.order-returnrequest {
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    zoom: 1;
+    line-height: 24px;
+    list-style: outside none none;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.order-returnrequest-page #return-items .return-item-block {
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    zoom: 1;
+    line-height: 24px;
+    list-style: outside none none;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    display: inline-block
+}
+
+    .order-returnrequest-page #return-items .return-item-block .total-price, .order-returnrequest-page #return-items .return-item-block .price {
+        width: 100px;
+        border-left: 1px solid #f5f5f5;
+        text-align: center;
+    }
+
+    .order-returnrequest-page #return-items .return-item-block .quantity {
+        height: 80px;
+        text-align: center;
+        vertical-align: middle;
+        width: 100px;
+        border-right: 1px solid #f5f5f5
+    }
+
+    .order-returnrequest-page #return-items .return-item-block .product-picture {
+        padding: 10px 20px;
+        width: 120px;
+    }
+
+    .order-returnrequest-page #return-items .return-item-block figure {
+        display: inline-block;
+    }
+
+    .order-returnrequest-page #return-items .return-item-block .name {
+        text-align: left
+    }
+
+    .order-returnrequest-page #return-items .return-item-block .return-item-block-table {
+        width: 100%;
+        height: 80px;
+        border-bottom: solid 1px #f5f5f5;
+    }
+
+    .order-returnrequest-page #return-items .return-item-block ul.return-item-block-leftpart {
+        width: 30%;
+        display: inline-block;
+        float: left;
+        border-right: 1px solid #f5f5f5
+    }
+
+        .order-returnrequest-page #return-items .return-item-block ul.return-item-block-leftpart li:first-child {
+            width: 100%;
+            border-bottom: 1px solid #f5f5f5
+        }
+
+        .order-returnrequest-page #return-items .return-item-block ul.return-item-block-leftpart li {
+            width: 100%;
+            padding: 20px
+        }
+
+            .order-returnrequest-page #return-items .return-item-block ul.return-item-block-leftpart li .field-validation-error {
+                margin-bottom: 0
+            }
+
+    .order-returnrequest-page #return-items .return-item-block .return-item-block-rightpart {
+        float: left;
+        line-height: normal;
+        padding: 20px;
+        width: 70%;
+    }
+
+        .order-returnrequest-page #return-items .return-item-block .return-item-block-rightpart span {
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+.account-page .section {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    zoom: 1;
+    min-height: 340px;
+    width: 220px;
+    line-height: 24px;
+    list-style: outside none none;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    float: left
+}
+
+    .account-page .section.order-item .section.order-items {
+        border: 1px none #ccc;
+        width: 100%;
+        padding: 0;
+        min-height: 1px;
+        color: #333;
+        margin-bottom: 20px
+    }
+
+        .account-page .section.order-item .section.order-items .product-picture {
+            width: 140px;
+            margin: 0;
+            padding: 10px;
+            text-align: center
+        }
+
+        .account-page .section.order-item .section.order-items .subtotal {
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center !important;
+            width: 80px;
+        }
+
+        .account-page .section.order-item .section.order-items .qty {
+            padding-left: 0;
+            padding-right: 0;
+            width: 80px;
+            text-align: center !important;
+        }
+
+        .account-page .section.order-item .section.order-items .unit-price {
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center !important;
+            width: 80px;
+            color: #999
+        }
+
+        .account-page .section.order-item .section.order-items .totalcol, .account-page .section.order-item .section.order-items .qtycol, .account-page .section.order-item .section.order-items .pricecol {
+            width: 100px
+        }
+
+        .account-page .section.order-item .section.order-items .product a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .account-page .section.order-item .section.order-items tr.cart-item-row:nth-child(2n) {
+            background-color: #fafafa;
+        }
+
+        .account-page .section.order-item .section.order-items table {
+            border-bottom: 1px solid #f5f5f5;
+            width: 100%
+        }
+
+            .account-page .section.order-item .section.order-items table tr {
+                border-bottom: 1px solid #f5f5f5;
+            }
+
+    .account-page .section:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+        visibility: hidden;
+    }
+
+    .account-page .section .title {
+        color: #666;
+        zoom: 1;
+    }
+
+        .account-page .section .title strong {
+            background: #fff;
+        }
+
+    .account-page .section li {
+        list-style: none;
+    }
+
+    .account-page .section.order-item .button-2.order-details-button {
+        margin-right: 20px;
+        margin-bottom: 20px
+    }
+
+    .account-page .section.order-item .button-2.return-items-button {
+        margin-right: 20px;
+        margin-bottom: 20px
+    }
+
+.address-list-page .address-list .address-item {
+    padding: 20px
+}
+
+    .address-list-page .address-list .address-item .title {
+        display: block;
+        font-size: 10pt;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .address-list-page .address-list .address-item .info {
+        float: left;
+    }
+
+    .address-list-page .address-list .address-item .buttons {
+        float: right;
+    }
+
+.address-list-page .add-button {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    text-align: right;
+    width: 100%
+}
+
+.address-edit-page .edit-address {
+    margin-bottom: 10px;
+}
+
+    .address-edit-page .edit-address .inputs {
+        margin-bottom: 5px;
+    }
+
+    .address-edit-page .edit-address label {
+        display: inline-block;
+        width: 100px;
+    }
+
+.avatar-page {
+    padding: 10px;
+}
+
+    .avatar-page .buttons {
+        margin: 5px 0;
+    }
+
+.back-in-stock-subscription-list-page .buttons {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.change-password-page .buttons {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.forum-subscriptions-page .buttons {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.customer-info-page .gender {
+    display: inline-block;
+}
+
+.customer-info-page ul.option-list {
+    display: inline-block;
+}
+
+    .customer-info-page ul.option-list li {
+        list-style: none;
+        display: inline-block;
+    }
+
+        .customer-info-page ul.option-list li label {
+            width: auto;
+            margin-left: 0px;
+        }
+
+.customer-info-page .vat-note {
+    display: block;
+}
+
+.customer-info-page .buttons {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.customer-info-page .message-error {
+    margin-bottom: 20px;
+}
+
+.customer-info-page textarea {
+    height: 100px;
+    width: 500px;
+    border: solid 1px #ccc;
+    vertical-align: top;
+}
+
+.customer-info-page .add-more-external-records {
+    margin-top: 10px;
+}
+
+    .customer-info-page .add-more-external-records a {
+        color: #B80709;
+    }
+
+.username-available-status {
+    color: green;
+    padding-left: 5px;
+}
+
+.username-not-available-status {
+    color: red;
+    padding-left: 5px;
+}
+
+.order-list-page .recurring-payments .recurring-payments-box {
+    text-align: left;
+    padding: 10px;
+    height: auto;
+}
+
+.order-list-page .order-list .order-item {
+    width: 100%;
+    min-height: 1px;
+    padding: 0px;
+    margin-bottom: 20px
+}
+
+    .order-list-page .order-list .order-item .title {
+        display: block;
+        font-size: 10pt;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .order-list-page .order-list .order-item .info, .order-returnrequest .order-details {
+        float: left;
+    }
+
+    .order-list-page .order-list .order-item .buttons {
+        float: right;
+    }
+
+    .order-list-page .order-list .order-item .rma-window {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        line-height: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 300px;
+    }
+
+button-2 order-details-button {
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.return-request-list-page .request-item a {
+    color: #B80709;
+}
+
+.return-request-list-page .request-item .title {
+    font-size: 13px;
+}
+
+.reward-points-page .reward-points-overview {
+    padding: 10px 10px 5px 0;
+    width: 100%;
+}
+
+    .reward-points-page .reward-points-overview .min-balance {
+        margin-top: 10px;
+    }
+
+.reward-points-page .reward-points-history .title {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.login-page .returning-wrapper .form-fields .inputs, .checkorderform .checkorderdiv {
+    display: inline-block;
+    width: 100%;
+}

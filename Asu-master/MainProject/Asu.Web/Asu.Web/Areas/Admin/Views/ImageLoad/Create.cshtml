@@ -1,0 +1,21 @@
+﻿
+@model Asu.Web.Models.UsersTask.Spr_nm_task
+@{
+    ViewBag.Title = "Загрузка Images";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "ImageLoad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Добавить Изображение</legend>
+        <div class="editor-label">Название</div>
+        <div class="editor-field">
+            <input type="file" name="uploadImage" />
+        </div>
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+    </fieldset>
+}

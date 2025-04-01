@@ -1,0 +1,4 @@
+DataProvider: sqlserver
+
+DataConnectionString: Data Source=DESKTOP-0U0LU08;Initial Catalog=AsuAviaTestVersionBeta;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=123;Connect Timeout=180;
+

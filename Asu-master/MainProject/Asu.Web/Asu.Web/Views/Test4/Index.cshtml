@@ -1,0 +1,37 @@
+﻿@using System.Web.Optimization
+@using Asu.Core
+@using Asu.Core.Domain
+@using Asu.Core.Domain.Seo
+@using Asu.Core.Infrastructure
+@using Asu.Services.Localization
+@using Asu.Core.Domain.Customers
+@using Asu.Core.Domain.Returns
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var currentCustomer = this.WorkContext.CurrentCustomer;
+}
+
+<script type="text/javascript">
+    function OnClick(s, e) {
+        uc.Upload();
+    }
+    function OnFileUploadComplete(s, e) {
+        if (e.callbackData !== "") {
+            alert(e.callbackData);
+        }
+        else {
+            alert("The selected file was not uploaded.");
+        }
+    }
+</script>
+@using (Html.BeginForm("UploadControlCallbackAction", "Test4", FormMethod.Post))
+{
+    Html.RenderPartial("_UploadControlPartial");
+    @Html.DevExpress().Button(button =>
+    {
+        button.Name = "btnUploadFile";
+        button.Text = "Upload File";
+        button.ClientSideEvents.Click = "OnClick";
+    }).GetHtml()
+}
+

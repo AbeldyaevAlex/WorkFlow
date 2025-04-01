@@ -1,0 +1,36 @@
+﻿.move-topic-page {
+    background: url(/Themes/Autoplicity/Content/images/forum-footer-bg.gif) repeat-x center bottom;
+}
+
+.move-topic-page .page-title {
+    background: url(/Themes/Autoplicity/Content/images/forum-header-bg.gif) repeat-x center;
+    border: 1px solid #ccc;
+    color: #FFF;
+    font-weight: 700;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+}
+
+.move-topic-page .page-title h1 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.move-topic-page .page-body {
+    padding: 5px;
+}
+
+.move-topic-page .inputs {
+    margin-bottom: 10px;
+    padding: 4px;
+}
+
+.move-topic-page .inputs label {
+    color: #666;
+    font-weight: 700;
+    white-space: nowrap;
+    width: 30%;
+}

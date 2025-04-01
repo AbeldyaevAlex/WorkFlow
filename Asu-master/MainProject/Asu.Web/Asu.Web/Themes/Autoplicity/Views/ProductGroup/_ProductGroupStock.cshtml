@@ -1,0 +1,9 @@
+﻿@model Nop.Web.Models.Catalog.ProductGroupModel
+@if (Model.IsShippingFromManufacturer)
+{
+    <div class="ships-from-manufacturer">Ships from manufacturer</div>
+}
+else
+{
+    <div class="available"><div class="greenboll"></div>In stock</div>
+}

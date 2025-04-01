@@ -1,0 +1,138 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridView";
+        settings.KeyFieldName = "Id";
+        settings.CallbackRouteValues = new { Controller = "spr_cex", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "spr_cex", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "spr_cex", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "spr_cex", Action = "GridViewPartialDelete" };
+        //settings.CustomActionRouteValues = new { Controller = "spr_cex", Action = "GridViewCustomActionPartial" };
+
+
+        //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditForm;
+        //settings.SettingsEditing.EditFormColumnCount = 2;
+
+
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        //settings.SettingsBehavior.AllowEllipsisInText = true;
+        //settings.SettingsBehavior.AllowDragDrop = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+
+
+        settings.Width = Unit.Percentage(100);
+
+
+        settings.SettingsPager.PageSize = 15;
+        //settings.SettingsPager.EnableAdaptivity = true;
+        //settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        //settings.SettingsPager.Visible = true;
+
+
+        settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.ShowSelectCheckbox = true;
+        //settings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        //settings.CommandColumn.VisibleIndex = 0;
+        settings.CommandColumn.Width = Unit.Pixel(52);
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+
+
+        //settings.ControlStyle.CssClass = "grid-view";
+        //settings.Styles.Cell.Wrap = DefaultBoolean.False;
+        //settings.Styles.PagerBottomPanel.CssClass = "pager";
+        //settings.Styles.FocusedRow.CssClass = "focused";
+
+
+
+
+
+
+        //settings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+
+
+
+
+        //settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        //settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        //settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        //settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+
+
+
+        //settings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        //settings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+
+
+        //settings.Settings.ShowHeaderFilterButton = true;
+        //settings.Settings.ShowGroupPanel = true;
+        //settings.Settings.ShowFilterRow = true;
+
+
+        //settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        //settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        //settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        //settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        //settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+        //settings.Columns.Add("cex");
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "cex";
+            columnSettings.Caption = "cex";
+            columnSettings.Width = Unit.Pixel(30);
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "naim_cex";
+            columnSettings.Caption = "naim_cex";
+            columnSettings.Width = Unit.Pixel(30);
+        });
+        //settings.Columns.Add("naim_cex");
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "link_status";
+        //    columnSettings.Caption = "Статус документа";
+        //    columnSettings.Visible = true;
+        //    columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+
+        //    var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.ValueField = "Id";
+        //    comboBoxProperties.TextField = "status";
+        //    comboBoxProperties.ValueType = typeof(string);
+        //    comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetStatus();
+        //});
+        //settings.Columns.Add(columnSettings =>
+        //{
+        //    columnSettings.FieldName = "Status_dok.status";
+        //    columnSettings.Caption = "Статус документа";
+        //    columnSettings.Width = Unit.Pixel(400);
+        //});
+
+        //settings.ClientSideEvents.Init = "onGridViewInit";
+        //settings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        //settings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        //settings.CellEditorInitialize = (s, e) =>
+        //{
+        //    ((ASPxEdit)e.Editor).ValidationSettings.Display = Display.Dynamic;
+        //};
+    });
+
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

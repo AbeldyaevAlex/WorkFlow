@@ -1,0 +1,206 @@
+@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@*@model Asu.Web.Models.User*@
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var cardView = Html.DevExpress().CardView(settings => {
+        settings.Name = "CardView1";
+        settings.CallbackRouteValues = new { Controller = "User_Administration", Action = "CardView1Partial" };
+
+        settings.SettingsEditing.AddNewCardRouteValues = new { Controller = "User_Administration", Action = "CardView1PartialAddNew" };
+        settings.SettingsEditing.UpdateCardRouteValues = new { Controller = "User_Administration", Action = "CardView1PartialUpdate" };
+        settings.SettingsEditing.DeleteCardRouteValues = new { Controller = "User_Administration", Action = "CardView1PartialDelete" };
+        settings.SettingsEditing.Mode = CardViewEditingMode.EditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.KeyFieldName = "Id";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowHeaderPanel = true;
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.SettingsBehavior.AllowSelectByCardClick = true;
+
+        settings.SettingsEditing.Mode = CardViewEditingMode.PopupEditForm;
+
+
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 1000;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+        settings.SettingsPopup.EditForm.SettingsAdaptivity.HorizontalAlign = PopupAdaptiveHorizontalAlign.WindowCenter;
+
+
+
+
+        settings.Settings.ShowHeaderFilterButton = true;
+        settings.Settings.EnableFilterControlPopupMenuScrolling = true;
+        settings.Settings.ShowStatusBar = GridViewStatusBarMode.Auto;
+
+
+        //MVCxCardViewColumn col = new MVCxCardViewColumn();
+        //col.ColumnType = MVCxCardViewColumnType.BinaryImage;
+        //var prop = col.PropertiesEdit as BinaryImageEditProperties;
+        //prop.EditingSettings.Enabled = true;
+        //col.SetDataItemTemplateContent(c => {
+        //    var img = DataBinder.Eval(c.DataItem, "Photo");
+        //    Html.DevExpress().BinaryImage(bin => {
+        //        bin.Name = "Image" + c.KeyValue.ToString();
+        //        bin.ContentBytes = (byte[]) img;
+        //    }).GetHtml();
+        //});
+        //col.FieldName = "Photo";
+        //settings.Columns.Add(col);
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Photo";
+            c.EditorProperties().BinaryImage(p =>
+            {
+                p.StoreContentBytesInViewState = true;
+                p.ImageSizeMode = ImageSizeMode.FitProportional;
+                //p.EnableServerResize = true;
+                p.ImageHeight = 175;
+                p.ImageWidth = 160;
+                p.CallbackRouteValues = new { Action = "CardView1PartialUpdate", Controller = "User_AdministrationController" };
+                p.EditingSettings.Enabled = true;
+                p.EditingSettings.UploadSettings.UploadValidationSettings.MaxFileSize = 4194304;
+            });
+        });
+
+        //settings.Columns.Add(c =>
+        //{
+        //    c.FieldName = "Photo";
+        //    c.ColumnType = MVCxCardViewColumnType.Image;
+        //    var imageProperties = (ImageEditProperties)c.PropertiesEdit;
+        //    imageProperties.ImageWidth = imageProperties.ImageHeight = Unit.Pixel(150);
+        //});
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "First_Name";
+            columnSettings.Caption = "Имя";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Middle_Name";
+            columnSettings.Caption = "Отчество";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Last_Name";
+            columnSettings.Caption = "Фамилия";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Login";
+            columnSettings.Caption = "Логин";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Password";
+            columnSettings.Caption = "Пароль";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Phone";
+            columnSettings.Caption = "Телефон";
+            columnSettings.Visible = true;
+        });
+        settings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "link_cex";
+            columnSettings.Caption = "Цех; Отдел";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(200);
+            columnSettings.ColumnType = MVCxCardViewColumnType.ComboBox;
+
+
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Id";
+            comboBoxProperties.TextField = "naim_cex";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.DataSource = Asu.Web.Controllers.DropDownCollectionController.GetCex();
+        });
+        settings.Columns.Add("date_registr");
+        settings.Columns.Add("date_visit");
+
+        settings.CardLayoutProperties.Items.AddCommandItem(i => {
+            i.ShowNewButton = false;
+            i.ShowEditButton = true;
+            i.ShowDeleteButton = true;
+        });
+        settings.CardLayoutProperties.Items.AddEditModeCommandItem();
+        settings.CardLayoutProperties.Items.Add(i => {
+            i.ColumnName = "Photo";
+            i.ShowCaption = DefaultBoolean.False;
+            i.RowSpan = 1;
+        });
+        settings.CardLayoutProperties.Items.Add("First_Name");
+        settings.CardLayoutProperties.Items.Add("Middle_Name");
+        settings.CardLayoutProperties.Items.Add("Last_Name");
+        settings.CardLayoutProperties.Items.Add("Login");
+        settings.CardLayoutProperties.Items.Add("Password");
+        settings.CardLayoutProperties.Items.Add("Phone");
+        settings.CardLayoutProperties.Items.Add("link_cex");
+        settings.CardLayoutProperties.Items.Add("date_registr");
+        settings.CardLayoutProperties.Items.Add("date_visit");
+
+
+
+        settings.Toolbars.Add(toolbar =>
+        {
+            toolbar.Enabled = true;
+            toolbar.Position = GridToolbarPosition.Top;
+            toolbar.ItemAlign = GridToolbarItemAlign.Right;
+            toolbar.Items.Add(item =>
+            {
+                item.Command = CardViewToolbarCommand.ShowFilterEditor;
+                item.Text = "Расширенный фильтр";
+                item.Image.IconID = IconID.ActionsFilter16x16devav;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Command = CardViewToolbarCommand.ShowSearchPanel;
+                item.Text = "Расширенный поиск";
+                item.Image.IconID = IconID.ActionsChangeview16x16devav;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Command = CardViewToolbarCommand.ShowHeaderPanel;
+                item.Text = "Поиск";
+                item.Image.IconID = IconID.DashboardsChartsplineareaSvg16x16;
+            });
+            toolbar.Items.Add(item =>
+            {
+                item.Command = CardViewToolbarCommand.New;
+                item.Text = "Добавить Учетную запись";
+                item.Image.IconID = IconID.ActionsAdd16x16;
+                item.Alignment = MenuItemAlignment.Left;
+            });
+        });
+        settings.CardLayoutProperties.Items.AddEditModeCommandItem(item => {
+            item.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+            item.ColumnSpan = 1;
+        });
+        //settings.PreRender = (sender, e) =>
+        //{
+        //    ((MVCxCardView)sender).StartEdit(0);
+        //};
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            ASPxEdit editor = (ASPxEdit)e.Editor;
+            editor.ValidationSettings.Display = Display.Dynamic;
+        };
+    });
+
+    if (ViewData["EditError"] != null){
+        cardView.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@cardView.Bind((Model)).GetHtml()

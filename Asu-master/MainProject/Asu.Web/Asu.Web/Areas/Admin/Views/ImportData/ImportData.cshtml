@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            /*font-size: 10pt;*/
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: white;
+            display: none;
+        }
+
+        .center {
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            opacity: 1;
+        }
+    </style>
+
+    @*<script src="~/Scripts/jquery-3.7.1.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div>
+        @*@using (Html.BeginForm("ImportData", "ImportData", FormMethod.Post, new { enctype = "multipart/form-data", id = "frm-excel" }))*@
+
+
+
+        @using (Ajax.BeginForm("ImportData", "ImportData", new AjaxOptions() { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure", LoadingElementId = "progress" }, new { enctype = "multipart/form-data", id = "frm-excel" }))
+        {
+            <div align="center">
+                Загрузите Excel-файл:
+                <!--<br />-->
+                @*<input checked="checked" id="isActive" name="isActive" type="checkbox" value="true" />*@
+                @*@Html.CheckBox("isActive", true)Выгружать автоматически*@
+                <!--<h3 align="center">Выберите Файл</h3>
+                <input align="center" type="file" name="fileExcel" id="fileExcel" />
+                <h3 align="center">Выберите справочник</h3>
+                <div align="center">
+                    <select name="directory">
+                        <option value="">-----------------------------------------</option>
+                        <option value="Team_Center_NX">Team Center</option>
+                        <option value="">--------------------</option>
+                        <option value="S_OBOZN">Справочник обозначений</option>
+                        <option value="S_MATER">Справочник материалов</option>
+                        <option value="S_NMDET">Справочник деталей</option>
+                        <option value="S_RASCEX">Справочник расцеховок</option>
+                        <option value="S_RASCV">Справочник расцеховок Вертикальный</option>
+                        <option value="S_PRASC">Справочник расцеховок Полный</option>
+                        <option value="TEHN_IZG_PROIZV">Справочник технологий изготовления производства</option>
+                        <option value="TEMATIK">Справочник тематик</option>
+                        <option value="SPR_TEM">Справочник тем</option>
+                        <option value="SPR_MASH">Справочник машин</option>
+                        <option value="S_MASHSG">Справочник машин группированных</option>
+                        <option value="SPERIZD">Справочник перечня изделий</option>
+                        <option value="S_ZAKAZ">Справочник заказов</option>
+                        <option value="S_SPECIF">Справочник спецификаций</option>
+                        <option value="RAZ_DET">Справочник разделов деталей</option>
+                        <option value="SPR_PKP">Справочник ПКП</option>
+                        <option value="RAZD_DSE">Справочник ДСЕ</option>
+                        <option value="GRRAZIZD">Справочник групп разделов изделий</option>
+                        <option value="S_CEXPR">Справочник признака цеха</option>
+                        <option value="S_KOMPL">Справочник комплектов</option>
+                        <option value="RAZD_IZD">Справочник разделов изделий</option>
+                        <option value="SPR_CEX">Справочник цехов</option>
+                        <option value="SPR_AGR">Справочник агрегатов</option>
+                        <option value="S_OBOZ_M">Справочник обозначений материалов</option>
+                        <option value="S_PRIM">Справочник применяемости ДСЕ</option>
+                        <option value="TEHN_IZG">Справочник технологий изготовления</option>
+                        <option value="SPR_KDAN">Справочник кодов данного</option>
+                        <option value="S_GRPRIM">Справочник групп применяемости</option>
+                        <option value="Spr_pvi">Справочник ПВИ</option>
+                        <option value="">--------------------</option>
+                        <option value="Spr_tto">Справочник ТТО</option>
+                        <option value="Spr_prpokr">Справочник признаков покрытия</option>
+                        <option value="">--------------------</option>
+                        <option value="Spr_skm">Справочник СКМ</option>
+                        <option value="Dok_obosn">Справочник документа обоснования</option>
+                        <option value="Gost_Mater">Справочник ГОСТОв материала</option>
+                        <option value="Mark_Mater">Справочник марок материала</option>
+                        <option value="Nm_Mater">Справочник наименований материала</option>
+                        <option value="Pr_Post">Справочник поставщиков</option>
+                        <option value="Sort_Mat">Справочник сортировки материала</option>
+                        <option value="Bal_sch">Справочник балансовых счетов</option>
+                        <option value="Spr_cen_mater">Справочник цен материала</option>
+                        <option value="Spr_eizm">Справочник едениц измерения</option>
+                        <option value="Spr_grm">Справочник групп материалов</option>
+                        <option value="Spr_kgr">Справочник кодов групп раскроя</option>
+                        <option value="Spr_OGT">Справочник ОГТ</option>
+                        <option value="Spr_OTS">Справочник ОТС</option>
+                        <option value="Spr_Prkm">Справочник признака кода материала</option>
+                        <option value="S_Sortam">Справочник сортаментов</option>
+                        <option value="">------------------------------------</option>
+                    </select>
+                </div>
+                <br />-->
+                <div>
+                    <input type="submit" value="Загрузить" />
+                </div>
+                <div id="progress" class="modal">
+                    <div class="center">
+                        <img src="~/Content/Images/7YUz.gif" />
+                    </div>
+                </div>
+                <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+                <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+            </div>
+        }
+    </div>
+    <script type="text/javascript">
+        function OnSuccess(response) {
+            alert("Загрузка завершена");
+        }
+        function OnFailure(response) {
+            alert("Error occured.");
+        }
+    </script>
+</body>
+</html>

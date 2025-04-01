@@ -1,0 +1,25 @@
+﻿@*@model IList<Asu.Web.Models.Spr_cex>*@ 
+
+@{
+    ViewBag.Title = "Справочник цехов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Справочник цехов</h2>
+
+
+<script>
+    $.ajax({
+        url: '@Url.Action("Index", "Spr_cex")',
+        type: "POST",
+        data: $("#form").serialize(),
+        beforeSend: (function (data) {
+            LoadingPanel.Show();
+        })
+    }).done(function (data) {
+        LoadingPanel.Hide();
+        $("#form").submit();
+    });
+</script>
+
+@Html.Action("GridView21Partial")

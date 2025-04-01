@@ -1,0 +1,5 @@
+.search-box{width:390px;}
+.block-newsletter #newsletter-email{width:150px;}
+
+/*this style is required. otherwise, flyout cart will be hidden by nivo slider on the home page*/
+.header-links-wrapper{z-index:99999;}

@@ -1,0 +1,242 @@
+﻿@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@using System.Web.UI.WebControls
+
+@{
+    Layout = "~/Areas/Metrology/Views/Shared/_mainLayout.cshtml";
+}
+<script src="~/Content/sweetalert2/sweetalert2.js"></script>
+<script src="~/Content/sweetalert2/sweetalert2.all.min.js"></script>
+<link href="~/Content/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+<link href="~/Content/sweetalert2/sweetalert2.css" rel="stylesheet" />
+<script type="text/javascript">
+    var command;
+    var isNewRow;
+    function onBeginCallback(s, e) {
+        debugger;
+        command = e.command;
+        isNewRow = s.IsNewRowEditing();
+    }
+    function onEndCallback(s, e) {
+        if (command == "UPDATEEDIT" && isNewRow) {
+            /*alert("Result: " + s.cpResult);*/
+            if (s.cpResult == "Запись добавлена") {
+                Swal.fire("Запись добавлена", "", "success");
+            }
+            if (s.cpResult == "Данная запись уже существует") {
+                Swal.fire("Данная запись уже существует", "", "info");
+            }
+        }
+        else {
+            debugger;
+            if (s.cpResult == "Корректировка записи прошла успешно") {
+                Swal.fire("Корректировка записи прошла успешно", "", "success");
+            }
+            if (s.cpResult == "Запись успешно удалена") {
+                Swal.fire("Запись успешно удалена", "", "error");
+            }
+        }
+    }
+    function PopupAdding(s, e) {
+        if (command == "UPDATEEDIT" && isNewRow) {
+            /*alert("Result: " + s.cpResult);*/
+            if (s.cpResult == "Запись добавлена") {
+                Swal.fire("Запись добавлена", "", "success");
+            }
+            if (s.cpResult == "Данная запись уже существует") {
+                Swal.fire("Данная запись уже существует", "", "info");
+            }
+        }
+        else {
+            debugger;
+            if (s.cpResult == "Корректировка записи прошла успешно") {
+                Swal.fire("Корректировка записи прошла успешно", "", "success");
+            }
+            if (s.cpResult == "Запись успешно удалена") {
+                Swal.fire("Запись успешно удалена", "", "error");
+            }
+        }
+    }
+</script>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+</head>
+<body>
+    <div align="left">
+        <div align="left">
+            @if (!WorkContext.CurrentCustomer.IsGuest())
+            {
+                @Html.DevExpress().Menu(menuSettings =>
+           {
+               menuSettings.Name = "menuEdit";
+
+               menuSettings.ItemAutoWidth = false;
+               menuSettings.AllowSelectItem = false;
+               menuSettings.ApplyItemStyleToTemplates = true;
+
+               menuSettings.SettingsAdaptivity.Enabled = true;
+               menuSettings.SettingsAdaptivity.EnableAutoHideRootItems = true;
+               menuSettings.SettingsAdaptivity.EnableCollapseRootItemsToIcons = true;
+               menuSettings.SettingsAdaptivity.CollapseRootItemsToIconsAtWindowInnerWidth = 600;
+
+               menuSettings.Width = Unit.Percentage(100);
+               menuSettings.ControlStyle.SeparatorWidth = Unit.Pixel(0);
+               menuSettings.ControlStyle.CssClass = "page-toolbar";
+
+               menuSettings.Styles.Item.CssClass = "item";
+               menuSettings.Styles.Item.VerticalAlign = VerticalAlign.Middle;
+
+               menuSettings.Images.Item.Width = Unit.Pixel(16);
+               menuSettings.Images.Item.Height = Unit.Pixel(16);
+
+               menuSettings.Items.Add(item =>
+               {
+                   item.Name = "New";
+                   item.Text = "Создать";
+                   item.Alignment = MenuItemAlignment.Left;
+                   item.AdaptivePriority = 2;
+                   //item.Image.Url = "~/Content/Images/edit.svg";
+                   item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsAdd16x16;
+                   item.ToolTip = "Создать новую запись";
+               });
+               menuSettings.Items.Add(item =>
+               {
+                   item.Name = "Edit";
+                   item.Text = "Изменить";
+                   item.Alignment = MenuItemAlignment.Left;
+                   item.AdaptivePriority = 2;
+                   //item.Image.Url = "~/Content/Images/edit.svg";
+                   item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsEdit16x16devav;
+                   item.ToolTip = "Изменить текущую запись";
+               });
+               menuSettings.Items.Add(item =>
+               {
+                   item.Name = "Delete";
+                   item.Text = "Удалить";
+                   item.Alignment = MenuItemAlignment.Left;
+                   item.AdaptivePriority = 2;
+                   //item.Image.Url = "~/Content/Images/delete.svg";
+                   item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditDelete16x16;
+                   item.ToolTip = "Удалить текущую запись";
+               });
+               menuSettings.Items.Add(item =>
+               {
+                   item.Name = "Export";
+                   item.Text = "Экспорт в Excel";
+                   item.Alignment = MenuItemAlignment.Left;
+                   item.AdaptivePriority = 2;
+                   item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16;
+                   item.ToolTip = "Экспорт информации из справочника классов точности приборов в Excel формат XLSX";
+               });
+               menuSettings.Items.Add(item =>
+               {
+                   item.Text = "Вспомогательные Справочники";
+                   item.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+                   item.Items.Add(subItem =>
+                   {
+                       subItem.Text = "Справочник ОГТ";
+                       subItem.Target = "_blank";
+                       subItem.NavigateUrl = Url.Action("Index", "Spr_Ogt", "DirectoryOfMaterialCodifiers_default");
+                       subItem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.XafStateTaskCompletedSvgGray16x16;
+                   });
+                   item.Items.Add(subItem =>
+                   {
+                       subItem.Text = "Цехов";
+                       subItem.Target = "_blank";
+                       subItem.NavigateUrl = "~/Spr_cex/Index";
+                       subItem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.XafStateTaskCompletedSvgGray16x16;
+                   });
+               });
+               menuSettings.ClientSideEvents.ItemClick = "onPageToolbarItemClick";
+           }).GetHtml()
+            }
+        </div>
+    </div>
+    <br />
+    <div>
+        @if (!WorkContext.CurrentCustomer.IsGuest())
+        {
+            @Html.Action("GridViewPartialKlassTochn")
+        }
+        else
+        {
+            @Html.Action("GridViewPartialKlassTochnForGuests")
+        }
+    </div>
+</body>
+</html>
+
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.ShowFooter = true;
+        settings.ShowHeader = true;
+        settings.ShowPinButton = true;
+        settings.FooterText = " ";                      //"ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+        settings.Name = "pcModalInsert";
+        settings.Width = 700;
+        settings.AllowResize = true;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.CloseOnEscape = true;
+        settings.PopupAnimationType = AnimationType.Slide;
+        settings.HeaderText = "Создать запись";
+        settings.Modal = true;
+        settings.AutoUpdatePosition = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+            using (Html.BeginForm("GridViewPartialKlassTochnAddNew", "AccuracyClass", FormMethod.Post, new { id = "popupInsertForm", @class = "edit_form" }))
+            {
+                settings.Name = "PopupCreate";
+                Html.RenderPartial("_PopupCreateKlassTochn");
+            }
+        });
+        settings.ClientSideEvents.EndCallback = "PopupAdding";
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+    }).GetHtml()
+
+@Html.DevExpress().PopupControl(
+settings =>
+{
+    settings.ShowFooter = true;
+    settings.ShowHeader = true;
+    settings.ShowPinButton = true;
+    settings.FooterText = " ";                      //"ТАНТК им. Г. М. Бериева; УИТ ОИСП - приложение ASP.NET MVC";
+    settings.Name = "pcModalExcel";
+    settings.Width = 700;
+    settings.AllowResize = true;
+    settings.AllowDragging = true;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.CloseOnEscape = true;
+    settings.PopupAnimationType = AnimationType.Slide;
+    settings.HeaderText = "Экспорт в Excel";
+    settings.ToolTip = "Экспорт информации из справочника классов точности приборов в Excel формат XLSX";
+    settings.Modal = true;
+    settings.AutoUpdatePosition = true;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+    settings.SetContent(() =>
+        {
+            using (Html.BeginForm("Export", "AccuracyClass", FormMethod.Post, new { id = "popupForm", @class = "edit_form" }))
+            {
+                using (Html.BeginForm("Export", "AccuracyClass", FormMethod.Post, new { id = "popupForm", @class = "edit_form" }))
+                {
+                    Html.RenderPartial("_PopupExportToExcel");
+                }
+            }
+        });
+    settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+}).GetHtml()
+
+

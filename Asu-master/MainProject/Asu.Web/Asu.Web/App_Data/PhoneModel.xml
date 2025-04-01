@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <Features>
+    <Feature ID ="TG" Name ="3G"></Feature>
+    <Feature ID ="Bluetooth" Name ="Bluetooth"></Feature>
+    <Feature ID ="Infrated" Name ="Infrated"></Feature>
+    <Feature ID ="MemoryCardSlot" Name ="MemoryCardSlot"></Feature>
+    <Feature ID ="Qwerty" Name ="Qwerty keyboard"></Feature>
+    <Feature ID ="USB" Name ="USB"></Feature>
+    <Feature ID ="WiFi" Name ="WiFi"></Feature>
+  </Features>
+</data>
+

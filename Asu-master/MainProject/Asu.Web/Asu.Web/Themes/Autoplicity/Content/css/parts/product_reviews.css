@@ -1,0 +1,210 @@
+﻿.product-reviews-page {
+    float: right;
+    width: 100%;
+}
+
+#tab-2 .product-reviews-page {
+    width: 100%;
+    float: right
+}
+
+#tab-2 .Reviewsbutton {
+    border-radius: 5px;
+    float: right;
+    border: 1px solid #ccc;
+    color: #999;
+    padding: 5px 10px;
+    background: rgba(248, 248, 248, 1);
+    background: -moz-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(235, 235, 237, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248, 248, 248, 1)), color-stop(100%, rgba(235, 235, 237, 1)));
+    background: -webkit-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(235, 235, 237, 1) 100%);
+    background: -o-linear-gradient(top, rgba(248, 248, 248, 1) 0%, rgba(235, 235, 237, 1) 100%);
+    background: linear-gradient(to bottom, rgba(248, 248, 248, 1) 0%, rgba(235, 235, 237, 1) 100%);
+}
+
+#tab-2 .Reviewsbutton:hover {
+    text-decoration: none;
+    background: rgba(235, 235, 237, 1);
+    background: -moz-linear-gradient(top, rgba(235, 235, 237, 1) 0%, rgba(248, 248, 248, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235, 235, 237, 1)), color-stop(100%, rgba(248, 248, 248, 1)));
+    background: -webkit-linear-gradient(top, rgba(235, 235, 237, 1) 0%, rgba(248, 248, 248, 1) 100%);
+    background: -o-linear-gradient(top, rgba(235, 235, 237, 1) 0%, rgba(248, 248, 248, 1) 100%);
+    background: linear-gradient(to bottom, rgba(235, 235, 237, 1) 0%, rgba(248, 248, 248, 1) 100%);
+}
+
+#tab-2 .product-review-list {
+    margin-top: 0px
+}
+
+.product-reviews-page .page-title a {
+    text-decoration: none;
+}
+
+.product-reviews-page .write-review {
+    margin-top: 10px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.product-reviews-page .write-review .title {
+    margin-bottom: 10px;
+    font-size: 10pt;
+    line-height: 20px;
+    font-weight: normal;
+}
+
+.product-reviews-page .write-review .inputs {
+    margin-bottom: 12px;
+    clear: both;
+    overflow: hidden;
+}
+
+.product-reviews-page .write-review .captcha-box {
+    margin-bottom: 12px;
+}
+
+.product-reviews-page .write-review .inputs label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-reviews-page .write-review .review-title {
+    width: 350px;
+}
+
+.product-reviews-page .write-review .review-text {
+    width: 350px;
+    height: 150px;
+    background-color: #fff
+}
+
+.product-reviews-page .write-review .review-rating {
+    margin-bottom: 12px;
+    clear: both;
+}
+
+.product-reviews-page .write-review .review-rating label {
+    margin-right: 20px;
+}
+
+.product-reviews-page .write-review .review-rating ul {
+    display: inline-block;
+}
+
+.product-reviews-page .write-review .review-rating li {
+    display: inline-block;
+    list-style: none;
+}
+
+.product-reviews-page .write-review .review-rating input {
+    vertical-align: bottom;
+}
+
+.product-reviews-page .write-review .review-rating label.radio {
+    float: left;
+    margin-right: 5px
+}
+
+.product-reviews-page .write-review .buttons {
+    text-align: left;
+}
+
+.product-review-list {
+    margin: 10px 0px 10px 0;
+}
+
+.product-review-list .title {
+    padding: 0;
+    font-size: 10pt;
+    color: #999;
+}
+
+.product-review-list .product-review-item {
+    border-bottom: solid 1px #ccc;
+    padding: 10px 10px 20px;
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+
+.product-review-list .product-review-item .review-item-head {
+    clear: both;
+}
+
+.product-review-list .product-review-item .review-title {
+    font-weight: 400;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.product-reviews-page .product-review-list .product-review-item .review-item-head .rating {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.product-reviews-page .product-review-list .product-review-item .review-item-head .rating .review-rating {
+    font-size: 21px
+}
+
+.product-review-list .product-review-item .rating {
+    float: left;
+    margin-right: 5px;
+    background: url("/Themes/Autoplicity/Content/images/star.gif") repeat scroll left -16px rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.product-review-list .product-review-item .review-text {
+    float: left;
+    margin: 5px 0;
+    clear: both;
+    color: #999
+}
+
+.product-review-list .product-review-item .review-info {
+    float: left;
+    margin-bottom: 5px;
+    clear: both;
+    color: #999
+}
+
+.product-review-list .product-review-item .review-info .separator {
+    margin: 0 2px;
+}
+
+.product-review-helpfulness {
+    font-size: 10pt;
+    color: #333;
+    clear: both;
+}
+
+.product-review-helpfulness .vote {
+    color: #B80709;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 10pt
+}
+
+.product-review-helpfulness .vote:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.fitmentTable tr:nth-child(2n+1), .fitmentTable tr {
+    background: none repeat scroll 0 0 #fff !important;
+}
+
+.fitmentTable thead tr th {
+    background: none repeat scroll 0 0 #fafafa !important;
+}
+
+.fitmentTable tr:nth-child(2n) {
+    background: none repeat scroll 0 0 #fafafa !important;
+}
+
+.fitmentTable th, .fitmentTable td {
+    border: none !important;
+    padding: 7px;
+}

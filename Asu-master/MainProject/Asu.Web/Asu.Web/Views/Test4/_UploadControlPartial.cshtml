@@ -1,0 +1,11 @@
+﻿@Html.DevExpress().UploadControl(settings =>
+{
+    settings.Name = "uc";
+    settings.CallbackRouteValues = new { Controller = "Test4", Action = "UploadControlCallbackAction" };
+    settings.ClientSideEvents.FileUploadComplete = "OnFileUploadComplete";
+    settings.ShowAddRemoveButtons = true;
+    settings.ShowUploadButton = true;
+    settings.ShowProgressPanel = true;
+    settings.ProgressBarSettings.ShowPosition = true;
+    //settings.ValidationSettings.Assign(UploadControl.Controllers.UploadControlDemosHelper.ValidationSettings);
+}).GetHtml()

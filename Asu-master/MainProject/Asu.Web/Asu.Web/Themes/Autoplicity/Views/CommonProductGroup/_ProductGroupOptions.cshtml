@@ -1,0 +1,8 @@
+﻿@model Nop.Web.Models.ProductGroups.ProductGroupVariantModel
+
+<h3 class="product-group-option-header">Product options</h3>
+<div>
+    @Html.CustomDropDownListFor(m => m.SelectedVariantId, Model.VariantDetails, new { @class = "product-group-option", data_sort_order = 1 }, "TIRE SIZE")
+</div>
+
+

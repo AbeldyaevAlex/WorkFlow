@@ -1,0 +1,94 @@
+﻿@using System.Web.Optimization
+@using Asu.Core.Domain.Seo
+@using Asu.Core.Infrastructure
+@using Asu.Web.Models.Catalog;
+
+@model CustomCategoryModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    var metaTitle = !String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name;
+    Html.AddTitleParts(metaTitle);
+    Html.AddMetaDescriptionParts(String.IsNullOrEmpty(Model.MetaDescription) ? metaTitle : Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(categoryUrl);
+    }
+}
+
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hproduct-search") : Html.InlineStyles("~/styles/hproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/bproduct-search") : Html.InlineStyles("~/styles/bproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproduct-search") : Html.InlineStyles("~/styles/fproduct-search"))
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/product-search") : Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/scripts/product-search"))
+}
+
+@*category breadcrumb*@
+@if (Model.DisplayBreadcrumb)
+{
+    @Html.Partial("_BreadCrumb", Model.Breadcrumb)
+    @Html.Widget("categorydetails_after_breadcrumb", Model.Id)
+}
+<div class="page category-page">
+    <div class="page-title">
+        <h1>@Model.Name</h1>
+        @if (Model.BannerPictureModel.Any())
+        {
+            string mobileBanner = Model.BannerPictureModel[0].MobileBannerImageUrl;
+            if (string.IsNullOrWhiteSpace(mobileBanner))
+            {
+                mobileBanner = Model.BannerPictureModel[0].BannerImageUrl;
+            }
+            <div class="banner-picture brand-banner">
+                <img class="banner-picture" src="@Model.BannerPictureModel[0].BannerImageUrl" alt="@Model.Name" data-desktopbanner="@Model.BannerPictureModel[0].BannerImageUrl" data-mobilebanner="@mobileBanner" />
+            </div>
+        }
+    </div>
+    <div class="page-body">
+        @Html.Widget("categorydetails_top", Model.Id)
+        @*description*@
+        @if (!String.IsNullOrWhiteSpace(Model.Description))
+        {
+            <div class="category-description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+        @*subcategories*@
+        @if (Model.SubCategories.Count > 0)
+        {
+            <div class="sub-category-grid">
+                @foreach (var item in Model.SubCategories)
+                {
+                    <div class="item-box">
+                        <div class="sub-category-item">
+                            <div class="picture">
+                                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                    <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl"
+                                         title="@item.PictureModel.Title" />
+                                </a>
+                            </div>
+                            <h2 class="title">
+                                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                    @item.Name
+                                </a>
+                            </h2>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="no-subcategories-by-vehicle">There are no subcategories with products for selected vehicle in this category.</div>
+        }
+        @Html.Widget("categorydetails_bottom", Model.Id)
+    </div>
+</div>

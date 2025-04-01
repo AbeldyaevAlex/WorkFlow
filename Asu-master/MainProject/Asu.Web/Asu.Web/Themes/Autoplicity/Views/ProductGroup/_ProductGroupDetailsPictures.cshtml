@@ -1,0 +1,84 @@
+﻿@model ProductGroupModel
+@using Asu.Core.Domain.ProductGroups
+@using Asu.Web.Models.Catalog;
+@if (Model.DigitalDataModels.Count > 0)
+{
+<div id="neysgallery" style="display: none;">
+    @for (var i = 0; i < Model.DigitalDataModels.Count; i++)
+    {
+        var digitalData = Model.DigitalDataModels[i];
+        if (digitalData.Type == DigitalDataType.Picture)
+        {
+            <a href="@digitalData.Url" data-type="image" data-title="@digitalData.Title">
+                <img data-src="@(i == 0 ? digitalData.Url : digitalData.ThumbUrl)" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Video)
+        {
+            <a href="@digitalData.Url" data-type="video" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/video.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Materials)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/material.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Comparison)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/comparison.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Warranty)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/warranty.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Installation)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/installation.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Information)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/info.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Colors)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/color.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Catalog)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/catalog.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Faq)
+        {
+            <a href="@digitalData.Url" data-type="faq" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/faq.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Sounds)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/sound.svg" />
+            </a>
+        }
+        if (digitalData.Type == DigitalDataType.Logos)
+        {
+            <a href="@digitalData.Url" data-type="link" data-title="@digitalData.Title">
+                <img data-src="/Themes/Autoplicity/Content/images/svg/logo.svg" />
+            </a>
+        }
+    }
+</div>
+}

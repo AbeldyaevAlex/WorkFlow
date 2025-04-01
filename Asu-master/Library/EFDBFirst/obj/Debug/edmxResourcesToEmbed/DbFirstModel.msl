@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AsuAviaTestVersionBetaModelContainer" CdmEntityContainer="AsuAviaTestVersionBetaEntities1">
+    <EntitySetMapping Name="DirectiveWork">
+      <EntityTypeMapping TypeName="AsuAviaTestVersionBetaModel.DirectiveWork">
+        <MappingFragment StoreEntitySet="DirectiveWork">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PkpId" ColumnName="PkpId" />
+          <ScalarProperty Name="OboznId" ColumnName="OboznId" />
+          <ScalarProperty Name="CexIzgId" ColumnName="CexIzgId" />
+          <ScalarProperty Name="CexPotrId" ColumnName="CexPotrId" />
+          <ScalarProperty Name="link_uch" ColumnName="link_uch" />
+          <ScalarProperty Name="Directive_work_sdeln_izg" ColumnName="Directive_work_sdeln_izg" />
+          <ScalarProperty Name="Directive_work_povr_izg" ColumnName="Directive_work_povr_izg" />
+          <ScalarProperty Name="Directive_work_sdeln_usl" ColumnName="Directive_work_sdeln_usl" />
+          <ScalarProperty Name="Directive_work_povr_usl" ColumnName="Directive_work_povr_usl" />
+          <ScalarProperty Name="DirectoryOfTypesOfWorkId" ColumnName="DirectoryOfTypesOfWorkId" />
+          <ScalarProperty Name="Prim" ColumnName="Prim" />
+          <ScalarProperty Name="NomDok" ColumnName="NomDok" />
+          <ScalarProperty Name="SprPviId" ColumnName="SprPviId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DocumentStatusId" ColumnName="DocumentStatusId" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+          <ScalarProperty Name="PeriodOpenDate" ColumnName="PeriodOpenDate" />
+          <ScalarProperty Name="PeriodCloseDate" ColumnName="PeriodCloseDate" />
+          <ScalarProperty Name="ExceptionForWorkId" ColumnName="ExceptionForWorkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionForWork">
+      <EntityTypeMapping TypeName="AsuAviaTestVersionBetaModel.ExceptionForWork">
+        <MappingFragment StoreEntitySet="ExceptionForWork">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Prim" ColumnName="Prim" />
+          <ScalarProperty Name="SprPviId" ColumnName="SprPviId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DocumentStatusId" ColumnName="DocumentStatusId" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+          <ScalarProperty Name="PeriodOpenDate" ColumnName="PeriodOpenDate" />
+          <ScalarProperty Name="PeriodCloseDate" ColumnName="PeriodCloseDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

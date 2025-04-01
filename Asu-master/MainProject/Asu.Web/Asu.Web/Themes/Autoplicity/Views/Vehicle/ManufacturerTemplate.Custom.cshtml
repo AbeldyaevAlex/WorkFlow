@@ -1,0 +1,180 @@
+﻿@using System.Web.Optimization
+@using Asu.Core.Infrastructure
+@using Asu.Core.Domain
+@using Asu.Core.Domain.Seo
+@using Asu.Web.Models.Catalog;
+
+@model CustomManufacturerModel
+
+@{
+    var supportResponsive = EngineContext.Current.Resolve<StoreInformationSettings>().ResponsiveDesignSupported;
+    var filterModel = Model.FilterModel;
+    var anyAsideFilterChecked = filterModel.SelectedCategoryIdsArray.Any() && !filterModel.SelectedCategoryIdsArray.Contains(filterModel.CId)
+                                || filterModel.SelectedManufacturerIdsArray.Any() && !filterModel.SelectedManufacturerIdsArray.Contains(filterModel.MId)
+                                || filterModel.SelectedPriceRangeIdsArray.Any() || filterModel.MinPrice.HasValue || filterModel.MaxPrice.HasValue;
+    var vehicleFilterSelected = filterModel.V != null && filterModel.V.Make > 0;
+    var hasFilters = anyAsideFilterChecked || vehicleFilterSelected;
+    var showUniversal = filterModel.V != null && filterModel.V.SU;
+}
+
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    var metaTitle = !String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name;
+    Html.AddTitleParts(metaTitle);
+    Html.AddMetaDescriptionParts(String.IsNullOrEmpty(Model.MetaDescription) ? metaTitle : Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        string manufacturerUrl;
+        if (!string.IsNullOrEmpty(Model.ManufacturerCategorySeName))
+        {
+            manufacturerUrl = Url.RouteUrl("ManufacturerCategory", new { SeName = Model.ManufacturerCategorySeName }, this.Request.Url.Scheme);
+        }
+        else
+        {
+            manufacturerUrl = Url.RouteUrl("Manufacturer", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        }
+
+        if (Model.FilterModel.PFC.HasNextPage)
+        {
+            Html.AddHeadCustomParts($"<link rel=\"next\" href=\"{manufacturerUrl}?PFC.PageNumber={Model.FilterModel.PFC.PageNumber + 1}\">");
+        }
+
+        if (Model.FilterModel.PFC.HasPreviousPage)
+        {
+            if (Model.FilterModel.PFC.PageNumber == 2)
+            {
+                Html.AddHeadCustomParts($"<link rel=\"prev\" href=\"{manufacturerUrl}\">");
+            }
+            else
+            {
+                Html.AddHeadCustomParts($"<link rel=\"prev\" href=\"{manufacturerUrl}?PFC.PageNumber={Model.FilterModel.PFC.PageNumber - 1}\">");
+            }
+        }
+
+        if (Model.FilterModel.PFC.PageNumber > 1)
+        {
+            manufacturerUrl += $"?PFC.PageNumber={Model.FilterModel.PFC.PageNumber}";
+        }
+
+        Html.AddCanonicalUrlParts(manufacturerUrl);
+    }
+}
+
+
+@section header
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/hproduct-search") : Html.InlineStyles("~/styles/hproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/bproduct-search") : Html.InlineStyles("~/styles/bproduct-search"))
+    @(HttpContext.Current.IsDebuggingEnabled ? Styles.Render("~/styles/fproduct-search") : Html.InlineStyles("~/styles/fproduct-search"))
+
+}
+@section footer
+{
+    @(HttpContext.Current.IsDebuggingEnabled ? Scripts.Render("~/scripts/product-search") : Scripts.RenderFormat("<script src=\"{0}\">></script>", "~/scripts/product-search"))
+}
+
+
+@section left {
+    @if (supportResponsive)
+    {
+        <div id="vehicleFilterContainer">
+            <input type="button" class="mobile-filter-open-btn" style="display: none;" value="Filters" />
+            <div id="vehicleFilterBtn" class="filterName minus">
+                Vehicle
+            </div>
+            @Html.Partial("_VehicleFilter", new ViewDataDictionary(this.ViewData) { { "RenderShowUniversalOption", vehicleFilterSelected }, { "ShowUniversal", showUniversal } })
+        </div>
+    }
+    @Html.Partial("_SearchFilter", Model.FilterModel, new ViewDataDictionary(this.ViewData) { { "AnyAsideFilterChecked", anyAsideFilterChecked } })
+}
+@Html.Partial("_VehicleFilterPopup")
+<div class="page manufacturer-page">
+    <div class="search-container">
+        <div class="search-results-box">
+            <h1 class="h1-fat -searchresult">@Model.Name</h1>
+            @if (Model.BannerPictureModel.Any())
+            {
+                string mobileBanner = Model.BannerPictureModel[0].MobileBannerImageUrl;
+                if (string.IsNullOrWhiteSpace(mobileBanner))
+                {
+                    mobileBanner = Model.BannerPictureModel[0].BannerImageUrl;
+                }
+
+                <div class="banner-picture brand-banner">
+                    <img class="banner-picture" src="@Model.BannerPictureModel[0].BannerImageUrl" alt="@Model.Name" data-desktopbanner="@Model.BannerPictureModel[0].BannerImageUrl" data-mobilebanner="@mobileBanner" />
+                </div>
+            }
+            <div class="inputs">
+                <span id="totalProducts">
+                    @(Model.FilterModel.NoResults ? "0" : Model.FilterModel.TotalProducts.ToString("##,###"))
+                </span>
+                <span>&nbsp;results found</span>
+            </div>
+        </div>
+    </div>
+    @if (Model.FilterModel.PFC.AllowProductSorting && Model.FilterModel.Products.Count > 0)
+    {
+        <div class="product-sorting">
+            <span class="sorttext1">@T("Catalog.OrderBy")</span>
+            @Html.DropDownList("products-orderby", Model.FilterModel.PFC.AvailableSortOptions, new { @class = "f-orderby", onchange = "setSortOption(this.value);" })
+            @{
+                var itemsPerPage = 75;
+                itemsPerPage = Model.FilterModel.TotalProducts > itemsPerPage ? itemsPerPage : Model.FilterModel.TotalProducts;
+                var boundary = (Model.FilterModel.PFC.PageNumber - 1) * itemsPerPage;
+                var totalProducts = Model.FilterModel.TotalProducts.ToString("##,###");
+                var end = boundary + itemsPerPage;
+            }
+            <div class="page-content-box">
+                <div class="page-content" @(!Model.FilterModel.NoResults ? "style=display: none;" : string.Empty)>
+                    <span>Page</span>
+                    <span id="pageNumber">@Model.FilterModel.PFC.PageNumber</span>
+                </div>
+                <div id="results-range-of-total" class="inputs">
+                    @(boundary + 1) - @(end > Model.FilterModel.TotalProducts ? Model.FilterModel.TotalProducts : end) of @totalProducts results
+                </div>
+            </div>
+        </div>
+    }
+    <div class="page-body">
+        @Html.Widget("manufacturerdetails_top", Model.Id)
+        @*description*@
+        @if (!String.IsNullOrWhiteSpace(Model.Description))
+        {
+            <div class="manufacturer-description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+        <div class="product-selectors"></div>
+        @Html.Widget("manufacturerdetails_before_filters", Model.Id)
+        <div class="product-filters-wrapper"></div>
+        @Html.Widget("manufacturerdetails_before_product_list", Model.Id)
+        @*product list*@
+        <div class="search-results">
+            @if (!String.IsNullOrEmpty(Model.FilterModel.Warning))
+            {
+                <strong class="warning">
+                    @Model.FilterModel.Warning
+                </strong>
+            }
+
+            <div id="no-results" @(!Model.FilterModel.NoResults ? "style=display:none;" : string.Empty)>
+                <span id="filterNoResults" class="result">
+                    @T("Search.NoResultsText")
+                </span>
+            </div>
+
+            @*list mode*@
+            <div id="productsList" class="product-list infinite-scroll">
+                @Html.Partial("_FilterProductsList", Model.FilterModel.Products, new ViewDataDictionary(this.ViewData) { { "HasFilters", hasFilters } })
+            </div>
+            <div id="pager" class="pager">
+                @Html.Partial("_FilterPager", Model.FilterModel.PFC)
+            </div>
+        </div>
+        @*@Html.Widget("manufacturerdetails_bottom", Model.Id)*@
+    </div>
+</div>
+<div class="main-content-overlay" style="display: none;"></div>

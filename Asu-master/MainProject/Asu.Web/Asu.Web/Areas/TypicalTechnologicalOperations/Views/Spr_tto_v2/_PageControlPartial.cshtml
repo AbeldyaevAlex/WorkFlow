@@ -1,0 +1,27 @@
+﻿
+@Html.DevExpress().PageControl(settings =>
+{
+    settings.Name = "PageControl";
+    settings.CallbackRouteValues = new { Controller = "Spr_tto_v2", Action = "Index" };
+
+    settings.TabPages.Add(tabpage =>
+    {
+        tabpage.Name = "GridViewPartial_TTO";
+        tabpage.Text = "TTO";
+        tabpage.SetContent(() =>
+        {           
+            Html.RenderAction(tabpage.Name);           
+        });
+    });
+    settings.TabPages.Add(tabpage =>
+    {
+        tabpage.Name = "GridViewKodKomp";
+        tabpage.Text = "KKOMP";
+        tabpage.SetContent(() =>
+        {            
+            Html.RenderAction(tabpage.Name);            
+        });
+    });
+    settings.ClientSideEvents.ActiveTabChanging = "OnActiveTabChanging";
+}).GetHtml()
+

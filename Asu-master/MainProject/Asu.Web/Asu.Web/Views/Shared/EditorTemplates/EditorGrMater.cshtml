@@ -1,0 +1,25 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("GrMater")
+            .DataTextField("GrMater")
+            .HtmlAttributes(new { style = "width:100%",
+                placeholder = "Введите группу",
+                @class = "InputGrMater",
+                @id = "InputGrMater",
+                /*, required = "required",
+                validationmessage = "Обязательное поле"*/})
+            .Filter(FilterType.Contains)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingGrMaterRead", "Skm");
+                });
+            })
+
+            )
+
+    </div>
+</div>

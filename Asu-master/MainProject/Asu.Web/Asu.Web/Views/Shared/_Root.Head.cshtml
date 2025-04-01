@@ -1,0 +1,194 @@
+﻿@using Asu.Core
+@using Asu.Core.Domain
+@using Asu.Core.Domain.Common;
+@using Asu.Core.Domain.Customization
+@using Asu.Core.Domain.GoogleTagManager
+@using Asu.Core.Domain.Stores
+@using Asu.Core.Infrastructure;
+@using Asu.Framework.Themes
+@using System.Web.Optimization;
+
+@{
+    const string KendoVersion = "2014.1.318";
+    var googleTagManagerService = EngineContext.Current.Resolve<Asu.Services.Customization.IGoogleTagManagerService>();
+    var pageType = googleTagManagerService.PageType;
+    var newDesign = pageType == PageType.ProductGroup || pageType == PageType.Home || pageType == PageType.ReturnRequest || pageType == PageType.Product
+        || pageType == PageType.ShoppingCart || pageType == PageType.CheckoutAddress || pageType == PageType.CheckoutPayment || pageType == PageType.Cba || pageType == PageType.Search
+        || pageType == PageType.Category || pageType == PageType.Manufacturer || pageType == PageType.Vehicle || pageType == PageType.Tires || pageType == PageType.PayPalExpress;
+    var workingThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var store = EngineContext.Current.Resolve<IStoreContext>().CurrentStore;
+    var storeSettings = EngineContext.Current.Resolve<StoreInformationSettings>();
+    var amazonPaymentSettings = EngineContext.Current.Resolve<AmazonPaymentSettings>();
+    var gtmId = EngineContext.Current.Resolve<GoogletagManagerSettings>().GtmId;
+    var amazonScriptUrl = amazonPaymentSettings.UseSandbox ? amazonPaymentSettings.SandboxScriptUrl : amazonPaymentSettings.LiveScriptUrl;
+    var defaultImageName = store.GetDefaultPictureNameWithoutExtension();
+
+    //if (HttpContext.Current.IsDebuggingEnabled)
+    //{
+
+    if (!newDesign)
+    {
+        if (store.Id == 2) //Boatplicity
+        {
+            Html.AppendScriptParts("~/Scripts/public.vehicles.js");
+        }
+        if (store.Id == 3) //THMotorsports
+        {
+            Html.AppendScriptParts("~/Scripts/public.vehicles.js");
+        }
+
+        Html.AppendCssFileParts("~/Scripts/ui-controls/search-bar/css/search-bar.css");
+        Html.AppendScriptParts("~/Scripts/ui-controls/search-bar/js/search-bar.js");
+        Html.AppendCssFileParts("~/Content/css/cart.css");
+        Html.AppendCssFileParts("~/Content/css/topic.css");
+        Html.AppendCssFileParts("~/Content/css/cart-svg.css");
+        Html.AppendCssFileParts("~/Content/css/general.css");
+        Html.AppendCssFileParts("~/Content/css/header.css");
+        Html.AppendCssFileParts("~/Content/css/footer.css");
+        Html.AppendCssFileParts("~/Content/kendo/2014.1.318/kendo.default.min.css");
+        Html.AppendCssFileParts("~/Content/kendo/2014.1.318/kendo.common.min.css");
+        Html.AppendCssFileParts("~/Content/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css");
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/rateit.css");
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/responsive.css");
+        Html.AppendCssFileParts("~/Themes/Autoplicity/Content/styles.css");
+        Html.AppendScriptParts("~/Scripts/public.search.filter.js");
+        Html.AppendScriptParts("~/Scripts/public.common.js");
+        Html.AppendScriptParts("~/Scripts/public.wc.checkout.js");
+        Html.AppendScriptParts("~/Scripts/kendo/2014.1.318/kendo.web.min.js");
+        Html.AppendScriptParts("~/Scripts/public.ajaxcart.js");
+        Html.AppendScriptParts("~/Scripts/jquery.rateit.min.js");
+        Html.AppendScriptParts("~/Themes/Autoplicity/Scripts/jquery.mask.min.js");
+        Html.AppendScriptParts("~/Themes/Autoplicity/Scripts/prettify.min.js");
+        Html.AppendScriptParts("~/Themes/Autoplicity/Scripts/jquery.slimscroll.js");
+        Html.AppendScriptParts("~/Themes/Autoplicity/Scripts/jquery.jscroll.min.js");
+        Html.AppendScriptParts("~/Scripts/jquery-migrate-1.2.1.min.js");
+        Html.AppendScriptParts("~/Scripts/jquery.lazyload.min.js");
+        Html.AppendScriptParts("~/Scripts/jquery-ui-1.10.3.custom.min.js");
+        Html.AppendScriptParts("~/Themes/Autoplicity/Scripts/jquery.jpanelmenu.js");
+        Html.AppendScriptParts("~/Scripts/jquery.validate.unobtrusive.min.js");
+        Html.AppendScriptParts("~/Scripts/jquery.validate.min.js");
+        Html.AppendScriptParts("//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js");
+    }
+
+    var commonSettings = EngineContext.Current.Resolve<CommonSettings>();
+    //if (commonSettings.RenderXuaCompatible && !string.IsNullOrEmpty(commonSettings.XuaCompatibleValue) && !commonSettings.XuaCompatibleValue.Equals("IE=8"))
+    //{
+    //    Html.AppendHeadCustomParts($"<meta http-equiv=\"X-UA-Compatible\" content=\"{commonSettings.XuaCompatibleValue}\"/>");
+    //}
+}
+<!DOCTYPE html>
+<html @Html.Partial("LanguageAttributes")>
+<head>
+    <title>@Html.NopTitle(true)</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="description" content="@(Html.NopMetaDescription())" />
+    <meta name="keywords" content="@(Html.NopMetaKeywords())" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="@Url.Content("~/Themes/Autoplicity/Content/images/favicon.ico")">
+    @RenderSection("header", false)
+    @Html.NopHeadCustom()
+    @Html.Widget("head_html_tag")
+    @Html.NopCssFiles(this.Url, ResourceLocation.Head)
+    @Html.NopScripts(this.Url, ResourceLocation.Head)
+    @Html.NopCanonicalUrls()
+    <script type="text/javascript">
+        window.storeDefaultImageName = "@defaultImageName";
+        function setLocation(url) {window.location.href = url;};
+        window.mobilecheck = function () { var ua = navigator.userAgent; if (ua.match(/Android/i) || ua.match(/webOS/i) || ua.match(/iPhone/i) || ua.match(/iPad/i) || ua.match(/iPod/i) || ua.match(/BlackBerry/i) || ua.match(/Windows Phone/i)) { return true; } else { return false; } };
+        (function (funcName, baseObj) {
+            funcName = funcName || "docReady";
+            baseObj = baseObj || window;
+            var readyList = [];
+            var readyFired = false;
+            var readyEventHandlersInstalled = false;
+            function ready() { if (!readyFired) { readyFired = true; for (var i = 0; i < readyList.length; i++) { readyList[i].fn.call(window, readyList[i].ctx); } readyList = []; } }
+            function readyStateChange() { if (document.readyState === "complete") { ready(); } }
+            baseObj[funcName] = function (callback, context) { if (readyFired) { setTimeout(function () { callback(context); }, 1); return; } else { readyList.push({ fn: callback, ctx: context }); } if (document.readyState === "complete") { setTimeout(ready, 1); } else if (!readyEventHandlersInstalled) { if (document.addEventListener) { document.addEventListener("DOMContentLoaded", ready, false); window.addEventListener("load", ready, false); } else { document.attachEvent("onreadystatechange", readyStateChange); window.attachEvent("onload", ready); } readyEventHandlersInstalled = true; } }
+        })("docReady", window);
+    </script>
+    @RenderSection("customization", false)
+    @*<script>
+        var APL = APL || {};
+        APL.currentStore = {
+            workTheme: "@workingThemeName",
+            name: "@store.Name",
+            companyName: "@store.CompanyName",
+            vehicleSupported: @(storeSettings.VehicleSupported ? 1 : 0)
+        };
+
+        APL.payPalSettings = {
+            env: '@(storeSettings.IsDevelopment ? "sandbox": "production")',
+            payPalExpressCheckoutUrl: "/Plugins/PaymentPayPalExpressCheckout/SetExpressCheckout?isCredit=false&cancelUrl=%2Fcart&returnUrl=%2Fcheckout%2Fpaypal",
+            paypalCreditUrl: "/Plugins/PaymentPayPalExpressCheckout/SetExpressCheckout?isCredit=true&cancelUrl=%2Fcart&returnUrl=%2Fcheckout%2Fpaypal",
+        };
+
+        dataLayer = [@Html.Raw(googleTagManagerService.GetDataLayerScript())];
+    </script>*@
+    <script id="gtmPushScript">
+        window.dataLayerPush = @Html.Raw(googleTagManagerService.GetDataLayerPushScript());
+    </script>
+    @if (!HttpContext.Current.IsDebuggingEnabled && store.Id == (int)NopStore.Autoplicity && pageType != PageType.Category && pageType != PageType.Search)
+    {
+        <script type="application/javascript" async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=aESz9R"></script>
+    }
+
+    @if (!HttpContext.Current.IsDebuggingEnabled && store.Id == (int)NopStore.Thmotorsports)
+    {
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9155499540499476" crossorigin="anonymous"></script>
+    }
+
+    @if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', '@gtmId');
+        </script>
+    }
+    @* AMAZON PAY *@
+    @*@if (HttpContext.Current.IsDebuggingEnabled && !newDesign)
+        {
+            <script type='text/javascript'>
+                window.onAmazonLoginReady = function () {
+                    amazon.Login.setClientId("@amazonPaymentSettings.ClientId");
+                    amazon.Login.setUseCookie(true);
+                };
+            </script>
+            <script type='text/javascript' src="@(string.Format(amazonScriptUrl, amazonPaymentSettings.MerchantId))"></script>
+        }*@
+</head>
+<body class="@workingThemeName">
+    @if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        <noscript>
+            <iframe src="//www.googletagmanager.com/ns.html?id=@gtmId" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+        </noscript>
+    }
+    <div data-role="panel" id="apLeftPanel" class="myLeftPanel" style="display: none;">
+        <div id="mob-menu-button">
+            <h2>
+                <span>Shop by Category</span> <span id="apLeftMenuClose">Close</span>
+            </h2>
+            @*@Html.Action("MobileMenu", "Vehicle")*@
+        </div>
+    </div>
+    @RenderBody()
+    @if (!newDesign)
+    {
+        <div id="loadScreen" class="ajax-loading-block-window" style="display: none"><img src="/Themes/@workingThemeName/Content/images/loading_large.gif" /></div>
+    }
+    else
+    {
+        <div id="loadScreen" class="preloader" style="display: none;"><div class="loader-wrapper"><div class="loader"></div></div></div>
+    }
+    @Html.NopCssFiles(this.Url, ResourceLocation.Foot)
+    @Html.NopScripts(this.Url, ResourceLocation.Foot)
+    @RenderSection("footer", false)
+</body>
+</html>

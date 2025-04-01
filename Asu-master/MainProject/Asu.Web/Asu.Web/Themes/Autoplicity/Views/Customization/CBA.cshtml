@@ -1,0 +1,47 @@
+﻿@model AmazonCheckoutModel
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AddTitleParts("Checkout by Amazon");
+}
+@using Nop.Web.Models.Customization;
+<div class="page checkout-by-amazon-page">
+    <div id="addressBookWidgetDiv"></div>
+    <div id="walletWidgetDiv"></div>
+
+    <div class="amazon-panels" id="amazon-panels">
+        <div class="amazonBorder" id="shipping-panel">
+            <div class="amazonHeader">
+                <img class="apLogo" src="/Themes/Autoplicity/Content/images/ap-logo.png" alt="autoplicity" />
+                <span class="amazonHeaderTitle">Shipping Method</span>
+            </div>
+            <div>
+                <select id="shipping-method" class="shipping-method" onchange="UpdateTotalsByShipping();">
+                </select>
+            </div>
+        </div>
+        <div id="info-panel" class="amazonBorder">
+            <div class="amazonHeader">
+                <img class="apLogo" src="/Themes/Autoplicity/Content/images/ap-logo.png" alt="autoplicity" />
+                <span class="amazonHeaderTitle">Information Panel</span>
+            </div>
+            <div>
+                <p id="address-message" class="message"><span>Please select a Shipping Address</span></p>
+                <p id="payment-method-message" class="message"><span>Please select a Payment Method</span></p>
+                <p id="error-message-panel" class="message" style="display:none;">
+                    <span id="spanErrorMessage"></span>
+                </p>
+            </div>
+        </div>
+        <div class="shopping-cart-data" id="shopping-cart-data">
+            <div class="amazonBorder">
+                <div class="amazonHeader">
+                    <img class="apLogo" src="/Themes/Autoplicity/Content/images/ap-logo.png" alt="autoplicity" />
+                    <span class="amazonHeaderTitle">Shopping Cart</span>
+                </div>
+                <div id="OrderSummary">
+                    @Html.Partial("_OrderSummary", Model)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+
+
+
+
+        <div>
+            @(Html.Kendo().AutoComplete()
+    .Name("OGT")
+    .DataTextField("OGT")
+    
+    .HtmlAttributes(new { style = "width:90%; border:0.3px dashed red;", placeholder = "ОГТ", required = "required", validationmessage = "*",
+
+        @class = "InputOgt",
+        @id = "InputOgt",
+
+    })
+    //.HtmlAttributes(new { style = "width:100%" })
+    //.Filter(FilterType.Contains)
+    .Events(p => p.Change("onChange"))
+    @*.Events(e => e.Change(@<text>
+
+
+                function() {
+                   alert('!!!');
+                }
+            </text>)
+        )*@
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("ComboBoxMemoAddingOgtRead", "Skm");
+        });
+    })
+    
+    )
+        </div>
+
+
+<style>
+    .imageButton {
+        background-color: #bbdceb;
+        border: none;
+        border-radius: 60px;
+    }
+
+    img {
+        width: 10px;
+        height: 10px;
+    }
+</style>

@@ -1,0 +1,59 @@
+﻿@using System.Web.UI.WebControls
+@using DevExpress.Web.Mvc
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Asu.Core.Domain.Customers
+@using System.Web.UI.WebControls
+
+@model IEnumerable<int>
+@if (!WorkContext.CurrentCustomer.IsGuest())
+{
+
+}
+@{
+    ViewBag.Title = "Состав изделия";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function OnEndCallback(s, e) {
+        if (s.cpMessage) {
+            alert(s.cpMessage);
+            lblDevExpress.SetText("Последнее действие: " + s.cpMessage);
+            delete s.cpMessage;
+        }
+    }
+    function OnToolbarItemClick(s, e) {
+        switch (e.item.name) {
+            case "nextPage":
+                s.NextPage();
+                break;
+            case "previousPage":
+                s.PrevPage();
+                break;
+        }
+    }
+    function OnBeginCallback(s, e) {
+        if (e.command === "CUSTOMCALLBACK") {
+            e.customArgs["key"] = rowKeyValueToCopy;
+        }
+    }
+    function OnCustomButtonClick(s, e) {
+        rowKeyValueToCopy = s.GetRowKey(e.visibleIndex);
+        s.PerformCallback();
+    }
+</script>
+
+
+
+<h1 align="center" style="margin-top:5px; margin-bottom:5px">@Session["productComposition"]</h1>
+<br />
+
+<link href="~/Content/SideBar.css" rel="stylesheet" />
+
+
+<div class="sostav-grid" style="margin-left: 15px; margin-right: 15px">
+    @*@Html.Action("GridView1Partial", "Sostav_Izdelia", new { model_izd = Model })*@
+</div>
+
+
+

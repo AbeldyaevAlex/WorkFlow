@@ -1,0 +1,193 @@
+﻿@model Asu.Web.Models.Vehicles.FilterSearchModel
+
+@using Asu.Core.Domain.Vehicles
+@using Asu.Services.Seo
+@if (Model.Products.Any())
+{
+    <div id="sortByBlock" class="sort-by search-filter-block" style="display: none;">
+        <div class="filterName minus">Sort by</div>
+        <ul id="sort-by" class="filterUl collapsed">
+            <li>
+                <div>
+                    <input type="radio" name="sorter" value="0" @(Model.PFC.Sort == ProductSortingEnum.Position ? "checked" : string.Empty) />Most Popular
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="sorter" value="10" @(Model.PFC.Sort == ProductSortingEnum.PriceAsc ? "checked" : string.Empty) />Lowest Price
+            </li>
+            <li>
+                <input type="radio" name="sorter" value="11" @(Model.PFC.Sort == ProductSortingEnum.PriceDesc ? "checked" : string.Empty) />Highest Price
+            </li>
+        </ul>
+    </div>
+}
+
+@if (Model.OriginalSubCategories.Any() && Model.SelectedCategoryIdsArray.Count == 1 && Model.SelectedCategoryIdsArray.First() == Model.CId)
+{
+    <div id="sub-categories-block" class="sub-categories search-filter-block">
+        <div class="filterName minus">Section</div>
+        <ul id="sub-category-list" class="filterUl">
+            @foreach (var subCategory in Model.OriginalSubCategories)
+            {
+                <li>
+                    <span style="cursor:pointer;" class="sub-category-filter-link">@subCategory.Name</span>
+                    <a style="display:none;" href="@Url.RouteUrl("Category", new { SeName = SeoExtensions.GetSeName(subCategory.Id, "Category", 0) })">
+                        @subCategory.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}
+@if (Model.FilterCategories.Count > 0)
+{
+    <div id="filterCategoriesBlock" class="search-filter-block" @(Model.FilterCategories.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName minus">
+            Category
+        </div>
+        <ul id="filterCategory" class="filterUl">
+            @Html.Partial("_CheckBoxListItems", Model.FilterCategories)
+        </ul>
+        @*@Html.CheckBoxList(model => model.FilterCategories, new { id = "filterCategory", @class = "filterUl" }, new { }, "disabled")*@
+    </div>
+}
+@if (Model.FilterManufacturers.Count > 0)
+{
+    <div id="filterManufacturerBlock" class="search-filter-block" @(Model.FilterManufacturers.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName minus">Manufacturer</div>
+        
+        @if (Model.FilterManufacturers.Count > 10)
+        {
+            <div class="brand-search-infilter-block">
+                <input id="brand-search-infilter" type="text" name="brand-search-infilter" value="" placeholder="Search..." />
+            </div>
+        }
+
+        <ul id="filterManufacturer" class="filterUl">
+            @Html.Partial("_CheckBoxListItems", Model.FilterManufacturers)
+        </ul>
+        @*@Html.CheckBoxList(model => model.FilterManufacturers, new { id = "filterManufacturer", @class = "filterUl" }, new { }, "disabled")*@
+    </div>
+}
+
+@*@if (Model.PriceRanges.Count > 0)
+    {
+        <div id="filterPricesBlock" style="display:none">
+            <label class="filterName">Prices</label>
+            @Html.CheckBoxList(model => model.PriceRanges, new { id = "filterPriceRange", @class = "filterUl collapsed" }, new { }, "disabled")
+        </div>
+    }*@
+@*@(Model.PriceRanges.Count == 1 ? "style=display:none" : string.Empty)*@
+
+@if (Model.TireRimSizeAttributes.Any())
+{
+    <div id="filterTireRimSizeBlock" class="search-filter-block" @(Model.TireRimSizeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Rim Size</div>
+        <ul id="filterTireRimSize" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.TireRimSizeAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.PerformanceAttributes.Any())
+{
+    <div id="filterTirePerformanceBlock" class="search-filter-block" @(Model.PerformanceAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Performance</div>
+        <ul id="filterTirePerformance" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.PerformanceAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.TireLoadAttributes.Any())
+{
+    <div id="filterTireLoadBlock" class="search-filter-block" @(Model.TireLoadAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Tire Load</div>
+        <ul id="filterTireLoad" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.TireLoadAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.TireSpeedAttributes.Any())
+{
+    <div id="filterTireSpeedBlock" class="search-filter-block" @(Model.TireSpeedAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Tire Speed</div>
+        <ul id="filterTireSpeed" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.TireSpeedAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.TreadTypeAttributes.Any())
+{
+    <div id="filterTireTreadTypeBlock" class="search-filter-block" @(Model.TreadTypeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Tread Type</div>
+        <ul id="filterTireTreadType" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.TreadTypeAttributes)
+        </ul>
+    </div>
+}
+
+
+@if (Model.SidewallAttributes.Any())
+{
+    <div id="filterTireSidewallBlock" class="search-filter-block" @(Model.SidewallAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Sidewall Type</div>
+        <ul id="filterTireSidewall" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.SidewallAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.LoadRangeAttributes.Any())
+{
+    <div id="filterTireLoadRangeBlock" class="search-filter-block" @(Model.LoadRangeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Load Range</div>
+        <ul id="filterLoadRange" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.LoadRangeAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.UtqgAttributes.Any())
+{
+    <div id="filterTireUtqgBlock" class="search-filter-block" @(Model.UtqgAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">UTQG</div>
+        <ul id="filterUtqg" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.UtqgAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.ServiceDescriptionAttributes.Any())
+{
+    <div id="filterTireServiceDescriptionBlock" class="search-filter-block" @(Model.ServiceDescriptionAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Service Description</div>
+        <ul id="filterServiceDescription" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.ServiceDescriptionAttributes)
+        </ul>
+    </div>
+}
+
+@if (Model.TireSizeAttributes.Any() && Model.V != null && Model.V.VehicleId > 0)
+{
+    <div id="filterTireServiceDescriptionBlock" class="search-filter-block" @(Model.TireSizeAttributes.Count == 1 ? "style=display:none;" : string.Empty)>
+        <div class="filterName plus">Tire Size</div>
+        <ul id="filterTireSize" class="filterUl collapsed">
+            @Html.Partial("_CheckBoxListItems", Model.TireSizeAttributes)
+        </ul>
+    </div>
+}
+
+@*@if ((Model.MinPrice != null && Model.MaxPrice != null) || Model.PriceRanges.Count > 0)
+    {*@
+<div id="filterPricesBlock" class="search-filter-block">
+    <div class="filterName minus">Filter by Price</div>
+    <div id="filterPriceInput" class="filter-content-wrapper">
+        <input id="minPrice" type="text" value="@Model.MinPrice" placeholder="from, $" />
+        <input id="maxPrice" type="text" value="@Model.MaxPrice" placeholder="to, $" />
+        <button type="button" class="search-filter-btn" id="sortByPriceRange">Apply</button>
+    </div>
+</div>
+@*}*@

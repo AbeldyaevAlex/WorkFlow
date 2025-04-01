@@ -1,0 +1,59 @@
+﻿@using Asu.Web.ViewModel;
+@using Asu.Core.Domain.Tasks;
+@{
+    ViewBag.Title = "Разузлованный массив";
+    //Layout = "~/Views/Shared/_LayoutKendo.cshtml";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h2 align="center">Разузлованный массив на изделие @ViewData["ProductSeries"]</h2>
+
+@*@(Html.Kendo().TreeList<TreeProductViewModel>()
+    .Name("treelist")
+    .Columns(columns =>
+    {
+        columns.Add().Field(e => e.Obozn).Title("NaimTask").Width(220);
+        columns.Add().Field(e => e.pkpObozn);
+    })
+    .Filterable()
+    .Sortable()
+    .DataSource(dataSource => dataSource
+        .Read(read => read.Action("TreeListProductPartial", "GetNodalizedArray"))
+        .ServerOperation(false)
+        .Model(m =>
+        {
+            m.Id(x => x.Vhodim_str);
+            m.ParentId(f => f.Vhodim_rod);
+            
+            
+            m.Field(f => f.Vhodim_rod);
+            m.Field(f => f.Obozn);
+            m.Field(f => f.pkpObozn);
+        })
+    )
+    .Height(540)
+    )*@
+
+@*@(Html.Kendo().TreeList<UsersTasks>()
+    .Name("treelist")
+    .Columns(columns =>
+    {
+        columns.Add().Field(e => e.NaimTask).Title("NaimTask").Width(220);
+        columns.Add().Field(e => e.Title).Title("Title").Width(100);
+    })
+    .ColumnMenu()
+    .Sortable()
+    .DataSource(dataSource => dataSource
+        .Read(read => read.Action("TreeListProductPartial", "GetNodalizedArray"))
+        .Model(m =>
+        {
+            m.Id(f => f.Id);
+            m.ParentId(f => f.IdRoditel);
+            m.Expanded(true);
+            m.Field(f => f.IdRoditel);
+            m.Field(f => f.NaimTask);
+            m.Field(f => f.Title);
+        })    
+    )
+)*@
+@Html.Action("TreeListProductPartial", "GetNodalizedArray")

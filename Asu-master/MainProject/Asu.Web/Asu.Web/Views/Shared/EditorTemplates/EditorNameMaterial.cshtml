@@ -1,0 +1,75 @@
+﻿@*@(
+    Html.Kendo().ComboBox()
+        .Name("nm_mater1")
+        .DataTextField("nm_mater1")
+        .DataValueField("Id")
+        .Filter(FilterType.Contains)
+        
+        .HtmlAttributes(new
+        {
+            style = "width:100%;",
+            placeholder = "Введите наименование материала",
+            required = "required",
+            validationmessage = "Обязателен",
+            @class = "AutoCompele",
+            @id = "InputNameMaterial"
+        })
+        .Events(p => p.Change("onChangeNameMaterial"))
+        //.OptionLabel("Select Type...")
+        .DataSource(source =>
+        {
+            source.Read(read =>
+            {
+                read.Action("ComboBoxMemoAddingMaterialNameRead", "Skm");
+            }).ServerFiltering(true);
+        })
+    )*@
+
+
+@*<div id="left-column" style="position:relative;float:left;width:90%;">*@
+    <div id="first-button">
+        <div>
+            @(Html.Kendo().AutoComplete()
+            .Name("NameMaterial")
+            .DataTextField("nm_mater1")
+
+            //.HeaderTemplateId("headerTemplate") // Reference to the template.
+            //.Template("<span><h3>#:data.nm_mater1 #</h3></span>")
+            .HtmlAttributes(new
+            {
+                style = "width:100%;",
+                placeholder = "Введите наименование материала",
+                required = "required",
+                validationmessage = "Обязателен",
+                @class = "AutoCompele",
+                @id = "InputNameMaterial"
+            })
+
+            .Filter(FilterType.Contains)
+            .Events(p => p.Change("onChangeNameMaterial"))
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingMaterialNameRead", "Skm");
+                }).ServerFiltering(true);
+            })
+            )
+        </div>
+    </div>
+@*</div>*@
+@*<div id="right-column" style="position:relative;float:right;width:10%;">
+    <div id="second-button">
+        <button onclick="ClearNmMater()" class="imageButton"><img src="~/Content/Images/cancel.png"/></button>
+    </div>
+</div>*@
+<style>
+    .imageButton{
+        background-color:white;
+        border:none;       
+    }
+    img{
+        width: 25px;
+        height: 28px;
+    }
+</style>

@@ -1,0 +1,13 @@
+﻿@using Nop.Web.Models.Home
+
+@{
+    var offers = new List<HomePageGridEntity>
+    {
+        //new HomePageGridEntity { Id = 1, Url = "/weekly-specials", Title = "Check Our Offers" },
+        //new HomePageGridEntity { Id = 2, Url = "/weekly-specials", Title = "25% OFF Black Friday Deals" },
+        //new HomePageGridEntity { Id = 2, Url = "/weekly-specials", Title = "25% OFF Black Friday Deals" },
+        //new HomePageGridEntity { Id = 3, Url = "/weekly-specials", Title = "25% OFF Black Friday Deals" },
+        //new HomePageGridEntity { Id = 3, Url = "/weekly-specials", Title = "25% OFF Black Friday Deals" }
+    };
+}
+@Html.Partial("_OffersGrid", offers)

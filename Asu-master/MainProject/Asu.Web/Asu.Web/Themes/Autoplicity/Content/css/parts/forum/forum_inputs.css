@@ -1,0 +1,90 @@
+﻿.forum-topic-title-text, .pm-title-text {
+    width: 500px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+.forum-post-text, .bb-editor-text {
+    width: 100%;
+    height: 300px;
+}
+
+.private-message-subject-text {
+    width: 500px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+.forum-search-text {
+    width: 500px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.forum-search-box-text {
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.bb-editor-text {
+    border: 1px solid #ccc;
+}
+
+.edit-topic-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-edit.gif) no-repeat left;
+}
+
+.delete-topic-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-delete.gif) no-repeat left;
+}
+
+.move-topic-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-move-topic.gif) no-repeat left;
+}
+
+.reply-topic-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    padding-bottom: 3px;
+    background: url(/Themes/Autoplicity/Content/images/ico-forum-post-add.gif) no-repeat left;
+}
+
+.watch-topic-link-button {
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-forum-watch.gif) no-repeat left;
+}
+
+.edit-post-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-edit.gif) no-repeat left;
+}
+
+.delete-post-link-button {
+    padding-right: 5px;
+    padding-left: 18px;
+    background: url(/Themes/Autoplicity/Content/images/ico-delete.gif) no-repeat left;
+}
+
+.quote-post-link-button, .post-link {
+    color: #666;
+    float: right;
+    padding: 1px 3px;
+    border: solid 1px #ccc;
+    line-height: 15px;
+    font-size: 11px;
+}
+
+.post-link {
+    padding: 1px 3px;
+    margin-right: 5px;
+    border: none;
+}

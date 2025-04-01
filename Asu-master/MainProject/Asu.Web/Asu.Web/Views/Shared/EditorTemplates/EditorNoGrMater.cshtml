@@ -1,0 +1,31 @@
+﻿@model Asu.Web.ViewModel.MemoAddingMaterialCodeViewModel
+@using Asu.Core;
+@using Asu.Core.Infrastructure;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Html;
+@using Kendo.Mvc.UI.Fluent;
+@using Kendo.Mvc.Extensions;
+<div class="k-d-flex k-justify-content-center">
+    <div class="k-w-600">
+        @(Html.Kendo().AutoComplete()
+            .Name("NomerGrMater")
+            .DataTextField("NomerGrMater")
+            .HtmlAttributes(new { style = "width:100%",
+                placeholder = "№ группы",
+                @class = "InputNomerGrMater",
+                @id = "InputNomerGrMater",
+                /*, required = "required",
+                validationmessage = "Обязательное поле"*/})
+            .Filter(FilterType.Contains)
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("ComboBoxMemoAddingGrMaterRead", "Skm");
+                });
+            })
+
+            )
+
+    </div>
+</div>

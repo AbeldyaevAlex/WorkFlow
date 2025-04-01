@@ -1,0 +1,8 @@
+﻿@model ProductDetailsModel
+@using Nop.Web.Models.Catalog;
+@if (Model.CompareProductsEnabled)
+{
+    <div class="compare-products">
+        <a href="@Url.RouteUrl("AddProductToCompare", new { productId = Model.Id })">Add to compare list</a>
+    </div>
+}
